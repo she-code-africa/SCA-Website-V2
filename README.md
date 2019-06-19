@@ -1,6 +1,6 @@
 # She Code Africa
 
-This is the official website repository for She Code Africa. Guidelines for development and to contribute can be found in CONTRIBUTING.md. Ensure to read this first if you will be contributing
+This is the official website repository for She Code Africa. Guidelines for development and to contribute can be found in [GUIDELINES.md](/GUIDELINES.md). Ensure to read this first if you will be contributing
 
 ## Prerequisites
 
