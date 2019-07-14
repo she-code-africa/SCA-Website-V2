@@ -7,11 +7,11 @@ This is the official website repository for She Code Africa. Guidelines for deve
 - Git
 - Node
 - NPM
-- Yarn
+- MongoDB
 
 ## Setting up your development environment
 
-The development environment from this project was built based off the React-Starter Kit template and the installation guide is based off the getting started guide [here](https://github.com/kriasoft/react-starter-kit/blob/master/docs/getting-started.md)
+This project is based on the KeystoneJS framework [here](https://github.com/keystonejs/keystone)
 
 - Clone this repository
 
@@ -22,66 +22,21 @@ git clone
 - To install dependencies from package.json, run:
 
 ```
-yarn install
+npm install
 ```
+_If you run into problems while running npm install, try ```npm audit fix``` then run ```npm install``` again_
 
-- To start the server in development mode, run:
+- If you are yet to install MongoDB, install and set it up on your device (see installation guide [here](https://docs.mongodb.com/manual/installation/) ). After successful installation, start the MongoDB service
 
-```
-yarn start
-```
-
-- Visit http://localhost:3000/ to access the server and http://localhost:3000/graphql to access the GraphQL server
-- To see how the app works in production/release mode, run:
+- Then you can proceed to running the application. To start the local server, run:
 
 ```
-yarn start -- --release
+npm start
 ```
-
-## Building
-
-- To build without running a dev server, run:
+or 
 
 ```
-yarn run build
+node keystone
 ```
 
-- To build for production environment
-
-```
-yarn run build -- --release
-```
-
-- For production docker build, run:
-
-```
-yarn run build -- --release --docker
-```
-
-- To check for syntax error and potential issues, run:
-
-```
-yarn run lint
-```
-
-## Unit Tests
-
-- To run unit tests with Jest, run:
-
-```
-yarn run test
-```
-
-- To launch unit test runner and start watching for changes, run:
-
-```
-yarn run test:watch
-```
-
-## Deployment
-
-To deploy the app, run:
-
-```
-yarn run deploy
-```
+- Visit http://localhost:3000/ to access the server
