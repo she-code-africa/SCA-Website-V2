@@ -29,7 +29,7 @@ _If you run into problems while running npm install, try ```npm audit fix``` the
 - Create a .env file (it's in .gitignore so you will need to create a local copy yourself) in the project's root folder to contain the needed configuartions, In the .env file, put in the following details
 
 ```
-COOKIE_SECRET=_generate-any-random-string-and-put-it-here_
+COOKIE_SECRET=generate-any-random-string-and-put-it-here
 CLOUDINARY_URL=cloudinary://333779167276662:_8jbSi93sWYrfimcl8VKh34rI@keystone-demo
 
 ```
@@ -51,5 +51,5 @@ node keystone
 
 - Visit http://localhost:3000/ to access the server
 
-- To log in as an admin, visit - http://localhost:3000/keystone/signin and log in with the details _adminuser @ shecodeafrica.com_, _anadmin_. You can create a
+- To log in as an admin, visit - http://localhost:3000/keystone/signin and log in with the details: _adminuser @ shecodeafrica.com_, _anadmin_. You can create a
 new user after successful log in.
