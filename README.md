@@ -26,6 +26,16 @@ npm install
 ```
 _If you run into problems while running npm install, try ```npm audit fix``` then run ```npm install``` again_
 
+- Create a .env file (it's in .gitignore so you will need to create a local copy yourself) in the project's root folder to contain the needed configuartions, In the .env file, put in the following details
+
+```
+COOKIE_SECRET=_generate-any-random-string-and-put-it-here_
+CLOUDINARY_URL=cloudinary://333779167276662:_8jbSi93sWYrfimcl8VKh34rI@keystone-demo
+
+```
+You can replace CLOUDINARY_URL with your cloudinary_url. Actual congifuration
+details will be included before moving to productiona
+
 - If you are yet to install MongoDB, install and set it up on your device (see installation guide [here](https://docs.mongodb.com/manual/installation/) ). After successful installation, start the MongoDB service
 
 - Then you can proceed to running the application. To start the local server, run:
@@ -40,3 +50,6 @@ node keystone
 ```
 
 - Visit http://localhost:3000/ to access the server
+
+- To log in as an admin, visit - http://localhost:3000/keystone/signin and log in with the details _adminuser @ shecodeafrica.com_, _anadmin_. You can create a
+new user after successful log in.
