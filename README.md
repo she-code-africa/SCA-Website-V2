@@ -16,7 +16,7 @@ This project is based on the KeystoneJS framework [here](https://github.com/keys
 - Clone this repository
 
 ```
-git clone
+git clone https://github.com/she-code-africa/SCA-Website.git
 ```
 
 - To install dependencies from package.json, run:
