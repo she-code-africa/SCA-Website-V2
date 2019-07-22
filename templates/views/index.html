@@ -1,34 +1,122 @@
 {% extends "layouts/default.html" %}
 
-{% block content %}
-	<div class="container">
-		<div class="jumbotron">
-			<img src="/images/logo.svg" width="160">
-			<h1>Welcome</h1>
-			<p>This is your new <a href="http://keystonejs.com" target="_blank">KeystoneJS</a> website.</p>
-			<p>
-				It includes the latest versions of
-				<a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>
-				and <a href="http://www.jquery.com/" target="_blank">jQuery</a>.
-			</p>
-			<p>Visit the <a href="http://keystonejs.com/guide" target="_blank">Getting Started</a> guide to learn how to customise it.</p>
-			<hr>
-			{% if user and user.canAccessKeystone %}
-				<p>
-					<a href="/keystone" class="btn btn-lg btn-primary">Open the Admin UI</a>
-				</p>
-			{% else %}
-				<p>We have created a default Admin user for you with the email <strong>omisi2018@gmail.com</strong> and the password <strong>admin</strong>.</p>
-				<p>
-					<a href="/keystone/signin" style="margin-right: 10px" class="btn btn-lg btn-primary">Sign in</a>
-					to use the Admin UI.
-				</p>
-			{% endif %}
-			<hr>
-			<p>
-				Remember to <a href="https://github.com/keystonejs/keystone" target="_blank">Star KeystoneJS on GitHub</a> and
-				<a href="https://twitter.com/keystonejs" target="_blank">follow @keystonejs</a> on twitter for updates.
-			</p>
+{% block content %} 
+	<section>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-7 col-md-7 col-sm-7">
+					<p class="__shecodeafri">She Code Africa</p>
+					<p class="__shecodeafri1">...celebrating Africa’s code queens</p>
+					<a href="" class="btn __shecodebtn"><img src="/images/shecode-hair.svg">&nbsp;Join Us</a>
+				</div>
+				<div class="col-lg-5 col-md-5 col-sm-5">
+					<img src="/images/showcaseImg.jpg" class="__shecodetopimg">
+				</div>
+			</div>
+
+			<div class="__shecodecard">
+				<div class="row">
+					<div class="col-lg-4 col-md-4 col-sm-4">
+						<div class="text-center">
+							<img src="/images/value.svg" class="__shecodevmv">
+							<p class="__shecodevmvp">Vision</p>
+							<p class="__shecodevmvp1">An Africa where<br> women are equally<br> 
+								represented in all<br> career roles in<br> technology
+							</p>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4">
+						<div class="text-center">
+							<img src="/images/flag.svg" class="__shecodevmv">
+							<p class="__shecodevmvp">Mission</p>
+							<p class="__shecodevmvp1">To build a community<br> that embodies 
+								Technical<br> growth, networking,<br> metorship
+								and visibility amonge<br> all level career
+								roles in Technology
+							</p>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-4 col-sm-4">
+						<div class="text-center">
+							<img src="/images/target.svg" class="__shecodevmv">
+							<p class="__shecodevmvp">Values</p>
+							<p class="__shecodevmvp1">Team work,<br> Community,<br>
+							Technical growth,<br> Leadership,<br> Visibility
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<img src="images/founderImage.jpg" class="__shecodefounder">
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-6">
+					<p class="__shecodefounderp">Ea nam iudico equidem meliore. Ea eam dico alia fabulas. Eu vulputate forensibus scribentur vel, mei in officiis eloquentiam. Esse platonem sit no, amet velit nemore in quo. Ad eos rationibus reprehendunt, ea tollit dictas volutpat eos. Et iuvaret probatus voluptatum mea, vix an urbanitas constituto, ex labores accusata est.</p>
+					<p class="__shecodefounderp1">Ada Nduka Oyom<br><span>-Founder</span></p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 text-center">
+					<div class="__shecodetestimcard">
+						<p class="__shecodetestimp">Ea nam iudico equidem meliore. Ea eam dico alia fabulas. Eu vulputate forensibus scribentur vel, mei in officiis eloquentiam. Esse platonem sit no, amet velit nemore in quo. Ad eos rationibus reprehendunt, ea tollit dictas volutpat eos. Et iuvaret probatus voluptatum mea, vix an urbanitas constituto, ex labores accusata est.</p>
+						<p class="__shecodetestimp1">Chika Obi<br><span>Web Developer</span></p><br>
+					</div>
+					<img src="/images/hadijat.jpg" class="__shecodetestimimg">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 text-center">
+					<div class="__shecodetestimcard">
+						<p class="__shecodetestimp">Ea nam iudico equidem meliore. Ea eam dico alia fabulas. Eu vulputate forensibus scribentur vel, mei in officiis eloquentiam. Esse platonem sit no, amet velit nemore in quo. Ad eos rationibus reprehendunt, ea tollit dictas volutpat eos. Et iuvaret probatus voluptatum mea, vix an urbanitas constituto, ex labores accusata est.</p>
+						<p class="__shecodetestimp1">Glory Kay<br><span>ML. Intermidiate</span></p><br>
+					</div>
+					<img src="/images/abiola.jpg" class="__shecodetestimimg">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 text-center">
+					<div class="__shecodetestimcard">
+						<p class="__shecodetestimp">Ea nam iudico equidem meliore. Ea eam dico alia fabulas. Eu vulputate forensibus scribentur vel, mei in officiis eloquentiam. Esse platonem sit no, amet velit nemore in quo. Ad eos rationibus reprehendunt, ea tollit dictas volutpat eos. Et iuvaret probatus voluptatum mea, vix an urbanitas constituto, ex labores accusata est.</p>
+						<p class="__shecodetestimp1">Judit Zojie<br><span>Front-end Developer</span></p><br>
+					</div>
+					<img src="/images/hadijat.jpg" class="__shecodetestimimg">
+				</div>
+			</div>
+
+			<div class="__shecodeformcard">
+				<p class="__shecodeformp">We're Listening</p>
+				<form action="" method="POST" role="form">
+					<div class="row">
+						<div class="col-lg-6 col-md-6 col-sm-6">
+							<div class="form-group">
+								<label class="__clabelinput">
+									<input type="text" placeholder=" " class="form-control __formin" required>
+									<span>Full-Name</span>
+								</label>
+							</div>
+						</div>
+						<div class="col-lg-6 col-md-6 col-sm-6">
+							<div class="form-group">
+								<label class="__clabelinput">
+									<input type="email" placeholder=" " class="form-control __formin" required>
+									<span>Email</span>
+								</label>
+							</div>
+						</div>
+					</div>
+					<br>
+					<div class="form-group">
+						<textarea name="" id="input" class="form-control" rows="5" placeholder="Message" required="required"></textarea>
+					</div>
+						
+					<div class="text-center">
+						<button type="submit" class="btn  __shecodebtn"><img src="/images/shecode-hair.svg">&nbsp;Submit</button>
+					</div>
+				</form>
+			</div>
+
+
+
+
 		</div>
-	</div>
+	</section>
 {% endblock %}

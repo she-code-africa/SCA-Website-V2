@@ -1,37 +1,10 @@
 {% extends "layouts/default.html" %}
 
-{% macro blogPost(post) %}
-<div class="post" data-ks-editable="editable(user, { list: " Post ", id: post.id })">
-	<h2>
-		<a href="/blog/post/{{ post.slug }}">{{ post.title }}</a>
-	</h2>
-	<p class="lead text-muted">Posted
-		{% if post.publishedDate %}
-			<br>on {{ post._.publishedDate.format("MMMM Do, YYYY") }}
-		{% endif %}
-		{% if post.categories and post.categories.length %}
-			<br>in {% for cat in post.categories %}<a href="/blog/{{ cat.key }}">{{ cat.name }}</a>{% if loop.index < post.categories.length %}, {% endif %}{% endfor %}
-		{% endif %}
-		{% if post.author %}
-			<br>by {{ post.author.name.first }}
-		{% endif %}
-	</p>
-	{% if post.image.exists %}
-		<img src="{{ post._.image.fit(160,160) }}" class="img pull-right">
-	{% endif %}
-	<p>{{ post.content.brief|safe }}</p>
-	{% if post.content.extended %}
-		<p class="read-more">
-			<a href="/blog/post/{{ post.slug }}">Read more...</a>
-		</p>
-	{% endif %}
-</div>
-{% endmacro %}
 <section>
 {% block intro %}
 <div class="__shecodeaboutimg">
 	<div class="container text-center">
-		{% set title = ( data.category.name if data.category else "OUR BLOG" ) %}
+		{% set title = ( data.category.name if data.category else "JOBS" ) %}
 		<p class="__shecodeafriab">{{title}}</p>
 		<p class="__shecodeafriab1">Actively shaping the lives of girls in STEM</p>
 	</div>
@@ -39,7 +12,7 @@
 {% endblock %}
 {% block content %}
 <div class="container">
-	<p class="welcome_community">OUR RECENT POSTS</p>
+	<p class="welcome_community">RECENT JOBS</p>
     <hr class="community_line">
     <br><br>
 	<div class="row">
