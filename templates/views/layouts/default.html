@@ -1,5 +1,5 @@
 {% import "mixins/flash-messages.html" as FM %}
-
+ 
 <!doctype html>
 <html>
 	<head>
@@ -7,11 +7,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-		<title>{{ title|default("She Code Africa") }}</title>
-		<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+		<title>{{ title|default("SHECODE AFRICA") }}</title>
 
+		<!-- STYLESHEETS -->
 		{# Customise the stylesheet for your site by editing /public/styles/site.sass #}
 		<link href="/styles/site.css" rel="stylesheet">
+		<!-- CUSTOM STYLES -->
+		<link rel="stylesheet" type="text/css" href="styles/main.css">
+		<link rel="stylesheet" type="text/css" href="styles/index.css">
+		<!-- WEBFONT -->
+		<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
+
+		<!-- ICON -->
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		
 
 		{# This file provides the default styling for the KeystoneJS Content Editor #}
 		{% if user and user.canAccessKeystone %}
@@ -34,43 +43,40 @@
 	<body>
 
 		{# HEADER #}
-		<div id="header" class="container">
-
-			{# Customise your site"s navigation by changing the navLinks Array in ./routes/middleware.js
-			   ... or completely change this header to suit your design. #}
-			<div role="navigation" class="navbar navbar-default">
-				<div class="container-fluid">
+		<header>
+			<nav class="navbar __shecodenavbar" role="navigation">
+				<div class="container">
+					<!-- TOGGLE -->
 					<div class="navbar-header">
-						<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".navbar-collapse">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 							<span class="sr-only">Toggle navigation</span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="/">She Code Africa</a>
+						<a class="navbar-brand" href="/"><img src="images/shecodelogo.svg" class="__shecodelogo"></a>
 					</div>
-					<div class="collapse navbar-collapse">
-						<ul class="nav navbar-nav navbar-left">
+					<!-- TOGGLING LINKS -->
+					<div class="collapse navbar-collapse navbar-ex1-collapse __shecodenavcol">
+						<ul class="nav navbar-nav navbar-right">
 							{% for link in navLinks %}
-								<li class="{{ 'active' if link.key == section else '' }}">
+								<li class="__shecodelink {{ 'active' if link.key == section else '' }}">
 									<a href="{{ link.href }}">{{ link.label }}</a>
 								</li>
 							{% endfor %}
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
 							{% if user %}
 								{% if user.canAccessKeystone %}
-								<li><a href="/keystone">Open Keystone</a></li>
+									<li class="__shecodelink"><a href="/keystone">Open Keystone</a></li>
 								{% endif %}
-								<li><a href="/keystone/signout">Sign Out</a></li>
+								<li class="__shecodelink"><a href="/keystone/signout">Sign Out</a></li>
 							{% else %}
-								<li><a href="/keystone/signin">Sign In</a></li>
+								<li class="__shecodelink"><a href="/keystone/signin">Sign In</a></li>
 							{% endif %}
 						</ul>
 					</div>
 				</div>
-			</div>
-		</div>
+			</nav>
+		</header>
 
 		{# BODY #}
 		<div id="body">
@@ -89,24 +95,53 @@
 			{% block content %}{% endblock %}
 		</div>
 
-
 		{# FOOTER #}
-		<div id="footer" class="container">
-			{# You don"t _have_ to include a link saying your site is powered by KeystoneJS, but we appreciate it! #}
-			<p>Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>
-		</div>
-
+		<footer>
+			<div class="__footerbg">
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<p class="__footerp">Get Involved</p>
+							<p class="__footera"><a href="">Patnership</a></p>
+							<p class="__footera"><a href="">Sponsor/Donate</a></p>
+							<p class="__footera"><a href="">Host an Event</a></p>
+							<p class="__footera"><a href="">Start an S.C.A Chapter</a></p>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<p class="__footerp">About Us</p>
+							<p class="__footera"><a href="">FAQ</a></p>
+							<p class="__footera"><a href="" >Meet The Team</a></p>
+							<p class="__footera"><a href="" >Join The Team</a></p>
+							<p class="__footera"><a href="" >Terms And Condition</a></p>
+						</div>
+						<div class="col-lg-4 col-md-4 col-sm-4">
+							<p class="__footerp">Membership</p>
+							<p class="__footera"><a href="">Sign Up</a></p>
+							<p class="__footera"><a href="">Sign In</a></p>
+							<p class="__footera"><a href="">Upcoming Events</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="__footerdownbg">
+				<div class="container">
+					<p class="text-center"><a href="" target="_blank"> All right reserved. She code Africa. 2019</a></p>
+					<p class="text-center">Powered by <a href="http://keystonejs.com" target="_blank">KeystoneJS</a>.</p>
+				</div>
+			</div>
+		</footer>
+		
 
 		{# JAVASCRIPT #}
 
 		{# jQuery 1.11.3 is included by default, and required by both Bootstrap
 			and the KeystoneJS Content Editor. If you are not targeting IE8,
 			you can upgrade to 2.1.4 (also bundled) for better performance. #}
-		<script src="/js/jquery/jquery-1.11.3.min.js"></script>
+		<script src="/js/jquery/jquery-3.1.1.min.js"></script>
 
 		{# Customise which Bootstrap javascript files are served by including
 			them specifically here, instead of bootstrap-3.3.5.min.js #}
-		<script src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
+		<script src="/js/bootstrap/bootstrap.min.js"></script>
 
 		{# The KeystoneJS Content Editor provides support for ks-editable data attributes,
 			which generate links to edit content for users who can access Keystone #}
@@ -115,6 +150,7 @@
 		{% endif %}
 
 		{# Add scripts that are globally required by your site here. #}
+		<script src="/js/jquery/main.js"></script>
 
 		{# Include template-specific javascript files by extending the js block #}
 		{% block js %}{% endblock %}
