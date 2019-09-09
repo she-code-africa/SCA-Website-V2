@@ -715,9 +715,9 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
 }
 #intro-card{
   background: #fff;
-  height: 186px;
-  width: 300px;
-  padding: 0px 8px;
+  height: 250px;
+    width: 400px;
+    padding: 17px 8px;
   position: absolute;
   right: 2%;
   bottom: -60px;
@@ -728,7 +728,7 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
   font-weight: bold
 }
 #intro-card .title{
-
+font-size: 25px;
 font-style: normal;
 font-weight: bold;
 letter-spacing: 0.05em;
@@ -739,8 +739,8 @@ color: rgba(183, 5, 105, 0.6);
   font-family: Raleway;
   font-style: normal;
   font-weight: 500;
-  line-height: 23px;
-  font-size: 16px;
+  line-height: 29px;
+  font-size: 20px;
   text-align: center;
   letter-spacing: 0.05em;
   color: #646464;
@@ -751,7 +751,7 @@ color: #646464;
      width: 180px;
      background: #FFFFFF;
      box-shadow: 0px 0px 11px #FF4EAE;
-     /* border-radius: 20px; */
+     margin-top: 25px;
 }
 .blog-button img{
   width: 20%;
@@ -767,12 +767,12 @@ color: #646464;
 }
 
 .blog-welcome {
-  font-size: 26px;
+  font-size: 35px;
   color: #B70569;
   text-align: center;
   font-weight: 600;
   /* margin-top: 8%; */
-  margin: 6% 33%;
+  margin: 11% 37% 30px 37%;
 }
 .blog-welcome p{
   font-style: normal;
@@ -811,7 +811,9 @@ letter-spacing: 0.05em;
   object-fit: cover!important;
 }
 .post-body{
-  width: 80%;
+  width: 100%;
+  text-align: center;
+  margin: auto;
 }
 .post-title{
   font-size: 24px;
@@ -821,6 +823,8 @@ letter-spacing: 0.05em;
 }
 .post-subtitle{
   padding: 0 15px;
+  display: flex;
+  justify-content: center;
 }
 .post-subtitle .author-img{
   width: 50px;
@@ -828,6 +832,11 @@ letter-spacing: 0.05em;
   border-radius: 50%;
   border: 1px solid #C71585;
 
+}
+.auth{
+  margin-left: 15px;
+    /* float: left; */
+    text-align: left;
 }
 .post-subtitle .author-img img{
   width: 100%;
@@ -883,24 +892,25 @@ letter-spacing: 0.05em;
 }
 .share .box1{
   border-radius: 8px;
-    width: 400px;
-    height: 120px;
+  width: 480px;
+  height: 130px;
   background: #FFFFFF;
   box-shadow: 2px 3px 4px rgba(199, 21, 133, 0.51), -2px -3px 4px rgba(199, 21, 133, 0.51);
 }
 .share{
-  margin: 70px;
+  margin: 70px auto;
+  padding: 0 7%;
 }
-.share .box1 h3{
+.share .box1 h2{
   font-style: normal;
   font-weight: bold;
   /* font-size: 100px; */
-  line-height: 29px;
+  line-height: 35px;
   text-align: center;
   letter-spacing: 0.2em;
   color: #000000;
 }
-.share .box1 h3 span{
+.share .box1 h2 span{
   color: #B70569;
 }
 .share hr{
