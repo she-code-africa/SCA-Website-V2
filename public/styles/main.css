@@ -760,10 +760,10 @@ color: #646464;
 .blog-button span{
   font-style: normal;
   font-weight: 600;
-  font-size: 21px;
   line-height: 33px;
   letter-spacing: 0.05em;
   color: #FF4EAE;
+  font-size: 1.0em;
 }
 
 .blog-welcome {
@@ -772,7 +772,7 @@ color: #646464;
   text-align: center;
   font-weight: 600;
   /* margin-top: 8%; */
-  margin: 11% 37% 30px 37%;
+  margin: 11% 28% 30px 30%;
 }
 .blog-welcome p{
   font-style: normal;
@@ -921,6 +921,228 @@ letter-spacing: 0.05em;
   margin-top: 25px;
   box-shadow: 0px 0px 7px #FF4EAE;
 }
+@media only screen and (min-width:1440px){
+  .blog-welcome {
+    margin: 11% 37% 30px 37%;
+}
+}
+@media only screen and (min-width:426px) and (max-width:768px){
+  .blog-welcome {
+    font-size: 30px;
+    color: #B70569;
+    text-align: center;
+    font-weight: 600;
+    /* margin-top: 8%; */
+    margin: 11% 20% 30px 28%;
+}
+#intro-card {
+  background: #fff;
+  height: 185px;
+  width: 240px;
+  padding: 5px;
+}
+#intro-card .title {
+  font-size: 16px;
+}
+#intro-card p {
+  line-height: 25px;
+  font-size: 15px;
+  color: #646464;
+}
+.blog-button {
+  width: 160px;
+  background: #FFFFFF;
+  box-shadow: 0px 0px 11px #FF4EAE;
+  margin-top: 2px;
+}
+.share .box1 {
+  
+  width: 330px;
+  height: 105px;
+  
+}
+.share .box1 h2 {
+  font-size: 22px;
+  line-height: 30px;
+}
+}
+
+@media only screen and (min-width:376px) and (max-width:425px){
+  #intro-card {
+   
+    height: 225px;
+    width: 350px;
+    
+    right: 9%;
+    
+}
+#intro-card .title {
+  font-size: 20px;
+}
+#intro-card p {
+  font-size: 16px;
+}
+.blog-button {
+  width: 158px;
+  margin-top: 5px;
+}
+.blog-welcome {
+  font-size: 24px;
+  color: #B70569;
+  text-align: center;
+  font-weight: 600;
+  /* margin-top: 8%; */
+  margin: 35% 15% 30px 13%;
+}
+.blog-post {
+  height: 400px;
+  width: 100%;
+  margin-top: 5%;
+}
+.most-visited .top-section h1 {
+  font-size: 35px;
+  line-height: 55px;
+}
+.most-visited button {
+  margin: 10px 29%;
+}
+.share .box1 {
+  width: 185px;
+  height: 78px;
+}
+.share .box1 h2 {
+  font-style: normal;
+  font-weight: bold;
+  /* font-size: 100px; */
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: 0.2em;
+  color: #000000;
+  font-size: 12px;
+}
+.share hr {
+  margin-top: 40px;
+  width: 25px;
+}
+.share button {
+  margin-top: 21px;
+  box-shadow: 0px 0px 7px #FF4EAE;
+  width: 115px;
+  height: 37px;
+}
+.share button span{
+  line-height: 25px;
+  font-size: 0.7em;
+}
+
+}
+@media only screen and (max-width:375px){
+  #intro-card {
+   
+    height: 225px;
+    width: 350px;
+    
+    right: 9%;
+    
+}
+.card{
+  height:   300px;
+}
+#intro-card .title {
+  font-size: 20px;
+}
+#intro-card p {
+  font-size: 16px;
+}
+.blog-button {
+  width: 158px;
+  margin-top: 5px;
+}
+.blog-welcome {
+  font-size: 20px;
+  color: #B70569;
+  text-align: center;
+  font-weight: 600;
+  /* margin-top: 8%; */
+  margin: 38% 0% 15px 11%;
+}
+.post-title {
+  font-size: 20px;
+}
+.blog-post {
+  margin-top: 10%;
+}
+.most-visited .top-section h1 {
+  font-size: 35px;
+  line-height: 55px;
+}
+.most-visited button {
+  margin: 10px 29%;
+}
+.share .box1 {
+  width: 170px;
+  height: 68px;
+}
+.share .box1 h2 {
+    line-height: 18px;
+    font-size: 11px;
+}
+.share hr {
+  width: 15px;
+}
+.share button {
+  margin-top: 21px;
+  width: 90px;
+  height: 37px;
+}
+.share button span{
+    line-height: 18px;
+    font-size: 7px;
+}
+
+}
+
+/*job page*/
+#job-content {
+  margin: 50px 0;
+}
+.card {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  margin: 20px 0;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+  border-radius: 6px;
+  color: rgba(0, 0, 0, 0.87);
+  background: #eee;
+  height: 280px;
+  padding: 8px 15px;
+}
+.card-header {
+  float: left;
+  z-index: 3;
+}
+.card .card-box {
+  width: 95%;
+}
+.card .card-box p {
+  margin: 0;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  color: #777777;
+}
+.card .card-box .job-title {
+  box-shadow: inset 1px 1px 5px #7777776b;
+  border-radius: 3px;
+  padding: 7px;
+  background-color: #fff;
+  position: relative;
+  margin: 0 0 10px 0;
+  color: #777777;
+  font-weight: bold;
+}
+
+/*job page end*/
 /*partner slider*/
 .__address {
   text-align: center;
