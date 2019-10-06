@@ -1,31 +1,44 @@
 {% extends "layouts/default.html" %}
 
 {% macro blogPost(post) %}
-<div class="post" data-ks-editable="editable(user, { list: " Post ", id: post.id })">
-	<h2>
-		<a href="/blog/post/{{ post.slug }}">{{ post.title }}</a>
-	</h2>
-	<p class="lead text-muted">Posted
-		{% if post.publishedDate %}
-		<br>on {{ post._.publishedDate.format("MMMM Do, YYYY") }}
+<div class="col-sm-6 blog-post" data-ks-editable="editable(user, { list: " Post ", id: post.id })">
+	<div class="post-circle">
+		{% if post.image.exists %}
+			<img src="{{ post._.image.fit(160,160) }}" alt="">
 		{% endif %}
-		{% if post.categories and post.categories.length %}
-		<br>in {% for cat in post.categories %}<a
-			href="/blog/{{ cat.key }}">{{ cat.name }}</a>{% if loop.index < post.categories.length %},
-		{% endif %}{% endfor %}
-		{% endif %}
-		{% if post.author %}
-		<br>by {{ post.author.name.first }}
-		{% endif %}
-	</p>
-	{% if post.image.exists %}
-	<img src="{{ post._.image.fit(160,160) }}" class="img pull-right">
-	{% endif %}
-	<p>{{ post.content.brief|safe }}</p>
-	{% if post.content.extended %}
-	<p class="read-more">
-		<a href="/blog/post/{{ post.slug }}">Read more...</a>
-	</p>
+	</div>
+	<div class="post-body">
+		<h5 class="post-title">
+			<a href="/blog/post/{{ post.slug }}">{{ post.title }}</a>
+		</h5>
+		<div class="post-subtitle">
+			<p class="text-muted">Posted
+				{% if post.publishedDate %}
+					on {{ post._.publishedDate.format("MMMM Do, YYYY") }}
+				{% endif %}
+				{% if post.categories and post.categories.length %}
+					in {% for cat in post.categories %}<a
+					href="/blog/{{ cat.key }}">{{ cat.name }}</a>
+					{% if loop.index < post.categories.length %},
+				{% endif %}{% endfor %}
+				{% endif %}
+			</p>
+			{% if post.author %}
+				<div class="author-img">
+					<img src="/images/teamMember2.png" alt="">
+				</div>
+				<div class="auth">
+					<p>by {{ post.author.name.first }}</p>
+					<p>500 views</p>
+				</div>
+			{% endif %}
+			<p>{{ post.content.brief|safe }}</p>
+			{% if post.content.extended %}
+			<p class="read-more">
+				<a href="/blog/post/{{ post.slug }}">Read more...</a>
+			</p>
+		</div>
+	</div>
 	{% endif %}
 </div>
 {% endmacro %}
@@ -47,8 +60,8 @@
 					Us</span> </button>
 		</div>
 	</div>
-
 	{% endblock %}
+
 	{% block content %}
 	<div class="container-fluid">
 		<div class="blog-welcome" style="display: flex;">
@@ -56,153 +69,82 @@
 			<p>Recent Posts</p>
 			<img src="/images/s-right.png" alt="">
 		</div>
-
-
+		
 		<br><br>
-
-		<div class="row" style="margin: auto">
-			<div class="col-sm-6 blog-post">
-				<div class="post-circle">
-					<img src="/images/blog1.png" alt="">
-				</div>
-				<div class="post-body">
-					<h5 class="post-title">Crushing The First Interview</h5>
-					<div class="post-subtitle">
-						<div class="author-img">
-							<img src="/images/teamMember2.png" alt="">
-						</div>
-						<div class="auth">
-							<p>AUTHOR: Ayomide Balogun</p>
-							<p>500 views</p>
-						</div>
-
+		
+		<div class="row">
+			{% if data.categories.length %}
+				<div class="col-sm-4 col-md-3">
+					<h3>Categories</h3>
+					<div class="list-group">
+						{% set class = ( "active" if not data.category else "" ) %}
+						<a href="/blog" class="{{ class }} list-group-item">All Categories</a>
+						{% for cat in data.categories %}
+						{% set class = ( "active" if data.category and data.category.id == cat.id else "" ) %}
+							<a href="/blog/{{ cat.key }}" class="{{ class }} list-group-item">{{ cat.name }}</a>
+						{% endfor %}
 					</div>
 				</div>
-			</div>
-			<div class="col-sm-6 blog-post">
-				<div class="post-circle">
-					<img src="/images/blog2.png" alt="">
-				</div>
-				<div class="post-body">
-					<h5 class="post-title">Getting The Right Mentor</h5>
-					<div class="post-subtitle">
-						<div class="author-img">
-							<img src="/images/teamMember2.png" alt="">
-						</div>
-						<div class="auth">
-							<p>AUTHOR: Ayomide Balogun</p>
-							<p>500 views</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-sm-6 blog-post">
-				<div class="post-circle">
-					<img src="/images/blog3.png" alt="">
-				</div>
-				<div class="post-body">
-					<h5 class="post-title">Getting Started with ES6</h5>
-					<div class="post-subtitle">
-						<div class="author-img ">
-							<img src="/images/teamMember2.png" alt="">
-						</div>
-						<div class="auth">
-							<p>AUTHOR: Ayomide Balogun</p>
-							<p>500 views</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-
-		<!-- <div class="row">
+			{% endif %}
 			<div class="col-sm-8 col-md-9">
 				{% if filters.category and not data.category %}
-				<h3 class="text-muted">Invalid Category.</h3>
+					<h3 class="text-muted">Invalid Category.</h3>
 				{% else %}
-				{% if data.posts.results.length %}
-				{% if data.posts.totalPages > 1 %}
-				<h4 class="text-weight-normal">
-					Showing
-					<strong>{{ data.posts.first }}</strong>
-					to
-					<strong>{{ data.posts.last }}</strong>
-					of
-					<strong>{{ data.posts.total }}</strong>
-					posts.
-				</h4>
-				{% else %}
-				<h4 class="text-weight-normal">Showing {{ utils.plural(data.posts.results.length, "* post") }}.</h4>
-				{% endif %}
-				<div class="blog">
-					{% for post in data.posts.results %} {{ blogPost(post) }} {% endfor %}
-				</div>
-				{% if data.posts.totalPages > 1 %}
-				<ul class="pagination">
+					{% if data.posts.results.length %}
 
-					{% if data.posts.previous %}
-					<li>
-						<a href="?page={{ data.posts.previous }}">
-							<span class="glyphicon glyphicon-chevron-left"></span>
-						</a>
-					</li>
+						{% for post in data.posts.results %} {{ blogPost(post) }} {% endfor %}
+
+						{% if data.posts.totalPages > 1 %}
+							<ul class="pagination">
+
+								{% if data.posts.previous %}
+									<li>
+										<a href="?page={{ data.posts.previous }}">
+											<span class="glyphicon glyphicon-chevron-left"></span>
+										</a>
+									</li>
+								{% else %}
+									<li class="disabled">
+										<a href="?page=1">
+											<span class="glyphicon glyphicon-chevron-left"></span>
+										</a>
+									</li>
+								{% endif %}
+
+								{% for p in data.posts.pages %}
+								{% set class = ( "active" if data.posts.currentPage == p else "" ) %}
+									<li class="{{ class }}">
+										{% set page = ( (data.posts.totalPages if i else 1) if p == "..." else p ) %}
+										<a href="?page={{ page }}">{{ p }}</a>
+									</li>
+								{% endfor %}
+
+								{% if data.posts.next %}
+									<li>
+										<a href="?page={{ data.posts.next }}">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</a>
+									</li>
+								{% else %}
+									<li class="disabled">
+										<a href="?page={{ data.posts.totalPages }}">
+											<span class="glyphicon glyphicon-chevron-right"></span>
+										</a>
+									</li>
+								{% endif %}
+
+							</ul>
+						{% endif %}
 					{% else %}
-					<li class="disabled">
-						<a href="?page=1">
-							<span class="glyphicon glyphicon-chevron-left"></span>
-						</a>
-					</li>
+						{% if data.category %}
+							<h3 class="text-muted">There are no posts in the category {{ data.category.name }}.</h3>
+						{% else %}
+							<h3 class="text-muted">There are no posts yet.</h3>
+						{% endif %}
 					{% endif %}
-
-					{% for p in data.posts.pages %}
-					{% set class = ( "active" if data.posts.currentPage == p else "" ) %}
-					<li class="{{ class }}">
-						{% set page = ( (data.posts.totalPages if i else 1) if p == "..." else p ) %}
-						<a href="?page={{ page }}">{{ p }}</a>
-					</li>
-					{% endfor %}
-
-					{% if data.posts.next %}
-					<li>
-						<a href="?page={{ data.posts.next }}">
-							<span class="glyphicon glyphicon-chevron-right"></span>
-						</a>
-					</li>
-					{% else %}
-					<li class="disabled">
-						<a href="?page={{ data.posts.totalPages }}">
-							<span class="glyphicon glyphicon-chevron-right"></span>
-						</a>
-					</li>
-					{% endif %}
-
-				</ul>
-				{% endif %}
-				{% else %}
-				{% if data.category %}
-				<h3 class="text-muted">There are no posts in the category {{ data.category.name }}.</h3>
-				{% else %}
-				<h3 class="text-muted">There are no posts yet.</h3>
-				{% endif %}
-				{% endif %}
 				{% endif %}
 			</div>
-			{% if data.categories.length %}
-			<div class="col-sm-4 col-md-3">
-				<h2>Categories</h2>
-				<div class="list-group" style="margin-top: 70px;">
-					{% set class = ( "active" if not data.category else "" ) %}
-					<a href="/blog" class="{{ class }} list-group-item">All Categories</a>
-					{% for cat in data.categories %}
-					{% set class = ( "active" if data.category and data.category.id == cat.id else "" ) %}
-					<a href="/blog/{{ cat.key }}" class="{{ class }} list-group-item">{{ cat.name }}</a>
-					{% endfor %}
-				</div>
-			</div>
-			{% endif %}
-		</div> -->
+		</div>
 	</div>
 
 	<div class="most-visited container-fluid">
