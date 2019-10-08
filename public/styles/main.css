@@ -792,6 +792,7 @@ letter-spacing: 0.05em;
   height: 400px;
   width: 50%;
   margin-top: 5%;
+  margin-bottom: 20%;
 }
 .blog-post > *{
   margin: auto
@@ -823,8 +824,7 @@ letter-spacing: 0.05em;
 }
 .post-subtitle{
   padding: 0 15px;
-  display: flex;
-  justify-content: center;
+  text-align: center;
 }
 .post-subtitle .author-img{
   width: 50px;
@@ -835,8 +835,7 @@ letter-spacing: 0.05em;
 }
 .auth{
   margin-left: 15px;
-    /* float: left; */
-    text-align: left;
+  text-align: center;
 }
 .post-subtitle .author-img img{
   width: 100%;
