@@ -23,7 +23,7 @@ Job.add({
 		brief: { type: Types.Html, wysiwyg: true, height: 150 },
 		extended: { type: Types.Html, wysiwyg: true, height: 400 },
 	},
-	applicationLink: { type: String, initial: false, required: true },
+	applicationLink: { type: String, initial: true, required: true },
 	categories: { type: Types.Relationship, ref: 'JobCategory', many: true },
 });
 
