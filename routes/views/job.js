@@ -11,7 +11,7 @@ exports = module.exports = function (req, res) {
 		job: req.params.job,
 	};
 	locals.data = {
-		jobss: [],
+		jobs: [],
 	};
 
 	// Load the current job
@@ -35,8 +35,7 @@ exports = module.exports = function (req, res) {
 		var q = keystone.list('Job').model.find().where('state', 'published').sort('-publishedDate').populate('author').limit('4');
 
 		q.exec(function (err, results) {
-			// locals.data.posts = results;
-			locals.data.jobss = results;
+			locals.data.jobs = results;
 			next(err);
 		});
 
