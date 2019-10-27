@@ -794,7 +794,13 @@ letter-spacing: 0.05em;
   margin-top: 5%;
   margin-bottom: 20%;
 }
-.blog-post > *{
+.job-post{
+  /* height: 400px; */
+  width: 50%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+.blog-post, .job-post > *{
   margin: auto
 }
 .blog-post .post-circle{
@@ -998,6 +1004,11 @@ letter-spacing: 0.05em;
   width: 100%;
   margin-top: 5%;
 }
+.job-post {
+  /* height: 400px; */
+  width: 100%;
+  margin-top: 5%;
+}
 .most-visited .top-section h1 {
   font-size: 35px;
   line-height: 55px;
@@ -1069,6 +1080,9 @@ letter-spacing: 0.05em;
   font-size: 20px;
 }
 .blog-post {
+  margin-top: 10%;
+}
+.job-post {
   margin-top: 10%;
 }
 .most-visited .top-section h1 {
