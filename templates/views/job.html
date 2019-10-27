@@ -21,7 +21,7 @@
 							</h5>
 							<h5 class="text-muted">
 								{% if data.job.categories and data.job.categories.length %}
-									in {% for cat in data.job.categories %}<a href="/blog/{{ cat.key }}">{{ cat.name }}</a>{% if loop.index < data.job.categories.length %}, {% endif %}{% endfor %}
+									in {% for cat in data.job.categories %}<a href="/jobs/{{ cat.key }}">{{ cat.name }}</a>{% if loop.index < data.job.categories.length %}, {% endif %}{% endfor %}
 								{% endif %}
 							</h5>
 							<h5 class="text-muted">
