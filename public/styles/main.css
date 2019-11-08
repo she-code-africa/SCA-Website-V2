@@ -158,10 +158,6 @@ a:hover {
   border-bottom: 1px solid brown !important;
 }
 
-
-
-
-
 ::-webkit-scrollbar {
   height: 7px;
   width: 7px;
@@ -713,6 +709,9 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
   width: 100%;
   height: 200px;
 }
+.image-wrap > .blog-image-description {
+	padding-top: 8px;
+}
 #intro-card{
   background: #fff;
   height: 250px;
@@ -1109,10 +1108,9 @@ letter-spacing: 0.05em;
   height: 37px;
 }
 .share button span{
-    line-height: 18px;
-    font-size: 7px;
+	line-height: 18px;
+	font-size: 7px;
 }
-
 }
 
 /*job page*/
