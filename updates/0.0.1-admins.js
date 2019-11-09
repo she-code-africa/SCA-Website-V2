@@ -9,7 +9,7 @@
 
 exports.create = {
 	User: [
-		{ 'name.first': 'Admin', 'name.last': 'User', 'email': 'adminuser@shecodeafrica.com', 'password': 'anadmin', 'isAdmin': true },
+		{ 'name.first': 'Admin', 'name.last': 'User', 'email': 'omisi2018@gmail.com', 'password': 'admin', 'isAdmin': true },
 	],
 };
 
