@@ -36,7 +36,9 @@
 									{% endif %}
 								</div>
 							{% endif %}
-							{{ data.post.content.extended.html|safe }}
+							<div class="blog-content">
+								{{ data.post.content.extended.html|safe }}
+							</div>
 						</div>
 					{% endif %}
 				</article>
