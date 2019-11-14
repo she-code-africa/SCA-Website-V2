@@ -1,0 +1,108 @@
+{% extends "layouts/default.html" %}
+
+<section>
+    {% block intro %}
+    <div class="__shecodeaboutimg">
+        <div class="container text-center">
+            <p class="__shecodeafriab">OUR PARTNERS</p>
+            <!-- <p class="__shecodeafriab1">Guiding Tech-Girls to their Ful Potential</p> -->
+            <a href="#contact_us" class="btn __shecodebtn"><img src="/images/shecode-hair.svg">&nbsp;Partner with Us</a>
+        </div>
+    </div>
+    {% endblock %} {% block content %}
+    <div class="container">
+
+
+
+        <p class="__shecodeval">Why <span class="__shecodeval1">Partner</span> With Us</p>
+
+        <div class="text-center">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint laborum, aliquid molestiae ut error amet itaque fugiat deserunt aliquam reprehenderit cumque exercitationem eveniet ex debitis veritatis iste, quasi magni nesciunt.
+        </div>
+        <br><br>
+
+
+        <p class="__shecodeval">Our Current <span class="__shecodeval1">Partners</span></p>
+        <br>
+        <div class="customer-logos slider">
+            <div class="slide"><img src="/images/andela.png"></div>
+            <div class="slide"><img src="/images/cloudinary.png"></div>
+            <div class="slide"><img src="/images/microsoft.png"></div>
+            <div class="slide"><img src="/images/forLoop-Kampala.png"></div>
+            <div class="slide"><img src="/images/SCOTH.png"></div>
+            <div class="slide"><img src="/images/cloudinary.png"></div>
+            <div class="slide"><img src="/images/forLoop-Kampala.png"></div>
+            <div class="slide"><img src="/images/microsoft.png"></div>
+        </div>
+
+        <br><br> {% if partnershipSubmitted %}
+        <h3>Thanks for getting in touch.</h3>
+        {% else %}
+        <div id="contact_us" class="__shecodeformcard">
+            <p class="__shecodeformp">Contact Us</p>
+            <form method="POST" role="form">
+                <input type="hidden" name="action" value="partnership">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        {% set class = ( "has-error" if validationErrors.first_name else "" ) %}
+                        <div class="form-group {{ class }}">
+
+                            <label class="__clabelinput">
+                                <input type="text" name="first_name" class="form-control __formin"
+                                    value="{{ formData["first_name"] }}" required>
+                                <span>First Name</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-sm-6">
+                        {% set class = ( "has-error" if validationErrors.last_name else "" ) %}
+                        <div class="form-group {{ class }}">
+
+                            <label class="__clabelinput">
+                                <input type="text" name="last_name" class="form-control __formin"
+                                    value="{{ formData["last_name"] }}" required>
+                                <span>Last Name</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        {% set class = ( "has-error" if validationErrors.email else "" ) %}
+                        <div class="form-group {{ class }}">
+
+                            <label class="__clabelinput">
+                                <input type="email" name="email" value="{{ formData.email }}"
+                                    class="form-control __formin" required>
+                                <span>Email</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 col-sm-12">
+                        {% set class = ( "has-error" if validationErrors.company else "" ) %}
+                        <div class="form-group {{ class }}">
+                            <label class="__clabelinput">
+                                <input type="text" name="company" value="{{ formData.company }}"
+                                    class="form-control __formin" required>
+                                <span>Company Name</span>
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+                <br> {% set class = ( "has-error" if validationErrors.details else "" ) %}
+                <div class="form-group">
+                    <textarea name="details" id="input" class="form-control" rows="5" placeholder="Partnership Details" required="required">{{ formData.details }}</textarea>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn  __shecodebtn"><img
+                            src="/images/shecode-hair.svg">&nbsp;Submit</button>
+                </div>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+    {% endblock %}
+</section>
+{% block js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+{% endblock %}
