@@ -20,7 +20,8 @@ Enquiry.add({
 		{ value: 'question', label: 'I\'ve got a question' },
 		{ value: 'other', label: 'Something else...' },
 	] },
-	message: { type: Types.Markdown, required: true },
+	// message: { type: Types.Markdown, required: true },
+	message: { type: Types.Textarea, required: true },
 	createdAt: { type: Date, default: Date.now },
 });
 
@@ -71,5 +72,5 @@ Enquiry.schema.methods.sendNotificationEmail = function (callback) {
 };
 
 Enquiry.defaultSort = '-createdAt';
-Enquiry.defaultColumns = 'name, email, enquiryType, createdAt';
+Enquiry.defaultColumns = 'name, email, enquiryType, message, createdAt';
 Enquiry.register();
