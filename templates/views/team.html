@@ -13,96 +13,72 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <section class="portfolio" id="portfolio">
+
         <div class="container-fluid">
-            <div class="row">
+            <div class="row" style="padding: 0 30px;">
 
                 <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <p class="__shecodeval">The</p>
                     <p class="__shecodeval1">TEAM</p><br><br>
                 </div>
 
+                {% if teams.length %}
                 <div align="center">
-                    <button class="filter-button" data-filter="all">All</button>
-                    <button class="filter-button" data-filter="category1">Technical Team</button>
-                    <button class="filter-button" data-filter="category2">Editorial Team</button>
-                    <button class="filter-button" data-filter="category3">Facilitators</button>
+                    <button class="filter-button" data-filter="all">All</button> {% for cat in data.membership %}
+                    <button class="filter-button" data-filter={{cat.id}}>{{cat.name}}</button> {% endfor %}
                 </div>
 
-                <br />
+                <br /> {% for member in teams %}
+                <div class="gallery_product col-md-3 col-sm-6 col-xs-12 filter {{member.membership}}">
+                    <img class="img-responsive" alt="" src="/uploads/team/{{member.image.filename}}" />
+                    <div class='img-info'>
+                        <h4> {{member.name}}</h4>
+                        <p>{{member.occupation}}</p>
+                        <button class="btn __shecodebtn" role="toggle" data-toggle="modal" data-target="#{{member.id}}" class="btn">View Details</button>
+                    </div>
+                </div>
 
-                <div class="gallery_product col-sm-3 col-xs-6 filter category1">
-                    <a class="fancybox" rel="ligthbox" href="/images/teamMember.jpg">
-                        <img class="img-responsive" alt="" src="/images/teamMember.jpg" />
-                        <div class='img-info'>
-                            <h4>Image Title 1</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+
+
+                <!-- Modal -->
+                <div id={{member.id}} class="modal fade" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                <h4 class="modal-title">{{member.name}}</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <img class="img-fluid gallery-modal-img" src="/uploads/team/{{member.image.filename}}" alt="image">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <h5><strong>Name: &nbsp;&nbsp;</strong> {{member.name}}</h5>
+                                        <h5><strong>Email:&nbsp;&nbsp;&nbsp; </strong> {{member.email}}</h5>
+                                        <h5><strong>Phone:&nbsp;&nbsp; </strong> {{member.phone}}</h5>
+                                        <h5><strong>Job:&nbsp;&nbsp;&nbsp;&nbsp; </strong> {{member.occupation}}
+                                        </h5>
+                                        <h5><strong>Bio:&nbsp;&nbsp;&nbsp;&nbsp; </strong> {{member.bio}}</h5>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of Modal body -->
                         </div>
-                    </a>
-                </div>
 
-                <div class="gallery_product col-sm-3 col-xs-6 filter category2">
-                    <a class="fancybox" rel="ligthbox" href="/images/teamMember1.png">
-                        <img class="img-responsive" alt="" src="/images/teamMember1.png" />
-                        <div class='img-info'>
-                            <h4>Image Title 2</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </a>
+                        <!-- End of Modal content -->
+                    </div>
+                    <!-- End of Modal dialog -->
                 </div>
-
-                <div class="gallery_product col-sm-3 col-xs-6 filter category3">
-                    <a class="fancybox" rel="ligthbox" href="/images/teamMember2.png">
-                        <img class="img-responsive" alt="" src="/images/teamMember2.png" />
-                        <div class='img-info'>
-                            <h4>Image Title 3</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="gallery_product col-sm-3 col-xs-6 filter category1">
-                    <a class="fancybox" rel="ligthbox" href="/images/teamMember2.png">
-                        <img class="img-responsive" alt="" src="/images/teamMember2.png" />
-                        <div class='img-info'>
-                            <h4>Image Title 4</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="gallery_product col-sm-3 col-xs-6 filter category2">
-                    <a class="fancybox" rel="ligthbox" href="/images/abiola.jpg">
-                        <img class="img-responsive" alt="" src="/images/abiola.jpg" />
-                        <div class='img-info'>
-                            <h4>Image Title 5</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="gallery_product col-sm-3 col-xs-6 filter category3">
-                    <a class="fancybox" rel="ligthbox" href="/images/hadijat.jpg">
-                        <img class="img-responsive" alt="" src="/images/hadijat.jpg" />
-                        <div class='img-info'>
-                            <h4>Image Title 6</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </a>
-                </div>
-
-                <div class="gallery_product col-sm-3 col-xs-6 filter category1">
-                    <a class="fancybox" rel="ligthbox" href="/images/nkechi.jpg">
-                        <img class="img-responsive" alt="" src="/images/nkechi.jpg" />
-                        <div class='img-info'>
-                            <h4>Image Title 7</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                    </a>
-                </div>
-
+                <!-- End of Modal -->
+                {% endfor %} {% endif %}
 
             </div>
         </div>
+
     </section>
 
     {% endblock %}

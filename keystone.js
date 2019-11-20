@@ -55,6 +55,7 @@ keystone.set('nav', {
     partnerships: 'partnerships',
     users: 'users',
     jobs: ['jobs', 'job-categories'],
+    teams: ['teams', 'team-categories']
 });
 
 // Start Keystone to connect to your database and initialise the web server

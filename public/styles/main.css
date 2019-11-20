@@ -713,19 +713,14 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
     width: 100%;
     height: 200px;
 }
-<<<<<<< HEAD
-.image-wrap > .blog-image-description {
-	padding-top: 8px;
+
+.image-wrap>.blog-image-description {
+    padding-top: 8px;
 }
-#intro-card{
-  background: #fff;
-  height: 250px;
-=======
 
 #intro-card {
     background: #fff;
     height: 250px;
->>>>>>> develop
     width: 400px;
     padding: 17px 8px;
     position: absolute;
@@ -963,27 +958,27 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
 }
 
 .share button {
-<<<<<<< HEAD
-  margin-top: 21px;
-  width: 90px;
-  height: 37px;
-}
-.share button span{
-	line-height: 18px;
-	font-size: 7px;
-}
-}
-=======
-    margin-top: 25px;
-    box-shadow: 0px 0px 7px #FF4EAE;
+    <<<<<<< HEAD margin-top: 21px;
+    width: 90px;
+    height: 37px;
 }
 
+.share button span {
+    line-height: 18px;
+    font-size: 7px;
+}
+
+
+}
+=======margin-top: 25px;
+box-shadow: 0px 0px 7px #FF4EAE;
+
+}
 @media only screen and (min-width:1440px) {
     .blog-welcome {
         margin: 11% 37% 30px 37%;
     }
 }
-
 @media only screen and (min-width:426px) and (max-width:768px) {
     .blog-welcome {
         font-size: 30px;
@@ -991,6 +986,7 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
         text-align: center;
         font-weight: 600;
         /* margin-top: 8%; */
+        
         margin: 11% 20% 30px 28%;
     }
     #intro-card {
@@ -1022,7 +1018,6 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
         line-height: 30px;
     }
 }
-
 @media only screen and (min-width:376px) and (max-width:425px) {
     #intro-card {
         height: 225px;
@@ -1045,6 +1040,7 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
         text-align: center;
         font-weight: 600;
         /* margin-top: 8%; */
+        
         margin: 35% 15% 30px 13%;
     }
     .blog-post {
@@ -1054,6 +1050,7 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
     }
     .job-post {
         /* height: 400px; */
+        
         width: 100%;
         margin-top: 5%;
     }
@@ -1072,6 +1069,7 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
         font-style: normal;
         font-weight: bold;
         /* font-size: 100px; */
+        
         line-height: 20px;
         text-align: center;
         letter-spacing: 0.2em;
@@ -1093,7 +1091,6 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
         font-size: 0.7em;
     }
 }
-
 @media only screen and (max-width:375px) {
     #intro-card {
         height: 225px;
@@ -1119,6 +1116,7 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
         text-align: center;
         font-weight: 600;
         /* margin-top: 8%; */
+        
         margin: 38% 0% 15px 11%;
     }
     .post-title {
@@ -1158,44 +1156,42 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
         font-size: 7px;
     }
 }
-
->>>>>>> develop
-
+>>>>>>>develop
 /*job page*/
-
 #job-content {
     margin: 50px 0;
 }
-
 .card {
     display: inline-block;
     position: relative;
     width: 100%;
     margin: 20px 0;
-    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14);
+    box-shadow: 0 1px 4px 0 rgba(0,
+    0,
+    0,
+    0.14);
     border-radius: 6px;
-    color: rgba(0, 0, 0, 0.87);
+    color: rgba(0,
+    0,
+    0,
+    0.87);
     background: #eee;
     height: 280px;
     padding: 8px 15px;
 }
-
 .card-header {
     float: left;
     z-index: 3;
 }
-
 .card .card-box {
     width: 95%;
 }
-
 .card .card-box p {
     margin: 0;
     font-size: 0.8em;
     text-transform: uppercase;
     color: #777777;
 }
-
 .card .card-box .job-title {
     box-shadow: inset 1px 1px 5px #7777776b;
     border-radius: 3px;
@@ -1207,29 +1203,22 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
     font-weight: bold;
 }
 
-
 /*job page end*/
 
-
 /*partner slider*/
-
 .__address {
     text-align: center;
     padding: 12px;
     margin-top: 2%;
 }
 
-
 /* Slider */
-
 .slick-slide {
     margin: 0px 20px;
 }
-
 .slick-slide img {
     width: 100%;
 }
-
 .slick-slider {
     /*margin-top: 5%;*/
     position: relative;
@@ -1245,7 +1234,6 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
     touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
 }
-
 .slick-list {
     position: relative;
     display: block;
@@ -1253,97 +1241,87 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
     margin: 0;
     padding: 0;
 }
-
 .slick-list:focus {
     outline: none;
 }
-
 .slick-list.dragging {
     cursor: pointer;
     cursor: hand;
 }
-
 .slick-slider .slick-track,
 .slick-slider .slick-list {
-    -webkit-transform: translate3d(0, 0, 0);
-    -moz-transform: translate3d(0, 0, 0);
-    -ms-transform: translate3d(0, 0, 0);
-    -o-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    -webkit-transform: translate3d(0,
+    0,
+    0);
+    -moz-transform: translate3d(0,
+    0,
+    0);
+    -ms-transform: translate3d(0,
+    0,
+    0);
+    -o-transform: translate3d(0,
+    0,
+    0);
+    transform: translate3d(0,
+    0,
+    0);
 }
-
 .slick-track {
     position: relative;
     top: 0;
     left: 0;
     display: block;
 }
-
 .slick-track:before,
 .slick-track:after {
     display: table;
     content: "";
 }
-
 .slick-track:after {
     clear: both;
 }
-
 .slick-loading .slick-track {
     visibility: hidden;
 }
-
 .slick-slide {
     display: none;
     float: left;
     height: 100%;
     min-height: 1px;
 }
-
 [dir="rtl"] .slick-slide {
     float: right;
 }
-
 .slick-slide img {
     display: block;
 }
-
 .slick-slide.slick-loading img {
     display: none;
 }
-
 .slick-slide.dragging img {
     pointer-events: none;
 }
-
 .slick-initialized .slick-slide {
     display: block;
 }
-
 .slick-loading .slick-slide {
     visibility: hidden;
 }
-
 .slick-vertical .slick-slide {
     display: block;
     height: auto;
     border: 1px solid transparent;
 }
-
 .slick-arrow.slick-hidden {
     display: none;
 }
 
-
 /*team page*/
-
 section {
     padding: 50px 0;
 }
 
-
 /*	gallery */
-
 .gallery-title {
     font-size: 36px;
     color: #ff16a9;
@@ -1351,7 +1329,6 @@ section {
     font-weight: 500;
     margin-bottom: 70px;
 }
-
 .filter-button {
     font-size: 18px;
     border: 2px solid #ff16a9;
@@ -1361,7 +1338,6 @@ section {
     margin-bottom: 30px;
     background: transparent;
 }
-
 .filter-button:hover,
 .filter-button:focus,
 .filter-button.active {
@@ -1369,20 +1345,25 @@ section {
     background-color: #ff16a9;
     outline: none;
 }
-
 .gallery_product {
     margin: 0px;
-    padding: 3px;
+    padding: 10px;
     position: relative;
 }
-
 .gallery_product img {
     height: 250px;
+    width: 100%;
 }
-
+.gallery-modal-img {
+    width: 100%;
+    height: 300px;
+}
 .gallery_product .img-info {
     position: absolute;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0,
+    0,
+    0,
+    0.5);
     left: 0;
     right: 0;
     bottom: 0;
@@ -1394,72 +1375,59 @@ section {
     -webkit-transition: 2s;
     transition: 2s;
 }
-
 .gallery_product:hover .img-info {
     display: block;
     -webkit-transition: 2s;
     transition: 2s;
 }
 
-
 /*partner slider end*/
 
-
 /*footer*/
-
 .__fosocai {
     text-align: center;
 }
-
 .__fotsohf {
     font-size: 20px;
     padding: 10px 10px 6px;
     transition: all 0.4s ease-in;
 }
-
 .__fotsohf:hover {
     background-color: #3B5998;
     color: #ffffff;
     border-radius: 3px;
 }
-
 .__fotsohi {
     font-size: 20px;
     padding: 10px 10px 6px;
     transition: all 0.4s ease-in;
 }
-
 .__fotsohi:hover {
     background-color: #0077B5;
     color: #ffffff;
     border-radius: 3px;
 }
-
 .__fotsohi {
     font-size: 20px;
     padding: 10px 10px 6px;
     transition: all 0.4s ease-in;
 }
-
 .__fotsoht {
     font-size: 20px;
     padding: 10px 10px 6px;
     transition: all 0.4s ease-in;
 }
-
 .__fotsoht:hover {
     background-color: #55acee;
     color: #ffffff;
     border-radius: 3px;
 }
-
 .__footerbg {
     background: #777777;
     margin-top: 5%;
     padding: 30px 0;
     text-align: center;
 }
-
 .__footerp {
     font-size: 24px;
     font-weight: 600;
@@ -1468,7 +1436,6 @@ section {
     transition: all 0.4s ease-in;
     margin-top: 15%;
 }
-
 .__footera {
     margin-top: 10px;
     font-size: 13px;
@@ -1477,11 +1444,9 @@ section {
     color: #ffffff !important;
     transition: all 0.4s ease-in;
 }
-
 .__footera:hover {
     color: #ff85d2 !important;
 }
-
 .__footerdownbg {
     background: #3a3a3a;
     color: #ffffff;
@@ -1489,6 +1454,5 @@ section {
     padding: 13px;
     text-align: center;
 }
-
 
 /*footer end*/
