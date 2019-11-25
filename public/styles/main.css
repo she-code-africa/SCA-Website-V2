@@ -1349,6 +1349,8 @@ section {
     margin: 0px;
     padding: 10px;
     position: relative;
+        border: 2px solid #ff16a9;
+    border-radius: 20px;
 }
 .gallery_product img {
     height: 250px;
@@ -1359,6 +1361,7 @@ section {
     height: 300px;
 }
 .gallery_product .img-info {
+        border-radius: 20px;
     position: absolute;
     background: rgba(0,
     0,
