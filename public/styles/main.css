@@ -1156,7 +1156,7 @@ box-shadow: 0px 0px 7px #FF4EAE;
         font-size: 7px;
     }
 }
->>>>>>>develop
+
 /*job page*/
 #job-content {
     margin: 50px 0;
@@ -1346,10 +1346,10 @@ section {
     outline: none;
 }
 .gallery_product {
-    margin: 0px;
+    margin: 15px;
     padding: 10px;
     position: relative;
-        border: 2px solid #ff16a9;
+    border: 2px solid #ff16a9;
     border-radius: 20px;
 }
 .gallery_product img {
