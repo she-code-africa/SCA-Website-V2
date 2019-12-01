@@ -1045,72 +1045,136 @@ letter-spacing: 0.05em;
 }
 
 }
-@media only screen and (max-width:375px){
-  #intro-card {
-   
-    height: 225px;
-    width: 350px;
-    
-    right: 9%;
-    
-}
-.card{
-  height:   300px;
-}
-#intro-card .title {
-  font-size: 20px;
-}
-#intro-card p {
-  font-size: 16px;
-}
-.blog-button {
-  width: 158px;
-  margin-top: 5px;
-}
-.blog-welcome {
-  font-size: 20px;
-  color: #B70569;
+  @media only screen and (max-width:375px){
+    #intro-card {
+      
+        height: 225px;
+        width: 350px;
+        
+        right: 9%;
+        
+    }
+    .card{
+      height:   300px;
+    }
+    #intro-card .title {
+      font-size: 20px;
+    }
+    #intro-card p {
+      font-size: 16px;
+    }
+    .blog-button {
+      width: 158px;
+      margin-top: 5px;
+    }
+    .blog-welcome {
+      font-size: 20px;
+      color: #B70569;
+      text-align: center;
+      font-weight: 600;
+      /* margin-top: 8%; */
+      margin: 38% 0% 15px 11%;
+    }
+    .post-title {
+      font-size: 20px;
+    }
+    .blog-post {
+      margin-top: 10%;
+    }
+    .job-post {
+      margin-top: 10%;
+    }
+    .most-visited .top-section h1 {
+      font-size: 35px;
+      line-height: 55px;
+    }
+    .most-visited button {
+      margin: 10px 29%;
+    }
+    .share .box1 {
+      width: 170px;
+      height: 68px;
+    }
+    .share .box1 h2 {
+        line-height: 18px;
+        font-size: 11px;
+    }
+    .share hr {
+      width: 15px;
+    }
+    .share button {
+      margin-top: 21px;
+      width: 90px;
+      height: 37px;
+    }
+    .share button span{
+      line-height: 18px;
+      font-size: 7px;
+    }
+  }
+
+  /* Social Share Buttons */
+  @media (min-width:769px) {
+    .social-share-mobile {
+      display: none;
+    }
+  }
+
+  .social-share-mobile ul {
+    padding-left: 0;
+  }
+  .social-share-mobile ul li {
+    list-style: none;
+    display: inline-flex;
+    padding: 5px;
+  }
+
+  .social-share-desktop {
+    display: none;
+  }
+
+  @media (min-width:1024px) {
+    .social-share-desktop {
+      position: sticky;
+      position: -webkit-sticky;
+      bottom: 5rem;
+      top: 15rem;
+      display: block;
+    }
+    .social-share-desktop ul li {
+      display: block;
+    }
+  }
+
+/* Social Button Styles */
+.social-share-icon {
+  border-radius: 50%;
+  padding: 12px;
+  font-size: 22px !important;
+  width: 50px;
   text-align: center;
-  font-weight: 600;
-  /* margin-top: 8%; */
-  margin: 38% 0% 15px 11%;
+  text-decoration: none;
+  margin: 5px;
+  color: white;
 }
-.post-title {
-  font-size: 20px;
+
+/* Hover Effect */
+.social-share-icon:hover {
+  opacity: 0.8;
+  text-align: center;
+  text-decoration: none;
+  color: white;
 }
-.blog-post {
-  margin-top: 10%;
+
+/* Brand Colors */
+.fa-facebook-f {
+  background: #3B5998;
 }
-.job-post {
-  margin-top: 10%;
+.fa-twitter {
+  background: #55ACEE;
 }
-.most-visited .top-section h1 {
-  font-size: 35px;
-  line-height: 55px;
-}
-.most-visited button {
-  margin: 10px 29%;
-}
-.share .box1 {
-  width: 170px;
-  height: 68px;
-}
-.share .box1 h2 {
-    line-height: 18px;
-    font-size: 11px;
-}
-.share hr {
-  width: 15px;
-}
-.share button {
-  margin-top: 21px;
-  width: 90px;
-  height: 37px;
-}
-.share button span{
-	line-height: 18px;
-	font-size: 7px;
-}
+.fa-linkedin {
+  background: #007bb5;
 }
 
 /*job page*/

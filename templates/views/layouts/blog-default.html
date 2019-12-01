@@ -6,23 +6,47 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="description"
-			content="Celeberating and empowering young girls and women in technology (Code Queens) across Africa">
-		<meta property="og:type" content="website">
-		<meta property="og:title" content="She Code Africa - Celebrating Africa's Code Queens">
-		<meta property="og:description"
-			content="Celeberating and empowering young girls and women in technology (Code Queens) across Africa">
-		<meta property="og:url" content="https://shecodeafrica.com">
-		<meta property="og:image" content="https://">
-		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:description"
-			content="Celeberating and empowering young girls and women in technology (Code Queens) across Africa.">
-		<meta name="twitter:title" content="She Code Africa - Celebrating Africa's Code Queens">
-		<meta name="twitter:site" content="@shecodeafrica">
-		<meta name="twitter:image" content="https://">
-		<meta name="twitter:creator" content="@shecodeafrica">
-
-		<title> SHE CODE AFRICA</title>
+        {% if data.post %}
+            {% if data.post.meta.description %}
+                <meta name="description" content="{{ data.post.meta.description }}">
+                <meta property="og:description" content="{{ data.post.meta.description }}">
+                <meta name="twitter:description" content="{{ data.post.meta.description }}">
+            {% else %}
+                <meta name="description" content="{{ data.post.content.brief }}">
+                <meta property="og:description" content="{{ data.post.content.brief }}">
+                <meta name="twitter:description" content="{{ data.post.content.brief }}">
+            {% endif %}
+            <title>{{ data.post.title }}</title>
+            <meta property="og:title" content="{{ data.post.title }}">
+			<meta property="og:type" content="article">
+			<meta property="og:image" content="{{ data.post.image.url }}">
+			<meta property="og:site_name" content="She Code Africa">
+			<meta name="twitter:title" content="{{ data.post.title }}">
+			<meta name="twitter:card" content="summary_large_image">
+			<meta name="twitter:image" content="{{ data.post.image.url }}">
+			<meta property="og:url" content="{{ data.post.fullPostUrl }}">
+			<meta name="twitter:url" content="{{ data.post.fullPostUrl }}">
+			<meta name="twitter:site" content="@shecodeafrica">
+			<meta property="article:published_time" content="{{ data.post.publishedDate }}">
+			{% for category in data.post.categories %}
+				<meta property="article:tag" content="{{ category.name }}">
+			{% endfor %}
+		{% else %}
+			<title>She Code Africa - Blog</title>
+			<meta name="description"
+				content="A blog by She Code Africa for celeberating and empowering women in technology across Africa">
+			<meta name="keywords" content="She Code Africa, Women in Tech, Tech Community, African Women, Developers">
+			<meta property="og:title" content="She Code Africa - Blog">
+			<meta property="og:image" content="https://">
+			<meta name="twitter:image:src" content="https://">
+			<meta name="twitter:card" content="summary_large_image">
+			<meta name="twitter:description"
+				content="A blog by She Code Africa for celeberating and empowering women in technology across Africa">
+			<meta name="twitter:title" content="She Code Africa - Celebrating Africa's Code Queens">
+			<meta name="twitter:site" content="@shecodeafrica">
+			<meta name="twitter:image" content="https://">
+			<meta name="twitter:creator" content="@shecodeafrica">
+        {% endif %}
 
 		<!-- STYLESHEETS -->
 		{# Customise the stylesheet for your site by editing /public/styles/site.sass #}
@@ -48,6 +72,11 @@
 			<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
 			<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
+
+		<style type="text/css">
+
+
+		</style>
 
 		{# Include template-specific stylesheets by extending the css block #}
 		{% block css %}{% endblock %}

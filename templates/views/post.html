@@ -1,9 +1,24 @@
-{% extends "layouts/default.html" %}
+{% extends "layouts/blog-default.html" %}
 
 {% block content %}
 	<div class="container">
 		<div class="row">
-			<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+			<div class="social-share-desktop col-md-1 col-xs-12">
+				<ul>
+					<li>
+						<a href="https://www.facebook.com/sharer/sharer.php?u={{ data.post.fullPostUrl }}"
+							target="_blank" class="social-share-icon shadow fa fa-facebook-f"></a>
+					</li>
+					<li>
+						<a 
+						href="https://twitter.com/intent/tweet?text={{ data.post.title }}&url={{ data.post.fullPostUrl }}" target="_blank" class="social-share-icon shadow fa fa-twitter"></a>
+					</li>
+					<li> 
+						<a href="https://www.linkedin.com/shareArticle?mini=true&url={{ data.post.fullPostUrl }}&title={{ data.post.title }}" target="_blank" class="social-share-icon shadow fa fa-linkedin"></a>
+					</li>
+				</ul>
+			</div>
+			<div class="col-md-offset-1 col-md-9 col-xs-12">
 				<article>
 					<p>
 						<a href="/blog">&larr; back to the blog</a>
@@ -42,6 +57,22 @@
 						</div>
 					{% endif %}
 				</article>
+			</div>
+			<div class="social-share-mobile col-xs-12 text-center">
+				<ul>
+					<li>
+						<a href="https://www.facebook.com/sharer/sharer.php?u={{ data.post.fullPostUrl }}" target="_blank"
+							class="social-share-icon shadow fa fa-facebook-f"></a>
+					</li>
+					<li>
+						<a href="https://twitter.com/intent/tweet?text={{ data.post.title }}&url={{ data.post.fullPostUrl }}"
+							target="_blank" class="social-share-icon shadow fa fa-twitter"></a>
+					</li>
+					<li>
+						<a href="https://www.linkedin.com/shareArticle?mini=true&url={{ data.post.fullPostUrl }}&title={{ data.post.title }}"
+							target="_blank" class="social-share-icon shadow fa fa-linkedin"></a>
+					</li>
+				</ul>
 			</div>
 		</div>
 	</div>
