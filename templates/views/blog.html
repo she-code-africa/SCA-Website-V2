@@ -1,202 +1,168 @@
-{% extends "layouts/default.html" %} 
-
-{% macro blogPost(post) %}
+{% extends "layouts/default.html" %} {% macro blogPost(post) %}
 <div class="col-sm-6 blog-post" data-ks-editable="editable(user, { list: " Post ", id: post.id })">
-	<div class="post-circle">
-		{% if post.image.exists %}
-			<img src="{{ post._.image.fit(160,160) }}" alt="">
-		{% endif %}
-	</div>
-	<div class="post-body">
-		<h5 class="post-title">
-			<a href="/blog/post/{{ post.slug }}">{{ post.title }}</a>
-		</h5>
-		<div class="post-subtitle">
-			<p class="text-muted">Posted
-				{% if post.publishedDate %}
-					on {{ post._.publishedDate.format("MMMM Do, YYYY") }}
-				{% endif %}
-				{% if post.categories and post.categories.length %}
-					in {% for cat in post.categories %}<a
-					href="/blog/{{ cat.key }}">{{ cat.name }}</a>
-					{% if loop.index < post.categories.length %},
-				{% endif %}{% endfor %}
-				{% endif %}
-			</p>
-			{% if post.author %}
-				<div class="author-img">
-					<img src="/images/teamMember2.png" alt="">
-				</div>
-				<div class="auth">
-					<p>by {{ post.author.name.first }}</p>
-					<p>500 views</p>
-				</div>
-			{% endif %}
-			<p>{{ post.content.brief|safe }}</p>
-			{% if post.content.extended %}
-			<p class="read-more">
-				<a href="/blog/post/{{ post.slug }}">Read more...</a>
-			</p>
-		</div>
-	</div>
-	{% endif %}
+    <div class="post-circle">
+        {% if post.image.exists %}
+        <img src="{{ post._.image.fit(160,160) }}" alt=""> {% endif %}
+    </div>
+    <div class="post-body">
+        <h5 class="post-title">
+            <a href="/blog/post/{{ post.slug }}">{{ post.title }}</a>
+        </h5>
+        <div class="post-subtitle">
+            <p class="text-muted">Posted {% if post.publishedDate %} on {{ post._.publishedDate.format("MMMM Do, YYYY") }} {% endif %} {% if post.categories and post.categories.length %} in {% for cat in post.categories %}<a href="/blog/{{ cat.key }}">{{ cat.name }}</a> {%
+                if loop.index
+                < post.categories.length %}, {% endif %}{% endfor %} {% endif %} </p>
+                    {% if post.author %}
+                    <div class="author-img">
+                        <img src="/images/teamMember2.png" alt="">
+                    </div>
+                    <div class="auth">
+                        <p>by {{ post.author.name.first }}</p>
+                        <p>500 views</p>
+                    </div>
+                    {% endif %}
+                    <p>{{ post.content.brief|safe }}</p>
+                    {% if post.content.extended %}
+                    <p class="read-more">
+                        <a href="/blog/post/{{ post.slug }}">Read more...</a>
+                    </p>
+        </div>
+    </div>
+    {% endif %}
 </div>
 {% endmacro %}
 <section>
-	{% block intro %}
-	<div class="__shecodeblogimg">
-		<div class="container text-center">
-			{% set title = ( data.category.name if data.category else "OUR BLOG" ) %}
-			<p class="__shecodeafriab">{{title}}</p>
-			<p class="__shecodeafriab1">Actively shaping the lives of girls in STEM</p>
-		</div>
+    {% block intro %}
+    <div class="__shecodeblogimg">
+        <div class="container text-center">
+            {% set title = ( data.category.name if data.category else "OUR BLOG" ) %}
+            <p class="__shecodeafriab">{{title}}</p>
+            <p class="__shecodeafriab1">Actively shaping the lives of girls in STEM</p>
+        </div>
 
-		<div id="intro-card">
-			<h4 class="title">Do you have a story?</h4>
-			<p>We would be glad to hear your experience about your <br> journey in tech!</p>
+        <div id="intro-card">
+            <h4 class="title">Do you have a story?</h4>
+            <p>We would be glad to hear your experience about your <br> journey in tech!</p>
 
-			<button class="btn blog-button"><img src="/images/female-hair-shape-and-face-silhouette.jpg" alt="">
+            <button class="btn blog-button"><img src="/images/female-hair-shape-and-face-silhouette.jpg" alt="">
 				<span>Join
 					Us</span> </button>
-		</div>
-	</div>
-	{% endblock %}
+        </div>
+    </div>
+    {% endblock %} {% block content %}
+    <div class="container-fluid">
+        <div class="blog-welcome" style="display: flex;">
+            <img src="/images/s-left.png" alt="">
+            <p>Recent Posts</p>
+            <img src="/images/s-right.png" alt="">
+        </div>
 
-	{% block content %}
-	<div class="container-fluid">
-		<div class="blog-welcome" style="display: flex;">
-			<img src="/images/s-left.png" alt="">
-			<p>Recent Posts</p>
-			<img src="/images/s-right.png" alt="">
-		</div>
-		
-		<br><br>
-		
-		<div class="row">
-			{% if data.categories.length %}
-				<div class="col-sm-4 col-md-3">
-					<h3>Categories</h3>
-					<div class="list-group">
-						{% set class = ( "active" if not data.category else "" ) %}
-						<a href="/blog" class="{{ class }} list-group-item">All Categories</a>
-						{% for cat in data.categories %}
-						{% set class = ( "active" if data.category and data.category.id == cat.id else "" ) %}
-							<a href="/blog/{{ cat.key }}" class="{{ class }} list-group-item">{{ cat.name }}</a>
-						{% endfor %}
-					</div>
-				</div>
-			{% endif %}
-			<div class="col-sm-8 col-md-9">
-				{% if filters.category and not data.category %}
-					<h3 class="text-muted">Invalid Category.</h3>
-				{% else %}
-					{% if data.posts.results.length %}
+        <br><br>
 
-						{% for post in data.posts.results %} {{ blogPost(post) }} {% endfor %}
+        <div class="row">
+            {% if data.categories.length %}
+            <div class="col-sm-4 col-md-3">
+                <h3>Categories</h3>
+                <div class="list-group">
+                    {% set class = ( "active" if not data.category else "" ) %}
+                    <a href="/blog" class="{{ class }} list-group-item">All Categories</a> {% for cat in data.categories %} {% set class = ( "active" if data.category and data.category.id == cat.id else "" ) %}
+                    <a href="/blog/{{ cat.key }}" class="{{ class }} list-group-item">{{ cat.name }}</a> {% endfor %}
+                </div>
+            </div>
+            {% endif %}
+            <div class="col-sm-8 col-md-9">
+                {% if filters.category and not data.category %}
+                <h3 class="text-muted">Invalid Category.</h3>
+                {% else %} {% if data.posts.results.length %} {% for post in data.posts.results %} {{ blogPost(post) }} {% endfor %} {% if data.posts.totalPages > 1 %}
+                <ul class="pagination">
 
-						{% if data.posts.totalPages > 1 %}
-							<ul class="pagination">
+                    {% if data.posts.previous %}
+                    <li>
+                        <a href="?page={{ data.posts.previous }}">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="disabled">
+                        <a href="?page=1">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </li>
+                    {% endif %} {% for p in data.posts.pages %} {% set class = ( "active" if data.posts.currentPage == p else "" ) %}
+                    <li class="{{ class }}">
+                        {% set page = ( (data.posts.totalPages if i else 1) if p == "..." else p ) %}
+                        <a href="?page={{ page }}">{{ p }}</a>
+                    </li>
+                    {% endfor %} {% if data.posts.next %}
+                    <li>
+                        <a href="?page={{ data.posts.next }}">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="disabled">
+                        <a href="?page={{ data.posts.totalPages }}">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </li>
+                    {% endif %}
 
-								{% if data.posts.previous %}
-									<li>
-										<a href="?page={{ data.posts.previous }}">
-											<span class="glyphicon glyphicon-chevron-left"></span>
-										</a>
-									</li>
-								{% else %}
-									<li class="disabled">
-										<a href="?page=1">
-											<span class="glyphicon glyphicon-chevron-left"></span>
-										</a>
-									</li>
-								{% endif %}
+                </ul>
+                {% endif %} {% else %} {% if data.category %}
+                <h3 class="text-muted">There are no posts in the category {{ data.category.name }}.</h3>
+                {% else %}
+                <h3 class="text-muted">There are no posts yet.</h3>
+                {% endif %} {% endif %} {% endif %}
+            </div>
+        </div>
+    </div>
 
-								{% for p in data.posts.pages %}
-								{% set class = ( "active" if data.posts.currentPage == p else "" ) %}
-									<li class="{{ class }}">
-										{% set page = ( (data.posts.totalPages if i else 1) if p == "..." else p ) %}
-										<a href="?page={{ page }}">{{ p }}</a>
-									</li>
-								{% endfor %}
-
-								{% if data.posts.next %}
-									<li>
-										<a href="?page={{ data.posts.next }}">
-											<span class="glyphicon glyphicon-chevron-right"></span>
-										</a>
-									</li>
-								{% else %}
-									<li class="disabled">
-										<a href="?page={{ data.posts.totalPages }}">
-											<span class="glyphicon glyphicon-chevron-right"></span>
-										</a>
-									</li>
-								{% endif %}
-
-							</ul>
-						{% endif %}
-					{% else %}
-						{% if data.category %}
-							<h3 class="text-muted">There are no posts in the category {{ data.category.name }}.</h3>
-						{% else %}
-							<h3 class="text-muted">There are no posts yet.</h3>
-						{% endif %}
-					{% endif %}
-				{% endif %}
-			</div>
-		</div>
-	</div>
-
-	<div class="most-visited container-fluid">
-		<div class="blog-welcome" style="display: flex;">
-			<img src="/images/s-left.png" alt="">
-			<p>Most Viewed</p>
-			<img src="/images/s-right.png" alt="">
-		</div>
+    <div class="most-visited container-fluid">
+        <div class="blog-welcome" style="display: flex;">
+            <img src="/images/s-left.png" alt="">
+            <p>Most Viewed</p>
+            <img src="/images/s-right.png" alt="">
+        </div>
 
 
-		<div>
-			<div class="top-section">
-				<img src="/images/most-viewed.png" alt="">
-				<h1 class="title">how women <br> make the <br> balance</h1>
-			</div>
-			<div class="mv-content container">
-				<div class="post-subtitle row" style="margin: 20px;">
-					<div class="author-img col-sm-4">
-						<img src="/images/teamMember2.png" alt="">
-					</div>
-					<div class="col-sm-8">
-						<p>AUTHOR: Ayomide Balogun</p>
-						<p>FULLSTACK JAVASCRIPT DEV</p>
-					</div>
-				</div>
-				<div class="text">
-					There are many variations of passages of Lorem Ipsum available, but the majority have suffered
-					alteration in some form, by injected humour, or randomised words which don't look even slightly
-					believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't
-					anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet
-					tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.
-					It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures,
-					to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free
-					from repetition, injected humour, or non-characteristic words etc.
-				</div>
-				<button class="btn">Continue Reading <img src="/images/continue.png" alt=""></button>
-			</div>
+        <div>
+            <div class="top-section">
+                <img src="/images/most-viewed.png" alt="">
+                <h1 class="title">how women <br> make the <br> balance</h1>
+            </div>
+            <div class="mv-content container">
+                <div class="post-subtitle row" style="margin: 20px;">
+                    <div class="author-img col-sm-4">
+                        <img src="/images/teamMember2.png" alt="">
+                    </div>
+                    <div class="col-sm-8">
+                        <p>AUTHOR: Ayomide Balogun</p>
+                        <p>FULLSTACK JAVASCRIPT DEV</p>
+                    </div>
+                </div>
+                <div class="text">
+                    There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum,
+                    you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet.
+                    It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour,
+                    or non-characteristic words etc.
+                </div>
+                <button class="btn">Continue Reading <img src="/images/continue.png" alt=""></button>
+            </div>
 
-		</div>
-	</div>
-	<hr class="blog_community_line">
+        </div>
+    </div>
+    <hr class="blog_community_line">
 
-	<div class="share container">
-		<div class="row">
-			<div class="box1 col-xs-6 col-sm-8 col-md-8">
-				<h2>DO YOU OWN AN INSPIRING <span>STORY?</span></h2>
-			</div>
-			<hr class="col-xs-2">
-			<button class="btn blog-button col-xs-4 col-sm-2 col-md-2"><img
+    <div class="share container">
+        <div class="row">
+            <div class="box1 col-xs-6 col-sm-8 col-md-8">
+                <h2>DO YOU OWN AN INSPIRING <span>STORY?</span></h2>
+            </div>
+            <hr class="col-xs-2">
+            <button class="btn blog-button col-xs-4 col-sm-2 col-md-2"><img
 					src="/images/female-hair-shape-and-face-silhouette.jpg" alt="">
 				<span>SHARE WITH US</span> </button>
-		</div>
-	</div>
-	{% endblock %}
+        </div>
+    </div>
+    {% endblock %}
 </section>
