@@ -2,44 +2,36 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 /**
- * Enquiry Model
+ * Partnership Model
  * =============
  */
 
-var Enquiry = new keystone.List('Enquiry', {
+var Partnership = new keystone.List('Partnership', {
     nocreate: true,
     noedit: true,
 });
 
-Enquiry.add({
-    name: { type: Types.Name, required: true },
+Partnership.add({
+    first_name: { type: Types.Name, required: true },
+    last_name: { type: Types.Name, required: true },
     email: { type: Types.Email, required: true },
-    phone: { type: String },
-    enquiryType: {
-        type: Types.Select,
-        options: [
-            { value: 'message', label: 'Just leaving a message' },
-            { value: 'question', label: 'I\'ve got a question' },
-            { value: 'other', label: 'Something else...' },
-        ]
-    },
-    // message: { type: Types.Markdown, required: true },
-    message: { type: Types.Textarea, required: true },
+    company: { type: String },
+    details: { type: Types.Markdown, required: true },
     createdAt: { type: Date, default: Date.now },
 });
 
-Enquiry.schema.pre('save', function(next) {
+Partnership.schema.pre('save', function(next) {
     this.wasNew = this.isNew;
     next();
 });
 
-Enquiry.schema.post('save', function() {
+Partnership.schema.post('save', function() {
     if (this.wasNew) {
         this.sendNotificationEmail();
     }
 });
 
-Enquiry.schema.methods.sendNotificationEmail = function(callback) {
+Partnership.schema.methods.sendNotificationEmail = function(callback) {
     if (typeof callback !== 'function') {
         callback = function(err) {
             if (err) {
@@ -53,13 +45,13 @@ Enquiry.schema.methods.sendNotificationEmail = function(callback) {
         return callback(new Error('could not find mailgun credentials'));
     }
 
-    var enquiry = this;
+    var partnership = this;
     var brand = keystone.get('brand');
 
     keystone.list('User').model.find().where('isAdmin', true).exec(function(err, admins) {
         if (err) return callback(err);
         new keystone.Email({
-            templateName: 'enquiry-notification',
+            templateName: 'partnership-notification',
             transport: 'mailgun',
         }).send({
             to: admins,
@@ -67,13 +59,13 @@ Enquiry.schema.methods.sendNotificationEmail = function(callback) {
                 name: 'She Code Africa',
                 email: 'contact@she-code-africa.com',
             },
-            subject: 'New Enquiry for She Code Africa',
-            enquiry: enquiry,
+            subject: 'New Partnership Request for She Code Africa',
+            partnership: partnership,
             brand: brand,
         }, callback);
     });
 };
 
-Enquiry.defaultSort = '-createdAt';
-Enquiry.defaultColumns = 'name, email, enquiryType, message, createdAt';
-Enquiry.register();
+Partnership.defaultSort = '-createdAt';
+Partnership.defaultColumns = 'first_name, last_name, email, company, details, createdAt';
+Partnership.register();
