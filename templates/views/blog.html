@@ -1,10 +1,10 @@
-{% extends "layouts/default.html" %} 
+{% extends "layouts/default.html" %}
 
 {% macro blogPost(post) %}
 <div class="col-sm-6 blog-post" data-ks-editable="editable(user, { list: " Post ", id: post.id })">
 	<div class="post-circle">
 		{% if post.image.exists %}
-			<img src="{{ post._.image.fit(160,160) }}" alt="">
+		<img src="{{ post._.image.fit(160,160) }}" alt="">
 		{% endif %}
 	</div>
 	<div class="post-body">
@@ -14,23 +14,22 @@
 		<div class="post-subtitle">
 			<p class="text-muted">Posted
 				{% if post.publishedDate %}
-					on {{ post._.publishedDate.format("MMMM Do, YYYY") }}
+				on {{ post._.publishedDate.format("MMMM Do, YYYY") }}
 				{% endif %}
 				{% if post.categories and post.categories.length %}
-					in {% for cat in post.categories %}<a
-					href="/blog/{{ cat.key }}">{{ cat.name }}</a>
-					{% if loop.index < post.categories.length %},
+				in {% for cat in post.categories %}<a href="/blog/{{ cat.key }}">{{ cat.name }}</a>
+				{% if loop.index < post.categories.length %},
 				{% endif %}{% endfor %}
 				{% endif %}
 			</p>
 			{% if post.author %}
-				<div class="author-img">
-					<img src="/images/teamMember2.png" alt="">
-				</div>
-				<div class="auth">
-					<p>by {{ post.author.name.first }}</p>
-					<p>500 views</p>
-				</div>
+			<div class="author-img">
+				<img src="/images/teamMember2.png" alt="">
+			</div>
+			<div class="auth">
+				<p>by {{ post.author.name.first }}</p>
+				<p>{{ post.pageView}}</p>
+			</div>
 			{% endif %}
 			<p>{{ post.content.brief|safe }}</p>
 			{% if post.content.extended %}
@@ -69,79 +68,79 @@
 			<p>Recent Posts</p>
 			<img src="/images/s-right.png" alt="">
 		</div>
-		
+
 		<br><br>
-		
+
 		<div class="row">
 			{% if data.categories.length %}
-				<div class="col-sm-4 col-md-3">
-					<h3>Categories</h3>
-					<div class="list-group">
-						{% set class = ( "active" if not data.category else "" ) %}
-						<a href="/blog" class="{{ class }} list-group-item">All Categories</a>
-						{% for cat in data.categories %}
-						{% set class = ( "active" if data.category and data.category.id == cat.id else "" ) %}
-							<a href="/blog/{{ cat.key }}" class="{{ class }} list-group-item">{{ cat.name }}</a>
-						{% endfor %}
-					</div>
+			<div class="col-sm-4 col-md-3">
+				<h3>Categories</h3>
+				<div class="list-group">
+					{% set class = ( "active" if not data.category else "" ) %}
+					<a href="/blog" class="{{ class }} list-group-item">All Categories</a>
+					{% for cat in data.categories %}
+					{% set class = ( "active" if data.category and data.category.id == cat.id else "" ) %}
+					<a href="/blog/{{ cat.key }}" class="{{ class }} list-group-item">{{ cat.name }}</a>
+					{% endfor %}
 				</div>
+			</div>
 			{% endif %}
 			<div class="col-sm-8 col-md-9">
 				{% if filters.category and not data.category %}
-					<h3 class="text-muted">Invalid Category.</h3>
+				<h3 class="text-muted">Invalid Category.</h3>
 				{% else %}
-					{% if data.posts.results.length %}
+				{% if data.posts.results.length %}
 
-						{% for post in data.posts.results %} {{ blogPost(post) }} {% endfor %}
+				{% for post in data.posts.results %} {{ blogPost(post) }} {% endfor %}
 
-						{% if data.posts.totalPages > 1 %}
-							<ul class="pagination">
+				{% if data.posts.totalPages > 1 %}
+				<ul class="pagination">
 
-								{% if data.posts.previous %}
-									<li>
-										<a href="?page={{ data.posts.previous }}">
-											<span class="glyphicon glyphicon-chevron-left"></span>
-										</a>
-									</li>
-								{% else %}
-									<li class="disabled">
-										<a href="?page=1">
-											<span class="glyphicon glyphicon-chevron-left"></span>
-										</a>
-									</li>
-								{% endif %}
-
-								{% for p in data.posts.pages %}
-								{% set class = ( "active" if data.posts.currentPage == p else "" ) %}
-									<li class="{{ class }}">
-										{% set page = ( (data.posts.totalPages if i else 1) if p == "..." else p ) %}
-										<a href="?page={{ page }}">{{ p }}</a>
-									</li>
-								{% endfor %}
-
-								{% if data.posts.next %}
-									<li>
-										<a href="?page={{ data.posts.next }}">
-											<span class="glyphicon glyphicon-chevron-right"></span>
-										</a>
-									</li>
-								{% else %}
-									<li class="disabled">
-										<a href="?page={{ data.posts.totalPages }}">
-											<span class="glyphicon glyphicon-chevron-right"></span>
-										</a>
-									</li>
-								{% endif %}
-
-							</ul>
-						{% endif %}
+					{% if data.posts.previous %}
+					<li>
+						<a href="?page={{ data.posts.previous }}">
+							<span class="glyphicon glyphicon-chevron-left"></span>
+						</a>
+					</li>
 					{% else %}
-						{% if data.category %}
-							<h3 class="text-muted">There are no posts in the category {{ data.category.name }}.</h3>
-						{% else %}
-							<h3 class="text-muted">There are no posts yet.</h3>
-						{% endif %}
+					<li class="disabled">
+						<a href="?page=1">
+							<span class="glyphicon glyphicon-chevron-left"></span>
+						</a>
+					</li>
 					{% endif %}
+
+					{% for p in data.posts.pages %}
+					{% set class = ( "active" if data.posts.currentPage == p else "" ) %}
+					<li class="{{ class }}">
+						{% set page = ( (data.posts.totalPages if i else 1) if p == "..." else p ) %}
+						<a href="?page={{ page }}">{{ p }}</a>
+					</li>
+					{% endfor %}
+
+					{% if data.posts.next %}
+					<li>
+						<a href="?page={{ data.posts.next }}">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</a>
+					</li>
+					{% else %}
+					<li class="disabled">
+						<a href="?page={{ data.posts.totalPages }}">
+							<span class="glyphicon glyphicon-chevron-right"></span>
+						</a>
+					</li>
+					{% endif %}
+
+				</ul>
+				{% endif %}
+				{% else %}
+				{% if data.category %}
+				<h3 class="text-muted">There are no posts in the category {{ data.category.name }}.</h3>
+				{% else %}
+				<h3 class="text-muted">There are no posts yet.</h3>
+				{% endif %}
+				{% endif %}
 				{% endif %}
 			</div>
 		</div>
