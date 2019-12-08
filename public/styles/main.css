@@ -98,7 +98,8 @@ a:hover {
 .navbar-toggle {
     /*border: 2px solid #FFFFFF;*/
     color: #ffffff;
-    background: #ff85d2;
+	background: #ff85d2;
+	margin-top: 1.3rem;
 }
 
 .navbar-toggle .icon-bar {
@@ -183,8 +184,19 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
 
 
 /*=================================================================
-  Custom Css
+Custom Css
 ==================================================================*/
+.__shecodeformcard {
+	position: relative;
+}
+
+.__shecodeformp {
+	position: absolute;
+	right: calc(50% - 9rem);
+	top: -11px;
+	padding-left: 21px;
+	padding-right: 20px;
+}
 
 .__shecodenavbar {
     background-color: transparent;
@@ -193,10 +205,6 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
 
 .__shecodelogo {
     width: 48px;
-}
-
-.__shecodenavcol {
-    margin-top: 25px;
 }
 
 .__shecodelink {
@@ -210,7 +218,8 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
     transition: all 0.4s ease-in;
 }
 
-.__shecodelink a:hover {
+.__shecodelink a:hover,
+li.__shecodelink.active a {
     color: #ff1493 !important;
     text-decoration: overline !important;
     transform: scale(1.04);
@@ -222,7 +231,6 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
     font-size: 55px;
     color: #ff1493;
     line-height: 1.5;
-    margin-top: 22%;
 }
 
 .__shecodeafri1 {
@@ -234,7 +242,6 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
 .__shecodetopimg {
     transform: scaleX(-1);
     width: 100%;
-    margin-top: 10%;
 }
 
 .__shecodebtn {
@@ -246,7 +253,8 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
     font-weight: 600;
     margin-top: 5%;
     background: #ffffff;
-    transition: all 0.4s ease-in;
+	transition: all 0.4s ease-in;
+	width: 50%;
 }
 
 .__shecodebtn:hover {
@@ -264,9 +272,15 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
 
 .__shecodecard {
     box-shadow: 0 0 10px 0 rgba(183, 5, 105, 0.22);
-    padding: 35px;
+    padding: 50px 35px 0 35px;
     border-radius: 5px;
     margin-top: 10%;
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+	.__shecodecard {
+		margin-top: 10%;
+	}
 }
 
 .__shecodevmvp {
@@ -280,7 +294,11 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
 .__shecodevmvp1 {
     line-height: 1.4;
     color: #807c7c;
-    margin-top: 5%;
+	margin-top: 5%;
+}
+
+div.__shecodecard > div > div > div > p.__shecodevmvp1 {
+	padding-bottom: 4rem;
 }
 
 .__shecodefounder {
@@ -314,7 +332,7 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
     box-shadow: 0 0 10px 0 rgba(183, 5, 105, 0.22);
     padding: 40px;
     border-radius: 5px;
-    margin-top: 20%;
+    margin-top: 27%;
 }
 
 .__shecodetestimp {
@@ -337,23 +355,25 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
 .__shecodetestimimg {
     width: 70px;
     border-radius: 50%;
-    margin-top: -45px;
+    margin-top: -32px;
 }
 
 .__shecodeformcard {
     padding: 80px 120px 30px;
     border-radius: 5px;
-    margin-top: 10%;
+    margin-top: 20%;
     border: 1px solid #ff149336;
+}
+
+@media screen and (min-width: 426px) {
+	.__shecodeformcard {
+		margin-top: 10%;
+	}
 }
 
 .__shecodeformp {
     background: #ffffff;
     font-size: 18px;
-    position: absolute;
-    margin-top: -103px;
-    left: 41%;
-    padding: 10px 30px;
     font-family: Raleway-Black;
     letter-spacing: 5px;
 }
@@ -1317,8 +1337,10 @@ box-shadow: 0px 0px 7px #FF4EAE;
 }
 
 /*team page*/
-section {
-    padding: 50px 0;
+@media screen and (min-width: 768px) {
+	section {
+		padding: 50px 0;
+	}
 }
 
 /*	gallery */
@@ -1454,8 +1476,14 @@ section {
     background: #3a3a3a;
     color: #ffffff;
     font-size: 14px;
-    padding: 13px;
-    text-align: center;
+	text-align: center;
+	height: 55px;
+    display: flex;
+    align-items: center;
+}
+
+.__footerdownbg p {
+	margin: 0;
 }
 
 /*footer end*/
