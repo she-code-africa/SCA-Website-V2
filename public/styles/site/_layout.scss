@@ -20,3 +20,28 @@
 	max-width: 100%;
 	height: auto;
 }
+
+@media screen and (min-width: 768px) {
+	.nav-container {
+		height: 110px;
+		padding-top: 20px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.navbar-nav {
+    flex-direction: column;
+	}
+
+	.nav-container {
+		padding-top: 1rem;
+	}
+
+	.showcase-img {
+		padding: 10% 15px;
+	}
+}
+

@@ -44,9 +44,6 @@
 
 @media screen and (max-width: 1024px){
 
-  .__shecodeformp {
-    left: 37%;
-  }
 
   .__shecodevaldiv1 {
     margin-left: 33%;
@@ -60,9 +57,6 @@
     margin-top: 32%;
     margin-left: 32%;
   }
-
-  
-
 }
 
 
@@ -80,7 +74,10 @@
   @media screen 800px
 ==================================================================*/
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 800px) {
+	.__shecodeformp {
+		right: 13rem;
+	}
 
 	.__shecodelink {
     padding: 10px 4px;
@@ -97,11 +94,6 @@
   .__shecodetestimcard {
     padding: 8px;
   }
-
-  .__shecodeformp {
-    left: 32%;
-  }
-
   .__shecodevaldiv1 {
     margin-left: 43%;
   }
@@ -140,24 +132,25 @@
   .__shecodebenefit {
     margin-top: 30%;
   }
-  
-
-
 }
 
 /*=================================================================
   @media screen 767px
 ==================================================================*/
 
-@media screen and (max-width: 767px){
+@media screen and (max-width: 767px) {
 
   .__shecodelink {
     text-align: center;
   }
+	
+	.sca-tagline {
+		padding: 10% 0;
+	}
 
-  .__shecodeafri {
-    margin-top: 10%;
-  }
+	.shecodefounder-card {
+		padding: 15% 0 10%;
+	}
 
   .__shecodefounder {
     border-radius: 0;
@@ -198,26 +191,60 @@
   
 }
 
+@media screen and (min-width: 768px) {
+	.sca-tagline-row {
+		height: 35vh;
+	}
+
+	.sca-tagline {
+		height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	}
+}
+
+@media screen and (min-width: 992px) {
+	.sca-tagline-row {
+		height: 46vh;
+	}
+}
+
+@media screen and (max-width: 767px) and (min-width: 375px) {
+	.__shecodeformcard {
+		padding-top: 0;
+	}
+
+	.__shecodeformp {
+		right: calc(18vw - 20px);
+	}
+}
+
 
 /*=================================================================
   @media screen 560px
 ==================================================================*/
 
 
-  @media screen and (max-width: 560px){
+@media screen and (max-width: 560px) {
+	.sca-tagline {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}	
 
-  	.__shecodelink {
-      text-align: center;
-    }
 
-    .__shecodeafri {
-      font-size: 25px;
-      margin-top: 18%;
-    }
+	.__shecodelink {
+		text-align: center;
+	}
 
-    .__shecodeafri1 {
-      font-size: 15px;
-    }
+	.__shecodeafri {
+		font-size: 25px;
+	}
+
+	.__shecodeafri1 {
+		font-size: 15px;
+	}
 
     .__shecodefounderp {
       margin-top: 11%;
@@ -230,11 +257,6 @@
 
     .__shecodeformcard {
       padding: 35px 7px 30px;
-    }
-
-    .__shecodeformp {
-      margin-top: -54px;
-      left: 9%;
     }
 
     .__shecodeaboutimg {
@@ -300,8 +322,16 @@
     .__shecodeafriab {
       font-size: 25px;
     }
+}
 
-    
+@media screen and (max-width: 374px) {
+	.__shecodeformp {
+		right: calc(12vw - 20px);
+	}
+
+	.__shecodeformp {
+		font-size: 17px;
+	}
 }
 
 
@@ -310,7 +340,7 @@
 ==================================================================*/
 
 
- /* @media screen and (min-width: 480px){
+/* @media screen and (min-width: 480px){
     .__shecodevaldiv1 {
       margin-left: 40%;
     }
@@ -324,4 +354,3 @@
       margin-left: 40%;
     }
   }*/
-

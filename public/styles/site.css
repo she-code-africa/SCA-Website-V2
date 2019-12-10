@@ -3679,16 +3679,13 @@ tbody.collapse.in {
     .navbar {
       border-radius: 4px; } }
 
-.navbar-header:before, .navbar-header:after {
-  content: " ";
-  display: table; }
-
-.navbar-header:after {
-  clear: both; }
-
-@media (min-width: 768px) {
-  .navbar-header {
-    float: left; } }
+.navbar-header {
+  padding-left: 30px; }
+  .navbar-header:before, .navbar-header:after {
+    content: " ";
+    display: table; }
+  .navbar-header:after {
+    clear: both; }
 
 .navbar-collapse {
   overflow-x: visible;
@@ -3771,20 +3768,16 @@ tbody.collapse.in {
   margin-bottom: 0;
   border-width: 1px 0 0; }
 
-.navbar-brand {
-  float: left;
-  padding: 15px 15px;
-  font-size: 18px;
-  line-height: 20px;
-  height: 50px; }
-  .navbar-brand:hover, .navbar-brand:focus {
-    text-decoration: none; }
-  .navbar-brand > img {
-    display: block; }
-  @media (min-width: 768px) {
-    .navbar > .container .navbar-brand,
-    .navbar > .container-fluid .navbar-brand {
-      margin-left: -15px; } }
+.navbar-brand:hover, .navbar-brand:focus {
+  text-decoration: none; }
+
+.navbar-brand > img {
+  display: block; }
+
+@media (min-width: 768px) {
+  .navbar > .container .navbar-brand,
+  .navbar > .container-fluid .navbar-brand {
+    margin-left: -15px; } }
 
 .navbar-toggle {
   position: relative;
@@ -3811,7 +3804,7 @@ tbody.collapse.in {
       display: none; } }
 
 .navbar-nav {
-  margin: 7.5px -15px; }
+  display: flex; }
   .navbar-nav > li > a {
     padding-top: 10px;
     padding-bottom: 10px;
@@ -3834,13 +3827,10 @@ tbody.collapse.in {
           background-image: none; } }
   @media (min-width: 768px) {
     .navbar-nav {
-      float: left;
       margin: 0; }
-      .navbar-nav > li {
-        float: left; }
-        .navbar-nav > li > a {
-          padding-top: 15px;
-          padding-bottom: 15px; } }
+      .navbar-nav > li > a {
+        padding-top: 15px;
+        padding-bottom: 15px; } }
 
 .navbar-form {
   margin-left: -15px;
@@ -5839,3 +5829,19 @@ button.close {
   display: block;
   max-width: 100%;
   height: auto; }
+
+@media screen and (min-width: 768px) {
+  .nav-container {
+    height: 110px;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; } }
+
+@media screen and (max-width: 425px) {
+  .navbar-nav {
+    flex-direction: column; }
+  .nav-container {
+    padding-top: 1rem; }
+  .showcase-img {
+    padding: 10% 15px; } }
