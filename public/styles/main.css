@@ -978,7 +978,7 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .share button {
-    <<<<<<< HEAD margin-top: 21px;
+  margin-top: 21px;
     width: 90px;
     height: 37px;
 }
@@ -989,11 +989,11 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 
-}
+/* }
 =======margin-top: 25px;
 box-shadow: 0px 0px 7px #FF4EAE;
 
-}
+} */
 @media only screen and (min-width:1440px) {
     .blog-welcome {
         margin: 11% 37% 30px 37%;

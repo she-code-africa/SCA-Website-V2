@@ -24,6 +24,13 @@ exports = module.exports = function (req, res) {
 
 		q.exec(function (err, result) {
 			locals.data.post = result;
+			var postId = locals.data.post._id
+			var count = locals.data.post.pageView + 1
+			keystone.list('Post').model.findOneAndUpdate({ _id: postId }, { $set: { pageView: count } }, { new: true }, (err, doc) => {
+				if (err) {
+					console.err(err);
+				}
+			});
 			next(err);
 		});
 
@@ -39,8 +46,8 @@ exports = module.exports = function (req, res) {
 			next(err);
 		});
 
-	});
 
+	});
 	// Render the view
 	view.render('post');
 };
