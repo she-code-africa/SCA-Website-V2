@@ -99,7 +99,7 @@ a:hover {
     /*border: 2px solid #FFFFFF;*/
     color: #ffffff;
 	background: #ff85d2;
-	margin-top: 1.3rem;
+	/* margin-top: 1.3rem; */
 }
 
 .navbar-toggle .icon-bar {
@@ -205,6 +205,12 @@ Custom Css
 
 .__shecodelogo {
     width: 48px;
+}
+
+@media screen and (max-width: 425px) {
+	.__shecodelogo {
+		width: 30px;
+	}
 }
 
 .__shecodelink {
@@ -455,7 +461,16 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
     font-size: 49px;
     color: #ffffff;
     line-height: 1.2;
-    margin-top: 190px;
+}
+
+.about-us {
+	padding-top: 25vh
+}
+
+@media screen and (max-width: 425px) {
+	.about-us {
+		padding-top: 12vh
+	}
 }
 
 .__shecodeafriab1 {
@@ -465,12 +480,16 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
     letter-spacing: 1px;
 }
 
+.about-section-x {
+	padding: 6rem 0 1rem;
+}
+
 .__shecodeval {
     font-size: 30px;
     color: #040303;
     text-align: center;
     font-weight: 600;
-    margin-top: 5%;
+    /* margin-top: 5%; */
 }
 
 .welcome_community {
@@ -528,21 +547,27 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodevalab {
+	position: relative;
     border: 1px solid;
     border-radius: 50%;
-    margin: 0 auto;
+    margin: 50px auto 0;
     width: 500px;
     height: 500px;
     text-align: center;
 }
 
-.__shecodevaldiv {
-    text-align: center;
+.value-card {
+	text-align: center;
     background: #ffffff;
     margin: 0 auto;
     width: 170px;
     border-radius: 50%;
     position: absolute;
+}
+
+.__shecodevaldiv {
+	top: 0;
+    left: 0;
 }
 
 .__shecodevaldiv img {
@@ -550,13 +575,8 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodevaldiv1 {
-    text-align: center;
-    background: #ffffff;
-    margin: 0 auto;
-    width: 170px;
-    border-radius: 50%;
-    position: absolute;
-    margin-left: 25%;
+    top: 0;
+    right: 0;
 }
 
 .__shecodevaldiv1 img {
@@ -564,13 +584,8 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodevaldiv2 {
-    text-align: center;
-    background: #ffffff;
-    margin: 0 auto;
-    width: 170px;
-    border-radius: 50%;
-    position: absolute;
-    margin-top: 25%;
+	bottom: 0;
+    left: 0;
 }
 
 .__shecodevaldiv2 img {
@@ -578,14 +593,8 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodevaldiv3 {
-    text-align: center;
-    background: #ffffff;
-    margin: 0 auto;
-    width: 170px;
-    border-radius: 50%;
-    position: absolute;
-    margin-top: 25%;
-    margin-left: 25%;
+	bottom: 0;
+    right: 0;
 }
 
 .__shecodevaldiv3 img {
@@ -593,8 +602,23 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodevalimg {
-    width: 120px;
-    margin-top: 30%;
+	position: absolute;
+}
+
+@media screen and (min-width: 426px) {
+	.__shecodevalimg {
+		width: 120px;
+		top: 34%;
+    	left: 39%;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.__shecodevalimg {
+		width: 80px;
+		left: 37%;
+		top: 32%;
+	}
 }
 
 .__shecodeskill {
@@ -632,6 +656,20 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
     padding-left: 6px;
 }
 
+.our-skills-stroke {
+	position: relative;
+}
+
+.stack {
+	position: absolute;
+	bottom: -5px;
+	right: 10px;
+}
+
+.our-skills {
+	padding-top: 40px;
+}
+
 .__shecodestroke {
     background: #ff16a9;
     height: 100px;
@@ -640,8 +678,8 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodestack {
-    float: right;
-    margin-top: 27%;
+    /* float: right; */
+    /* margin-top: 27%; */
 }
 
 .__shecodestroke1 {
@@ -652,8 +690,8 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodestack1 {
-    float: right;
-    margin-top: 27%;
+    /* float: right; */
+    /* margin-top: 27%; */
 }
 
 .__shecodestroke2 {
@@ -664,8 +702,8 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodestack2 {
-    float: right;
-    margin-top: 27%;
+    /* float: right; */
+    /* margin-top: 27%; */
 }
 
 .__shecodestroke3 {
@@ -676,8 +714,8 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodestack3 {
-    float: right;
-    margin-top: 27%;
+    /* float: right; */
+    /* margin-top: 27%; */
 }
 
 .__shecodestroke4 {
@@ -688,8 +726,26 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodestack4 {
-    float: right;
-    margin-top: 27%;
+    /* float: right; */
+    /* margin-top: 27%; */
+}
+
+@media screen and (min-width: 769px) {
+	.member-benefits {
+		margin-top: 100px;
+	}
+}
+
+@media screen and (max-width: 768px) and (min-width: 426px) {
+	.member-benefits {
+		margin-top: 25px;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.member-benefits {
+		margin-top: 20px;
+	}
 }
 
 .__shecodebenefit {
@@ -711,6 +767,15 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
     font-family: Raleway-Black;
 }
 
+.the-team {
+	padding-top: 65px;
+}
+
+@media screen and (max-width: 768px) {
+	.the-team {
+		padding-top: 40px;
+	}
+}
 .__shecodeteamimg {
     width: 200px;
 }
@@ -1259,7 +1324,7 @@ box-shadow: 0px 0px 7px #FF4EAE;
     display: block;
     overflow: hidden;
     margin: 0;
-    padding: 0;
+    padding-top: 30px;
 }
 .slick-list:focus {
     outline: none;

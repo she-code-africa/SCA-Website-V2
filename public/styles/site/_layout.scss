@@ -24,7 +24,6 @@
 @media screen and (min-width: 768px) {
 	.nav-container {
 		height: 110px;
-		padding-top: 20px;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
@@ -37,7 +36,7 @@
 	}
 
 	.nav-container {
-		padding-top: 1rem;
+		padding: 0.5rem 0;
 	}
 
 	.showcase-img {
