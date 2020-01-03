@@ -26,11 +26,12 @@ Post.add({
 		extended: { type: Types.Markdown, height: 400, markedOptions: { gfm: true } },
 	},
 	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
+	pageView: { type: Types.Number, default: 0 }
 });
 
 Post.schema.virtual('content.full').get(function () {
 	return this.content.extended || this.content.brief;
 });
 
-Post.defaultColumns = 'title, state|20%, author|20%, publishedDate|20%';
+Post.defaultColumns = 'title, state|20%, author|20%, publishedDate|20%, pageView|20%';
 Post.register();
