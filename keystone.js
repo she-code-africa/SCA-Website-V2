@@ -58,6 +58,8 @@ keystone.set('nav', {
     teams: ['teams', 'team-categories']
 });
 
+keystone.set('baseUrl', 'https://shecodeafrica.org/');
+
 // Start Keystone to connect to your database and initialise the web server
 
 

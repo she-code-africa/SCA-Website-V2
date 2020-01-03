@@ -1314,6 +1314,9 @@ box-shadow: 0px 0px 7px #FF4EAE;
   text-decoration: none;
   color: white;
 }
+.social-share-icon:visited {
+	color: white;
+}
 .fa {
 	padding-top: 15px;
 }

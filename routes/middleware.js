@@ -29,6 +29,8 @@ exports.initLocals = function(req, res, next) {
         // { label: 'Contact', key: 'contact', href: '/contact' },
     ];
 
+    // Initialise base url for full blog post links
+	res.locals.baseUrl = req.baseUrl;
 
     res.locals.user = req.user;
     next();
