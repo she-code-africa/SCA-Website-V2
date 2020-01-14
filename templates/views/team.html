@@ -22,41 +22,53 @@
                     <p class="__shecodeval1">TEAM</p><br><br>
                 </div>
 
+
+
                 {% if teams.length %}
                 <div align="center">
                     <button class="filter-button" data-filter="all">All</button> {% for cat in data.membership %}
                     <button class="filter-button" data-filter={{cat.id}}>{{cat.name}}</button> {% endfor %}
                 </div>
                 <br /> {% for member in teams %}
-
-                <div class="gallery_product col-md-3 col-sm-6 col-xs-12 filter {{member.membership}}">
+                <!-- <div class="gallery_product col-md-3 col-sm-6 col-xs-12 filter {{member.membership}}">
                     <img class="img-responsive" alt="{{member.name}}" src="{{member.image.url}}" />
                     <div class='img-info'>
                         <h4> {{member.name}}</h4>
                         <p>{{member.occupation}}</p>
                         <button class="btn __shecodebtn" role="toggle" data-toggle="modal" data-target="#{{member.id}}" class="btn">View Details</button>
                     </div>
+                </div> -->
+
+                <div class=" col-md-3 col-sm-6 col-xs-12 filter all {{member.membership}}">
+                    <div class="text-center">
+                        <img src="{{member.image.url}}" class="__shecodeteamimg" alt="{{member.name}}">
+                        <p class=" __shecodeteamp ">{{member.name}}</p>
+                        <p class="__shecodeteamp1 ">{{member.occupation}}</p>
+                        <button class="btn __shecodebtn " role="toggle " data-toggle="modal" data-target="#{{member.id}} " class="btn ">View Details</button>
+                    </div>
                 </div>
 
 
 
+
+
+
                 <!-- Modal -->
-                <div id={{member.id}} class="modal fade" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
+                <div id={{member.id}} class="modal fade " tabindex="-1 " role="dialog " aria-labelledby="contactModalLabel " aria-hidden="true ">
+                    <div class="modal-dialog ">
 
-                        <div class="modal-content">
+                        <div class="modal-content ">
 
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h4 class="modal-title">{{member.name}}</h4>
+                            <div class="modal-header ">
+                                <button type="button " class="close " data-dismiss="modal " aria-hidden="true ">×</button>
+                                <h4 class="modal-title ">{{member.name}}</h4>
                             </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <img class="img-fluid gallery-modal-img" src="{{member.image.url}}" 
-                                        alt="{{member.name}}">
+                            <div class="modal-body ">
+                                <div class="row ">
+                                    <div class="col-sm-6 ">
+                                        <img class="img-fluid gallery-modal-img " src="{{member.image.url}} " alt="{{member.name}} ">
                                     </div>
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-6 ">
                                         <h5><strong>Name: &nbsp;&nbsp;</strong> {{member.name}}</h5>
                                         <h5><strong>Email:&nbsp;&nbsp;&nbsp; </strong> {{member.email}}</h5>
                                         <h5><strong>Phone:&nbsp;&nbsp; </strong> {{member.phone}}</h5>
@@ -85,35 +97,35 @@
     {% endblock %}
 </section>
 {% block js %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js "></script>
 <script>
     $(document).ready(function() {
 
-        $(".filter-button").click(function() {
+        $(".filter-button ").click(function() {
             var value = $(this).attr('data-filter');
 
-            if (value == "all") {
+            if (value == "all ") {
                 $('.filter').show('1000');
             } else {
-                $(".filter").not('.' + value).hide('3000');
+                $(".filter ").not('.' + value).hide('3000');
                 $('.filter').filter('.' + value).show('3000');
 
             }
 
-            if ($(".filter-button").removeClass("active")) {
-                $(this).removeClass("active");
+            if ($(".filter-button ").removeClass("active ")) {
+                $(this).removeClass("active ");
             }
-            $(this).addClass("active");
+            $(this).addClass("active ");
         });
     });
     /*	end gallery */
 
     $(document).ready(function() {
-        $(".fancybox").fancybox({
-            openEffect: "none",
-            closeEffect: "none"
+        $(".fancybox ").fancybox({
+            openEffect: "none ",
+            closeEffect: "none "
         });
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js "></script>
 {% endblock %}
