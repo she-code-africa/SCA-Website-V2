@@ -3,19 +3,36 @@
 ==================================================================*/
 
 html {
-	font-size: 100%;
-	min-height: 100%;
-	scroll-behavior: smooth;
+    font-size: 100%;
+    /* min-height: 100%; */
+    scroll-behavior: smooth;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
 }
 
 body {
-	font-family: "Raleway", sans-serif;
-	/*font-family: '', Poppins-Regular;*/
-	font-size: 14px;
-	color: #222222;
-	font-weight: normal;
-	overflow-x: hidden;
+    font-family: 'Raleway', sans-serif;
+    /*font-family: '', Poppins-Regular;*/
+    font-size: 14px;
+    color: #222222;
+    font-weight: normal;
+    overflow-x: hidden;
 	line-height: 20px;
+	
+	min-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#body {
+	flex-grow: 1;
+}
+
+header, #body, footer {
+	flex-shrink: 0;
 }
 
 @font-face {
@@ -97,7 +114,7 @@ a:hover {
 	/*border: 2px solid #FFFFFF;*/
 	color: #ffffff;
 	background: #ff85d2;
-	margin-top: 1.3rem;
+	/* margin-top: 1.3rem; */
 }
 
 .navbar-toggle .icon-bar {
@@ -201,6 +218,12 @@ Custom Css
 
 .__shecodelogo {
 	width: 48px;
+}
+
+@media screen and (max-width: 425px) {
+	.__shecodelogo {
+		width: 30px;
+	}
 }
 
 .__shecodelink {
@@ -449,11 +472,20 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodeafriab {
-	font-family: Raleway-Black;
-	font-size: 49px;
-	color: #ffffff;
-	line-height: 1.2;
-	margin-top: 190px;
+    font-family: Raleway-Black;
+    font-size: 49px;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.banner-text {
+	padding-top: 25vh
+}
+
+@media screen and (max-width: 425px) {
+	.banner-text {
+		padding-top: 12vh
+	}
 }
 
 .__shecodeafriab1 {
@@ -463,12 +495,16 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 	letter-spacing: 1px;
 }
 
+.about-section-x {
+	padding: 6rem 0 1rem;
+}
+
 .__shecodeval {
-	font-size: 30px;
-	color: #040303;
-	text-align: center;
-	font-weight: 600;
-	margin-top: 5%;
+    font-size: 30px;
+    color: #040303;
+    text-align: center;
+    font-weight: 600;
+    /* margin-top: 5%; */
 }
 
 .welcome_community {
@@ -526,21 +562,27 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodevalab {
-	border: 1px solid;
-	border-radius: 50%;
-	margin: 0 auto;
-	width: 500px;
-	height: 500px;
+	position: relative;
+    border: 1px solid;
+    border-radius: 50%;
+    margin: 50px auto 0;
+    width: 500px;
+    height: 500px;
+    text-align: center;
+}
+
+.value-card {
 	text-align: center;
+    background: #ffffff;
+    margin: 0 auto;
+    width: 170px;
+    border-radius: 50%;
+    position: absolute;
 }
 
 .__shecodevaldiv {
-	text-align: center;
-	background: #ffffff;
-	margin: 0 auto;
-	width: 170px;
-	border-radius: 50%;
-	position: absolute;
+	top: 0;
+    left: 0;
 }
 
 .__shecodevaldiv img {
@@ -548,13 +590,8 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodevaldiv1 {
-	text-align: center;
-	background: #ffffff;
-	margin: 0 auto;
-	width: 170px;
-	border-radius: 50%;
-	position: absolute;
-	margin-left: 25%;
+    top: 0;
+    right: 0;
 }
 
 .__shecodevaldiv1 img {
@@ -562,13 +599,8 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodevaldiv2 {
-	text-align: center;
-	background: #ffffff;
-	margin: 0 auto;
-	width: 170px;
-	border-radius: 50%;
-	position: absolute;
-	margin-top: 25%;
+	bottom: 0;
+    left: 0;
 }
 
 .__shecodevaldiv2 img {
@@ -576,14 +608,8 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodevaldiv3 {
-	text-align: center;
-	background: #ffffff;
-	margin: 0 auto;
-	width: 170px;
-	border-radius: 50%;
-	position: absolute;
-	margin-top: 25%;
-	margin-left: 25%;
+	bottom: 0;
+    right: 0;
 }
 
 .__shecodevaldiv3 img {
@@ -591,8 +617,23 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodevalimg {
-	width: 120px;
-	margin-top: 30%;
+	position: absolute;
+}
+
+@media screen and (min-width: 426px) {
+	.__shecodevalimg {
+		width: 120px;
+		top: 34%;
+    	left: 39%;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.__shecodevalimg {
+		width: 80px;
+		left: 37%;
+		top: 32%;
+	}
 }
 
 .__shecodeskill {
@@ -630,6 +671,20 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 	padding-left: 6px;
 }
 
+.our-skills-stroke {
+	position: relative;
+}
+
+.stack {
+	position: absolute;
+	bottom: -5px;
+	right: 10px;
+}
+
+.our-skills {
+	padding-top: 40px;
+}
+
 .__shecodestroke {
 	background: #ff16a9;
 	height: 100px;
@@ -638,8 +693,8 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodestack {
-	float: right;
-	margin-top: 27%;
+    /* float: right; */
+    /* margin-top: 27%; */
 }
 
 .__shecodestroke1 {
@@ -650,8 +705,8 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodestack1 {
-	float: right;
-	margin-top: 27%;
+    /* float: right; */
+    /* margin-top: 27%; */
 }
 
 .__shecodestroke2 {
@@ -662,8 +717,8 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodestack2 {
-	float: right;
-	margin-top: 27%;
+    /* float: right; */
+    /* margin-top: 27%; */
 }
 
 .__shecodestroke3 {
@@ -674,8 +729,8 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodestack3 {
-	float: right;
-	margin-top: 27%;
+    /* float: right; */
+    /* margin-top: 27%; */
 }
 
 .__shecodestroke4 {
@@ -686,8 +741,26 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 }
 
 .__shecodestack4 {
-	float: right;
-	margin-top: 27%;
+    /* float: right; */
+    /* margin-top: 27%; */
+}
+
+@media screen and (min-width: 769px) {
+	.member-benefits {
+		margin-top: 100px;
+	}
+}
+
+@media screen and (max-width: 768px) and (min-width: 426px) {
+	.member-benefits {
+		margin-top: 25px;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.member-benefits {
+		margin-top: 20px;
+	}
 }
 
 .__shecodebenefit {
@@ -709,6 +782,15 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 	font-family: Raleway-Black;
 }
 
+.the-team {
+	padding-top: 65px;
+}
+
+@media screen and (max-width: 768px) {
+	.the-team {
+		padding-top: 40px;
+	}
+}
 .__shecodeteamimg {
 	width: 200px;
 }
@@ -1246,11 +1328,11 @@ box-shadow: 0px 0px 7px #FF4EAE;
 	-webkit-tap-highlight-color: transparent;
 }
 .slick-list {
-	position: relative;
-	display: block;
-	overflow: hidden;
-	margin: 0;
-	padding: 0;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding-top: 30px;
 }
 .slick-list:focus {
 	outline: none;
