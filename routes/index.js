@@ -45,7 +45,9 @@ exports = module.exports = function(app) {
     app.get('/gallery', routes.views.gallery);
     app.all('/contact', routes.views.contact);
     app.all('/partners', routes.views.partners);
-    app.get("/team", routes.views.team);
+    app.get('/team', routes.views.team);
+    app.get('/events', routes.views.events);
+    app.get('/events/:event', routes.views.event);
     //File Upload Route
     // app.get('/api/fileupload/list', keystone.middleware.api, routes.api.fileupload.list);
     // app.get('/api/fileupload/:id', keystone.middleware.api, routes.api.fileupload.get);

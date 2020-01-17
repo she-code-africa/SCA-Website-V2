@@ -1,0 +1,58 @@
+{% extends "layouts/default.html" %}
+
+{% block content %}
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
+				<article>
+					<p>
+						<a href="/events">&larr; back to events</a>
+					</p>
+					<hr>
+					{% if not data.event %}
+						<h2>Event not found</h2>
+                    {% else %}
+                    <header class="col-md-10 col-md-offset-2 col-sm-10 col-sm-offset-2">
+                        {% if data.event.image.exists %}
+							<div class="image-wrap">
+								<img src="{{ data.event._.image }}" class="img-responsive">
+							</div>
+						{% endif %}
+                    </header>
+                    <div class="row">
+                        <div class="col-md-9 col-sm-9">
+                            <h2 class="post-title">{{ data.event.title }}</h2>
+                            <p class="blog-content">
+                                {{ data.event.description }}
+                            </p>
+                        </div>
+                        <div class="col-md-3 col-sm-3">
+                            <h5 class="post-title"> Date: </h5>
+                            <h5 class="post-title">{{ data.event.title }}</h5>
+                            <h5></h5>
+                            <h5 class="post-title"> Location: </h5>
+                            <h5 class="post-title">{{ data.event.location }}</h5>
+                            <h5></h5>
+                            {% if data.event.eventDate > new Date()  %}
+                            {% else %}
+                            <p>
+								<a class="btn  __shecodebtn" href="{{ data.event.registrationLink }}" target="_blank"><img src="/images/shecode-hair.svg">&nbsp;Register</a> 
+							</p>
+                            {% endif %}
+                        </div>                        
+                    </div>
+                    <div class="row gallery-images">
+                        {% if data.event.eventImages.exists}
+                        {% for image in data.event.eventImages %}
+                        <div class="col-xs-6 col-sm-4 col-md-3 gallery-image">
+                            <img src="{{ image.limit(300,300) }}" class="">
+                        </div>
+                        {% endfor %}
+                        {% endif %}
+                    </div>
+					{% endif %}
+				</article>
+			</div>
+		</div>
+	</div>
+{% endblock %}

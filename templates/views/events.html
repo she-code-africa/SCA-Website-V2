@@ -1,0 +1,101 @@
+{% extends "layouts/default.html" %}
+{% block intro %}
+	<div class="container">
+		<h1>Events</h1>
+	</div>
+{% endblock %}
+
+<section>
+    {% block content %}
+    <div class="container">
+        <div class="row">
+            {% if data.uevents.length or data.pevents.length %}
+            {% if data.uevents.length %}
+            <div class="col-sm-10 col-sm-offset-2 col-md-11 col-md-offset-1">
+                <h3 class="text-muted">Upcoming Events</h3>
+            </div>
+            {% if data.uevents.length > 2 %}
+            {% for event in data.uevents.results %}
+            <div class="col-md-3 col-sm-3 blog-post">
+                <div class="">
+                    {% if event.image.exists %}
+                    <img src="{{ event._.image.fit(160,160) }}" alt="">
+                    {% endif %}
+                    <div>
+                    <a href="/events/{{event.slug}}">
+                        <h5> {{ event.eventDate }}</h5>
+                        <h4> {{ event.title }}</h4>
+                        <h5> {{ event.location }}</h5>
+                    </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            {% for event in data.uevents.results %}
+                    <div class="col-md-6 col-sm-6 blog-post">
+                        <div class="">
+                            {% if event.image.exists %}
+                            <img src="{{ event._.image.fit(160,160) }}" alt="">
+                            {% endif %}
+                            <div>
+                                <a href="/events/{{event.slug}}">
+                                    <h5> {{ event.eventDate }}</h5>
+                                    <h4> {{ event.title }}</h4>
+                                    <h5> {{ event.location }}</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+            {% endif %}
+            {% endif %}
+            {% if data.pevents.length %}
+            <div class="col-sm-10 col-sm-offset-2 col-md-11 col-md-offset-1">
+                <h3 class="text-muted">Past Events</h3>
+            </div>
+            {% if data.uevents.length > 2 %}
+            {% for event in data.pevents.result %}
+            <div class="col-md-3 col-sm-3 blog-post">
+                <div class="">
+                    {% if event.image.exists %}
+                    <img src="{{ event._.image.fit(160,160) }}" alt="">
+                    {% endif %}
+                    <div>
+                        <a href="/events/{{event.slug}}">
+                            <h5> {{ event.eventDate }}</h5>
+                            <h4> {{ event.title }}</h4>
+                            <h5> {{ event.location }}</h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %} 
+            {%else%}
+            {% for event in data.pevents.result %}
+                    <div class="col-md-6 col-sm-6 blog-post">
+                        <div class="">
+                            {% if event.image.exists %}
+                            <img src="{{ event._.image.fit(160,160) }}" alt="">
+                            {% endif %}
+                            <div>
+                                <a href="/events/{{event.slug}}">
+                                    <h5> {{ event.eventDate }}</h5>
+                                    <h4> {{ event.title }}</h4>
+                                    <h5> {{ event.location }}</h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+            {% endif %}
+            {% endif%}
+            {% else %}
+            <div class="col-sm-10 col-sm-offset-2 col-md-11 col-md-offset-1">
+                <h4 class="text-muted">There are currently no available events postings</h4>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endblock %}
+</section>
