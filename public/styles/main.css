@@ -810,6 +810,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 
 .__shecodeteamimg {
     width: 200px;
+    height: 200px;
 }
 
 .__shecodeteamp {
@@ -1506,13 +1507,14 @@ box-shadow: 0px 0px 7px #FF4EAE;
 }
 
 .gallery_product .img-info {
-    border-radius: 20px;
     position: absolute;
     background: rgba(0, 0, 0, 0.5);
-    left: 0;
+    left: 15px;
     right: 0;
     bottom: 0;
-    padding: 20px;
+    width: 200px;
+    height: 200px;
+    /* padding: 20px; */
     overflow: hidden;
     color: #fff;
     top: 0;
@@ -1535,6 +1537,7 @@ button:focus {
     font-size: 1rem;
     margin-top: 40%;
     width: 60%;
+    margin-left: 20%;
 }
 
 .gallery_product:hover .img-info {
