@@ -22,21 +22,37 @@
                     <p class="__shecodeval1">TEAM</p><br><br>
                 </div>
 
+
+
                 {% if teams.length %}
                 <div align="center">
                     <button class="filter-button" data-filter="all">All</button> {% for cat in data.membership %}
                     <button class="filter-button" data-filter={{cat.id}}>{{cat.name}}</button> {% endfor %}
                 </div>
                 <br /> {% for member in teams %}
-
-                <div class="gallery_product col-md-3 col-sm-6 col-xs-12 filter {{member.membership}}">
+                <!-- <div class="gallery_product col-md-3 col-sm-6 col-xs-12 filter {{member.membership}}">
                     <img class="img-responsive" alt="{{member.name}}" src="{{member.image.url}}" />
                     <div class='img-info'>
                         <h4> {{member.name}}</h4>
                         <p>{{member.occupation}}</p>
                         <button class="btn __shecodebtn" role="toggle" data-toggle="modal" data-target="#{{member.id}}" class="btn">View Details</button>
                     </div>
+                </div> -->
+
+                <div class="gallery_product col-md-3 col-sm-4 col-xs-12 filter all {{member.membership}}">
+                    <div class="">
+                        <img src="{{member.image.url}}" class="__shecodeteamimg img-responsive" alt="{{member.name}}">
+                        <p class=" __shecodeteamp">{{member.name}}</p>
+                        <p class="__shecodeteamp1">{{member.occupation}}</p>
+                        <div class="img-info">
+                            <button class="btn __shecodebtn" role="toggle" data-toggle="modal" data-target="#{{member.id}}" class="btn">View Details</button>
+                        </div>
+
+                    </div>
                 </div>
+
+
+
 
 
 
@@ -53,8 +69,7 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <img class="img-fluid gallery-modal-img" src="{{member.image.url}}" 
-                                        alt="{{member.name}}">
+                                        <img class="img-fluid gallery-modal-img" src="{{member.image.url}}" alt="{{member.name}}">
                                     </div>
                                     <div class="col-sm-6">
                                         <h5><strong>Name: &nbsp;&nbsp;</strong> {{member.name}}</h5>
