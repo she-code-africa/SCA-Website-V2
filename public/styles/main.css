@@ -333,7 +333,10 @@ li.__shecodelink.active a {
 @media screen and (max-width: 768px) {
 	.__shecodebestie h2 {
 		margin-top: 10%;
-	}
+    }
+    .__shecodebestie {
+        text-align: center;
+    }
 }
 
 @media screen and (min-width: 426px) and (max-width: 768px) {
@@ -858,7 +861,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 }
 
 .__shecodeteamp1 {
-    color: #ff1493;
+    color: #B70569;
 }
 
 
@@ -1507,10 +1510,10 @@ box-shadow: 0px 0px 7px #FF4EAE;
 
 .filter-button {
     font-size: 18px;
-    border: 2px solid #ff16a9;
+    border: 2px solid #B70569;
     padding: 5px 10px;
     text-align: center;
-    color: #ff16a9;
+    color: #B70569;
     margin-bottom: 30px;
     background: transparent;
 }
@@ -1519,7 +1522,7 @@ box-shadow: 0px 0px 7px #FF4EAE;
 .filter-button:focus,
 .filter-button.active {
     color: #ffffff;
-    background-color: #ff16a9;
+    background-color: #B70569;
     outline: none;
 }
 
