@@ -2,7 +2,6 @@
 {% block content %}
 	<div class="container">
 		<div class="row">
-            <!-- <div> -->
                 <p>
                     <a href="/events">&larr; back to events</a>
                 </p>
@@ -37,9 +36,8 @@
                             {% endif %}
                         </div>
                     </div>
-                    
                     <div class="row">
-                        {% if  data.event.eventImages %}
+                        {% if  data.event.eventImages|length %}
                         <h5 class="event-title" style="margin-left: 3%;">Event Gallery</h5>
                         {% for image in data.event.eventImages %}
                         <div class="col-xs-6 col-sm-4 col-md-3 event-image">
@@ -48,8 +46,6 @@
                         {% endfor %}
                         {% endif %}
                     </div>
-                    
-                    
 					{% endif %}
 				</article>
 		</div>
