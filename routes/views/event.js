@@ -12,6 +12,7 @@ exports = module.exports = function (req, res) {
 	};
 	locals.data = {
 		events: [],
+		today: new Date(),
 	};
 
 	// Load the current event
@@ -27,9 +28,8 @@ exports = module.exports = function (req, res) {
 			next(err);
 		});
 
-    });
+	});
 
-    //other events
     view.on('init', function (next) {
 
 		var q = keystone.list('Event').model.find().where('state', 'published').sort('-publishedDate').limit('4');
@@ -39,8 +39,8 @@ exports = module.exports = function (req, res) {
 			next(err);
 		});
 
-    });
-    
+	});
+
 	// Render the view
 	view.render('event');
 };

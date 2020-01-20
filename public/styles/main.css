@@ -916,6 +916,70 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
     margin-bottom: 5%;
 }
 
+.event-post {
+    margin-top: 1%;
+    margin-bottom: 2%;
+    height:300px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 1px 2px 4px #ddd;
+}
+
+.event-post img {
+    width: 100%;
+    height: 200px;
+}
+
+.event-body {
+    width: 100%;
+    text-align: left;
+    margin: auto;
+}
+
+.event-content {
+    margin-top: 2%;
+    font-style: normal;
+    margin-left: 2%;
+    text-align: justify;
+}
+
+.event-content-box {
+    margin-top: 50px;
+    box-shadow: 1px 1px 4px #ddd;
+}
+.event-content-box p {
+    margin-top: 5%;
+    text-align: right;
+    font-size: 20px;
+    color: #B70569;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.event-title {
+    font-size: 24px;
+    color: #B70569;
+    font-weight: 400;
+}
+.event_title {
+    font-size: 24px;
+    color: #B70569;
+    font-weight: 400;
+    margin-left: 2%;
+    margin-top: 5%;
+}
+.event-header img {
+    height: 300px;
+    width: 100%;
+    padding-top: 8px;
+}
+
+.event-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-top: 3%;
+}
+
 .blog-post,
 .job-post>* {
     margin: auto
@@ -946,7 +1010,7 @@ div.__shecodecard > div > div > div > p.__shecodevmvp1 {
 .post-title {
     font-size: 24px;
     color: #B70569;
-    /* text-align: center; */
+    text-align: center;
     font-weight: 400;
 }
 

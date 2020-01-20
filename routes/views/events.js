@@ -11,51 +11,34 @@ exports = module.exports = function (req, res) {
         pevents: [],
     };
 
-    //upcoming events
-    view.on('init', function (next) {
-        // var q = keystone.list('Event').model.find();
-        // q.exec(function(err, results) {
-        //     locals.data.uevents = results;
-        //     next(err);
-        // });
-        
-		var q = keystone.list('Event').paginate({
-			page: req.query.page || 1,
-			perPage: 10,
-			maxPages: 10,
-			filters: {
-                state: 'published',
-                eventDate: { $gt: new Date() },
-
-			},
-		})
-			.sort('-publishedDate');
-
-		q.exec(function (err, results) {
-			locals.data.uevents = results;
-			next(err);
-		});
-    });
-    
     //past events
     view.on('init', function (next) {
-		var q = keystone.list('Event').paginate({
-			page: req.query.page || 1,
-			perPage: 10,
-			maxPages: 10,
-			filters: {
+        var q = keystone.list('Event').model
+            .where({
                 state: 'published',
-                eventDate: { $lte: new Date() },
-			},
-		})
-			.sort('-publishedDate');
+                eventDate: { $lt: new Date() },
+            });
 
-		q.exec(function (err, result) {
-			locals.data.pevents = result;
-			next(err);
-		});
-	});
+        q.exec(function(err, result) {
+            locals.data.pevents = result;
+            next(err);
+        });
+    });
+
+    //upcoming events
+    view.on('init', function (next) {
+        var q = keystone.list('Event').model
+            .where ({
+                state: 'published',
+                eventDate: { $gte: new Date() },
+            })
+            .sort('-publishedDate');
+
+        q.exec(function(err, results) {
+            locals.data.uevents = results;
+            next(err);
+        });
+    });
     
-    console.log(locals.data.uevents.length);
     view.render('events');
 };

@@ -13,7 +13,7 @@ var Event = new keystone.List('Event', {
 
 Event.add({
 	title: { type: String, required: true },
-	description: { type: Types.Markdown, initial: true, required: true, height: 100 },
+	description: { type: Types.Markdown, initial: true, required: true, height: 100, markedOptions: { gfm: true } },
 	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
 	author: { type: Types.Relationship, ref: 'User', index: true },
 	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
