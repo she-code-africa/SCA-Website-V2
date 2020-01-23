@@ -292,6 +292,23 @@ li.__shecodelink.active a {
     width: 30px;
 }
 
+.__shecodebtn2 {
+	border: 1px solid #B70569;
+	border-radius: 5px;
+	color: #B70569 !important;
+	font-size: 18px;
+	font-weight: 600;
+	margin-top: 20px;
+	background: #ffffff;
+    transition: all 0.4s ease-in;
+    margin-bottom: 20px;
+}
+
+.__shecodebtn2:hover {
+	box-shadow: 0px 6px 5px 0px rgba(183, 5, 105, 0.62);
+	border: none;
+}
+
 .__shecodevmv {
     width: 120px;
 }
@@ -301,6 +318,25 @@ li.__shecodelink.active a {
     padding: 50px 35px 0 35px;
     border-radius: 5px;
     margin-top: 10%;
+}
+
+.__shecodebestie h2 {
+    font-family: Raleway-Black;
+    letter-spacing: 5px;
+    margin: 5%;
+}
+
+.__shecodebestie h4 {
+    color: #B70569;
+}
+
+@media screen and (max-width: 768px) {
+	.__shecodebestie h2 {
+		margin-top: 10%;
+    }
+    .__shecodebestie {
+        text-align: center;
+    }
 }
 
 @media screen and (min-width: 426px) and (max-width: 768px) {
@@ -352,6 +388,10 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
     font-size: 14px;
     color: #807c7c;
     font-weight: 100;
+}
+
+.social-count {
+    color: #B70569;
 }
 
 .__shecodetestimcard {
@@ -821,7 +861,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 }
 
 .__shecodeteamp1 {
-    color: #ff1493;
+    color: #B70569;
 }
 
 
@@ -1470,10 +1510,10 @@ box-shadow: 0px 0px 7px #FF4EAE;
 
 .filter-button {
     font-size: 18px;
-    border: 2px solid #ff16a9;
+    border: 2px solid #B70569;
     padding: 5px 10px;
     text-align: center;
-    color: #ff16a9;
+    color: #B70569;
     margin-bottom: 30px;
     background: transparent;
 }
@@ -1482,7 +1522,7 @@ box-shadow: 0px 0px 7px #FF4EAE;
 .filter-button:focus,
 .filter-button.active {
     color: #ffffff;
-    background-color: #ff16a9;
+    background-color: #B70569;
     outline: none;
 }
 
