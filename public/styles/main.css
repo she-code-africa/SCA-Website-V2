@@ -246,7 +246,7 @@ Custom Css
 
 .__shecodelink a:hover,
 li.__shecodelink.active a {
-    color: #ff1493 !important;
+    color:#B70569 !important;
     text-decoration: overline !important;
     transform: scale(1.04);
     transition: transform 0.4s ease-in-out;
@@ -255,14 +255,14 @@ li.__shecodelink.active a {
 .__shecodeafri {
     font-family: Raleway-Black;
     font-size: 55px;
-    color: #ff1493;
+    color: #B70569;
     line-height: 1.5;
 }
 
 .__shecodeafri1 {
     font-family: Raleway-Black;
     font-size: 25px;
-    color: #ff1493;
+    color: #B70569;
 }
 
 .__shecodetopimg {
@@ -271,10 +271,10 @@ li.__shecodelink.active a {
 }
 
 .__shecodebtn {
-    border: 1px solid #ff1493;
+    border: 1px solid #B70569;
     padding: 4px 22px;
     border-radius: 5px;
-    color: #ff1493 !important;
+    color: #B70569 !important;
     font-size: 18px;
     font-weight: 600;
     margin-top: 5%;
@@ -428,7 +428,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
     padding: 80px 120px 30px;
     border-radius: 5px;
     margin-top: 20%;
-    border: 1px solid #ff149336;
+    border: 1px solid #B70569;
 }
 
 @media screen and (min-width: 426px) {
@@ -565,7 +565,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 
 .welcome_community {
     font-size: 30px;
-    color: #ff1493;
+    color: #B70569;
     text-align: center;
     font-weight: 600;
     margin-top: 5%;
@@ -574,11 +574,11 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 .community_line {
     height: 1px;
     width: 250px;
-    background-color: #ff1493;
+    background-color: #B70569;
 }
 
 .community_text {
-    border: 1px solid #ff1493;
+    border: 1px solid #B70569;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
@@ -587,7 +587,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 }
 
 .ask_question {
-    border: -1px solid #ff1493;
+    border: -1px solid #B70569;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
@@ -602,7 +602,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
     margin: 0 auto;
     width: 250px;
     font-size: 20px;
-    border: -1px solid #ff1493;
+    border: -1px solid #B70569;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
@@ -612,7 +612,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 .__shecodeval1 {
     font-family: Raleway-Black;
     font-size: 35px;
-    color: #ff1493;
+    color: #B70569;
     text-align: center;
     line-height: 1;
 }
@@ -820,7 +820,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 }
 
 .__shecodebenefit {
-    border: 1px solid #ff1493;
+    border: 1px solid #B70569;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
@@ -952,7 +952,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 
 .sub-title {
     font-size: 23px;
-    color: #ff1493;
+    color: #B70569;
     text-align: center;
     font-weight: 600;
     margin-top: 8%;

@@ -2,43 +2,29 @@
 
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		{% if data.post and data.post.meta.description %}
-		<meta name="description" content="{{ data.post.meta.description }}" />
-		{% else %}
-		<meta name="description" content="She Code Africa" />
-		{% endif %}
 
-		<title>{{ data.post.title | default("SHECODE AFRICA") }}</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"> {% if data.post and data.post.meta.description %}
+    <meta name="description" content="{{ data.post.meta.description }}"> {% else %}
+    <meta name="description" content="She Code Africa"> {% endif %}
 
-		<!-- STYLESHEETS -->
-		{# Customise the stylesheet for your site by editing
-		/public/styles/site.sass #}
-		<link href="/styles/site.css" rel="stylesheet" />
-		<!-- CUSTOM STYLES -->
-		<link rel="stylesheet" type="text/css" href="/styles/main.css" />
-		<link rel="stylesheet" type="text/css" href="/styles/index.css" />
-		<!-- WEBFONT -->
-		<link
-			rel="stylesheet"
-			type="text/css"
-			href="https://fonts.googleapis.com/css?family=Raleway"
-		/>
+    <title>{{ data.post.title | default("SHECODE AFRICA") }}</title>
 
-		<!-- ICON -->
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-		/>
-		{# This file provides the default styling for the KeystoneJS Content Editor
-		#} {% if user and user.canAccessKeystone %}
-		<link href="/keystone/styles/content/editor.min.css" rel="stylesheet" />
-		{% endif %} {# HTML5 Shim and Respond.js IE8 support of HTML5 elements and
-		media queries Safely remove this block if you are not targeting IE8 #}
-		<!--[if lt IE 9]>
+    <!-- STYLESHEETS -->
+    {# Customise the stylesheet for your site by editing /public/styles/site.sass #}
+    <link href="/styles/site.css" rel="stylesheet">
+    <!-- CUSTOM STYLES -->
+    <link rel="stylesheet" type="text/css" href="/styles/main.css">
+    <link rel="stylesheet" type="text/css" href="/styles/index.css">
+    <!-- WEBFONT -->
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Raleway">
+    
+    <!-- ICON -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> {# This file provides the default styling for the KeystoneJS Content Editor #} {% if user and user.canAccessKeystone %}
+    <link href="/keystone/styles/content/editor.min.css" rel="stylesheet"> {% endif %} {# HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries Safely remove this block if you are not targeting IE8 #}
+    <!--[if lt IE 9]>
 			<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
 			<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
@@ -66,19 +52,17 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="/"
-							><img src="/images/shecodelogo.svg" class="__shecodelogo"
-						/></a>
+						<a class="navbar-brand" href="/">
+							<img src="/images/she-code-africa-logo.svg" class="__shecodelogo" alt="She Code Africa Logo"/>
+						</a>
 					</div>
 					<!-- TOGGLING LINKS -->
 					<div
-						class="collapse navbar-collapse navbar-ex1-collapse __shecodenavcol"
-					>
+						class="collapse navbar-collapse navbar-ex1-collapse __shecodenavcol">
 						<ul class="nav navbar-nav navbar-right">
 							{% for link in navLinks %}
 							<li
-								class="__shecodelink {{ 'active' if link.key == section else '' }}"
-							>
+								class="__shecodelink {{ 'active' if link.key == section else '' }}">
 								<a href="{{ link.href }}">{{ link.label }}</a>
 							</li>
 							{% endfor %} {% if user %} {% if user.canAccessKeystone %}
