@@ -1333,7 +1333,7 @@ box-shadow: 0px 0px 7px #FF4EAE;
     }
     .__shecodebtn img {
         display: none;
-        padding: 0px 0px;
+        padding: 10px 0px;
         font-size: 15px;
         font-weight: 300;
         margin-top: 5%;
@@ -1343,7 +1343,7 @@ box-shadow: 0px 0px 7px #FF4EAE;
         color: #ff1493 !important;
     }	
 }
-@media only screen and (min-width:426px) {
+@media only screen and (min-width:426px) and (max-width:768px) {
     .__shecodebtn {
         padding: 0px 0px;
     }
@@ -1366,7 +1366,7 @@ box-shadow: 0px 0px 7px #FF4EAE;
     }
     .__shecodebtn img {
         display: none;
-        padding: 0px 0px;
+        padding: 10px 0px;
         font-size: 15px;
         font-weight: 300;
         margin-top: 5%;
@@ -1382,7 +1382,7 @@ box-shadow: 0px 0px 7px #FF4EAE;
     }
     .__shecodebtn img {
         display: none;
-        padding: 0px 0px;
+        padding: 10px 0px;
         font-size: 15px;
         font-weight: 300;
         margin-top: 5%;
@@ -1392,11 +1392,10 @@ box-shadow: 0px 0px 7px #FF4EAE;
         color: #ff1493 !important;
     }
 }
-
 @media only screen and (max-width: 600px) {
-    .__shecodebtn img {
+    .event-content-box p a .__shecodebtn img {
         display: none;
-        padding: 0px 0px;
+        padding: 10px 0px;
         font-size: 18px;
         font-weight: 600;
         margin-top: 5%;
@@ -1406,28 +1405,6 @@ box-shadow: 0px 0px 7px #FF4EAE;
         color: #ff1493 !important;
     }   
 }
-
-@media only screen and (min-width: 768px) {
-    .__shecodebtn img {
-        display: none;
-        padding: 0px 0px;
-        font-size: 18px;
-        font-weight: 600;
-        margin-top: 5%;
-        background: #ffffff;
-        transition: all 0.4s ease-in;
-        width: 50%;    
-        color: #ff1493 !important;
-    } 
-}
-
-/* @media only screen and (min-width: 768px) {
-    .__shecodebtn img {
-        visibility: hidden;
-
-    }
-} */
-
 
 /*job page*/
 #job-content {
