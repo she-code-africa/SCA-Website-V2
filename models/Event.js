@@ -22,7 +22,6 @@ Event.add({
     eventDate: { type: Types.Date, initial: true, required: true },
     location: { type: String, initial: true, required: true },
     registrationLink: { type: String, initial: true, required: true },
-	pageView: { type: Types.Number, default: 0 },
 });
 
 Event.defaultColumns = 'title, state|20%, eventDate|20%, publishedDate|20%';

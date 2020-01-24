@@ -11,20 +11,19 @@
                 {% else %}
                 <div>
                     {% if data.event.image.exists %}
-                        <div class="event-header">
-                            <img src="{{data.event.image.url}}" class="img-fluid" alt="{{data.event.title}}">
-                        </div>
+                        <figure class="event-header" style="background-image: url({{data.event.image.url}});">
+                        </figure>
                     {% endif %}
                 </div>
                 <article>
                     <div class="row">
-                        <div class="col-md-9 col-sm-7">
+                        <div class="col-md-9 col-sm-6">
                             <h2 class="event_title">{{ data.event.title }}</h2>
                         <p class="event-content">
-                            {{ data.event.description }}
+                            {{ data.event.description.html|safe }}
                         </p>
                         </div>
-                        <div class="col-md-3 col-sm-3 pull-right event-content-box">
+                        <div class="col-md-3 col-sm-6 pull-right event-content-box">
                             <p class=""> Date: {{ data.event._.eventDate.format("MMM D, YYYY")}}</p>
                             <p class=""> Location: {{ data.event.location }}</p>
                             {% if (data.event.eventDate > data.today) %}
@@ -38,7 +37,7 @@
                     </div>
                     <div class="row">
                         {% if  data.event.eventImages|length %}
-                        <h5 class="event-title" style="margin-left: 3%;">Event Gallery</h5>
+                        <h5 class="event_title" style="margin-left: 1%;margin-top: 5%;">Event Gallery</h5>
                         {% for image in data.event.eventImages %}
                         <div class="col-xs-6 col-sm-4 col-md-3 event-image">
                             <img src="{{image.limit(300,300)}}" class="">
