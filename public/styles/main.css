@@ -246,7 +246,7 @@ Custom Css
 
 .__shecodelink a:hover,
 li.__shecodelink.active a {
-    color: #ff1493 !important;
+    color:#B70569 !important;
     text-decoration: overline !important;
     transform: scale(1.04);
     transition: transform 0.4s ease-in-out;
@@ -255,14 +255,14 @@ li.__shecodelink.active a {
 .__shecodeafri {
     font-family: Raleway-Black;
     font-size: 55px;
-    color: #ff1493;
+    color: #B70569;
     line-height: 1.5;
 }
 
 .__shecodeafri1 {
     font-family: Raleway-Black;
     font-size: 25px;
-    color: #ff1493;
+    color: #B70569;
 }
 
 .__shecodetopimg {
@@ -271,10 +271,10 @@ li.__shecodelink.active a {
 }
 
 .__shecodebtn {
-    border: 1px solid #ff1493;
+    border: 1px solid #B70569;
     padding: 4px 22px;
     border-radius: 5px;
-    color: #ff1493 !important;
+    color: #B70569 !important;
     font-size: 18px;
     font-weight: 600;
     margin-top: 5%;
@@ -292,6 +292,23 @@ li.__shecodelink.active a {
     width: 30px;
 }
 
+.__shecodebtn2 {
+	border: 1px solid #B70569;
+	border-radius: 5px;
+	color: #B70569 !important;
+	font-size: 18px;
+	font-weight: 600;
+	margin-top: 20px;
+	background: #ffffff;
+    transition: all 0.4s ease-in;
+    margin-bottom: 20px;
+}
+
+.__shecodebtn2:hover {
+	box-shadow: 0px 6px 5px 0px rgba(183, 5, 105, 0.62);
+	border: none;
+}
+
 .__shecodevmv {
     width: 120px;
 }
@@ -301,6 +318,25 @@ li.__shecodelink.active a {
     padding: 50px 35px 0 35px;
     border-radius: 5px;
     margin-top: 10%;
+}
+
+.__shecodebestie h2 {
+    font-family: Raleway-Black;
+    letter-spacing: 5px;
+    margin: 5%;
+}
+
+.__shecodebestie h4 {
+    color: #B70569;
+}
+
+@media screen and (max-width: 768px) {
+	.__shecodebestie h2 {
+		margin-top: 10%;
+    }
+    .__shecodebestie {
+        text-align: center;
+    }
 }
 
 @media screen and (min-width: 426px) and (max-width: 768px) {
@@ -354,6 +390,10 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
     font-weight: 100;
 }
 
+.social-count {
+    color: #B70569;
+}
+
 .__shecodetestimcard {
     box-shadow: 0 0 10px 0 rgba(183, 5, 105, 0.22);
     padding: 40px;
@@ -388,7 +428,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
     padding: 80px 120px 30px;
     border-radius: 5px;
     margin-top: 20%;
-    border: 1px solid #ff149336;
+    border: 1px solid #B70569;
 }
 
 @media screen and (min-width: 426px) {
@@ -525,7 +565,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 
 .welcome_community {
     font-size: 30px;
-    color: #ff1493;
+    color: #B70569;
     text-align: center;
     font-weight: 600;
     margin-top: 5%;
@@ -534,11 +574,11 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 .community_line {
     height: 1px;
     width: 250px;
-    background-color: #ff1493;
+    background-color: #B70569;
 }
 
 .community_text {
-    border: 1px solid #ff1493;
+    border: 1px solid #B70569;
     padding: 20px;
     border-radius: 5px;
     text-align: center;
@@ -547,7 +587,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 }
 
 .ask_question {
-    border: -1px solid #ff1493;
+    border: -1px solid #B70569;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
@@ -562,7 +602,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
     margin: 0 auto;
     width: 250px;
     font-size: 20px;
-    border: -1px solid #ff1493;
+    border: -1px solid #B70569;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
@@ -572,7 +612,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 .__shecodeval1 {
     font-family: Raleway-Black;
     font-size: 35px;
-    color: #ff1493;
+    color: #B70569;
     text-align: center;
     line-height: 1;
 }
@@ -780,7 +820,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 }
 
 .__shecodebenefit {
-    border: 1px solid #ff1493;
+    border: 1px solid #B70569;
     padding: 10px;
     border-radius: 5px;
     text-align: center;
@@ -821,7 +861,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 }
 
 .__shecodeteamp1 {
-    color: #ff1493;
+    color: #B70569;
 }
 
 
@@ -912,7 +952,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 
 .sub-title {
     font-size: 23px;
-    color: #ff1493;
+    color: #B70569;
     text-align: center;
     font-weight: 600;
     margin-top: 8%;
@@ -961,8 +1001,8 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 
 .post-title {
     font-size: 24px;
-    color: #b70569;
-    /* text-align: center; */
+    color: #B70569;
+    text-align: center;
     font-weight: 400;
 }
 
@@ -1274,6 +1314,152 @@ box-shadow: 0px 0px 7px #FF4EAE;
     }
 }
 
+/* event page */
+.event-post {
+    margin-top: 1%;
+    margin-bottom: 2%;
+    height:300px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 1px 2px 4px #ddd;
+}
+
+.event-post img {
+    width: 100%;
+    height: 200px;
+}
+
+.event-body {
+    width: 100%;
+    text-align: left;
+    margin: auto;
+}
+
+.event-content {
+    margin-top: 2%;
+    font-style: normal;
+    margin-left: 2%;
+    text-align: justify;
+}
+
+.event-content-box {
+    margin-top: 50px;
+    box-shadow: 1px 1px 4px #ddd;
+}
+.event-content-box p {
+    margin-top: 5%;
+    text-align: right;
+    font-size: 20px;
+    color: #B70569;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.event-title {
+    font-size: 24px;
+    color: #B70569;
+    font-weight: 400;
+}
+.event_title {
+    font-size: 24px;
+    color: #B70569;
+    font-weight: 400;
+    margin-top: 5%;
+}
+
+.event-header {
+    width: 100%;
+    height: 400px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+.event-image img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-top: 3%;
+}
+
+
+@media only screen and (max-width:375px) {
+    .__shecodebtn {
+        padding: 0px 0px;
+    }
+    .__shecodebtn img {
+        display: none;
+        padding: 10px 0px;
+        font-size: 15px;
+        font-weight: 300;
+        margin-top: 5%;
+        background: #ffffff;
+        transition: all 0.4s ease-in;
+        width: 100%;    
+        color: #ff1493 !important;
+    }	
+}
+@media only screen and (min-width:426px) and (max-width:768px) {
+    .__shecodebtn {
+        padding: 0px 0px;
+    }
+    .__shecodebtn img {
+        display: none;
+        padding: 0px 0px;
+        font-size: 15px;
+        font-weight: 300;
+        margin-top: 5%;
+        background: #ffffff;
+        transition: all 0.4s ease-in;
+        width: 100%;    
+        color: #ff1493 !important;
+    }
+}
+
+@media only screen and (max-width:375px) {
+    .__shecodebtn {
+        padding: 0px 0px;
+    }
+    .__shecodebtn img {
+        display: none;
+        padding: 10px 0px;
+        font-size: 15px;
+        font-weight: 300;
+        margin-top: 5%;
+        background: #ffffff;
+        transition: all 0.4s ease-in;
+        width: 100%;    
+        color: #ff1493 !important;
+    }	
+}
+@media only screen and (max-width:426px) {
+    .__shecodebtn {
+        padding: 0px 0px;
+    }
+    .__shecodebtn img {
+        display: none;
+        padding: 10px 0px;
+        font-size: 15px;
+        font-weight: 300;
+        margin-top: 5%;
+        background: #ffffff;
+        transition: all 0.4s ease-in;
+        width: 100%;    
+        color: #ff1493 !important;
+    }
+}
+@media only screen and (max-width: 600px) {
+    .event-content-box p a .__shecodebtn img {
+        display: none;
+        padding: 10px 0px;
+        font-size: 18px;
+        font-weight: 600;
+        margin-top: 5%;
+        background: #ffffff;
+        transition: all 0.4s ease-in;
+        width: 50%;    
+        color: #ff1493 !important;
+    }   
+}
 
 /*job page*/
 
@@ -1470,10 +1656,10 @@ box-shadow: 0px 0px 7px #FF4EAE;
 
 .filter-button {
     font-size: 18px;
-    border: 2px solid #ff16a9;
+    border: 2px solid #B70569;
     padding: 5px 10px;
     text-align: center;
-    color: #ff16a9;
+    color: #B70569;
     margin-bottom: 30px;
     background: transparent;
 }
@@ -1482,7 +1668,7 @@ box-shadow: 0px 0px 7px #FF4EAE;
 .filter-button:focus,
 .filter-button.active {
     color: #ffffff;
-    background-color: #ff16a9;
+    background-color: #B70569;
     outline: none;
 }
 
