@@ -115,7 +115,8 @@
             <div class="container">
                 <p class="text-center">
                     <a href="" target="_blank">
-                        All right reserved. She code Africa. 2020</a>
+                        All rights reserved. She code Africa &#169; <span id="currentYear">2020</span>
+                    </a>
                 </p>
             </div>
         </div>
@@ -127,6 +128,10 @@
 
     {# Customise which Bootstrap javascript files are served by including them specifically here, instead of bootstrap-3.3.5.min.js #}
     <script src="/js/bootstrap/bootstrap.min.js"></script>
+
+    <script>
+        document.getElementById('currentYear').innerHTML = new Date().getFullYear();
+    </script>
 
     {# The KeystoneJS Content Editor provides support for ks-editable data attributes, which generate links to edit content for users who can access Keystone #} {% if user and user.canAccessKeystone %}
     <script src="/keystone/js/content/editor.js"></script>
