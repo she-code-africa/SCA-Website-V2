@@ -57,6 +57,9 @@
     margin-top: 32%;
     margin-left: 32%;
   }
+  .__shecodebestie br {
+    display: none;
+  }
 }
 
 
@@ -95,6 +98,7 @@
   .__shecodeafri1 {
     font-family: Raleway-Black;
     font-size: 19px;
+    text-align: center;
   }
 
   .__shecodetestimcard {
@@ -249,8 +253,9 @@
 	}
 
 	.__shecodeafri1 {
-		font-size: 15px;
-	}
+    font-size: 15px;
+    text-align: center;
+  }
 
     .__shecodefounderp {
       margin-top: 11%;
