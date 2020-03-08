@@ -508,6 +508,14 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
     min-height: 85vh;
 }
 
+.__shecodeeventimg {
+    background: linear-gradient( 100deg, rgba(255, 133, 210, 0.34) 50%, rgba(255, 133, 210, 0.34) 50%), url(../../images/eventimg.JPG);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 85vh;
+}
+
 .__shecodeblogimg {
     background: url(../../images/blog-banner.png);
     background-position: center;

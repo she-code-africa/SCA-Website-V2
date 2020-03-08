@@ -1,8 +1,11 @@
 {% extends "layouts/default.html" %}
 {% block intro %}
-	<div class="container">
-		<h1>Events</h1>
-	</div>
+		<div class="__shecodeeventimg">
+            <div class="container text-center banner-text">
+                <p class="__shecodeafriab">EVENTS</p>
+                <p class="__shecodeafriab1">Events focused on empowering and getting more young girls and women into technology across cities and tertiary institutions in Africa</p>
+            </div> 
+        </div>
 {% endblock %}
 <section>
     {% block content %}
@@ -150,9 +153,44 @@
                 </div>
             </div>
             {% else %}
-            <div class="col-sm-10 col-sm-offset-2 col-md-11 col-md-offset-1">
-                <h4 class="text-muted">There are currently no available events postings</h4>
-            </div>
+            <div class="row">
+                <h4 class="text-muted">Past Events</h4>
+                <div class="col-md-4 col-sm-4">
+                    <div class="thumbnail">
+                        <a href="https://photos.app.goo.gl/9nWZ9Ym0a5CtosR13" target="blank">
+                            <img src="/images/event2017.jpeg" style="width: 100%;">
+                            <div class="caption">
+                                <p>August 2017</p>
+                                <p class="event-title">Summer Project</p>                          
+                                <p>Lagos</p>
+                            </div>                    
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="thumbnail">
+                        <a href="https://photos.app.goo.gl/9YCA4cuG3vxbtdLh7" target="blank">
+                            <img src="/images/event2019a.jpg" style="width: 100%;">
+                            <div class="caption">
+                                <p>June 2019</p>
+                                <p class="event-title">Code Literacy Day</p>                          
+                                <p>Lagos</p>
+                            </div>                    
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="thumbnail">
+                        <a href="https://drive.google.com/drive/folders/1KuNSNx7HSgiQiviLx8YDAleIbUQ_6oHt" target="blank">
+                            <img src="/images/event2019b.HEIC" style="width: 100%;">
+                            <div class="caption">
+                                <p>August 2019</p>
+                                <p class="event-title">React Ladies Bootcamp</p>                          
+                                <p>Lagos + Uyo</p>
+                            </div>                    
+                        </a>
+                    </div>
+                </div>
             {% endif %}
         </div>
     </div>
