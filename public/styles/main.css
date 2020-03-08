@@ -499,10 +499,17 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 
 
 /*form input style end*/
-
 .__shecodeaboutimg {
-    background: linear-gradient( 100deg, rgba(255, 133, 210, 0.34) 50%, rgba(255, 133, 210, 0.34) 50%), url(../../images/aboutimg.JPG);
-    background-position: center;
+	background: linear-gradient(100deg, rgba(255, 133, 210, 0.34) 50%, rgba(255, 133, 210, 0.34) 50%), url(../../images/about-us.jpg);  
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 85vh;
+}
+
+.__shecodeteamheader {
+	background: linear-gradient(100deg, rgba(255, 133, 210, 0.34) 50%, rgba(255, 133, 210, 0.34) 50%), url(../../images/team.JPG);
+	background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 85vh;
