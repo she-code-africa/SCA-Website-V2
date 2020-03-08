@@ -60,6 +60,7 @@
   .__shecodebestie br {
     display: none;
   }
+
 }
 
 
@@ -69,7 +70,9 @@
 
 
 @media screen and (max-width: 992px){
-    
+     .__shecodebtn {
+    width: 25%;
+}   
 }
 
 
@@ -198,7 +201,9 @@
     /* margin-top: 10%; */
     font-size: 14px;
   }
-  
+  .__shecodebtn {
+    width: 30%;
+}
 }
 
 @media screen and (min-width: 768px) {
