@@ -399,8 +399,11 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
     padding: 40px;
     border-radius: 5px;
     margin-top: 27%;
+    /* height: 27rem; */
 }
-
+.last-child{
+    padding: 50px 60px;
+}
 .__shecodetestimp {
     line-height: 1.5;
     font-size: 15px;

@@ -69,7 +69,9 @@
 
 
 @media screen and (max-width: 992px){
-    
+  .__shecodetestimcard {
+    height: 42rem;
+}
 }
 
 
@@ -102,8 +104,12 @@
   }
 
   .__shecodetestimcard {
-    padding: 8px;
+    padding: 20px;
+    height: 30rem;
   }
+  .last-child{
+    padding: 55px 40px;
+}
   .__shecodevaldiv1 {
     margin-left: 43%;
   }
@@ -175,6 +181,7 @@
 
   .__shecodetestimcard {
     margin-top: 2%;
+    height: auto;
   }
 
   .__shecodestack {
