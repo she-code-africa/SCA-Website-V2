@@ -57,6 +57,9 @@
     margin-top: 32%;
     margin-left: 32%;
   }
+  .__shecodebestie br {
+    display: none;
+  }
 }
 
 
@@ -66,7 +69,9 @@
 
 
 @media screen and (max-width: 992px){
-    
+  .__shecodetestimcard {
+    height: 42rem;
+}
 }
 
 
@@ -95,11 +100,16 @@
   .__shecodeafri1 {
     font-family: Raleway-Black;
     font-size: 19px;
+    text-align: center;
   }
 
   .__shecodetestimcard {
-    padding: 8px;
+    padding: 20px;
+    height: 30rem;
   }
+  .last-child{
+    padding: 55px 40px;
+}
   .__shecodevaldiv1 {
     margin-left: 43%;
   }
@@ -171,6 +181,7 @@
 
   .__shecodetestimcard {
     margin-top: 2%;
+    height: auto;
   }
 
   .__shecodestack {
@@ -249,8 +260,9 @@
 	}
 
 	.__shecodeafri1 {
-		font-size: 15px;
-	}
+    font-size: 15px;
+    text-align: center;
+  }
 
     .__shecodefounderp {
       margin-top: 11%;
