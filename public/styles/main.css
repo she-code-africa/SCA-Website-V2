@@ -1445,7 +1445,7 @@ box-shadow: 0px 0px 7px #FF4EAE;
 }
 @media only screen and (max-width:426px) {
     .__shecodebtn {
-        padding: 10px 20px;
+        padding: 10px;
     }
     .__shecodebtn img {
         display: none;
