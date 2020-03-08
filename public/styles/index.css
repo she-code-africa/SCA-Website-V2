@@ -102,8 +102,11 @@
   }
 
   .__shecodetestimcard {
-    padding: 8px;
+    padding: 20px;
   }
+  .last-child{
+    padding: 70px 40px;
+}
   .__shecodevaldiv1 {
     margin-left: 43%;
   }
