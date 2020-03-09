@@ -5,9 +5,9 @@
 
 
 @media screen and (min-width: 1440px){
-   
-  
-
+  #testimonials .__shecodetestimcard {
+    height: 23rem;
+  }
 
 }
 
@@ -60,6 +60,7 @@
   .__shecodebestie br {
     display: none;
   }
+
 }
 
 
@@ -69,9 +70,9 @@
 
 
 @media screen and (max-width: 992px){
-  .__shecodetestimcard {
-    height: 42rem;
-}
+     .__shecodebtn {
+    width: 25%;
+}   
 }
 
 
@@ -104,12 +105,10 @@
   .__shecodeafri1 {
     font-family: Raleway-Black;
     font-size: 19px;
-    text-align: center;
   }
 
   .__shecodetestimcard {
     padding: 20px;
-    height: 30rem;
   }
   .last-child{
     padding: 55px 40px;
@@ -209,9 +208,11 @@
     /* margin-top: 10%; */
     font-size: 14px;
   }
-  
+  .__shecodebtn {
+    width: 40%;
+  }
   section {
-      padding: 20px 0;
+      padding: 30px 0;
   }
   
 }
@@ -226,7 +227,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-	}
+  }
+
 }
 
 @media screen and (min-width: 992px) {
@@ -248,8 +250,6 @@
 		right: calc(20.5vw + 5px);
 	}
 }
-
-
 /*=================================================================
   @media screen 560px
 ==================================================================*/
@@ -290,6 +290,7 @@
     }
 
     .__shecodeaboutimg {
+      /* min-height: 60vh; */
       min-height: 45vh;
 		}
 		
@@ -394,3 +395,14 @@
       margin-left: 40%;
     }
   }*/
+
+  @media screen and (max-width: 991px) and (min-width: 768px) {
+    #testimonials .__shecodetestimcard {
+      height: 30rem;
+    }
+  }
+  @media screen and (max-width: 1199px) and (min-width: 992px) {
+    #testimonials .__shecodetestimcard {
+      height: 27rem;
+    }
+  }

@@ -275,8 +275,8 @@ li.__shecodelink.active a {
 }
 
 .__shecodebtn {
+    display: inline-block;
     border: 1px solid #B70569;
-    padding: 4px 22px;
     border-radius: 5px;
     color: #B70569 !important;
     font-size: 18px;
@@ -284,7 +284,7 @@ li.__shecodelink.active a {
     margin-top: 5%;
     background: #ffffff;
     transition: all 0.4s ease-in;
-    width: 50%;
+    width: 20%;
 }
 
 .__shecodebtn:hover {
@@ -306,8 +306,15 @@ li.__shecodelink.active a {
     background: #ffffff;
     transition: all 0.4s ease-in;
     margin-bottom: 20px;
-}
 
+
+}
+.__btn-cta{   
+    padding: 7px 17px;
+}
+.__btn-submit{
+     padding: 10px 0;
+}
 .__shecodebtn2:hover {
     box-shadow: 0px 6px 5px 0px rgba(183, 5, 105, 0.62);
     border: none;
@@ -1412,9 +1419,6 @@ box-shadow: 0px 0px 7px #FF4EAE;
 }
 
 @media only screen and (max-width:375px) {
-    .__shecodebtn {
-        padding: 0px 0px;
-    }
     .__shecodebtn img {
         display: none;
         padding: 10px 0px;
@@ -1429,9 +1433,6 @@ box-shadow: 0px 0px 7px #FF4EAE;
 }
 
 @media only screen and (min-width:426px) and (max-width:768px) {
-    .__shecodebtn {
-        padding: 0px 0px;
-    }
     .__shecodebtn img {
         display: none;
         padding: 0px 0px;
@@ -1464,7 +1465,7 @@ box-shadow: 0px 0px 7px #FF4EAE;
 
 @media only screen and (max-width:426px) {
     .__shecodebtn {
-        padding: 0px 0px;
+        padding: 10px;
     }
     .__shecodebtn img {
         display: none;

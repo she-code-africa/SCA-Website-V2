@@ -6,7 +6,7 @@
         <div class="container banner-text text-center">
             <p class="__shecodeafriab">OUR PARTNERS</p>
             <p class="__shecodeafriab1">Here are our Sponsors and Partners helping us make an impact</p>
-            <a href="#contact_us" class="btn __shecodebtn">Partner with Us</a>
+            <a href="#contact_us" class="btn __shecodebtn __btn-cta">Partner with Us</a>
         </div>
     </div>
     {% endblock %} {% block content %}
@@ -91,11 +91,12 @@
                 </div>
                 <br> {% set class = ( "has-error" if validationErrors.details else "" ) %}
                 <div class="form-group">
-                    <textarea name="details" id="input" class="form-control" rows="5" placeholder="Partnership Details" required="required">{{ formData.details }}</textarea>
+                    <textarea name="details" id="input" class="form-control" rows="5" placeholder="Partnership Details"
+                        required="required">{{ formData.details }}</textarea>
                 </div>
 
                 <div class="text-center">
-                    <button type="submit" class="btn  __shecodebtn">Submit</button>
+                    <button type="submit" class="btn  __shecodebtn __btn-submit">Submit</button>
                 </div>
             </form>
         </div>
