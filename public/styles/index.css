@@ -283,6 +283,10 @@
 
     .__shecodeaboutimg {
       min-height: 45vh;
+		}
+		
+		.__shecodeteamheader {
+      min-height: 45vh;
     }
 
     .__shecodevalab {
