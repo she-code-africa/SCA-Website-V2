@@ -218,6 +218,10 @@ Custom Css
     padding-right: 20px;
 }
 
+.contact-us {
+	right: calc(50% - 7rem);
+}
+
 .__shecodenavbar {
     background-color: transparent;
     margin-bottom: 0;
@@ -589,6 +593,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 }
 
 .community_text {
+	margin-top: 3rem;
     border: 1px solid #B70569;
     padding: 20px;
     border-radius: 5px;
