@@ -14,67 +14,76 @@
             {% if data.uevents|length or data.pevents|length %}
             <div class="col-sm-10 col-sm-offset-2 col-md-11 col-md-offset-1">
                 {% if data.uevents|length %}
-                <h4 class="text-muted">Upcoming Events</h4>
+                <div class="event-section">
+                    <p class="__shecodeval">UPCOMING</p>
+				    <p class="__shecodeval1">EVENTS</p><br>
+                </div>
                 <div class="row">
                     {% if data.uevents|length > 3 %}
                     {% for event in data.uevents %}
-                    <div class="col-md-3 col-sm-3 event-post">
-                        {% if event.image.exists %}
-                        <img src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
-                        {% endif %}
-                        <div class="event-body">
+                    <div class="col-md-3 col-sm-3">
+                        <div class="thumbnail">
                             <a href="/events/{{event.slug}}">
-                                {% if event.eventDate %}
-                                <h5>{{event._.eventDate.format("MMMM D, YYYY")}}</h5>
+                                {% if event.image.exists %}
+                                <img src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
                                 {% endif %}
-                                {% if event.title %}
-                                <h4 class="event-title">{{event.title}}</h4>
-                                {% endif %}
-                                {% if event.location %}
-                                <h5>{{event.location}}</h5>
-                                {% endif %}
+                                <div class="caption">
+                                    {% if event.eventDate %}
+                                    <p>{{event._.eventDate.format("MMMM D, YYYY")}}</p>
+                                    {% endif %}
+                                    {% if event.title %}
+                                    <p class="event-title">{{event.title}}</p>
+                                    {% endif %}
+                                    {% if event.location %}
+                                    <p>{{event.location}}</p>
+                                    {% endif %}
+                                </div>                    
                             </a>
                         </div>
                     </div>
                     {% endfor %}
                     {% elif data.uevents|length == 3 %}
                     {% for event in data.uevents %}
-                    <div class="col-md-4 col-sm-4 event-post">
-                        {% if event.image.exists %}
-                        <img src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
-                        {% endif %}
-                        <div class="event-body">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="thumbnail">
                             <a href="/events/{{event.slug}}">
-                                {% if event.eventDate %}
-                                <h5>{{event._.eventDate.format("MMMM D, YYYY")}}</h5>
+                                {% if event.image.exists %}
+                                <img src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
                                 {% endif %}
-                                {% if event.title %}
-                                <h4 class="event-title">{{event.title}}</h4>
-                                {% endif %}
-                                {% if event.location %}
-                                <h5>{{event.location}}</h5>
-                                {% endif %}
+                                <div class="caption">
+                                    {% if event.eventDate %}
+                                    <p>{{event._.eventDate.format("MMMM D, YYYY")}}</p>
+                                    {% endif %}
+                                    {% if event.title %}
+                                    <p class="event-title">{{event.title}}</p>
+                                    {% endif %}
+                                    {% if event.location %}
+                                    <p>{{event.location}}</p>
+                                    {% endif %}
+                                </div>                    
                             </a>
                         </div>
                     </div>
                     {% endfor %}
                     {%else%}
                     {% for event in data.uevents %}
-                    <div class="col-md-6 col-sm-6 event-post">
-                        {% if event.image.exists %}
-                        <img src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
-                        {% endif %}
-                        <div class="event-body">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="thumbnail">
                             <a href="/events/{{event.slug}}">
-                                {% if event.eventDate %}
-                                <h5>{{event._.eventDate.format("MMMM D, YYYY")}}</h5>
+                                {% if event.image.exists %}
+                                <img src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
                                 {% endif %}
-                                {% if event.title %}
-                                <h4 class="event-title">{{event.title}}</h4>
-                                {% endif %}
-                                {% if event.location %}
-                                <h5>{{event.location}}</h5>
-                                {% endif %}
+                                <div class="caption">
+                                    {% if event.eventDate %}
+                                    <p>{{event._.eventDate.format("MMMM D, YYYY")}}</p>
+                                    {% endif %}
+                                    {% if event.title %}
+                                    <p class="event-title">{{event.title}}</p>
+                                    {% endif %}
+                                    {% if event.location %}
+                                    <p>{{event.location}}</p>
+                                    {% endif %}
+                                </div>                    
                             </a>
                         </div>
                     </div>
@@ -84,10 +93,33 @@
                 </div>
                 <div class="row">
                     {% if data.pevents.length %}
-                    <h4 class="text-muted">Past Events</h4>
+                    <div class="event-section">
+                        <p class="__shecodeval">PAST</p>
+                        <p class="__shecodeval1">EVENTS</p><br>
+                    </div>
                     {% if data.pevents|length > 3 %}
                     {% for event in data.pevents %}
-                    <div class="col-md-3 col-sm-3 event-post">
+                    <div class="col-md-3 col-sm-3">
+                        <div class="thumbnail">
+                            <a href="/events/{{event.slug}}">
+                                {% if event.image.exists %}
+                                <img src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
+                                {% endif %}
+                                <div class="caption">
+                                    {% if event.eventDate %}
+                                    <p>{{event._.eventDate.format("MMMM D, YYYY")}}</p>
+                                    {% endif %}
+                                    {% if event.title %}
+                                    <p class="event-title">{{event.title}}</p>
+                                    {% endif %}
+                                    {% if event.location %}
+                                    <p>{{event.location}}</p>
+                                    {% endif %}
+                                </div>                    
+                            </a>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-3 col-sm-3 event-post">
                         {% if event.image.exists %}
                         <img src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
                         {% endif %}
@@ -104,11 +136,31 @@
                                 {% endif %}
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                     {% endfor %}
                     {% elif data.pevents|length == 3 %}
                     {% for event in data.pevents %}
-                    <div class="col-md-4 col-sm-4 event-post">
+                    <div class="col-md-4 col-sm-4">
+                        <div class="thumbnail">
+                            <a href="/events/{{event.slug}}">
+                                {% if event.image.exists %}
+                                <img src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
+                                {% endif %}
+                                <div class="caption">
+                                    {% if event.eventDate %}
+                                    <p>{{event._.eventDate.format("MMMM D, YYYY")}}</p>
+                                    {% endif %}
+                                    {% if event.title %}
+                                    <p class="event-title">{{event.title}}</p>
+                                    {% endif %}
+                                    {% if event.location %}
+                                    <p>{{event.location}}</p>
+                                    {% endif %}
+                                </div>                    
+                            </a>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-4 col-sm-4 event-post">
                         {% if event.image.exists %}
                         <img src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
                         {% endif %}
@@ -125,11 +177,31 @@
                                 {% endif %}
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                     {% endfor %}
                     {%else%}
                     {% for event in data.pevents %}
-                    <div class="col-md-6 col-sm-6 event-post">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="thumbnail">
+                            <a href="/events/{{event.slug}}">
+                                {% if event.image.exists %}
+                                <img src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
+                                {% endif %}
+                                <div class="caption">
+                                    {% if event.eventDate %}
+                                    <p>{{event._.eventDate.format("MMMM D, YYYY")}}</p>
+                                    {% endif %}
+                                    {% if event.title %}
+                                    <p class="event-title">{{event.title}}</p>
+                                    {% endif %}
+                                    {% if event.location %}
+                                    <p>{{event.location}}</p>
+                                    {% endif %}
+                                </div>                    
+                            </a>
+                        </div>
+                    </div>
+                    <!-- <div class="col-md-6 col-sm-6 event-post">
                         {% if event.image.exists %}
                         <img src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
                         {% endif %}
@@ -146,7 +218,7 @@
                                 {% endif %}
                             </a>
                         </div>
-                    </div>
+                    </div> -->
                     {% endfor %}
                     {% endif %}
                     {% endif %}
@@ -154,7 +226,10 @@
             </div>
             {% else %}
             <div class="row">
-            <p class="__shecodeval1">PAST EVENTS</p><br>
+                <div class="event-section">
+                    <p class="__shecodeval">PAST</p>
+				    <p class="__shecodeval1">EVENTS</p><br>
+                </div>
                 <div class="col-md-4 col-sm-4">
                     <div class="thumbnail">
                         <a href="https://drive.google.com/drive/folders/1KuNSNx7HSgiQiviLx8YDAleIbUQ_6oHt" target="blank">
