@@ -5,9 +5,9 @@
 
 
 @media screen and (min-width: 1440px){
-   
-  
-
+  #testimonials .__shecodetestimcard {
+    height: 23rem;
+  }
 
 }
 
@@ -91,6 +91,10 @@
 		right: 13rem;
 	}
 
+	.contact-us {
+		right: 17rem;
+	}
+
 	.__shecodelink {
     padding: 10px 4px;
   }
@@ -101,12 +105,10 @@
   .__shecodeafri1 {
     font-family: Raleway-Black;
     font-size: 19px;
-    text-align: center;
   }
 
   .__shecodetestimcard {
     padding: 20px;
-    height: 30rem;
   }
   .last-child{
     padding: 55px 40px;
@@ -207,8 +209,12 @@
     font-size: 14px;
   }
   .__shecodebtn {
-    width: 30%;
-}
+    width: 40%;
+  }
+  section {
+      padding: 30px 0;
+  }
+  
 }
 
 @media screen and (min-width: 768px) {
@@ -221,7 +227,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-	}
+  }
+
 }
 
 @media screen and (min-width: 992px) {
@@ -232,15 +239,17 @@
 
 @media screen and (max-width: 767px) and (min-width: 375px) {
 	.__shecodeformcard {
-		padding-top: 0;
+		padding-top: 5%;
 	}
 
 	.__shecodeformp {
 		right: calc(18vw - 20px);
 	}
+
+	.contact-us {
+		right: calc(20.5vw + 5px);
+	}
 }
-
-
 /*=================================================================
   @media screen 560px
 ==================================================================*/
@@ -281,7 +290,12 @@
     }
 
     .__shecodeaboutimg {
-      min-height: 60vh;
+      /* min-height: 60vh; */
+      min-height: 45vh;
+		}
+		
+		.__shecodeteamheader {
+      min-height: 45vh;
     }
 
     .__shecodevalab {
@@ -381,3 +395,14 @@
       margin-left: 40%;
     }
   }*/
+
+  @media screen and (max-width: 991px) and (min-width: 768px) {
+    #testimonials .__shecodetestimcard {
+      height: 30rem;
+    }
+  }
+  @media screen and (max-width: 1199px) and (min-width: 992px) {
+    #testimonials .__shecodetestimcard {
+      height: 27rem;
+    }
+  }

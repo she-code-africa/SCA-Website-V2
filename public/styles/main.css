@@ -29,7 +29,6 @@ body {
 
 #body {
     flex-grow: 1;
-    padding: 17px;
 }
 
 header,
@@ -118,7 +117,7 @@ a:hover {
 .navbar-toggle {
     /*border: 2px solid #FFFFFF;*/
     color: #ffffff;
-    background: #ff85d2;
+    background: #B70569;
     /* margin-top: 1.3rem; */
 }
 
@@ -219,6 +218,10 @@ Custom Css
     padding-right: 20px;
 }
 
+.contact-us {
+	right: calc(50% - 7rem);
+}
+
 .__shecodenavbar {
     background-color: transparent;
     margin-bottom: 0;
@@ -247,7 +250,7 @@ Custom Css
 
 .__shecodelink a:hover,
 li.__shecodelink.active a {
-    color:#B70569 !important;
+    color: #B70569 !important;
     text-decoration: overline !important;
     transform: scale(1.04);
     transition: transform 0.4s ease-in-out;
@@ -294,13 +297,13 @@ li.__shecodelink.active a {
 }
 
 .__shecodebtn2 {
-	border: 1px solid #B70569;
-	border-radius: 5px;
-	color: #B70569 !important;
-	font-size: 18px;
-	font-weight: 600;
-	margin-top: 20px;
-	background: #ffffff;
+    border: 1px solid #B70569;
+    border-radius: 5px;
+    color: #B70569 !important;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 20px;
+    background: #ffffff;
     transition: all 0.4s ease-in;
     margin-bottom: 20px;
 
@@ -313,8 +316,8 @@ li.__shecodelink.active a {
      padding: 10px 0;
 }
 .__shecodebtn2:hover {
-	box-shadow: 0px 6px 5px 0px rgba(183, 5, 105, 0.62);
-	border: none;
+    box-shadow: 0px 6px 5px 0px rgba(183, 5, 105, 0.62);
+    border: none;
 }
 
 .__shecodevmv {
@@ -330,7 +333,7 @@ li.__shecodelink.active a {
 
 .__shecodebestie h2 {
     font-family: Raleway-Black;
-    letter-spacing: 5px;
+    letter-spacing: 3px;
     margin: 5%;
 }
 
@@ -339,8 +342,8 @@ li.__shecodelink.active a {
 }
 
 @media screen and (max-width: 768px) {
-	.__shecodebestie h2 {
-		margin-top: 10%;
+    .__shecodebestie h2 {
+        margin-top: 10%;
     }
     .__shecodebestie {
         text-align: center;
@@ -510,17 +513,18 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 
 
 /*form input style end*/
+
 .__shecodeaboutimg {
-	background: linear-gradient(100deg, rgba(255, 133, 210, 0.34) 50%, rgba(255, 133, 210, 0.34) 50%), url(../../images/about-us.jpg);  
-	background-position: center;
+    background: linear-gradient(100deg, rgba(255, 133, 210, 0.34) 50%, rgba(255, 133, 210, 0.34) 50%), url(../../images/about-us.jpg);
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 85vh;
 }
 
 .__shecodeteamheader {
-	background: linear-gradient(100deg, rgba(255, 133, 210, 0.34) 50%, rgba(255, 133, 210, 0.34) 50%), url(../../images/team.JPG);
-	background-position: center;
+    background: linear-gradient(100deg, rgba(255, 133, 210, 0.34) 50%, rgba(255, 133, 210, 0.34) 50%), url(../../images/team.JPG);
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 85vh;
@@ -596,6 +600,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 }
 
 .community_text {
+	margin-top: 3rem;
     border: 1px solid #B70569;
     padding: 20px;
     border-radius: 5px;
@@ -697,15 +702,15 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 @media screen and (min-width: 426px) {
     .__shecodevalimg {
         width: 120px;
-        top: 34%;
+        top: 29%;
         left: 39%;
     }
 }
 
 @media screen and (max-width: 425px) {
     .__shecodevalimg {
-        width: 80px;
-        left: 37%;
+        width: 60px;
+        left: 40%;
         top: 32%;
     }
 }
@@ -817,6 +822,16 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 .__shecodestack4 {
     /* float: right; */
     /* margin-top: 27%; */
+}
+
+.code-of-conduct {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.faq {
+    font-size: 18px;
+    line-height: 1.8;
 }
 
 @media screen and (min-width: 769px) {
@@ -1332,11 +1347,13 @@ box-shadow: 0px 0px 7px #FF4EAE;
     }
 }
 
+
 /* event page */
+
 .event-post {
     margin-top: 1%;
     margin-bottom: 2%;
-    height:300px;
+    height: 300px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     box-shadow: 1px 2px 4px #ddd;
 }
@@ -1363,6 +1380,7 @@ box-shadow: 0px 0px 7px #FF4EAE;
     margin-top: 50px;
     box-shadow: 1px 1px 4px #ddd;
 }
+
 .event-content-box p {
     margin-top: 5%;
     text-align: right;
@@ -1377,6 +1395,7 @@ box-shadow: 0px 0px 7px #FF4EAE;
     color: #B70569;
     font-weight: 400;
 }
+
 .event_title {
     font-size: 24px;
     color: #B70569;
@@ -1399,7 +1418,6 @@ box-shadow: 0px 0px 7px #FF4EAE;
     margin-top: 3%;
 }
 
-
 @media only screen and (max-width:375px) {
     .__shecodebtn img {
         display: none;
@@ -1409,10 +1427,11 @@ box-shadow: 0px 0px 7px #FF4EAE;
         margin-top: 5%;
         background: #ffffff;
         transition: all 0.4s ease-in;
-        width: 100%;    
+        width: 100%;
         color: #ff1493 !important;
-    }	
+    }
 }
+
 @media only screen and (min-width:426px) and (max-width:768px) {
     .__shecodebtn img {
         display: none;
@@ -1422,7 +1441,7 @@ box-shadow: 0px 0px 7px #FF4EAE;
         margin-top: 5%;
         background: #ffffff;
         transition: all 0.4s ease-in;
-        width: 100%;    
+        width: 100%;
         color: #ff1493 !important;
     }
 }
@@ -1439,10 +1458,11 @@ box-shadow: 0px 0px 7px #FF4EAE;
         margin-top: 5%;
         background: #ffffff;
         transition: all 0.4s ease-in;
-        width: 100%;    
+        width: 100%;
         color: #ff1493 !important;
-    }	
+    }
 }
+
 @media only screen and (max-width:426px) {
     .__shecodebtn {
         padding: 10px;
@@ -1455,10 +1475,11 @@ box-shadow: 0px 0px 7px #FF4EAE;
         margin-top: 5%;
         background: #ffffff;
         transition: all 0.4s ease-in;
-        width: 100%;    
+        width: 100%;
         color: #ff1493 !important;
     }
 }
+
 @media only screen and (max-width: 600px) {
     .event-content-box p a .__shecodebtn img {
         display: none;
@@ -1468,10 +1489,11 @@ box-shadow: 0px 0px 7px #FF4EAE;
         margin-top: 5%;
         background: #ffffff;
         transition: all 0.4s ease-in;
-        width: 50%;    
+        width: 50%;
         color: #ff1493 !important;
-    }   
+    }
 }
+
 
 /*job page*/
 
@@ -1563,7 +1585,7 @@ box-shadow: 0px 0px 7px #FF4EAE;
     display: block;
     overflow: hidden;
     margin: 0;
-    padding-top: 30px;
+	padding-top: 60px;
 }
 
 .slick-list:focus {
@@ -1587,8 +1609,8 @@ box-shadow: 0px 0px 7px #FF4EAE;
 .slick-track {
     position: relative;
     top: 0;
-    left: 0;
-    display: block;
+	left: 0;
+	display: block;
 }
 
 .slick-track:before,
@@ -1648,6 +1670,10 @@ box-shadow: 0px 0px 7px #FF4EAE;
 
 
 /*team page*/
+
+section {
+    padding: 50px 0;
+}
 
 @media screen and (min-width: 768px) {
     section {
@@ -1850,4 +1876,13 @@ button:focus {
     height: 25px;
     padding: 2px;
     margin: 3px;
+}
+
+
+/* chapter lead page */
+
+#embedded {
+    margin-top: 30px;
+    width: 100%;
+    height: 800px;
 }

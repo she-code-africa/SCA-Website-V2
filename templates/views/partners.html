@@ -11,33 +11,36 @@
     </div>
     {% endblock %} {% block content %}
     <div class="container">
-        <br><br>
-        <p class="__shecodeval">Why <span class="__shecodeval1">Partner</span> With Us</p>
-        <div class="text-center">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint laborum, aliquid molestiae ut error amet
-            itaque fugiat deserunt aliquam reprehenderit cumque exercitationem eveniet ex debitis veritatis iste, quasi
-            magni nesciunt.
-        </div>
-        <br><br>
+        <section class="about-section-x">
+            <p class="__shecodeval">Why <span class="__shecodeval1">Partner</span> With Us</p>
+			<div class="community_text">
+				Partner with us and help us make an impact!  Your donation would go a long way in securing and 
+				covering costs for our numerous events and offline initiatives, providing learning resources and 
+				tools to facilitate our events and programs across our chapters.
+			</div>
+        </section>
 
-        <p class="__shecodeval">Our Current <span class="__shecodeval1">Partners</span></p>
-        <br>
-        <div class="customer-logos slider">
-            <div class="slide"><img src="/images/andela.png"></div>
-            <div class="slide"><img src="/images/cloudinary.png"></div>
-            <div class="slide"><img src="/images/microsoft.png"></div>
-            <div class="slide"><img src="/images/forLoop-Kampala.png"></div>
-            <div class="slide"><img src="/images/SCOTH.png"></div>
-            <div class="slide"><img src="/images/cloudinary.png"></div>
-            <div class="slide"><img src="/images/forLoop-Kampala.png"></div>
-            <div class="slide"><img src="/images/microsoft.png"></div>
-        </div>
-
-        <br><br> {% if partnershipSubmitted %}
+        <section class="about-section-x">
+            <p class="__shecodeval">Our Current <span class="__shecodeval1">Partners</span></p>
+            <div class="customer-logos slider">
+                <div class="slide"><img src="/images/ellcrys.svg" alt="Ellcrys Logo" /></div>
+				<div class="slide"><img src="/images/mest.png" alt="Mest Logo" /></div>
+				<div class="slide"><img src="/images/civic-hive.png" alt="Civic Hive Logo" /></div>
+				<div class="slide"><img src="/images/start-innovation-hub.png" alt="Start Innovation Hub Logo" /></div>
+				<div class="slide"><img src="/images/nghub.svg" alt="NG_HUB Logo" /></div>
+				<div class="slide"><img src="/images/ellcrys.svg" alt="Ellcrys Logo" /></div>
+				<div class="slide"><img src="/images/mest.png" alt="Mest Logo" /></div>
+				<div class="slide"><img src="/images/start-innovation-hub.png" alt="Start Innovation Hub Logo" /></div>
+				<div class="slide"><img src="/images/civic-hive.png" alt="Civic Hive Logo" /></div>
+				<div class="slide"><img src="/images/nghub.svg" alt="NG_HUB Logo" /></div>	
+            </div>
+		</section>
+		
+		{% if partnershipSubmitted %}
         <h3>Thanks for getting in touch.</h3>
         {% else %}
         <div id="contact_us" class="__shecodeformcard">
-            <p class="__shecodeformp">Contact Us</p>
+            <p class="__shecodeformp contact-us">Contact Us</p>
             <form method="POST" role="form">
                 <input type="hidden" name="action" value="partnership">
                 <div class="row">
