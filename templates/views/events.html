@@ -119,24 +119,6 @@
                             </a>
                         </div>
                     </div>
-                    <!-- <div class="col-md-3 col-sm-3 event-post">
-                        {% if event.image.exists %}
-                        <img src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
-                        {% endif %}
-                        <div class="event-body">
-                            <a href="/events/{{event.slug}}">
-                                {% if event.eventDate %}
-                                <h5>{{event._.eventDate.format("MMMM D, YYYY")}}</h5>
-                                {% endif %}
-                                {% if event.title %}
-                                <h4 class="event-title">{{event.title}}</h4>
-                                {% endif %}
-                                {% if event.location %}
-                                <h5>{{event.location}}</h5>
-                                {% endif %}
-                            </a>
-                        </div>
-                    </div> -->
                     {% endfor %}
                     {% elif data.pevents|length == 3 %}
                     {% for event in data.pevents %}
@@ -160,24 +142,6 @@
                             </a>
                         </div>
                     </div>
-                    <!-- <div class="col-md-4 col-sm-4 event-post">
-                        {% if event.image.exists %}
-                        <img src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
-                        {% endif %}
-                        <div class="event-body">
-                            <a href="/events/{{event.slug}}">
-                                {% if event.eventDate %}
-                                <h5>{{event._.eventDate.format("MMMM D, YYYY")}}</h5>
-                                {% endif %}
-                                {% if event.title %}
-                                <h4 class="event-title">{{event.title}}</h4>
-                                {% endif %}
-                                {% if event.location %}
-                                <h5>{{event.location}}</h5>
-                                {% endif %}
-                            </a>
-                        </div>
-                    </div> -->
                     {% endfor %}
                     {%else%}
                     {% for event in data.pevents %}
@@ -201,24 +165,6 @@
                             </a>
                         </div>
                     </div>
-                    <!-- <div class="col-md-6 col-sm-6 event-post">
-                        {% if event.image.exists %}
-                        <img src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
-                        {% endif %}
-                        <div class="event-body">
-                            <a href="/events/{{event.slug}}">
-                                {% if event.eventDate %}
-                                <h5>{{event._.eventDate.format("MMMM D, YYYY")}}</h5>
-                                {% endif %}
-                                {% if event.title %}
-                                <h4 class="event-title">{{event.title}}</h4>
-                                {% endif %}
-                                {% if event.location %}
-                                <h5>{{event.location}}</h5>
-                                {% endif %}
-                            </a>
-                        </div>
-                    </div> -->
                     {% endfor %}
                     {% endif %}
                     {% endif %}
