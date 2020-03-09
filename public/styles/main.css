@@ -812,6 +812,16 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
     /* margin-top: 27%; */
 }
 
+.code-of-conduct {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+.faq {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
 @media screen and (min-width: 769px) {
     .member-benefits {
         margin-top: 100px;
