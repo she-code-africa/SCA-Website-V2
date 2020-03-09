@@ -117,7 +117,7 @@ a:hover {
 .navbar-toggle {
     /*border: 2px solid #FFFFFF;*/
     color: #ffffff;
-    background: #ff85d2;
+    background: #B70569;
     /* margin-top: 1.3rem; */
 }
 
@@ -216,6 +216,10 @@ Custom Css
     top: -11px;
     padding-left: 21px;
     padding-right: 20px;
+}
+
+.contact-us {
+	right: calc(50% - 7rem);
 }
 
 .__shecodenavbar {
@@ -589,6 +593,7 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 }
 
 .community_text {
+	margin-top: 3rem;
     border: 1px solid #B70569;
     padding: 20px;
     border-radius: 5px;
@@ -690,15 +695,15 @@ div.__shecodecard>div>div>div>p.__shecodevmvp1 {
 @media screen and (min-width: 426px) {
     .__shecodevalimg {
         width: 120px;
-        top: 34%;
+        top: 29%;
         left: 39%;
     }
 }
 
 @media screen and (max-width: 425px) {
     .__shecodevalimg {
-        width: 80px;
-        left: 37%;
+        width: 60px;
+        left: 40%;
         top: 32%;
     }
 }
@@ -1579,7 +1584,7 @@ box-shadow: 0px 0px 7px #FF4EAE;
     display: block;
     overflow: hidden;
     margin: 0;
-    padding-top: 30px;
+	padding-top: 60px;
 }
 
 .slick-list:focus {
@@ -1603,8 +1608,8 @@ box-shadow: 0px 0px 7px #FF4EAE;
 .slick-track {
     position: relative;
     top: 0;
-    left: 0;
-    display: block;
+	left: 0;
+	display: block;
 }
 
 .slick-track:before,

@@ -90,6 +90,10 @@
 		right: 13rem;
 	}
 
+	.contact-us {
+		right: 17rem;
+	}
+
 	.__shecodelink {
     padding: 10px 4px;
   }
@@ -233,11 +237,15 @@
 
 @media screen and (max-width: 767px) and (min-width: 375px) {
 	.__shecodeformcard {
-		padding-top: 0;
+		padding-top: 5%;
 	}
 
 	.__shecodeformp {
 		right: calc(18vw - 20px);
+	}
+
+	.contact-us {
+		right: calc(20.5vw + 5px);
 	}
 }
 
@@ -282,6 +290,10 @@
     }
 
     .__shecodeaboutimg {
+      min-height: 45vh;
+		}
+		
+		.__shecodeteamheader {
       min-height: 45vh;
     }
 
