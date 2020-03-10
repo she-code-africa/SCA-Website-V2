@@ -39,6 +39,7 @@ exports = module.exports = function(app) {
     app.get('/blog/:category?', routes.views.blog);
     app.get('/blog/post/:post', routes.views.post);
     app.get('/about', routes.views.about);
+    app.get('/chapter-lead-application', routes.views.chapter);
     app.get('/jobs', routes.views.jobs);
     app.get('/jobs/job/:job', routes.views.job);
     app.get('/community', routes.views.community);
@@ -48,6 +49,8 @@ exports = module.exports = function(app) {
     app.get('/team', routes.views.team);
     app.get('/events', routes.views.events);
     app.get('/events/:event', routes.views.event);
+    app.get('/code-of-conduct', routes.views.conduct);
+    app.get('/frequently-asked-questions', routes.views.faqs);
     //File Upload Route
     // app.get('/api/fileupload/list', keystone.middleware.api, routes.api.fileupload.list);
     // app.get('/api/fileupload/:id', keystone.middleware.api, routes.api.fileupload.get);

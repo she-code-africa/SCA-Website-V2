@@ -5,8 +5,8 @@
     <div class="__shecodeteamheader">
         <div class="container text-center banner-text">
             <p class="__shecodeafriab">OUR TEAM</p>
-            <p class="__shecodeafriab1">Guiding Tech-Girls to their Ful Potential</p>
-            <a href="https://bit.ly/joinscaslack" class="btn __shecodebtn">Join Us</a>
+            <p class="__shecodeafriab1">Guiding Tech-Girls to their Full Potential</p>
+            <a href="https://bit.ly/joinscaslack" class="btn __shecodebtn __btn-submit">Join Us</a>
         </div>
     </div>
     {% endblock %} {% block content %}
@@ -45,7 +45,8 @@
                         <p class=" __shecodeteamp">{{member.name}}</p>
                         <p class="__shecodeteamp1">{{member.occupation}}</p>
                         <div class="img-info">
-                            <button class="btn __shecodebtn" role="toggle" data-toggle="modal" data-target="#{{member.id}}" class="btn">View Details</button>
+                            <button class="btn __shecodebtn __btn-cta" role="toggle" data-toggle="modal"
+                                data-target="#{{member.id}}" class="btn">View Details</button>
                         </div>
 
                     </div>
@@ -57,7 +58,8 @@
 
 
                 <!-- Modal -->
-                <div id={{member.id}} class="modal fade" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+                <div id={{member.id}} class="modal fade" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog">
 
                         <div class="modal-content">
@@ -69,7 +71,8 @@
                             <div class="modal-body">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <img class="img-fluid gallery-modal-img" src="{{member.image.url}}" alt="{{member.name}}">
+                                        <img class="img-fluid gallery-modal-img" src="{{member.image.url}}"
+                                            alt="{{member.name}}">
                                     </div>
                                     <div class="col-sm-6">
                                         <h5><strong>Name: &nbsp;&nbsp;</strong> {{member.name}}</h5>
@@ -102,9 +105,9 @@
 {% block js %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
 <script>
-    $(document).ready(function() {
+    $(document).ready(function () {
 
-        $(".filter-button").click(function() {
+        $(".filter-button").click(function () {
             var value = $(this).attr('data-filter');
 
             if (value == "all") {
@@ -123,7 +126,7 @@
     });
     /*	end gallery */
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         $(".fancybox").fancybox({
             openEffect: "none",
             closeEffect: "none"
