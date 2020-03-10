@@ -289,14 +289,9 @@
       padding: 35px 7px 30px;
     }
 
-    .__shecodeaboutimg {
-      /* min-height: 60vh; */
-      min-height: 45vh;
+    .__shecodeaboutimg, .__shecodeteamheader, .__shecodeeventimg, .__shecodechapterimg, .__shecodepartnerimg {
+      min-height: 50vh;
 		}
-		
-		.__shecodeteamheader {
-      min-height: 45vh;
-    }
 
     .__shecodevalab {
       width: 300px;
