@@ -6,7 +6,7 @@
         <div class="container text-center banner-text">
             <p class="__shecodeafriab">OUR TEAM</p>
             <p class="__shecodeafriab1">Guiding Tech-Girls to their Full Potential</p>
-            <a href="https://bit.ly/joinscaslack" class="btn __shecodebtn __btn-submit">Join Us</a>
+            <a href="https://bit.ly/scaslacksignup" class="btn __shecodebtn __btn-submit">Join Us</a>
         </div>
     </div>
     {% endblock %} {% block content %}
@@ -30,14 +30,6 @@
                     <button class="filter-button" data-filter={{cat.id}}>{{cat.name}}</button> {% endfor %}
                 </div>
                 <br /> {% for member in teams %}
-                <!-- <div class="gallery_product col-md-3 col-sm-6 col-xs-12 filter {{member.membership}}">
-                    <img class="img-responsive" alt="{{member.name}}" src="{{member.image.url}}" />
-                    <div class='img-info'>
-                        <h4> {{member.name}}</h4>
-                        <p>{{member.occupation}}</p>
-                        <button class="btn __shecodebtn" role="toggle" data-toggle="modal" data-target="#{{member.id}}" class="btn">View Details</button>
-                    </div>
-                </div> -->
 
                 <div class="gallery_product col-md-3 col-sm-4 col-xs-12 filter all {{member.membership}}">
                     <div class="">
@@ -76,9 +68,7 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <h5><strong>Name: &nbsp;&nbsp;</strong> {{member.name}}</h5>
-                                        <h5><strong>Email:&nbsp;&nbsp;&nbsp; </strong> {{member.email}}</h5>
-                                        <h5><strong>Phone:&nbsp;&nbsp; </strong> {{member.phone}}</h5>
-                                        <h5><strong>Job:&nbsp;&nbsp;&nbsp;&nbsp; </strong> {{member.occupation}}
+                                        <h5><strong>Role:&nbsp;&nbsp;&nbsp;&nbsp; </strong> {{member.occupation}}
                                         </h5>
                                         <h5><strong>Bio:&nbsp;&nbsp;&nbsp;&nbsp; </strong> {{member.bio}}</h5>
 

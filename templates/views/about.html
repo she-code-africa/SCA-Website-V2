@@ -141,7 +141,6 @@
                         <img class="__shecodeteamimg" alt="{{member.name}}" src="{{member.image.url}}">
                         <p class="__shecodeteamp">{{member.name}}</p>
                         <p class="__shecodeteamp1">{% for cat in data.membership %} {% if cat.id == member.membership %} {{cat.name}} {% endif %} {% endfor %}</p>
-                        <small>Team Lead</small>
                     </div>
                 </div>
                 {% endif %} {% endfor %}

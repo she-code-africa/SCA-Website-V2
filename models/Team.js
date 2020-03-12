@@ -21,7 +21,6 @@ var Team = new keystone.List('Team', {
 Team.add({
     name: { type: String, initial: true, required: true },
     email: { type: Types.Email, initial: true, required: true },
-    phone: { type: String },
     occupation: { type: String },
     membership: { type: Types.Relationship, ref: 'TeamCategory', many: true },
     isLeader: { type: Boolean, isRequired: true, defaultValue: false },
