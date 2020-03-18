@@ -6,9 +6,9 @@ exports = module.exports = function(req, res) {
     var locals = res.locals;
 
     // Set locals
-    locals.section = 'chapter-lead-application';
+    locals.section = 'chapters';
 
     // Render the view
-    view.render('chapter-lead-application');
+    view.render('chapters');
 
 };
