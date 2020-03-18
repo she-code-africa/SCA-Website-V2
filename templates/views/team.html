@@ -24,66 +24,66 @@
 
 
 
-                {% if teams.length %}
-                <div align="center">
-                    <button class="filter-button" data-filter="all">All</button> {% for cat in data.membership %}
-                    <button class="filter-button" data-filter={{cat.id}}>{{cat.name}}</button> {% endfor %}
-                </div>
-                <br /> {% for member in teams %}
+                {% if teams.length %}:
+                    {% for member in teams%}
 
-                <div class="gallery_product col-md-3 col-sm-4 col-xs-12 filter all {{member.membership}}">
-                    <div class="">
-                        <img src="{{member.image.url}}" class="__shecodeteamimg img-responsive" alt="{{member.name}}">
-                        <p class=" __shecodeteamp">{{member.name}}</p>
-                        <p class="__shecodeteamp1">{{member.occupation}}</p>
-                        <div class="img-info">
-                            <button class="btn __shecodebtn __btn-cta" role="toggle" data-toggle="modal"
-                                data-target="#{{member.id}}" class="btn">View Details</button>
-                        </div>
-
-                    </div>
-                </div>
-
-
-
-
-
-
-                <!-- Modal -->
-                <div id={{member.id}} class="modal fade" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-
-                        <div class="modal-content">
-
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                <h4 class="modal-title">{{member.name}}</h4>
+                    <div class="gallery_product col-md-3 col-sm-4 col-xs-12">
+                        <div class="">
+                            {% if member.image.url %}
+                                <img src="{{member.image.url}}" class="__shecodeteamimg" alt="{{member.name}}">
+                            {% else %}
+                                <img src="/images/sca-team-member.png" class="__shecodeteamimg" alt="{{member.name}}">
+                            {% endif %}
+                            <p class=" __shecodeteamp">{{member.name}}</p>
+                            <p class="__shecodeteamp1">{{member.occupation}}</p>
+                            <div class="img-info">
+                                <button class="btn __shecodebtn __btn-cta" role="toggle" data-toggle="modal"
+                                    data-target="#{{member.id}}" class="btn">View Details</button>
                             </div>
-                            <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <img class="img-fluid gallery-modal-img" src="{{member.image.url}}"
-                                            alt="{{member.name}}">
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <h5><strong>Name: &nbsp;&nbsp;</strong> {{member.name}}</h5>
-                                        <h5><strong>Role:&nbsp;&nbsp;&nbsp;&nbsp; </strong> {{member.occupation}}
-                                        </h5>
-                                        <h5><strong>Bio:&nbsp;&nbsp;&nbsp;&nbsp; </strong> {{member.bio}}</h5>
 
+                        </div>
+                    </div>
+
+
+                    <!-- Modal -->
+                    <div id={{member.id}} class="modal fade" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h4 class="modal-title">{{member.name}}</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            {% if member.image.url %}
+                                                <img src="{{member.image.url}}" class="img-fluid gallery-modal-img" alt="{{member.name}}">
+                                            {% else %}
+                                                <img src="/images/sca-team-member.png" class="img-fluid gallery-modal-img" alt="{{member.name}}">
+                                            {% endif %}
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h5><strong>Name: &nbsp;&nbsp;</strong> {{member.name}}</h5>
+                                            <h5><strong>Role:&nbsp;&nbsp;&nbsp;&nbsp; </strong> {{member.occupation}}
+                                            </h5>
+                                            <h5><strong>Bio:&nbsp;&nbsp;&nbsp;&nbsp; </strong> {{member.bio}}</h5>
+
+                                        </div>
                                     </div>
                                 </div>
+                                <!-- End of Modal body -->
                             </div>
-                            <!-- End of Modal body -->
-                        </div>
 
-                        <!-- End of Modal content -->
+                            <!-- End of Modal content -->
+                        </div>
+                        <!-- End of Modal dialog -->
                     </div>
-                    <!-- End of Modal dialog -->
-                </div>
-                <!-- End of Modal -->
-                {% endfor %} {% endif %}
+                    <!-- End of Modal -->
+                    {% endfor %}
+                {% endif %}
 
             </div>
         </div>
@@ -95,27 +95,6 @@
 {% block js %}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
 <script>
-    $(document).ready(function () {
-
-        $(".filter-button").click(function () {
-            var value = $(this).attr('data-filter');
-
-            if (value == "all") {
-                $('.filter').show('1000');
-            } else {
-                $(".filter").not('.' + value).hide('3000');
-                $('.filter').filter('.' + value).show('3000');
-
-            }
-
-            if ($(".filter-button").removeClass("active")) {
-                $(this).removeClass("active");
-            }
-            $(this).addClass("active");
-        });
-    });
-    /*	end gallery */
-
     $(document).ready(function () {
         $(".fancybox").fancybox({
             openEffect: "none",
