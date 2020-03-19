@@ -21,7 +21,7 @@ exports = module.exports = function(req, res) {
             next(err);
         });
     });
-    view.query('teams', Team.model.find().sort('sortOrder'));
+    view.query('teams', Team.model.find().where('state', 'published').sort('publishedDate'));
     // Render the view
-    view.render('team');
+view.render('team');
 };

@@ -22,7 +22,7 @@ exports.initLocals = function(req, res, next) {
         { label: 'Home', key: 'home', href: '/' },
         { label: 'About', key: 'about', href: '/about' },
         { label: 'Partner/Sponsor', key: 'partners', href: '/partners' },
-        { label: 'Chapters', key: 'chapter-lead-application', href: '/chapter-lead-application' },
+        { label: 'Chapters', key: 'chapters', href: '/chapters' },
         { label: 'Events', key: 'events', href: '/events' },
         { label: 'Blog', key: 'blog', href: 'https://medium.com/shecodeafrica' },
         // { label: 'Jobs', key: 'jobs', href: '/jobs' },
