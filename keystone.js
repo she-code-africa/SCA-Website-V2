@@ -58,9 +58,6 @@ keystone.set('nav', {
     teams: ['teams', 'team-categories']
 });
 
-// To force cloudinary images to be served via HTTPS
-keystone.set('cloudinary secure', true);
-
 // Start Keystone to connect to your database and initialise the web server
 
 
