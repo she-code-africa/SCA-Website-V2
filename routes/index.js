@@ -29,11 +29,16 @@ keystone.pre('render', middleware.flashMessages);
 // Import Route Controllers
 var routes = {
     views: importRoutes('./views'),
-    api: importRoutes('./api')
+    api: importRoutes('./api'),
 };
 
 // Setup Route Bindings
-exports = module.exports = function(app) {
+exports = module.exports = function (app) {
+	if (process.env.NODE_ENV === 'production') {
+		var enforce = require('express-sslify');
+		app.use(enforce.HTTPS({ trustProtoHeader: true }));
+	}
+
     // Views
     app.all('/', routes.views.index);
     app.get('/blog/:category?', routes.views.blog);
