@@ -11,7 +11,7 @@
         {% else %}
         <div>
             {% if data.event.image.exists %}
-            <figure class="event-header" style="background-image: url({{data.event.image.url}});">
+            <figure class="event-header" style="background-image: url({{data.event.image.secure_url}});">
             </figure>
             {% endif %}
         </div>

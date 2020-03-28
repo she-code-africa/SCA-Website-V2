@@ -139,7 +139,7 @@
                 <div class="col-md-4 col-sm-6 col-xs-12">
                     <div class="text-center">
 						{% if member.image.url %}
-							<img src="{{member.image.url}}" class="__shecodeteamimg" alt="{{member.name}}">
+							<img src="{{member.image.secure_url}}" class="__shecodeteamimg" alt="{{member.name}}">
 						{% else %}
 							<img src="/images/sca-team-member.png" class="__shecodeteamimg" alt="{{member.name}}">
 						{% endif %}
