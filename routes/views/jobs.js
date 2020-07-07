@@ -54,9 +54,8 @@ exports = module.exports = function (req, res) {
 		}
 	});
 
-	// Load the posts
+	// Load the jobs
 	view.on('init', function (next) {
-
 		var q = keystone.list('Job').paginate({
 			page: req.query.page || 1,
 			perPage: 10,
@@ -66,14 +65,10 @@ exports = module.exports = function (req, res) {
 			},
 		})
 			.sort('-publishedDate')
-			.populate('author categories');
-
-		if (locals.data.category) {
-			q.where('categories').in([locals.data.category]);
-		}
+			.populate('author');
 
 		q.exec(function (err, results) {
-			locals.data.posts = results;
+			locals.data.jobs = results;
 			next(err);
 		});
 	});

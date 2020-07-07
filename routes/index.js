@@ -29,6 +29,7 @@ keystone.pre('render', middleware.flashMessages);
 // Import Route Controllers
 var routes = {
     views: importRoutes('./views'),
+<<<<<<< HEAD
 };
 
 // Setup Route Bindings
@@ -43,6 +44,42 @@ exports = module.exports = function(app) {
     app.get('/gallery', routes.views.gallery);
     app.all('/contact', routes.views.contact);
 
+=======
+    api: importRoutes('./api'),
+};
+
+// Setup Route Bindings
+exports = module.exports = function (app) {
+	if (process.env.NODE_ENV === 'production') {
+		var enforce = require('express-sslify');
+		app.use(enforce.HTTPS({ trustProtoHeader: true }));
+	}
+
+    // Views
+    app.all('/', routes.views.index);
+    app.get('/blog/:category?', routes.views.blog);
+    app.get('/blog/post/:post', routes.views.post);
+    app.get('/about', routes.views.about);
+    app.get('/chapters', routes.views.chapters);
+    app.get('/jobs', routes.views.jobs);
+    app.get('/jobs/job/:job', routes.views.job);
+    app.get('/community', routes.views.community);
+    app.get('/gallery', routes.views.gallery);
+    app.all('/contact', routes.views.contact);
+    app.all('/partners', routes.views.partners);
+    app.get('/team', routes.views.team);
+    app.get('/events', routes.views.events);
+    app.get('/events/:event', routes.views.event);
+    app.get('/code-of-conduct', routes.views.conduct);
+    app.get('/frequently-asked-questions', routes.views.faqs);
+    //File Upload Route
+    // app.get('/api/fileupload/list', keystone.middleware.api, routes.api.fileupload.list);
+    // app.get('/api/fileupload/:id', keystone.middleware.api, routes.api.fileupload.get);
+    // app.all('/api/fileupload/:id/update', keystone.middleware.api, routes.api.fileupload.update);
+    // app.all('/api/fileupload/create', keystone.middleware.api, routes.api.fileupload.create);
+    // app.get('/api/fileupload/:id/remove', keystone.middleware.api, routes.api.fileupload.remove);
+
+>>>>>>> bcb060335df2f934f49f926d29fa74a8953ac848
     // NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
     // app.get('/protected', middleware.requireUser, routes.views.protected);
 

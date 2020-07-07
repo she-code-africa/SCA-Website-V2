@@ -7,6 +7,7 @@ html {
     min-height: 100%;
 }
 
+html,
 body {
     font-family: 'Raleway', sans-serif;
     /*font-family: '', Poppins-Regular;*/
@@ -182,8 +183,24 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
 
 
 /*=================================================================
-  Custom Css
+Custom Css
 ==================================================================*/
+
+.__shecodeformcard {
+    position: relative;
+}
+
+.__shecodeformp {
+    position: absolute;
+    right: calc(50% - 9rem);
+    top: -11px;
+    padding-left: 21px;
+    padding-right: 20px;
+}
+
+.contact-us {
+    right: calc(50% - 7rem);
+}
 
 .__shecodenavbar {
     background-color: transparent;
@@ -314,6 +331,18 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
     padding: 40px;
     border-radius: 5px;
     margin-top: 20%;
+}
+
+.__shecodetestimcard {
+    box-shadow: 0 0 10px 0 rgba(183, 5, 105, 0.22);
+    padding: 40px;
+    border-radius: 5px;
+    margin-top: 27%;
+    /* height: 27rem; */
+}
+
+.last-child {
+    padding: 50px 60px;
 }
 
 .__shecodetestimp {

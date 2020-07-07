@@ -60,6 +60,36 @@
 
 @media screen and (max-width: 767px) {}
 
+@media screen and (min-width: 768px) {
+    .sca-tagline-row {
+        height: 35vh;
+    }
+    .sca-tagline {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .sca-tagline-row {
+        height: 46vh;
+    }
+}
+
+@media screen and (max-width: 767px) and (min-width: 375px) {
+    .__shecodeformcard {
+        padding-top: 5%;
+    }
+    .__shecodeformp {
+        right: calc(18vw - 20px);
+    }
+    .contact-us {
+        right: calc(20.5vw + 5px);
+    }
+}
+
 
 /*=================================================================
   @media screen 480px

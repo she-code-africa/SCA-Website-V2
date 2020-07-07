@@ -1,0 +1,106 @@
+{% extends "layouts/default.html" %}
+
+<section>
+    {% block intro %}
+    <div class="__shecodeteamheader">
+        <div class="container text-center banner-text">
+            <p class="__shecodeafriab">OUR TEAM</p>
+            <p class="__shecodeafriab1">Guiding Tech-Girls to their Full Potential</p>
+            <a href="https://bit.ly/scaslacksignup" class="btn __shecodebtn __btn-submit">Join Us</a>
+        </div>
+    </div>
+    {% endblock %} {% block content %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <section class="portfolio" id="portfolio">
+
+        <div class="container-fluid">
+            <div class="row" style="padding: 0 30px;">
+
+                <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <p class="__shecodeval">The</p>
+                    <p class="__shecodeval1">TEAM</p><br><br>
+                </div>
+
+
+
+                {% if teams.length %}:
+                    {% for member in teams%}
+
+                    <div class="gallery_product col-md-3 col-sm-4 col-xs-12">
+                        <div class="text-center">
+                            {% if member.image.url %}
+                                <img src="{{member.image.secure_url}}" class="__shecodeteamimg" alt="{{member.name}}">
+                            {% else %}
+                                <img src="/images/sca-team-member.png" class="__shecodeteamimg" alt="{{member.name}}">
+                            {% endif %}
+                            <p class=" __shecodeteamp">{{member.name}}</p>
+                            <p class="__shecodeteamp1">{{member.occupation}}</p>
+                            <div class="img-info">
+                                <button class="btn __shecodebtn __btn-cta" role="toggle" data-toggle="modal"
+                                    data-target="#{{member.id}}" class="btn">View Details</button>
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <!-- Modal -->
+                    <div id={{member.id}} class="modal fade" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog">
+
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                    <h4 class="modal-title">{{member.name}}</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            {% if member.image.url %}
+                                                <img src="{{member.image.secure_url}}" class="img-fluid gallery-modal-img" alt="{{member.name}}">
+                                            {% else %}
+                                                <img src="/images/sca-team-member.png" class="img-fluid gallery-modal-img" alt="{{member.name}}">
+                                            {% endif %}
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <h5><strong>Name: &nbsp;&nbsp;</strong> {{member.name}}</h5>
+                                            <h5><strong>Role:&nbsp;&nbsp;&nbsp;&nbsp; </strong> {{member.occupation}}
+                                            </h5>
+                                            <h5><strong>Bio:&nbsp;&nbsp;&nbsp;&nbsp; </strong> {{member.bio}}</h5>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- End of Modal body -->
+                            </div>
+
+                            <!-- End of Modal content -->
+                        </div>
+                        <!-- End of Modal dialog -->
+                    </div>
+                    <!-- End of Modal -->
+                    {% endfor %}
+                {% endif %}
+
+            </div>
+        </div>
+
+    </section>
+
+    {% endblock %}
+</section>
+{% block js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $(".fancybox").fancybox({
+            openEffect: "none",
+            closeEffect: "none"
+        });
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
+{% endblock %}
