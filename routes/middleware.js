@@ -20,27 +20,17 @@ var _ = require('lodash');
 exports.initLocals = function(req, res, next) {
     res.locals.navLinks = [
         { label: 'Home', key: 'home', href: '/' },
-<<<<<<< HEAD
 
         { label: 'About', key: 'about', href: '/about' },
+        { label: 'Partner/Sponsor', key: 'partners', href: '/partner-sponsor' },
+        { label: 'Chapters', key: 'chapters', href: '/chapters' },
+        { label: 'Events', key: 'event', href: '/events' },
         { label: 'Jobs', key: 'jobs', href: '/jobs' },
-        { label: 'Community', key: 'community', href: '/community' },
+        // { label: 'Community', key: 'community', href: '/community' },
         // { label: 'Gallery', key: 'gallery', href: '/gallery' },
         // { label: 'Contact', key: 'contact', href: '/contact' },
         //{ label: 'Blog', key: 'blog', href: '/blog' },
     ];
-=======
-        { label: 'About', key: 'about', href: '/about' },
-        { label: 'Partner/Sponsor', key: 'partners', href: '/partners' },
-        { label: 'Chapters', key: 'chapters', href: '/chapters' },
-        { label: 'Events', key: 'events', href: '/events' },
-        { label: 'Blog', key: 'blog', href: 'https://medium.com/shecodeafrica' },
-        // { label: 'Jobs', key: 'jobs', href: '/jobs' },
-        // { label: 'Community', key: 'community', href: '/community' },
-    ];
-
-
->>>>>>> bcb060335df2f934f49f926d29fa74a8953ac848
     res.locals.user = req.user;
     next();
 };

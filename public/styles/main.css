@@ -205,6 +205,8 @@ Custom Css
 .__shecodenavbar {
     background-color: transparent;
     margin-bottom: 0;
+    border-radius: 0;
+    border-bottom: 1px solid #fbfbfb;
 }
 
 .__shecodelogo {
@@ -216,20 +218,23 @@ Custom Css
 }
 
 .__shecodelink {
-    padding: 10px 20px;
+    padding: 10px 13px;
 }
 
 .__shecodelink a {
-    font-size: 18px;
-    font-weight: 600;
-    color: #8c8c8c !important;
+    font-size: 16px;
+    font-weight: bold;
     transition: all 0.4s ease-in;
+    text-align: center;
+    letter-spacing: 0.36px;
+    color: #6D033F!important;
 }
 
-.__shecodelink a:hover {
-    color: #ff1493 !important;
-    text-decoration: overline !important;
+.__shecodelink a:hover,
+li.__shecodelink.active a {
+    color: #B70569 !important;
     transform: scale(1.04);
+    border-bottom: 2px solid #B70569;
     transition: transform 0.4s ease-in-out;
 }
 
@@ -436,28 +441,36 @@ Custom Css
 }
 
 .__footerbg {
-    background: #777777;
+    background: #1A1A1A 0% 0% no-repeat padding-box;
     margin-top: 5%;
-    padding: 30px 0;
+    padding: 5% 0;
     text-align: center;
 }
 
 .__footerp {
-    font-size: 24px;
-    font-weight: 600;
+    font-size: 18px;
+    font-weight: bold;
     letter-spacing: 1px;
     color: #ffffff !important;
     transition: all 0.4s ease-in;
-    margin-top: 15%;
+    /* margin-top: 15%; */
+    /* color: #FFFFFF; */
+    text-transform: capitalize;
 }
 
 .__footera {
     margin-top: 10px;
-    font-size: 13px;
+    font-size: 12px;
     /*font-weight: 600;*/
     letter-spacing: 1px;
     color: #ffffff !important;
     transition: all 0.4s ease-in;
+    text-transform: capitalize;
+}
+
+.__footera img {
+    height: 18px;
+    margin-right: 5px;
 }
 
 .__footera:hover {
@@ -465,7 +478,7 @@ Custom Css
 }
 
 .__footerdownbg {
-    background: #3a3a3a;
+    background: #1a1a1a;
     color: #ffffff;
     font-size: 14px;
     padding: 13px;

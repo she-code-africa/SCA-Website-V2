@@ -58,8 +58,6 @@
   @media screen 767px
 ==================================================================*/
 
-@media screen and (max-width: 767px) {}
-
 @media screen and (min-width: 768px) {
     .sca-tagline-row {
         height: 35vh;
@@ -78,7 +76,7 @@
     }
 }
 
-@media screen and (max-width: 767px) and (min-width: 375px) {
+@media screen and (max-width: 768px) and (min-width: 375px) {
     .__shecodeformcard {
         padding-top: 5%;
     }
@@ -92,10 +90,37 @@
 
 
 /*=================================================================
+  @media screen 768px
+==================================================================*/
+
+@media screen and (max-width: 768px) {
+    .__footerbg .img-box {
+        display: none;
+    }
+    .nav>li>a {
+        padding: 5px;
+    }
+    .__shecodelink a {
+        font-size: 12px;
+    }
+    .__footerp {
+        font-size: 16px;
+    }
+}
+
+
+/*=================================================================
   @media screen 480px
 ==================================================================*/
 
-@media screen and (max-width: 480px) {}
+@media screen and (max-width: 480px) {
+    .__footerbg .img-box {
+        display: none;
+    }
+    .__footerp {
+        margin-top: 30px;
+    }
+}
 
 
 /*=================================================================
