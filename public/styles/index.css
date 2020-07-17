@@ -105,7 +105,14 @@
     }
     .__footerp {
         font-size: 16px;
-    }
+		}
+		
+		.__shecodelink {
+				padding: 10px 10px;
+		}
+		.__shecodenavbar {
+				padding: 0 20px;
+		}
 }
 
 
