@@ -1,7 +1,4 @@
 {
-  "name": "sca-staging",
-  "stack": "heroku-18",
-  "addons": [
-    "mongolab"
-  ]
+  "name": "sca-v2-staging",
+  "stack": "heroku-18"
 }

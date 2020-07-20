@@ -29,7 +29,6 @@
 // styling of responsive aspects.
 
 .navbar-header {
-	padding-left: 30px;
   @include clearfix;
 
   @media (min-width: $grid-float-breakpoint) {

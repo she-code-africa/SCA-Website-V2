@@ -3679,13 +3679,12 @@ tbody.collapse.in {
     .navbar {
       border-radius: 4px; } }
 
-.navbar-header {
-  padding-left: 30px; }
-  .navbar-header:before, .navbar-header:after {
-    content: " ";
-    display: table; }
-  .navbar-header:after {
-    clear: both; }
+.navbar-header:before, .navbar-header:after {
+  content: " ";
+  display: table; }
+
+.navbar-header:after {
+  clear: both; }
 
 .navbar-collapse {
   overflow-x: visible;
