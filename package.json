@@ -9,7 +9,7 @@
     "express-sslify": "^1.2.0",
     "keystone": "^4.2.1",
     "keystone-email": "^1.1.0",
-    "lodash": "^4.13.1",
+    "lodash": "^4.17.19",
     "node-sass": "^4.13.1",
     "node-sass-middleware": "^0.11.0",
     "nunjucks": "^3.2.1"
