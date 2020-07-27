@@ -1,6 +1,8 @@
 /*=================================================================
 	Basic Setup css
 ==================================================================*/
+
+
 /* @font-face {
     font-family: 'Raleway-Black';
     src: url('../fonts/Raleway/Raleway-Black.ttf');
@@ -13,7 +15,7 @@ html {
 
 html,
 body {
-	height: 100%;
+    height: 100%;
     font-family: 'Raleway', sans-serif;
     font-size: 14px;
     color: #222222;
@@ -23,12 +25,12 @@ body {
 }
 
 body {
-	display: flex;
-	flex-direction: column;
+    display: flex;
+    flex-direction: column;
 }
 
 #body {
-	flex: 1 0 auto;
+    flex: 1 0 auto;
 }
 
 a,
@@ -94,17 +96,17 @@ a:hover {
 
 .navbar-toggle {
     color: #ffffff;
-	background: var(--primary-main-pink);
-	margin-right: 0;
-	margin-top: 18px;
+    background: var(--primary-main-pink);
+    margin-right: 0;
+    margin-top: 18px;
 }
 
 .navbar-toggle .icon-bar {
     background: #fff !important;
 }
 
-.nav > li > a {
-	padding: 0 0 3px;
+.nav>li>a {
+    padding: 0 0 3px;
 }
 
 .nav>li>a:hover,
@@ -156,8 +158,8 @@ Custom Css
 .__shecodenavbar {
     background-color: transparent;
     margin-bottom: 0;
-	border-radius: 0;
-	padding: 0 50px;
+    border-radius: 0;
+    padding: 0 50px;
     border-bottom: 1px solid #fbfbfb;
 }
 
@@ -175,7 +177,7 @@ Custom Css
     transition: all 0.4s ease-in;
     text-align: center;
     letter-spacing: 0.36px;
-	color: var(--primary-dark-pink);
+    color: var(--primary-dark-pink);
 }
 
 .__shecodelink a:hover,
@@ -186,10 +188,49 @@ li.__shecodelink.active a {
     transition: transform 0.4s ease-in-out;
 }
 
+.__shecodecontent {
+    margin-top: 50px;
+}
+
+
+/* page header/banner */
+
+.__shecodeheader {
+    margin: 20px 0;
+}
+
+.__shecodeheader_text {
+    margin-top: 20%;
+}
+
+.__shecodeheader_title h1 {
+    text-align: left;
+    font-family: Montserrat;
+    font-size: 60px;
+    font-weight: bold;
+    color: var(--primary-dark-pink);
+}
+
+.__shecodeheader_subtitle h4 {
+    text-align: left;
+    font-size: 30px;
+    letter-spacing: 0.76px;
+    margin-top: 30px;
+}
+
+.__shecodeheader_image {
+    height: 450px;
+    background: transparent url(../images/teambanner.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
 
 /*footer*/
+
 .footer {
-	flex-shrink: 0;
+    flex-shrink: 0;
 }
 
 .__footerbg {
@@ -236,3 +277,82 @@ li.__shecodelink.active a {
 
 
 /*footer end*/
+
+
+/* team */
+
+.highlight {
+    color: var(--primary-main-pink);
+}
+
+.__shecodeteammember_box {
+    border-radius: 24px 24px 0px 0px;
+    width: 250px;
+    height: 258px;
+    margin-bottom: 30px;
+    position: relative;
+    margin: 30px auto;
+    cursor: pointer;
+}
+
+.__shecodeteammember_img {
+    width: 100%;
+}
+
+.__shecodeteammember_text {
+    background: var(--primary-main-pink) 0% 0% no-repeat padding-box;
+    border: 1px solid #707070;
+    border-radius: 12px 12px 0px 0px;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.__shecodeteammember_text .name {
+    text-transform: capitalize;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+}
+
+.__shecodeteammember_text .role {
+    text-align: center;
+    font-size: 12px;
+    letter-spacing: 0px;
+    color: #FFFFFF;
+    text-transform: capitalize;
+}
+
+.team_modal .modal-content {
+    border-radius: 24px 24px 0px 0px;
+    height: 300px;
+}
+
+.team_modal .modal-body {
+    padding: 0;
+}
+
+.team_modal .__shecodeteammember_box {
+    border-radius: 24px 24px 0px 0px;
+    width: 100%;
+    height: 298px;
+    margin-bottom: 0;
+    position: relative;
+    margin: auto;
+    cursor: none;
+}
+
+.team_modal .close {
+    opacity: 1;
+}
+
+.team_modal .__shecodeteammember_details {
+    padding: 20px 20px 0 0;
+}
+
+.team_modal .__shecodeteammember_details p {
+    margin-top: 20px;
+    font-size: 13px;
+}
