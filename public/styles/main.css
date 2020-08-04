@@ -242,7 +242,9 @@ li.__shecodelink.active a {
 .text-primary-color{
     color: var(--primary-dark-pink);
 }
-
+.font-weight-bolder{
+    font-weight: bolder;
+}
 .code-of-conduct ul {
   list-style: none; 
 }
