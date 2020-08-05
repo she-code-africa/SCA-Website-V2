@@ -361,3 +361,21 @@ li.__shecodelink.active a {
     margin-top: 20px;
     font-size: 13px;
 }
+/* code of conduct begins */
+.text-primary-color{
+    color: var(--primary-dark-pink);
+}
+
+.code-of-conduct ul {
+  list-style: none; 
+}
+.code-of-conduct ul li::before {
+  content: "\2022";  
+color: var(--primary-dark-pink);
+  font-weight: bold; 
+  display: inline-block; 
+  width: 1em; 
+  margin-left: -1em;
+  font-size: 20px;
+}
+/* code of conduct ends */
