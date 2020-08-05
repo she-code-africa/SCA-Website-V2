@@ -27,7 +27,6 @@
 .event_side {
     background: transparent url('../images/event_image.png') no-repeat ;
     height: 700px;
-    /* width: 500px; */
     background-size: 100%;
 }
 
@@ -79,11 +78,6 @@
     letter-spacing: 1.44px;
     left: 50%;
 }
-/* 
---primary-main-pink: #B70569;
-	--primary-dark-pink: #6D033F;
-	--primary-light-pink: #F0CDE1;
-	--secondary-main-black: #1A1A1A; */
 .event_topic3:before, .event_topic4::before {
     content: ""; 
     display: block;
@@ -91,20 +85,6 @@
     border-bottom: 3px solid var(--primary-main-pink);
 }
 
-/* .event_topic4 {
-    text-align: left;
-    font-weight: bold;
-    font-size: 45px;
-    letter-spacing: 1.44px;
-    left: 50%;
-} */
-
-/* .event_topic4::before {
-    content: ""; 
-    display: block;
-    width: 15%;
-    border-bottom: 3px solid #B70569;
-} */
 .event_button {
     padding: 5px 25px;
     border-radius: 8px 8px 8px 0px ;
