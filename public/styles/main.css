@@ -296,7 +296,15 @@ li.__shecodelink.active a {
 }
 
 .__shecodeteammember_img {
+	width: 100%;
+	height: 100%;
+}
+
+.__shecodeteammember_img > img {
+	display: block;
     width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .__shecodeteammember_text {
@@ -326,7 +334,7 @@ li.__shecodelink.active a {
 }
 
 .team_modal .modal-dialog-centered {
-    padding-top: 20%;
+    padding-top: 15%;
     vertical-align: middle;
 }
 
