@@ -8,20 +8,9 @@ var Team = new keystone.List('Team', {
     singular: 'Member',
 });
 
-// var myStorage = new keystone.Storage({
-//     adapter: keystone.Storage.Adapters.FS,
-//     fs: {
-//         path: keystone.expandPath('./public/uploads/team'), // required; path where the files should be stored
-//         publicPath: '/public/uploads/team', // path where files will be served
-//     }
-// });
-
-
-
 Team.add({
-    name: { type: String, initial: true, required: true },
-    email: { type: Types.Email, initial: true, required: true },
-    occupation: { type: String },
+	name: { type: String, initial: true, required: true },
+	role: { type: String },
     membership: { type: Types.Relationship, ref: 'TeamCategory', many: true },
     isLeader: { type: Boolean, isRequired: true, defaultValue: false },
     publishedDate: { type: Types.Date, default: Date.now },
@@ -29,10 +18,6 @@ Team.add({
     author: { type: Types.Relationship, ref: 'User', index: true },
     publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
     image: { type: Types.CloudinaryImage },
-    // image: {
-    //     type: Types.File,
-    //     storage: myStorage
-    // },
     bio: { type: Types.Textarea, },
 });
 
