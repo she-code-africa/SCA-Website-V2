@@ -223,9 +223,20 @@ Custom Css
 }
 
 .white-btn {
-    color: var(--primary-main-pink);
+    color: var(--primary-main-pink) !important;
 	background: #fff;
 	border: 1px solid var(--primary-main-pink);
+}
+
+.pink-btn:hover {
+	color: var(--primary-main-pink) !important;
+	background: #fff;
+	border: 1px solid var(--primary-main-pink);
+}
+
+.white-btn:hover {
+	color: #ffffff !important;  
+    background: var(--primary-main-pink);
 }
 
 .__shecodenavbar {

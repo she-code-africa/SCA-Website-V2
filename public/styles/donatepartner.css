@@ -68,19 +68,32 @@
 }
 
 .cta {
+	display: flex;
+	justify-content: space-between;
 	position: absolute;
 	bottom: 3rem;
 	left: 2rem;
 	right: 2rem;
 }
 
-.__partner-donate_donate-cta div {
-	display: inline-block;
+@media screen and (max-width: 767px) {
+	.cta {
+		flex-wrap: wrap;
+	}
 }
 
 .__partner-donate_donate-cta a {
 	font-size: 11px;
-	width: auto;
+}
+
+@media screen and (min-width: 767px) {
+	.__partner-donate_donate-cta a:nth-child(1) {
+		margin-right: 2%;
+	}
+	
+	.__partner-donate_donate-cta a:nth-child(2) {
+		margin-left: 2%;
+	}
 }
 
 .__partner-donate_donate-cta .sca-btn {
@@ -90,13 +103,11 @@
 @media screen and (min-width: 768px) and (max-width: 1024px) {
 	.__partner-donate_donate-cta a {
 		font-size: 9px;
-		width: 49%;
 	}
 }
 
 @media screen and (max-width: 767px) {
 	.__partner-donate_donate-cta a {
 		font-size: 15px;
-		width: 100%;
 	}
 }
