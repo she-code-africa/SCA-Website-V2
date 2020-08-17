@@ -38,14 +38,12 @@
 }
 
 .event_side_past {
-    background: transparent url('../images/event_image2.png') 0% 0% no-repeat;
     width: 470px;
     height: 550px;
     background-size: 100%;
 }
 
 .event_side_past2 {
-    background: transparent url('../images/event_image3.png') 0% 0% no-repeat padding-box ;
     width: 470px;
     height: 550px;
     background-size: 100%;
