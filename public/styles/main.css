@@ -15,7 +15,7 @@ html {
 
 html,
 body {
-	  height: 100%;
+	height: 100%;
     font-family:  Montserrat; 
     font-size: 14px;
     color: #222222;
@@ -154,6 +154,90 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
 /*=================================================================
 Custom Css
 ==================================================================*/
+.flex-center {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-whitespace-top {
+	margin-top: 10rem;
+}
+
+.section-whitespace-bottom {
+	margin-bottom: 10rem;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+	.section-whitespace-top {
+		margin-top: 7rem;
+	}
+	
+	.section-whitespace-bottom {
+		margin-bottom: 5rem;
+	}
+}
+
+@media screen and (max-width: 767px) {
+	.flex-center {
+		flex-direction: column;
+	}
+
+	.section-whitespace-top {
+		margin-top: 5rem;
+	}
+	
+	.section-whitespace-bottom {
+		margin-bottom: 5rem;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.section-whitespace-top {
+		margin-top: 0rem;
+	}
+	
+	.section-whitespace-bottom {
+		margin-bottom: 0rem;
+	}
+}
+
+.sca-btn {
+	width: 100%;
+	padding: 15px 25px;
+	border-radius: 8px 8px 8px 0px;
+	font-size: 15px;
+    font-weight: 400;
+    margin-top: 5%;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+	.sca-btn {
+		padding: 15px 17px;
+	}
+}
+
+.pink-btn {
+    color: #ffffff !important;  
+    background: var(--primary-main-pink);
+}
+
+.white-btn {
+    color: var(--primary-main-pink) !important;
+	background: #fff;
+	border: 1px solid var(--primary-main-pink);
+}
+
+.pink-btn:hover {
+	color: var(--primary-main-pink) !important;
+	background: #fff;
+	border: 1px solid var(--primary-main-pink);
+}
+
+.white-btn:hover {
+	color: #ffffff !important;  
+    background: var(--primary-main-pink);
+}
 
 .__shecodenavbar {
     background-color: transparent;
@@ -200,7 +284,7 @@ li.__shecodelink.active a {
 }
 
 .__shecodeheader_text {
-    margin-top: 20%;
+    /* margin-top: 20%; */
 }
 
 .__shecodeheader_title h1 {
@@ -389,3 +473,5 @@ color: var(--primary-dark-pink);
   font-size: 20px;
 }
 /* code of conduct ends */
+
+
