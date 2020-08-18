@@ -113,8 +113,13 @@
     border: 1px solid var(--primary-main-pink);
 }
 .push {
-    left:45%;
-    position: relative;
+    margin: auto;
+    height: 64px;
+    width: 164px;
+    padding: 20px;
+}
+.grid-display {
+    display: grid;
 }
 .topic_padding {
     padding-left: 300px;

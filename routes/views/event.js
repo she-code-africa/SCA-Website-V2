@@ -8,5 +8,6 @@ exports = module.exports = function (req, res) {
     // item in the header navigation.
     locals.section = 'events';
     // Render the view
-    view.render('event');
+    view.render('event'); 
 };
+
