@@ -41,7 +41,7 @@
         {% for event in data.upcomingEvents %}
         {% if data.upcomingEvents.indexOf(event) %  2 !== 0 %}
         <div class="row row_padding">
-            <img class="col-md-5 col-lg-5 col-sm-5 event_side_past2" src="/images/event_image.png" class="img-fluid"
+            <img class="col-md-5 col-lg-5 col-sm-5 event_side_past2" src="{{ event.image }}" class="img-fluid"
                 alt="{{event.title}}">
             <div class="col-md-7 col-lg-7 col-sm-7 topic_padding">
                 <h4 class="event_topic3">{{event.title}}</h4>
@@ -57,7 +57,7 @@
                 <p class="event_topic2">{{event.description.md}}</p>
                 <a href="{{event.registrationLink}}" target="_blank" class="btn event_button">Register</a>
             </div>
-            <img class="col-md-5 col-lg-5 col-sm-5 event_side_past2" src="/images/event_image.png" class="img-fluid"
+            <img class="col-md-5 col-lg-5 col-sm-5 event_side_past2" src="{{ event.image }}" class="img-fluid"
                 alt="{{event.title}}">
         </div>
         {% endif %}
@@ -87,12 +87,12 @@
                 <p class="event_topic2">{{event.description.md}}</p>
                 <button class="btn event_button">SEE EVENT GALLERY</button>
             </div>
-            <img class="col-md-5 col-lg-5 col-sm-5 event_side_past2" src="/images/event_image.png" class="img-fluid"
+            <img class="col-md-5 col-lg-5 col-sm-5 event_side_past2" src="{{ event.image }}" class="img-fluid"
                 alt="{{event.title}}">
         </div>
         {%else%}
         <div class="row row_padding">
-            <img class="col-md-5 col-lg-5 col-sm-5 event_side_past2" src="/images/event_image.png" class="img-fluid"
+            <img class="col-md-5 col-lg-5 col-sm-5 event_side_past2" src="{{ event.image }}" class="img-fluid"
                 alt="{{event.title}}">
             <div class="col-md-7 col-lg-7 col-sm-7 topic_padding">
                 <h4 class="event_topic3">{{event.title}}</h4>
