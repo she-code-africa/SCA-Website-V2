@@ -1,0 +1,25 @@
+{% extends "layouts/default.html" %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="../styles/events.css">{% endblock %}
+{% block head %}{% endblock %}
+{% block intro %}
+<div class="container">
+    <p class="event_title2">Event Gallery</p>
+</div>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        {% for i in range(9) %}
+        <div class="col-md-4 col-sm-4 col-lg-4">
+            <img src="../images/SCA Gallery 3.png" class=" img-responsive event_image" alt="event1">
+        </div>
+        {% endfor %}
+    </div>
+    <div class="row grid-display">
+        <a class="btn event_button push" href="/">VIEW ALL</a>
+    </div>
+
+</div>
+{% endblock %}
+

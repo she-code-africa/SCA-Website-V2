@@ -12,17 +12,17 @@
 
     <!-- STYLESHEETS -->
     {# Customise the stylesheet for your site by editing /public/styles/site.sass #}
-    <link href="/styles/site.css" rel="stylesheet">
+    <link href="../styles/site.css" rel="stylesheet">
     <!-- CUSTOM STYLES -->
-    <link rel="stylesheet" type="text/css" href="styles/variables.css">
-    <link rel="stylesheet" type="text/css" href="styles/main.css">
-    <link rel="stylesheet" type="text/css" href="styles/index.css">
+    <link rel="stylesheet" type="text/css" href="../styles/variables.css">
+    <link rel="stylesheet" type="text/css" href="../styles/main.css">
+    <link rel="stylesheet" type="text/css" href="../styles/index.css">
     <!-- WEBFONT -->
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
 
     <!-- ICON -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> {# This file provides the default styling for the KeystoneJS Content Editor #} {% if user and user.canAccessKeystone %}
-    <link href="/keystone/styles/content/editor.min.css" rel="stylesheet"> {% endif %} {# HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries Safely remove this block if you are not targeting IE8 #}
+    <link href="../keystone/styles/content/editor.min.css" rel="stylesheet"> {% endif %} {# HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries Safely remove this block if you are not targeting IE8 #}
     <!--[if lt IE 9]>
 			<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
 			<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
@@ -45,7 +45,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/"><img src="images/she-code-africa-logo.svg" class="__shecodelogo"></a>
+                    <a class="navbar-brand" href="/"><img src="../images/she-code-africa-logo.svg" class="__shecodelogo"></a>
                 </div>
                 <!-- TOGGLING LINKS -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse __shecodenavcol">
@@ -84,13 +84,12 @@
             <div class="container">
                 <div class="row text-left">
                     <div class=" img-box col-lg-3 col-md-3 col-sm-4 text-center">
-                        <img src="images/logo-inverted.svg" class="__shecodelogo">
+                        <img src="../images/logo-inverted.svg" class="__shecodelogo">
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-4">
-                        <p class="__footerp">Take Action</p>
+                        <p class="__footerp">Get Involved</p>
                         <p class="__footera"><a href="">Partner With Us</a></p>
                         <p class="__footera"><a href="">Make A Donation</a></p>
-                        <p class="__footera"><a href="">Host an Event</a></p>
                         <p class="__footera"><a href="">Start an S.C.A Chapter</a></p>
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-4">
@@ -106,9 +105,9 @@
                         <p class="__footera"><a href="">Join Our Slack Community</a></p>
                         <p class="__footera"><a href="">Signup for our newsletter</a></p>
                         <p class="__footera">
-                            <a href=""><img src="images/instagram.svg" alt=""></a>
-                            <a href=""><img src="images/twitter.svg" alt=""></a>
-                            <a href=""><img src="images/facebook.svg" alt=""></a>
+                            <a href=""><img src="../images/instagram.svg" alt=""></a>
+                            <a href=""><img src="../images/twitter.svg" alt=""></a>
+                            <a href=""><img src="../images/facebook.svg" alt=""></a>
                         </p>
                     </div>
                 </div>
@@ -123,15 +122,15 @@
 
 
     {# JAVASCRIPT #} {# jQuery 1.11.3 is included by default, and required by both Bootstrap and the KeystoneJS Content Editor. If you are not targeting IE8, you can upgrade to 2.1.4 (also bundled) for better performance. #}
-    <script src="/js/jquery/jquery-3.1.1.min.js"></script>
+    <script src="../js/jquery/jquery-3.1.1.min.js"></script>
 
     {# Customise which Bootstrap javascript files are served by including them specifically here, instead of bootstrap-3.3.5.min.js #}
-    <script src="/js/bootstrap/bootstrap.min.js"></script>
+    <script src="../js/bootstrap/bootstrap.min.js"></script>
 
     {# The KeystoneJS Content Editor provides support for ks-editable data attributes, which generate links to edit content for users who can access Keystone #} {% if user and user.canAccessKeystone %}
-    <script src="/keystone/js/content/editor.js"></script>
+    <script src="../keystone/js/content/editor.js"></script>
     {% endif %} {# Add scripts that are globally required by your site here. #}
-    <script src="/js/jquery/main.js"></script>
+    <script src="../js/jquery/main.js"></script>
 
     {# Include template-specific javascript files by extending the js block #} {% block js %}{% endblock %}
 </body>

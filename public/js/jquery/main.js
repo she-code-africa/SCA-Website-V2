@@ -1,12 +1,12 @@
 // partner slider
     $(document).ready(function(){
         $('.customer-logos').slick({
-            slidesToShow: 6,
-            slidesToScroll: 1,
-            autoplay: true,
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            autoplay: false,
             autoplaySpeed: 1500,
             arrows: false,
-            dots: false,
+            dots: true,
             pauseOnHover: false,
             responsive: [{
                 breakpoint: 768,

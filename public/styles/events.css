@@ -13,6 +13,16 @@
     padding-bottom: 20px;
 }
 
+.event_title2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    letter-spacing: 1.44px;
+    color: var(--primary-dark-pink);
+    padding-top: 31px;
+    padding-bottom: 20px;
+}
+
 .event_subtitle {
     text-align: left;
     font-size: 25px;
@@ -23,6 +33,11 @@
 
 .__shecodegirls {
     color: var(--primary-main-pink);
+}
+
+.event_image {
+    padding: 10px 0;
+    margin: 8px;
 }
 
 .event_side {
@@ -39,14 +54,12 @@
 }
 
 .event_side_past {
-    background: transparent url('../images/event_image2.png') 0% 0% no-repeat;
     width: 470px;
     height: 550px;
     background-size: 100%;
 }
 
 .event_side_past2 {
-    background: transparent url('../images/event_image3.png') 0% 0% no-repeat padding-box;
     width: 470px;
     height: 550px;
     background-size: 100%;
@@ -86,6 +99,33 @@
     display: block;
     width: 15%;
     border-bottom: 3px solid var(--primary-main-pink);
+}
+
+.event_button {
+    padding: 5px 25px;
+    border-radius: 8px 8px 8px 0px;
+    color: #ffffff !important;
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 5%;
+    background: var(--primary-main-pink);
+}
+
+.event_button:hover {
+    color: var(--primary-main-pink) !important;
+    background: #ffffff;
+    border: 1px solid var(--primary-main-pink);
+}
+
+.push {
+    margin: auto;
+    height: 64px;
+    width: 164px;
+    padding: 20px;
+}
+
+.grid-display {
+    display: grid;
 }
 
 .topic_padding {
