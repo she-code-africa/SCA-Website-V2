@@ -1,17 +1,21 @@
-{% extends "layouts/default.html" %}
-{% block css %}
-<link rel="stylesheet" type="text/css" href="styles/events.css">{% endblock %}
-{% block head %}{% endblock %}
-{% block intro %}
+{% extends "layouts/default.html" %} {% block css %}
+<link rel="stylesheet" type="text/css" href="styles/events.css">{% endblock %} {% block head %}{% endblock %} {% block intro %}
 <div>
     <div class="container">
         <div class="row">
             <div class="col-md-7 col-sm-7 col-lg-7">
-                <p class="event_title">Events</p>
-                <p class="event_subtitle">Events focused on empowering and getting more
-                    <span class="__shecodegirls">young girls and women into technology</span>
-                    across cities and tertiary institutions in Africa
-                </p>
+                <div class="__shecodeheader_text">
+                    <div class="__shecodeheader_title">
+                        <h1>Events</h1>
+                    </div>
+                    <div class="__shecodeheader_subtitle">
+                        <h4>Events focused on empowering and getting more
+                            <span class="highlight">young girls and women into technology</span> across cities and tertiary institutions in Africa
+                        </h4>
+                    </div>
+
+                </div>
+
             </div>
             <div class="col-md-5 col-sm-5 col-lg-5 event_side">
             </div>
@@ -19,8 +23,7 @@
 
     </div>
 </div>
-{% endblock %}
-{% block content %}
+{% endblock %} {% block content %}
 <div class="container">
     <section>
         <div class="row event_topic">
@@ -29,21 +32,19 @@
             </div>
             <div class="col-sm-8 col-md-8 col-lg-8">
                 <h4 class="event_topic1">Upcoming Events</h4>
-                <p class="event_subtext">Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est.
-                    Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r</p>
+                <p class="event_subtext">Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r</p>
             </div>
             <div class="col-sm-2 col-md-2 col-lg-2">
 
             </div>
         </div>
         <div class="row row_padding">
-            <div class="col-md-5 col-lg-5 col-sm-5 event_side_upcoming">
+            <div class="col-md-6 col-lg-6 col-sm-6 event_side_upcoming">
             </div>
-            <div class="col-md-7 col-lg-7 col-sm-7 topic_padding">
+            <div class="col-md-6 col-lg-6 col-sm-6 topic_padding float-right">
                 <h4 class="event_topic3">Learning Basic of Design</h4>
-                <p class="event_topic2">Join over 1400 Women in Tech from across several African coutries on our Slack
-                    community to network, stay updated, get help, and grow in your career.</p>
-                <button class="btn event_button">Register</button>
+                <p class="event_topic2">Join over 1400 Women in Tech from across several African coutries on our Slack community to network, stay updated, get help, and grow in your career.</p>
+                <button class="btn shecode_button">Register</button>
             </div>
         </div>
     </section>
@@ -54,41 +55,37 @@
             </div>
             <div class="col-sm-8 col-md-8 col-lg-8">
                 <h4 class="event_topic1">Past Events</h4>
-                <p class="event_subtext">Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est.
-                    Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r</p>
+                <p class="event_subtext">Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r</p>
             </div>
             <div class="col-sm-2 col-md-2 col-lg-2">
 
             </div>
         </div>
         <div class="row row_padding">
-            <div class="col-md-7 col-lg-7 col-sm-7 topic_padding">
+            <div class="col-md-6 col-lg-6 col-sm-6 topic_padding">
                 <h4 class="event_topic4">React Ladies Bootcamp</h4>
-                <p class="event_topic2">Join over 1400 Women in Tech from across several African coutries on our Slack
-                    community to network, stay updated, get help, and grow in your career.</p>
-                <button class="btn event_button">SEE EVENT GALLERY</button>
+                <p class="event_topic2">Join over 1400 Women in Tech from across several African coutries on our Slack community to network, stay updated, get help, and grow in your career.</p>
+                <button class="btn shecode_button">SEE EVENT GALLERY</button>
             </div>
-            <div class="col-md-5 col-lg-5 col-sm-5 event_side_past">
+            <div class="col-md-6 col-lg-6 col-sm-6 event_side_past float-right">
             </div>
         </div>
         <div class="row row_padding">
-            <div class="col-md-5 col-lg-5 col-sm-5 event_side_past2">
+            <div class="col-md-6 col-lg-6 col-sm-6 event_side_past2 hidden-xs">
             </div>
-            <div class="col-md-7 col-lg-7 col-sm-7 topic_padding">
+            <div class="col-md-6 col-lg-6 col-sm-6 topic_padding float-right">
                 <h4 class="event_topic3">Code Literacy Day</h4>
-                <p class="event_topic2">Participate in any of our online or offline events and trainings: Technical and
-                    non-Technical Events, Meetups, Mentoring Program</p>
-                <button class="btn event_button">SEE EVENT GALLERY</button>
+                <p class="event_topic2">Participate in any of our online or offline events and trainings: Technical and non-Technical Events, Meetups, Mentoring Program</p>
+                <button class="btn shecode_button">SEE EVENT GALLERY</button>
             </div>
         </div>
         <div class="row row_padding">
-            <div class="col-md-7 col-lg-7 col-sm-7 topic_padding">
+            <div class="col-md-6 col-lg-6 col-sm-6 topic_padding">
                 <h4 class="event_topic4">Summer Break Project</h4>
-                <p class="event_topic2">Sponsor our next event via a donation or Partner with our organisation to reach
-                    more women in tech across Africa and help us make an impact! Your support would go a long way.</p>
-                <button class="btn event_button">SEE EVENT GALLERY</button>
+                <p class="event_topic2">Sponsor our next event via a donation or Partner with our organisation to reach more women in tech across Africa and help us make an impact! Your support would go a long way.</p>
+                <button class="btn shecode_button">SEE EVENT GALLERY</button>
             </div>
-            <div class="col-md-5 col-lg-5 col-sm-5 event_side_past">
+            <div class="col-md-6 col-lg-6 col-sm-6 event_side_past float-right">
             </div>
         </div>
     </section>

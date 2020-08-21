@@ -21,18 +21,14 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
 
     <!-- ICON -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    {# This file provides the default styling for the KeystoneJS Content Editor #}
-    {% if user and user.canAccessKeystone %}
-    <link href="/keystone/styles/content/editor.min.css" rel="stylesheet"> {% endif %}
-    {# HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries Safely remove this block if you are not targeting IE8 #}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> {# This file provides the default styling for the KeystoneJS Content Editor #} {% if user and user.canAccessKeystone %}
+    <link href="/keystone/styles/content/editor.min.css" rel="stylesheet"> {% endif %} {# HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries Safely remove this block if you are not targeting IE8 #}
     <!--[if lt IE 9]>
 			<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
 			<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
-    {# Include template-specific stylesheets by extending the css block #} {% block css %}{% endblock %}
-    {# Add any other template-specific HEAD tags by extending the head block #} {% block head %}{% endblock %}
+    {# Include template-specific stylesheets by extending the css block #} {% block css %}{% endblock %} {# Add any other template-specific HEAD tags by extending the head block #} {% block head %}{% endblock %}
 </head>
 
 <body>
@@ -43,15 +39,13 @@
             <div class="nav-container">
                 <!-- TOGGLE -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse"
-                        data-target=".navbar-ex1-collapse">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/"><img src="images/she-code-africa-logo.svg"
-                            class="__shecodelogo"></a>
+                    <a class="navbar-brand" href="/"><img src="images/she-code-africa-logo.svg" class="__shecodelogo"></a>
                 </div>
                 <!-- TOGGLING LINKS -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse __shecodenavcol">
@@ -79,9 +73,7 @@
     {# BODY #}
     <div id="body">
         {# NOTE: There is no .container wrapping class around body blocks to allow more flexibility in design. Remember to include it in your templates when you override the intro and content blocks! #} {# The Intro block appears above flash messages (used for
-        temporary information display) #} {% block intro %}{% endblock %}
-        {# Flash messages allow you to display once-off status messages to users, e.g. form validation errors, success messages, etc. #}
-        {{ FM.flashMessages(messages) }} {# The content
+        temporary information display) #} {% block intro %}{% endblock %} {# Flash messages allow you to display once-off status messages to users, e.g. form validation errors, success messages, etc. #} {{ FM.flashMessages(messages) }} {# The content
         block should contain the body of your template"s content #} {% block content %}{% endblock %}
     </div>
 
@@ -95,9 +87,9 @@
                         <img src="images/logo-inverted.svg" class="__shecodelogo">
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-4">
-                        <p class="__footerp">Get Involved</p>
-                        <p class="__footera"><a href="">Partnership</a></p>
-                        <p class="__footera"><a href="">Sponsor/Donate</a></p>
+                        <p class="__footerp">Take Action</p>
+                        <p class="__footera"><a href="">Partner With Us</a></p>
+                        <p class="__footera"><a href="">Make A Donation</a></p>
                         <p class="__footera"><a href="">Host an Event</a></p>
                         <p class="__footera"><a href="">Start an S.C.A Chapter</a></p>
                     </div>
@@ -130,15 +122,13 @@
     </footer>
 
 
-    {# JAVASCRIPT #}
-    {# jQuery 1.11.3 is included by default, and required by both Bootstrap and the KeystoneJS Content Editor. If you are not targeting IE8, you can upgrade to 2.1.4 (also bundled) for better performance. #}
+    {# JAVASCRIPT #} {# jQuery 1.11.3 is included by default, and required by both Bootstrap and the KeystoneJS Content Editor. If you are not targeting IE8, you can upgrade to 2.1.4 (also bundled) for better performance. #}
     <script src="/js/jquery/jquery-3.1.1.min.js"></script>
 
     {# Customise which Bootstrap javascript files are served by including them specifically here, instead of bootstrap-3.3.5.min.js #}
     <script src="/js/bootstrap/bootstrap.min.js"></script>
 
-    {# The KeystoneJS Content Editor provides support for ks-editable data attributes, which generate links to edit content for users who can access Keystone #}
-    {% if user and user.canAccessKeystone %}
+    {# The KeystoneJS Content Editor provides support for ks-editable data attributes, which generate links to edit content for users who can access Keystone #} {% if user and user.canAccessKeystone %}
     <script src="/keystone/js/content/editor.js"></script>
     {% endif %} {# Add scripts that are globally required by your site here. #}
     <script src="/js/jquery/main.js"></script>
