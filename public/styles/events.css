@@ -11,7 +11,15 @@
     padding-top: 190px;
     padding-bottom: 20px;
 }
-
+.event_title2 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 40px;
+    letter-spacing: 1.44px;
+    color: var(--primary-dark-pink);
+    padding-top: 31px;
+    padding-bottom: 20px;
+}
 .event_subtitle{
     text-align: left;
     font-size: 25px;
@@ -24,6 +32,10 @@
     color: var(--primary-main-pink);
 }
 
+.event_image {
+    padding: 10px 0;
+    margin: 8px;
+}
 .event_side {
     background: transparent url('../images/event_image.png') no-repeat ;
     height: 700px;
@@ -98,7 +110,15 @@
     background: #ffffff;
     border: 1px solid var(--primary-main-pink);
 }
-
+.push {
+    margin: auto;
+    height: 64px;
+    width: 164px;
+    padding: 20px;
+}
+.grid-display {
+    display: grid;
+}
 .topic_padding {
     padding-left: 300px;
     padding-top: 100px;

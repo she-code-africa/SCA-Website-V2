@@ -85,7 +85,7 @@
             <div class="col-md-7 col-lg-7 col-sm-7 topic_padding">
                 <h4 class="event_topic3">{{event.title}}</h4>
                 <p class="event_topic2">{{event.description.md}}</p>
-                <button class="btn event_button">SEE EVENT GALLERY</button>
+                <a class="btn event_button" a href="/events/{{event.slug}}">SEE EVENT GALLERY</a>
             </div>
             <img class="col-md-5 col-lg-5 col-sm-5 event_side_past2" src="{{ event.image }}" class="img-fluid"
                 alt="{{event.title}}">
@@ -97,7 +97,7 @@
             <div class="col-md-7 col-lg-7 col-sm-7 topic_padding">
                 <h4 class="event_topic3">{{event.title}}</h4>
                 <p class="event_topic2">{{event.description.md}}</p>
-                <button class="btn event_button">SEE EVENT GALLERY</button>
+                <a class="btn event_button" a href="/events/{{event.slug}}">SEE EVENT GALLERY</a>
             </div>
         </div>
         {% endif %}
