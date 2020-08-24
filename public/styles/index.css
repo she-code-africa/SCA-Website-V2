@@ -118,6 +118,7 @@
     .home_side_follow {
         width: 300px;
         height: 400px;
+        margin: auto;
     }
 }
 
@@ -157,6 +158,16 @@
     }
     .__shecode_contactform {
         width: 70%;
+    }
+    .counter .counter_items .slick-slide h4 {
+        font-size: 30px;
+    }
+    .counter .counter_items .slick-slide p {
+        margin: 23px 0;
+        font-size: 11px;
+    }
+    .about_section .about_values p {
+        font-size: 12px;
     }
 }
 
@@ -220,6 +231,13 @@
     .contact_section {
         width: 100%;
     }
+    #testimonials .box {
+        width: 100%;
+        margin: auto;
+    }
+    .counter {
+        height: 230px;
+    }
 }
 
 
@@ -227,7 +245,11 @@
   @media screen 375px
 ==================================================================*/
 
-@media screen and (max-width: 375px) {}
+@media screen and (max-width: 375px) {
+    .counter {
+        height: 213px;
+    }
+}
 
 
 /*=================================================================
