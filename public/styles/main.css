@@ -611,6 +611,7 @@ li.__shecodelink.active a {
     width: 50%;
     float: right;
     padding: 20px;
+    margin-right: 15%;
 }
 
 .__shecode_contactform .form-control {
