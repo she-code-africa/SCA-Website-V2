@@ -2,7 +2,8 @@
     text-align: center;
     font-size: 20px;
 }
-.event_title{
+
+.event_title {
     text-align: left;
     font-weight: bold;
     font-size: 50px;
@@ -11,6 +12,7 @@
     padding-top: 190px;
     padding-bottom: 20px;
 }
+
 .event_title2 {
     text-align: center;
     font-weight: bold;
@@ -20,7 +22,8 @@
     padding-top: 31px;
     padding-bottom: 20px;
 }
-.event_subtitle{
+
+.event_subtitle {
     text-align: left;
     font-size: 25px;
     letter-spacing: 0.76px;
@@ -36,14 +39,15 @@
     padding: 10px 0;
     margin: 8px;
 }
+
 .event_side {
-    background: transparent url('../images/event_image.png') no-repeat ;
+    background: transparent url('../images/event_image.png') no-repeat;
     height: 700px;
     background-size: 100%;
 }
 
 .event_side_upcoming {
-    background: transparent url('../images/event_image1.png') 0% 0% no-repeat padding-box ;
+    background: transparent url('../images/event_image1.png') 0% 0% no-repeat padding-box;
     width: 470px;
     height: 550px;
     background-size: 100%;
@@ -75,21 +79,23 @@
     color: var(--primary-dark-pink);
 }
 
-
 .event_topic2 {
     text-align: left;
     font-size: 20px;
 }
 
-.event_topic3, .event_topic4 {
+.event_topic3,
+.event_topic4 {
     text-align: left;
     font-weight: bold;
     font-size: 45px;
     letter-spacing: 1.44px;
     left: 50%;
 }
-.event_topic3:before, .event_topic4::before {
-    content: ""; 
+
+.event_topic3:before,
+.event_topic4::before {
+    content: "";
     display: block;
     width: 15%;
     border-bottom: 3px solid var(--primary-main-pink);
@@ -97,7 +103,7 @@
 
 .event_button {
     padding: 5px 25px;
-    border-radius: 8px 8px 8px 0px ;
+    border-radius: 8px 8px 8px 0px;
     color: #ffffff !important;
     font-size: 15px;
     font-weight: 400;
@@ -110,15 +116,18 @@
     background: #ffffff;
     border: 1px solid var(--primary-main-pink);
 }
+
 .push {
     margin: auto;
     height: 64px;
     width: 164px;
     padding: 20px;
 }
+
 .grid-display {
     display: grid;
 }
+
 .topic_padding {
     padding-left: 300px;
     padding-top: 100px;
@@ -129,37 +138,61 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .event_side {height: 450px;}
-    .event_title {padding-top: 50px}
+    .event_side {
+        height: 450px;
+    }
+    .event_title {
+        padding-top: 50px
+    }
     .event_side_upcoming {
         width: 100%;
         height: 400px;
     }
-    .event_side_past, .event_side_past2 {
+    .event_side_past,
+    .event_side_past2 {
         width: 100%;
         height: 400px;
         margin-top: 20px;
     }
-    .topic_padding { padding-left: 20px; padding-top: 20px;}
+    .topic_padding {
+        padding-left: 20px;
+        padding-top: 20px;
+    }
     .event_topic1 {
         padding-top: 20px;
         margin-top: 20px;
     }
-    .event_topic3, .event_topic4 {
+    .event_topic3,
+    .event_topic4 {
         font-weight: bold;
         font-size: 35px;
     }
-    .event_topic3:before { width: 15%;}
-    .row_padding { padding-top: 30px;}
-    .event_subtitle { padding-right: 5px;}
-  }
-  
+    .event_topic3:before {
+        width: 15%;
+    }
+    .row_padding {
+        padding-top: 30px;
+    }
+    .event_subtitle {
+        padding-right: 5px;
+    }
+}
+
+
 /* Small devices (portrait tablets and large phones, 600px and up) */
+
 @media only screen and (min-width: 600px) and (max-width: 1024px) {
-    .event_title {padding-top: 60px}
-    .event_topic { padding-top: 0px; }
-    .event_subtitle { padding-right: 5px;}
-    .event_topic3, .event_topic4 {
+    .event_title {
+        padding-top: 60px
+    }
+    .event_topic {
+        padding-top: 0px;
+    }
+    .event_subtitle {
+        padding-right: 5px;
+    }
+    .event_topic3,
+    .event_topic4 {
         font-weight: bold;
         font-size: 35px;
     }
@@ -181,7 +214,8 @@
         margin-left: 12px;
         background-size: 100%;
     }
-    .event_side_past, .event_side_past2 {
+    .event_side_past,
+    .event_side_past2 {
         width: 300px;
         height: 350px;
     }
@@ -190,22 +224,32 @@
     }
 }
 
+
 /* Medium devices (landscape tablets, 768px and up) */
+
 @media only screen and (min-width: 768px) {
-    .event_title {padding-top: 60px}
+    .event_title {
+        padding-top: 60px
+    }
 }
 
+
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-    
-} 
+
+@media only screen and (min-width: 992px) {}
+
+
 /* 1496 */
+
 @media only screen and (min-width: 1024px) {
-    .event_topic3, .event_topic4 {
+    .event_topic3,
+    .event_topic4 {
         font-weight: bold;
         font-size: 35px;
     }
-    .event_title {padding-top: 120px}
+    .event_title {
+        padding-top: 120px
+    }
     .event_side {
         height: 550px;
         width: 400px;
@@ -219,9 +263,10 @@
     }
     .topic_padding {
         padding-left: 50px;
-        padding-top: 80px;
+        padding-top: 50px;
     }
-    .event_side_past, .event_side_past2 {
+    .event_side_past,
+    .event_side_past2 {
         width: 400px;
         height: 450px;
     }
@@ -231,7 +276,9 @@
 }
 
 @media only screen and (min-width: 1496) {
-    .event_title {padding-top: 120px}
+    .event_title {
+        padding-top: 120px
+    }
     .event_side {
         height: 550px;
         width: 450px;
@@ -247,9 +294,9 @@
         padding-left: 100px;
         padding-top: 50px;
     }
-} 
+}
+
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-   
-}
+
+@media only screen and (min-width: 1200px) {}

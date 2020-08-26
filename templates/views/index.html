@@ -1,1 +1,262 @@
-{% extends "layouts/default.html" %} {% block content %} {% endblock %}
+{% extends "layouts/default.html" %} {% block css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css"
+    integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw=="
+    crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css"
+    integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg=="
+    crossorigin="anonymous" /> {% endblock %} {% block intro %}
+<section class="__shecodeheader">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="__shecodeheader_text">
+                    <div class="__shecodeheader_title">
+                        <h1>She Code Africa</h1>
+                    </div>
+                    <div class="__shecodeheader_subtitle">
+                        <h4>
+                            ...celebrating and empowering <span class="highlight">Women in Tech</span> across Africa
+                        </h4>
+                    </div>
+                    <a href="" class="btn shecode_button">JOIN US</a>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="__homepage_image"></div>
+            </div>
+        </div>
+    </div>
+
+</section>
+{% endblock %} {% block content %}
+
+
+<div>
+    <section>
+        <div class="about_section">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h4 class="__shecode_title">About Us</h4>
+                </div>
+                <div class="col-sm-9">
+                    <p>We are a non-profit organisation focused on celebrating and
+                        <br> empowering young girls and women in tech across Africa.
+                    </p>
+                    <div class="about_values">
+                        <div id="vision">
+                            <img class="icon" src="/images/vision.svg" alt="">
+                            <h4>Vision</h4>
+                            <p>An Africa where women are equally represented across all career roles in Technology.
+                            </p>
+                        </div>
+                        <div id="mission">
+                            <img class="icon" src="/images/mission.svg" alt="">
+                            <h4>Mission</h4>
+                            <p>To build a community that embodies technical growth, networking, mentorship and
+                                visibility amongst all level career roles in Technology.
+                            </p>
+                        </div>
+                        <div id="core">
+                            <img class="icon" src="/images/value.svg" alt="">
+                            <h4>Core Values</h4>
+                            <p>Team work, Community, Technical growth, Leadership, Visibility.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="about_section counter">
+        <div class="row">
+            <div class="col-sm-3">
+                <h4 class="__shecode_title">Our Reach So Far</h4>
+            </div>
+            <div class="col-sm-9 ">
+                <div class="counter_items  slider">
+                    <div class="slide">
+                        <h4>2k+</h4>
+                        <p>Community Members</p>
+                    </div>
+                    <div class="slide">
+                        <h4>15+</h4>
+                        <p>African Countries With Members</p>
+                    </div>
+                    <div class="slide">
+                        <h4>32+</h4>
+                        <p>She Code Africa Chapter Locations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row event_topic">
+            <div class="col-sm-2 col-md-2 col-lg-2">
+
+            </div>
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <h4 class="__shecode_topic">Identify With Us</h4>
+                <p class="__shecode_subtopic">If you love women in tech like we do, our arms are wide open to receive
+                    you.
+                </p>
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2">
+
+            </div>
+        </div>
+        <section class="__shecode_block">
+            <div class="row ">
+                <div class="col-md-6 col-lg-6 col-sm-6 home_side_identify">
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6  float-right">
+                    <h4 class="__shecode_title">Growing Slack Community</h4>
+                    <p class="__shecode_subtitle">Join over 3000 Women in Tech across several African countries on our
+                        Slack community to network, stay updated, get help and grow in your career.</p>
+
+                    <a href="" class="btn shecode_button">Join us </a>
+                </div>
+            </div>
+
+        </section>
+        <section class="__shecode_block">
+            <div class="row ">
+
+                <div class="col-md-6 col-lg-6 col-sm-6  ">
+                    <h4 class="__shecode_title">Attend an Event</h4>
+                    <p class="__shecode_subtitle">Participate in any of our online or offline events and initiatives
+                        inluding bootcamps, Fireside chats, webinars, Mentorship programs and several more!</p>
+
+                    <a href="/events" class="btn shecode_button">VIEW UPCOMING EVENTS</a>
+                </div>
+                <div class="col-md-6 col-lg-6 col-sm-6 home_side_event float-right hidden-xs">
+                </div>
+            </div>
+
+        </section>
+        <div class="row ">
+            <div class="col-md-6 col-lg-6 col-sm-6 home_side_partner hidden-xs">
+            </div>
+            <div class="col-md-6 col-lg-6 col-sm-6 float-right">
+                <h4 class="__shecode_title">Be a Partner or Sponsor</h4>
+                <p class="__shecode_subtitle">Be a sponsor for our next event via a donation or Partner with our
+                    organisation to reach more women in tech across Africa.
+                </p>
+                <a href="partnerships@shecodeafrica.org" class="btn shecode_button">Be a partner</a>
+                <a href="/partner-sponsor" class="btn shecode_button2">Be a sponsor</a>
+            </div>
+
+        </div>
+        <div class="row ">
+
+            <div class="col-md-6 col-lg-6 col-sm-6 ">
+                <h4 class="__shecode_title">Follow Us on Social Media</h4>
+                <p class="__shecode_subtitle">Stay updated with us and be the first to know about all our activities and
+                    events, by following our social media pages </p>
+
+                <a href="" class="btn shecode_button">LEARN MORE</a>
+            </div>
+            <div class="col-md-6 col-lg-6 col-sm-6 home_side_follow float-right ">
+            </div>
+        </div>
+    </div>
+    <div id="testimonials" class="container">
+        <div class="row event_topic">
+            <div class="col-sm-2 col-md-2 col-lg-2">
+
+            </div>
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <h4 class="__shecode_topic">What People Say</h4>
+                </p>
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2">
+
+            </div>
+        </div>
+        <div class="col-sm-12">
+            <div class="testimonials slider">
+
+                <div class="slide">
+                    <div class="box">
+                        <img src="/images/PeaceAmara.png" alt="">
+                        <div>
+                            <p class="testimonial_text">
+                                This SCA mentoring program was like a breathe of fresh air that I needed since December
+                                2019. I'm so filled as I joined and I have been growing on my learning path
+                                (PHP/Laravel). In fact my mentor is the best that anyone can have. She's not only good
+                                but naturally a guide. God bless you @FaithAdekogbe. Thanks She Code Africa & all the
+                                organizers. I'll forever make you guys proud.
+                            </p>
+                            <p class="testimonial_name">Onyekachi Peace</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="box">
+                        <img src="/images/Anisat.png" alt="">
+                        <div>
+                            <p class="testimonial_text">
+                                I really love what She Code Africa stands for and how this community constantly rolls
+                                out opportunities to bring in and help female developers grow. Congratulations
+                                @SheCodeAfrica 🎉🎉🎉 and we are proud to be a part of this great community.
+                            </p>
+                            <p class="testimonial_name">Anisat Akinbami</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="box">
+                        <img src="/images/PreciousCadeton.png" alt="">
+                        <div>
+                            <p class="testimonial_text">
+                                Sometime in 2019, I saw a mentorship application form on twitter and decided to give it
+                                a try. I was excited when I got selected for the mentorship program. My mentor, Eva has
+                                never failed in playing her role and my co-mentee, Aisha, has been of great
+                                help. I have learnt a lot and the resources provided are awesome. Thanks SCA you guys
+                                rock!
+                            </p>
+                            <p class="testimonial_name">Cadeton Precious</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <section>
+        <div class="contact_section">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h4 class="__shecode_title">Contact <br> Us</h4>
+                </div>
+                <div class="col-sm-9">
+                    <div class="__shecode_contactform">
+
+                        <form>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Full Name">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Email">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="8"
+                                    placeholder="What would you like to ask us?"></textarea>
+                            </div>
+                            <a href=""></a>
+                            <button class="btn shecode_button " style="width: 100%;">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+
+{% endblock %} {% block js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"
+    integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
+    crossorigin="anonymous"></script>
+{% endblock %}

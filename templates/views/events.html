@@ -1,17 +1,21 @@
-{% extends "layouts/default.html" %}
-{% block css %}
-<link rel="stylesheet" type="text/css" href="styles/events.css">{% endblock %}
-{% block head %}{% endblock %}
-{% block intro %}
+{% extends "layouts/default.html" %} {% block css %}
+<link rel="stylesheet" type="text/css" href="styles/events.css">{% endblock %} {% block head %}{% endblock %} {% block intro %}
 <div>
     <div class="container">
         <div class="row">
             <div class="col-md-7 col-sm-7 col-lg-7">
-                <p class="event_title">Events</p>
-                <p class="event_subtitle">Events focused on empowering and getting more
-                    <span class="__shecodegirls">young girls and women into technology</span>
-                    across cities and tertiary institutions in Africa
-                </p>
+                <div class="__shecodeheader_text">
+                    <div class="__shecodeheader_title">
+                        <h1>Events</h1>
+                    </div>
+                    <div class="__shecodeheader_subtitle">
+                        <h4>Events focused on empowering and getting more
+                            <span class="highlight">young girls and women into technology</span> across cities and tertiary institutions in Africa
+                        </h4>
+                    </div>
+
+                </div>
+
             </div>
             <div class="col-md-5 col-sm-5 col-lg-5 event_side">
             </div>
@@ -19,8 +23,7 @@
 
     </div>
 </div>
-{% endblock %}
-{% block content %}
+{% endblock %} {% block content %}
 <div class="container">
     <section>
         <div class="row event_topic">
@@ -30,19 +33,15 @@
 
             <div class="col-sm-8 col-md-8 col-lg-8">
                 <h4 class="event_topic1">Upcoming Events</h4>
-                <p class="event_subtext">Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est.
-                    Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r</p>
+                <p class="event_subtext">Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r</p>
             </div>
             <div class="col-sm-2 col-md-2 col-lg-2">
 
             </div>
         </div>
-        {% if data.upcomingEvents|length %}
-        {% for event in data.upcomingEvents %}
-        {% if data.upcomingEvents.indexOf(event) %  2 !== 0 %}
+        {% if data.upcomingEvents|length %} {% for event in data.upcomingEvents %} {% if data.upcomingEvents.indexOf(event) % 2 !== 0 %}
         <div class="row row_padding">
-            <img class="col-md-5 col-lg-5 col-sm-5 event_side_past2" src="{{ event.image }}" class="img-fluid"
-                alt="{{event.title}}">
+            <img class="col-md-5 col-lg-5 col-sm-5 event_side_past2" src="{{ event.image }}" class="img-fluid" alt="{{event.title}}">
             <div class="col-md-7 col-lg-7 col-sm-7 topic_padding">
                 <h4 class="event_topic3">{{event.title}}</h4>
                 <p class="event_topic2">{{event.description.md}}</p>
@@ -57,12 +56,9 @@
                 <p class="event_topic2">{{event.description.md}}</p>
                 <a href="{{event.registrationLink}}" target="_blank" class="btn event_button">Register</a>
             </div>
-            <img class="col-md-5 col-lg-5 col-sm-5 event_side_past2" src="{{ event.image }}" class="img-fluid"
-                alt="{{event.title}}">
+            <img class="col-md-5 col-lg-5 col-sm-5 event_side_past2" src="{{ event.image }}" class="img-fluid" alt="{{event.title}}">
         </div>
-        {% endif %}
-        {% endfor %}
-        {% endif %}
+        {% endif %} {% endfor %} {% endif %}
     </section>
     <section>
         <div class="row event_topic">
@@ -71,38 +67,31 @@
             </div>
             <div class="col-sm-8 col-md-8 col-lg-8">
                 <h4 class="event_topic1">Past Events</h4>
-                <p class="event_subtext">Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est.
-                    Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r</p>
+                <p class="event_subtext">Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r</p>
             </div>
             <div class="col-sm-2 col-md-2 col-lg-2">
 
             </div>
         </div>
-        {% if data.pastEvents|length %}
-        {% for event in data.pastEvents %}
-        {% if data.pastEvents.indexOf(event) %  2 !== 0 %}
+        {% if data.pastEvents|length %} {% for event in data.pastEvents %} {% if data.pastEvents.indexOf(event) % 2 !== 0 %}
         <div class="row row_padding">
             <div class="col-md-7 col-lg-7 col-sm-7 topic_padding">
                 <h4 class="event_topic3">{{event.title}}</h4>
                 <p class="event_topic2">{{event.description.md}}</p>
                 <a class="btn event_button" a href="/events/{{event.slug}}">SEE EVENT GALLERY</a>
             </div>
-            <img class="col-md-5 col-lg-5 col-sm-5 event_side_past2" src="{{ event.image }}" class="img-fluid"
-                alt="{{event.title}}">
+            <img class="col-md-5 col-lg-5 col-sm-5 event_side_past2" src="{{ event.image }}" class="img-fluid" alt="{{event.title}}">
         </div>
         {%else%}
         <div class="row row_padding">
-            <img class="col-md-5 col-lg-5 col-sm-5 event_side_past2" src="{{ event.image }}" class="img-fluid"
-                alt="{{event.title}}">
+            <img class="col-md-5 col-lg-5 col-sm-5 event_side_past2" src="{{ event.image }}" class="img-fluid" alt="{{event.title}}">
             <div class="col-md-7 col-lg-7 col-sm-7 topic_padding">
                 <h4 class="event_topic3">{{event.title}}</h4>
                 <p class="event_topic2">{{event.description.md}}</p>
                 <a class="btn event_button" a href="/events/{{event.slug}}">SEE EVENT GALLERY</a>
             </div>
         </div>
-        {% endif %}
-        {% endfor %}
-        {% endif %}
+        {% endif %} {% endfor %} {% endif %}
     </section>
 </div>
 {% endblock %}

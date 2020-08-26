@@ -32,14 +32,15 @@ var routes = {
 };
 
 // Setup Route Bindings
-exports = module.exports = function (app) {
+exports = module.exports = function(app) {
     // Views
     app.get('/', routes.views.index);
+    app.post('/', routes.views.index);
     app.get('/events', routes.views.events);
     app.get('/events/:event', routes.views.event);
     app.get('/team', routes.views.team);
     app.get('/code-of-conduct', routes.views.conduct);
-  	app.get('/donate-partner', routes.views.donatepartner);
+    app.get('/donate-partner', routes.views.donatepartner);
     // app.get('/blog/:category?', routes.views.blog);
     // app.get('/blog/post/:post', routes.views.post);
     // app.get('/about', routes.views.about);
