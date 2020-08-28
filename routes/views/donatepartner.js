@@ -6,7 +6,7 @@ exports = module.exports = function(req, res) {
     var locals = res.locals;
 
     // item in the header navigation.
-    locals.section = 'donatepartner';
+    locals.section = 'partners';
 
     // Render the view
     view.render('donatepartner');

@@ -41,8 +41,8 @@ exports = module.exports = function(app) {
     app.get('/team', routes.views.team);
     app.get('/code-of-conduct', routes.views.conduct);
     app.get('/donate-partner', routes.views.donatepartner);
-    app.get('/partner', routes.views.partner);
-    app.get('/donate', routes.views.donate);
+    app.get('/partner', routes.views.donatepartner);
+    app.get('/donate', routes.views.donatepartner);
 
     // app.get('/blog/:category?', routes.views.blog);
     // app.get('/blog/post/:post', routes.views.post);
