@@ -743,3 +743,36 @@ li.__shecodelink.active a {
 
 
 /* code of conduct ends */
+
+/*faq starts*/
+.panel-body .text-primary-color{
+    color: var(--primary-dark-pink);
+}
+.container h3{
+    margin-bottom: 20px;
+}
+.panel-group .faq-list{
+background-color: var(--primary-lighter-pink);
+padding: 10px 10px 10px 20px;
+ color: var(--primary-dark-pink);
+}
+.panel-group .panel{
+    margin-bottom: 10px;
+    border-radius: 0;
+}
+.panel-title > a:before {
+    float: right !important;
+    font-family: FontAwesome;
+    content:"\f068";
+    padding-right: 5px;
+}
+.panel-title > a.collapsed:before {
+    float: right !important;
+    content:"\f067";
+}
+.panel-title > a:hover, 
+.panel-title > a:active, 
+.panel-title > a:focus  {
+    text-decoration:none;
+}
+/* faq ends */
