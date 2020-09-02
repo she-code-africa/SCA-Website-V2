@@ -28,13 +28,12 @@ keystone.pre('render', middleware.flashMessages);
 
 // Import Route Controllers
 var routes = {
-	views: importRoutes('./views'),
+    views: importRoutes('./views'),
 };
 
 // Setup Route Bindings
-exports = module.exports = function (app) {
+exports = module.exports = function(app) {
     // Views
-<<<<<<< HEAD
     app.get('/', routes.views.index);
     app.post('/', routes.views.index);
     app.get('/events', routes.views.events);
@@ -45,16 +44,7 @@ exports = module.exports = function (app) {
     app.get('/partner', routes.views.donatepartner);
     app.get('/donate', routes.views.donatepartner);
     app.get('/chapters', routes.views.chapters);
-=======
-	app.get('/', routes.views.index);
-	app.post('/', routes.views.index);
-	app.get('/events', routes.views.events);
-	app.get('/events/:event', routes.views.event);
-	app.get('/team', routes.views.team);
-	app.get('/code-of-conduct', routes.views.conduct);
-	app.get('/donate-partner', routes.views.donatepartner);
-	app.get('/faq', routes.views.faq);
->>>>>>> 3f1d0f4f807ea569059a152d9e7e831a760ca645
+    app.get('/faq', routes.views.faq);
     // app.get('/blog/:category?', routes.views.blog);
     // app.get('/blog/post/:post', routes.views.post);
     // app.get('/about', routes.views.about);
