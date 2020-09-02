@@ -758,7 +758,7 @@ padding: 10px 10px 10px 20px;
 }
 .panel-group .panel{
     margin-bottom: 10px;
-    border-radius: 0;
+    border: none;
 }
 .panel-title > a:before {
     float: right !important;
