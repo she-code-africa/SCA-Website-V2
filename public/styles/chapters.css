@@ -47,7 +47,9 @@
     background: transparent;
 }
 
-.trans-btn:hover {
+.trans-btn:hover,
+.trans-btn:focus,
+.trans-btn:active {
     background: var(--primary-main-pink);
     color: #fff;
     border: none
