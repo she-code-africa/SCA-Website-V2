@@ -1,0 +1,138 @@
+.jobs h1,
+.jobs h4 {
+	text-align: center;
+}
+
+.jobs h4 {
+	color: var(--primary-gray);
+}
+
+.sca-btn-small {
+	width: auto;
+}
+
+.jobs .__shecodeheader_text {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.__jobs_preview_card {
+	/* width: 40%; */
+	height: 330px;
+	background: #FFFFFF 0% 0% no-repeat padding-box;
+	border: 1px solid #DCDCDC;
+	border-radius: 0px 0px 70px 0px;
+	opacity: 1;
+
+	padding: 25px 28px;
+	display: flex;
+	flex-direction: column;
+	color: var(--primary-gray);
+}
+
+.__jobs_preview_card button {
+	/* width: 130px; */
+	align-self: flex-end;
+	margin-top: 8%;
+}
+
+.__jobs_preview_card .org {
+	font-size: 16px;
+}
+
+.__jobs_preview_card .posted-time {
+	font-size: 13px;
+}
+
+#job-view-more {
+	padding: 0 !important;
+}
+
+.modal-dialog {
+	width: 80vw;
+}
+
+#job-view-more.modal.in {
+	display: flex !important;
+	align-items: center;
+	justify-content: center;
+}
+
+#job-view-more .modal-body {
+	min-height: 70vh;
+	padding: 70px;
+}
+
+#job-view-more .modal-content {
+	overflow-y: scroll;
+}
+
+#job-view-more .title {
+	color: var(--primary-black);
+}
+
+.role-apply {
+	display: flex;
+  justify-content: space-between;
+}
+
+.apply {
+	display: flex;
+	flex-wrap: wrap;
+	align-self: center;
+}
+
+.apply button {
+	margin-top: 0;
+}
+
+.role-desc {
+	margin-top: 3rem;
+	color: var(--primary-gray);
+}
+
+.level {
+  grid-area: level;
+}
+.industry {
+  grid-area: industry;
+}
+.employment-type {
+  grid-area: employment-type;
+}
+.salary-range {
+  grid-area: salary-range;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: auto 25% auto;
+	grid-template-areas: 
+    "level industry"
+    ". ."
+    "employment-type salary-range";
+}
+
+.__jobdeets_header {
+	color: var(--primary-black);
+	font-weight: bolder;
+  margin-bottom: 5px;
+}
+
+.__jobdeets_body {
+	color: var(--primary-gray);
+	margin-bottom: 5px;
+}
+
+.margin-top-3r {
+	margin-top: 3rem;
+}
+
+.job-status {
+	display: inline-block;
+	padding: 15px 25px;
+	background-color: #DCDCDC;
+	margin-right: 20px;
+}

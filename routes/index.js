@@ -27,7 +27,7 @@ keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
 // Handle 404 errors
-keystone.set('404', function(req, res, next) {
+keystone.set('404', function (req, res, next) {
     // middleware.theme(req, res, next);
     res.status(404).render('errors/404');
 });
@@ -38,7 +38,7 @@ var routes = {
 };
 
 // Setup Route Bindings
-exports = module.exports = function(app) {
+exports = module.exports = function (app) {
     // Views
 	app.get('/', routes.views.index);
 	app.post('/', routes.views.index);
@@ -53,9 +53,11 @@ exports = module.exports = function(app) {
 	app.post('/chapters', routes.views.chapters);
 	app.get('/chapters', routes.views.chapters);
 	app.get('/faq', routes.views.faq);
+	app.get('/jobs', routes.views.jobs);
     // app.get('/blog/:category?', routes.views.blog);
     // app.get('/blog/post/:post', routes.views.post);
-    // app.get('/jobs', routes.views.jobs);
+    // app.get('/blog/:category?', routes.views.blog);
+    // app.get('/blog/post/:post', routes.views.post);
     // app.get('/community', routes.views.community);
     // app.get('/gallery', routes.views.gallery);
     // app.all('/contact', routes.views.contact);
