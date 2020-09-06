@@ -1,3 +1,11 @@
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.width-100 {
+	width: 100%;
+}
+
 .jobs h1,
 .jobs h4 {
 	text-align: center;
@@ -17,15 +25,36 @@
 	align-items: center;
 }
 
+@media screen and (max-width: 424px) {
+	.jobs .__shecodeheader_text {
+		margin-bottom: 50px;
+	}
+
+	.__jobs_preview .col-xs-12 {
+		padding: 0;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.jobs .__shecodeheader_text h4 {
+		margin-bottom: 0 !important;
+	}
+
+	.jobs .__shecodeheader_subtitle {
+		margin-bottom: 20px;
+	}
+}
+
 .__jobs_preview_card {
 	/* width: 40%; */
-	height: 330px;
+	min-height: 330px;
 	background: #FFFFFF 0% 0% no-repeat padding-box;
 	border: 1px solid #DCDCDC;
 	border-radius: 0px 0px 70px 0px;
 	opacity: 1;
 
 	padding: 25px 28px;
+	margin-bottom: 30px;
 	display: flex;
 	flex-direction: column;
 	color: var(--primary-gray);
@@ -61,7 +90,13 @@
 
 #job-view-more .modal-body {
 	min-height: 70vh;
-	padding: 70px;
+	max-height: 80vh;
+}
+
+@media screen and (min-width: 850px) {
+	#job-view-more .modal-body {
+		padding: 40px 60px 0;
+	}
 }
 
 #job-view-more .modal-content {
@@ -74,12 +109,13 @@
 
 .role-apply {
 	display: flex;
-  justify-content: space-between;
+	justify-content: space-between;
+	flex-wrap: wrap;
 }
 
 .apply {
 	display: flex;
-	flex-wrap: wrap;
+	/* flex-wrap: wrap; */
 	align-self: center;
 }
 
@@ -113,6 +149,11 @@
     "level industry"
     ". ."
     "employment-type salary-range";
+}
+
+div.grid-container:nth-last-child(1),
+div.grid-container:nth-last-child(2) {
+	margin-bottom: 70px;
 }
 
 .__jobdeets_header {
