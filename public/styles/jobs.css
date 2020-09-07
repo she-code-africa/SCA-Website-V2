@@ -316,7 +316,8 @@ div.grid-container:nth-last-child(2) {
 }
 
 .__register_form input,
-.__register_form select {
+.__register_form select,
+.__register_form textarea {
 	background-color: #F0F0F0;
   border: 0;
 }
@@ -369,4 +370,18 @@ div.grid-container:nth-last-child(2) {
 div.__contact_number > .dailing-code {
 	width: 30%;
   margin-right: 10px;
+}
+
+@media screen and (max-width: 320px) and (max-width: 768px) {
+	div.__contact_number > .dailing-code {
+		width: 42%;
+	}
+}
+
+.form-group .job-desc {
+	height: auto;
+}
+
+.__jobdetails textarea {
+	padding: 17px 12px;
 }
