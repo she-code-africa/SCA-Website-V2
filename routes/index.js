@@ -54,8 +54,8 @@ exports = module.exports = function (app) {
 	app.get('/chapters', routes.views.chapters);
 	app.get('/faq', routes.views.faq);
 	app.get('/jobs', routes.views.jobs);
-    // app.get('/blog/:category?', routes.views.blog);
-    // app.get('/blog/post/:post', routes.views.post);
+	app.get('/jobs/register/org-details', routes.views.jobsregister);
+	app.get('/jobs/register/contact-details', routes.views.jobsregister_contact);
     // app.get('/blog/:category?', routes.views.blog);
     // app.get('/blog/post/:post', routes.views.post);
     // app.get('/community', routes.views.community);

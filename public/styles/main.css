@@ -223,6 +223,11 @@ Custom Css
     background: var(--primary-main-pink);
 }
 
+.light-pink-btn {
+	color: var(--primary-main-pink) !important;
+	background: #F0CDE1
+}
+
 .white-btn {
     color: var(--primary-main-pink) !important;
     background: #fff;

@@ -177,3 +177,196 @@ div.grid-container:nth-last-child(2) {
 	background-color: #DCDCDC;
 	margin-right: 20px;
 }
+
+/* JOBS REGISTER */
+.__register_welcome_text {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 5rem;
+	padding: 0 10px;
+}
+
+.first_ring {
+	position: relative;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+}
+
+.org-details .first_ring {
+	border: 6px solid var(--primary-main-pink);
+}
+
+.contact-details .first_ring {
+	background: var(--primary-main-pink);
+}
+
+.first_ring:after {
+	content: "Organization Details";
+	display: block;
+	position: absolute;
+	top: 22px;
+	margin-left: -40px;
+	color: var(--primary-main-pink);
+}
+
+.connector {
+	width: 265px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+}
+
+.org-details .connector {
+	border: 2px solid #E5E5E5;
+}
+
+.contact-details .connector {
+	border: 2px solid var(--primary-main-pink);
+}
+
+.second_ring {
+	position: relative;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+}
+
+.org-details .second_ring {
+	background: #E5E5E5;
+}
+
+.contact-details .second_ring {
+	border: 6px solid var(--primary-main-pink);
+}
+
+.second_ring:after {
+	content: "Contact Details";
+	display: block;
+	position: absolute;
+	top: 22px;
+	margin-left: -20px;
+}
+
+.org-details .second_ring:after {
+	color: #E5E5E5;
+}
+
+.contact-details .second_ring:after {
+	color: var(--primary-main-pink);
+}
+
+.welcome_text h2 {
+	font-weight: bold;
+	letter-spacing: 0.96px;
+	color: #1A1A1A;
+}
+
+.welcome_text p {
+	font-size: 16px;
+	color: #1A1A1A;
+}
+
+.here {
+	display: flex;
+	justify-content: center;
+	padding-top: 35px;
+}
+
+@media screen and (max-width: 425px) {
+	.here {
+		width: 70% !important;
+	}
+
+	.first_ring {
+		border: 5px solid var(--primary-main-pink);
+		width: 17px;
+		height: 17px;
+	}
+
+	.second_ring {
+		border: 5px solid #E5E5E5;
+		width: 17px;
+		height: 17px;
+	}
+
+	.connector {
+		margin-top: 6px;
+	}
+}
+
+@media screen and (max-width: 375px) {
+	.first_ring,
+	.second_ring {
+		width: 19px;
+	}
+}
+
+.__register {
+	width: 33%;
+}
+
+.__register_form form {
+	flex-direction: column;
+}
+
+.__register_form .form-control {
+	width: 31vw;
+	height: 45px;
+}
+
+.__register_form input,
+.__register_form select {
+	background-color: #F0F0F0;
+  border: 0;
+}
+
+.__register_welcome {
+	margin-bottom: 5rem;
+}
+
+.__register_form option:disabled {
+	color: gray;
+}
+
+@media screen and  (max-width: 768px) {
+	.container {
+		padding: 0;
+	}
+}
+
+@media screen and (max-width: 425px) {
+	.__register,
+	.__register_form .form-control {
+			width: 90vw;
+	}
+}
+
+@media screen and (min-width: 426px) and (max-width: 768px) {
+	.__register,
+	.__register_form .form-control {
+			width: 61vw;
+	}
+}
+
+.__register_form a {
+	font-weight: bold;
+}
+
+.__register_form > p {
+	padding-top: 20px;
+}
+
+.__register_form > p a {
+	color: var(--primary-main-pink);
+}
+
+.__contact_number {
+	width: 100%;
+	display: flex;
+}
+
+div.__contact_number > .dailing-code {
+	width: 30%;
+  margin-right: 10px;
+}
