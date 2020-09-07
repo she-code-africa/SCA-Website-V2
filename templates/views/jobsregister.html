@@ -1,98 +1,61 @@
-<!doctype html>
-<html>
-	<head>
-			<meta charset="utf-8">
-			<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			<meta http-equiv="X-UA-Compatible" content="IE=edge">
+{% extends "layouts/jobpost.html" %} 
 
-			<title>{{ title|default("SHE CODE AFRICA") }}</title>
-
-			<!-- STYLESHEETS -->
-			{# Customise the stylesheet for your site by editing /public/styles/site.sass #}
-			<link href="../../styles/site.css" rel="stylesheet">
-			<!-- CUSTOM STYLES -->
-			<link rel="stylesheet" type="text/css" href="../../styles/variables.css">
-			<link rel="stylesheet" type="text/css" href="../../styles/main.css">
-			<link rel="stylesheet" type="text/css" href="../../styles/index.css">
-			<link rel="stylesheet" type="text/css" href="../../styles/jobs.css">
-			<!-- WEBFONT -->
-			<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat">
-
-			<!-- ICON -->
-			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-			{# This file provides the default styling for the KeystoneJS Content Editor #}
-			{% if user and user.canAccessKeystone %}
-			<link href="../keystone/styles/content/editor.min.css" rel="stylesheet"> {% endif %}
-			{# HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries Safely remove this block if you are not targeting IE8 #}
-			<!--[if lt IE 9]>
-				<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
-				<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
-			<![endif]-->
-
-			{# Include template-specific stylesheets by extending the css block #} {% block css %}{% endblock %}
-			{# Add any other template-specific HEAD tags by extending the head block #} {% block head %}{% endblock %}
-	</head>
-
-	<body>
-		<div class="container __register">
-			{% block content %}	
-				<section class="jobs __register_welcome">
-					<div class="flex-center">
-							<div class="__register_welcome_text">
-									<a href="/" class="logo">
-										<img src="../../images/she-code-africa-logo.svg" class="__shecodelogo">
-									</a>
-									<div class="welcome_text">
-											<h2 class="text-center">Welcome Here</h2>
-											<p class="text-center">Reach top talent and find the right candidate today</p>
-									</div>
-									<div class="here org-details width-100">
-										<div class="first_ring"></div>
-										<div class="connector"></div>
-										<div class="second_ring"></div>
-									</div>
-							</div>
-					</div>	
-				</section>
-
-				<section class="__register_form">
-					<form class="flex-center">
-						<div class="form-group">
-							<input type="text" name="org_name" class="form-control" placeholder="Organization Name *" required>
-						</div>
-
-						<div class="form-group">
-							<select name="org_industry" class="form-control">
-								<option value="" disabled selected hidden>Organization Industry *</option>
-								<option value="hurr">Durr</option>
-							</select>
-						</div>
-
-						<div class="form-group">
-							<input type="text" name="website_url" class="form-control" placeholder="Website URL">
-						</div>
-
-						<div class="form-group">
-							<select name="location" class="form-control">
-								<option value="" disabled selected hidden>Location *</option>
-							</select>
-						</div>
-
-						<div class="form-group">
-							<input type="text" name="org_address" class="form-control" placeholder="Organization Address *" required>
-						</div>		
-						
-						<a href="/jobs/register/contact-details" class="btn sca-btn light-pink-btn">
-							PROCEED
+{% block content %}	
+<div class="container __register">
+	<section class="jobs __register_welcome">
+		<div class="flex-center">
+				<div class="__register_welcome_text">
+						<a href="/" class="logo">
+							<img src="../../images/she-code-africa-logo.svg" class="__shecodelogo">
 						</a>
-					</form>
-					<p class="text-center">
-						Already have an account?
-						<a href="/jobs/new">POST A JOB</a>
-					</p>
-				</section>
-			{% endblock %}
-			</div>
-	</body>
+						<div class="welcome_text">
+								<h2 class="text-center">Welcome Here</h2>
+								<p class="text-center">Reach top talent and find the right candidate today</p>
+						</div>
+						<div class="here org-details width-100">
+							<div class="first_ring"></div>
+							<div class="connector"></div>
+							<div class="second_ring"></div>
+						</div>
+				</div>
+		</div>	
+	</section>
 
-</html>
+	<section class="__register_form">
+		<form class="flex-center">
+			<div class="form-group">
+				<input type="text" name="org_name" class="form-control" placeholder="Organization Name *" required>
+			</div>
+
+			<div class="form-group">
+				<select name="org_industry" class="form-control">
+					<option value="" disabled selected hidden>Organization Industry *</option>
+					<option value="hurr">Durr</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<input type="text" name="website_url" class="form-control" placeholder="Website URL">
+			</div>
+
+			<div class="form-group">
+				<select name="location" class="form-control">
+					<option value="" disabled selected hidden>Location *</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<input type="text" name="org_address" class="form-control" placeholder="Organization Address *" required>
+			</div>		
+			
+			<a href="/jobs/register/contact-details" class="btn sca-btn light-pink-btn">
+				PROCEED
+			</a>
+		</form>
+		<p class="text-center">
+			Already have an account?
+			<a href="/jobs/new">POST A JOB</a>
+		</p>
+	</section>
+</div>
+{% endblock %}
