@@ -240,6 +240,11 @@ Custom Css
     border: 1px solid var(--primary-main-pink);
 }
 
+.light-pink-btn:hover {
+    color: #ffffff !important;
+    background: var(--primary-main-pink);
+}
+
 .white-btn:hover {
     color: #ffffff !important;
     background: var(--primary-main-pink);
