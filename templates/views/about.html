@@ -1,0 +1,150 @@
+{% extends "layouts/default.html" %}
+{% block css %}
+<link rel="stylesheet" type="text/css" href="styles/events.css">{% endblock %}
+{% block head %}{% endblock %}
+{% block intro %}
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 col-sm-7 col-lg-7">
+                <p class="event_title">About Us</p>
+                <p class="event_subtitle">We are a non-profit organization focused on celebrating and empowering
+                    <span class="__shecodegirls">young Girls and Women in Technology</span>
+                    across Africa.
+                </p>
+                <!-- <p>
+                    <a href="Join Community"></a>
+                </p> -->
+            </div>
+            <div class="col-md-5 col-sm-5 col-lg-5 event_side">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block content %}
+<div class="container">
+    <section>
+        <div class="row">
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-11 valueDiv ">
+                <div class="row"><br><br></div>
+                <div class="row">
+                    <div class="col-md-2">
+                        <h4 class="event_topic3">Our <br> Values</h4>
+                    </div>
+                    <div class="col-md-1"></div>
+                    <div class="col-md-9">
+                        <p class="about_subtext">Team Work, Community, Technical Growth, Leadership, Visibility</p>
+                        <br>
+                        <img src="/images/our-values.svg" class="img-fluid" alt="our values" width="100%">
+                        <br><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="row event_topic row_padding">
+            <div class="col-sm-2 col-md-2 col-lg-2">
+
+            </div>
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <h4 class="event_topic1">Members Benefits</h4>
+
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2">
+
+            </div>
+        </div>
+        <div class="row row_padding">
+            <img class="col-md-5 col-lg-5 col-sm-5 event_side_upcoming" src="/images/event_image1.png" class="img-fluid"
+                alt="community support">
+            <div class="col-md-1 col-lg-1 col-sm-1">
+
+            </div>
+            <div class="col-md-6 col-lg-6 col-sm-6 topic_padding">
+                <h4 class="event_topic3">Community <br> Support</h4>
+                <p class="event_topic2">We provide support through our diverse offline and online communities.
+                    With amazing programs and initiatives to always keep you engaged, you never run out of network,
+                    resources and mentorship.</p>
+            </div>
+        </div>
+        <div class="row row_padding">
+            <div class="col-md-6 col-lg-6 col-sm-6 topic_padding">
+                <h4 class="event_topic3">Monitored <br> Growth</h4>
+                <p class="event_topic2">We provide resources and monitor your growth every step of the way through
+                    regular check-ins to ensure you are hitting your personal and career goals.</p>
+
+            </div>
+            <div class="col-md-1 col-lg-1 col-sm-1">
+
+            </div>
+            <img class="col-md-5 col-lg-5 col-sm-5 event_side_upcoming" src="/images/event_image2.png" class="img-fluid"
+                alt="monitored growth">
+        </div>
+        <div class="row row_padding">
+            <img class="col-md-5 col-lg-5 col-sm-5 event_side_upcoming" src="/images/event_image3.png" class="img-fluid"
+                alt="guidance">
+            <div class="col-md-1 col-lg-1 col-sm-1">
+
+            </div>
+            <div class="col-md-6 col-lg-6 col-sm-6 topic_padding">
+                <h4 class="event_topic3">Professional <br> Guidance</h4>
+                <p class="event_topic2">Through our intensive dedicated Mentorship program and various
+                    mentors available on our community platform, you are able to get help and guidance in your learning
+                    journey or career field whenever you need it..</p>
+            </div>
+        </div>
+        <div class="row row_padding">
+            <div class="col-md-6 col-lg-6 col-sm-6 topic_padding">
+                <h4 class="event_topic3">Pair <br> Support</h4>
+                <p class="event_topic2">Network and meet with other women in tech in Africa who have
+                    walked or are walking in the same path as you are and can relate with your experience while helping
+                    you on your journey.</p>
+            </div>
+            <div class="col-md-1 col-lg-1 col-sm-1">
+            </div>
+            <img class="col-md-5 col-lg-5 col-sm-5 event_side_upcoming" src="/images/event_image4.png" class="img-fluid"
+                alt="pair support">
+        </div>
+    </section>
+
+    <section>
+        <div class="row event_topic row_padding"></div>
+        <div class="row event_topic row_padding">
+            <div class="col-sm-2 col-md-2 col-lg-2">
+
+            </div>
+            <div class="col-sm-8 col-md-8 col-lg-8">
+                <h4 class="event_topic1">Our Awesome Team</h4>
+                <p class="event_subtext">Peep the faces behind the initiatives and impacts here at She Code Africa.
+                    These wonderful people work behind the scene, everyday to keep our vision working.</p>
+            </div>
+            <div class="col-sm-2 col-md-2 col-lg-2">
+
+            </div>
+        </div>
+        <div class="row">
+            {% for i in range(6) %}
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="__shecodeteammember_box">
+                    <div class="__shecodeteammember_img">
+                        <img src="/images/hair-2537564_1920.png" alt="" class="img-responsive">
+                    </div>
+                    <div class="__shecodeteammember_text">
+                        <h5 class="name">Ada Nduka, OYOM</h5>
+                        <p class="role">Founder</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="row grid-display">
+                <a href="" class="btn shecode_button push2" href="/team"> VIEW ALL </a>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock %}

@@ -32,10 +32,11 @@ var routes = {
 };
 
 // Setup Route Bindings
-exports = module.exports = function(app) {
+exports = module.exports = function (app) {
     // Views
     app.get('/', routes.views.index);
     app.post('/', routes.views.index);
+    app.get('/about', routes.views.about);
     app.get('/events', routes.views.events);
     app.get('/events/:event', routes.views.event);
     app.get('/team', routes.views.team);
@@ -47,7 +48,6 @@ exports = module.exports = function(app) {
     app.get('/faq', routes.views.faq);
     // app.get('/blog/:category?', routes.views.blog);
     // app.get('/blog/post/:post', routes.views.post);
-    // app.get('/about', routes.views.about);
     // app.get('/jobs', routes.views.jobs);
     // app.get('/community', routes.views.community);
     // app.get('/gallery', routes.views.gallery);
