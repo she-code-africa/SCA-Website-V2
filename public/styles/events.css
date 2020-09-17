@@ -34,6 +34,14 @@
     padding-right: 50px;
     line-height: 28px;
 }
+/* line-height: 50px; */
+.about_subtitle {
+    text-align: left;
+    font-size: 24px;
+    letter-spacing: 0.76px;
+    padding-right: 50px;
+    line-height: 28px;
+}
 
 .__shecodegirls {
     color: var(--primary-main-pink);
@@ -50,9 +58,16 @@
     background-size: 100%;
 }
 
+.about_side {
+    width: 385px;
+    height: 400px;
+    /* width:385px;
+        height: 400px; */
+    background-size: 100%;
+}
+
 .event_side_upcoming {
-    background: transparent url('../images/event_image1.png') 0% 0% no-repeat padding-box;
-    width: 470px;
+    width: 100%;
     height: 550px;
     background-size: 100%;
 }
@@ -74,6 +89,12 @@
     text-align: center;
     padding-top: 2rem;
 }
+.about_team {
+    font-size: 40px;
+    font-weight: bold;
+    padding-top: 30px;
+    text-align: center;
+}
 
 .event_topic1 {
     font-size: 40px;
@@ -88,6 +109,12 @@
     font-size: 14px;
 }
 
+.about_topic2 {
+    text-align: left;
+    font-size: 15px;
+    padding-top:17px;
+}
+
 .event_topic3,
 .event_topic4 {
     text-align: left;
@@ -97,6 +124,16 @@
     left: 50%;
 }
 
+.about_topic {
+    line-height: 50px;
+    font-size: 45px;
+    text-align: left;
+    font-weight: bolder;
+    letter-spacing: 1.44px;
+    left: 50%;
+}
+
+.about_topic:before,
 .event_topic3:before,
 .event_topic4::before {
     content: "";
@@ -130,6 +167,13 @@
     padding: 20px;
 }
 
+.push2 {
+    margin: auto;
+    height: 54px;
+    width: 124px;
+    padding: 20px;
+}
+
 .grid-display {
     display: grid;
 }
@@ -143,12 +187,28 @@
     padding-top: 60px;
 }
 
+.valueDiv {
+    background-color: var(--primary-very-light-pink) !important;
+}
+
+.about_subtext {
+    text-align: left;
+    font-size: 17px;
+}
+
 @media only screen and (max-width: 600px) {
-    .event_side {
-        height: 450px;
-    }
+    
     .event_title {
         padding-top: 50px
+    }
+    .about_side {
+        height: 300px;
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle
     }
     .event_side_upcoming {
         width: 100%;
@@ -164,15 +224,23 @@
         padding-left: 20px;
         padding-top: 20px;
     }
+    .about_team,
     .event_topic1 {
         padding-top: 20px;
         margin-top: 20px;
+    }
+    
+    .about_topic {
+        font-weight: bolder;
+        font-size: 45px;
     }
     .event_topic3,
     .event_topic4 {
         font-weight: bold;
         font-size: 35px;
     }
+
+    .about_topic:before,
     .event_topic3:before {
         width: 15%;
     }
@@ -183,7 +251,6 @@
         padding-right: 5px;
     }
 }
-
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 
@@ -196,6 +263,10 @@
     }
     .event_subtitle {
         padding-right: 5px;
+    }
+    .about_topic {
+        font-weight: bolder;
+        font-size: 45px;
     }
     .event_topic3,
     .event_topic4 {
@@ -211,10 +282,18 @@
     }
     .event_side {
         height: 450px;
-        width: 300px;
+        /* width: 300px; */
+    }
+    .about_side {
+        margin-left: 12px;
+        /* background-size: 100%; */
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
     }
     .event_side_upcoming {
-        background: transparent url('../images/event_image1.png') 0% 0% no-repeat;
         width: 300px;
         height: 350px;
         margin-left: 12px;
@@ -230,13 +309,24 @@
     }
 }
 
-
+@media only screen and (min-width: 768px )  and (max-width: 991px) {
+    .about_side {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+        height: 300px;
+        width: 300px;
+    }
+}
 /* Medium devices (landscape tablets, 768px and up) */
 
 @media only screen and (min-width: 768px) {
     .event_title {
         padding-top: 60px
     }
+
 }
 
 
@@ -248,6 +338,7 @@
 /* 1496 */
 
 @media only screen and (min-width: 1024px) {
+    /* .about_topic, */
     .event_topic3,
     .event_topic4 {
         font-weight: bold;
@@ -261,8 +352,12 @@
         width: 400px;
         margin-top: 20px;
     }
+    .about_side {
+        width: 385px;
+        height: 400px;
+        margin-left: 15px;
+    }
     .event_side_upcoming {
-        background: transparent url('../images/event_image1.png') 0% 0% no-repeat;
         width: 350px;
         height: 400px;
         margin-left: 15px;
@@ -290,8 +385,13 @@
         height: 550px;
         width: 450px;
     }
+    .about_side {
+        width:385px;
+        height: 400px;
+        margin-left: 15px;
+        background-size: 100%;
+    }
     .event_side_upcoming {
-        background: transparent url('../images/event_image1.png') 0% 0% no-repeat;
         width: 350px;
         height: 400px;
         margin-left: 15px;
