@@ -3,6 +3,10 @@
     font-size: 20px;
 }
 
+.__shecodeheader_text {
+    margin-top: 20%;
+}
+
 .event_title {
     text-align: left;
     font-weight: bold;
@@ -68,7 +72,7 @@
 .event_topic {
     align-content: center;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 2rem;
 }
 
 .event_topic1 {
@@ -81,7 +85,7 @@
 
 .event_topic2 {
     text-align: left;
-    font-size: 20px;
+    font-size: 14px;
 }
 
 .event_topic3,
@@ -102,13 +106,15 @@
 }
 
 .event_button {
-    padding: 5px 25px;
+    padding: 12px 45px;
     border-radius: 8px 8px 8px 0px;
     color: #ffffff !important;
-    font-size: 15px;
-    font-weight: 400;
+    font-size: 13px;
+    font-weight: bold;
+    text-transform: uppercase;
     margin-top: 5%;
     background: var(--primary-main-pink);
+    transition: all 0.2s;
 }
 
 .event_button:hover {
@@ -151,7 +157,7 @@
     .event_side_past,
     .event_side_past2 {
         width: 100%;
-        height: 400px;
+        height: 300px;
         margin-top: 20px;
     }
     .topic_padding {
@@ -217,7 +223,7 @@
     .event_side_past,
     .event_side_past2 {
         width: 300px;
-        height: 350px;
+        height: 300px;
     }
     .event_side_past2 {
         margin-left: 4px;
@@ -245,7 +251,7 @@
     .event_topic3,
     .event_topic4 {
         font-weight: bold;
-        font-size: 35px;
+        font-size: 55px;
     }
     .event_title {
         padding-top: 120px
@@ -253,6 +259,7 @@
     .event_side {
         height: 550px;
         width: 400px;
+        margin-top: 20px;
     }
     .event_side_upcoming {
         background: transparent url('../images/event_image1.png') 0% 0% no-repeat;
@@ -268,7 +275,7 @@
     .event_side_past,
     .event_side_past2 {
         width: 400px;
-        height: 450px;
+        height: 400px;
     }
     .event_side_past2 {
         margin-left: 4px;

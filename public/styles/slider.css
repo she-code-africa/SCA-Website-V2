@@ -6,7 +6,7 @@
 }
 
 .slick-slide img {
-    width: 120%;
+    width: 100%;
 }
 
 @media screen and (min-width: 1025px) {
