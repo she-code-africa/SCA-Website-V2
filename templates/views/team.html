@@ -25,72 +25,65 @@
 <section class="__shecodecontent">
     <div class="container">
         <div class="row">
-			{% if teams.length %}
-				{% for member in teams %}
-				<div class="col-md-4 col-sm-6 col-xs-12">
-					<div class="__shecodeteammember_box" data-toggle="modal" data-target="#{{member.id}}">
-						<div class="__shecodeteammember_img">
-							{% if member.image.url %}
-								<img src="{{member.image.secure_url}}" alt="{{member.name}}" class="img-responsive">
-							{% else %}
-								<img src="/images/default-team-member.png" alt="{{member.name}}" class="img-responsive">
-							{% endif %}
-						</div>
-						<div class="__shecodeteammember_text">
-							<h5 class="name">{{member.name}}</h5>
-							<p class="role">{{member.role}}</p>
-						</div>
-					</div>
-				</div>
-			
-				<!-- Modal -->
-				<div id={{member.id}} class="modal fade team_modal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-centered">
+            {% if teams.length %} {% for member in teams %}
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                <div class="__shecodeteammember_box" data-toggle="modal" data-target="#{{member.id}}">
+                    <div class="__shecodeteammember_img">
+                        {% if member.image.url %}
+                        <img src="{{member.image.secure_url}}" alt="{{member.name}}" class="img-responsive"> {% else %}
+                        <img src="/images/default-team-member.png" alt="{{member.name}}" class="img-responsive"> {% endif %}
+                    </div>
+                    <div class="__shecodeteammember_text">
+                        <h5 class="name">{{member.name}}</h5>
+                        <p class="role">{{member.role}}</p>
+                    </div>
+                </div>
+            </div>
 
-						<div class="modal-content ">
-							<div class="modal-body">
-								<div class="row">
-									<div class="col-sm-6">
-										<div class="__shecodeteammember_box">
-											<div class="__shecodeteammember_img">
-												{% if member.image.url %}
-													<img src="{{member.image.secure_url}}" alt="{{member.name}}" class="img-responsive">
-												{% else %}
-													<img src="/images/default-team-member.png" alt="{{member.name}}" class="img-responsive">
-												{% endif %}
-																</div>
-											<div class="__shecodeteammember_text">
-												<h5 class="name">{{member.name}}</h5>
-												<p class="role">{{member.role}}</p>
-											</div>
-										</div>
-									</div>
-									<div class="col-sm-6">
-										<div class="__shecodeteammember_details">
-											<span class="close" data-dismiss="modal" aria-hidden="true" title="close">x</span>
-											<br>
-											{% if member.bio %}
-												<p>{{member.bio}}</p>
-											{% else %}
-												<p>Bio unavailable</p>
-											{% endif %}
-										</div>
-									</div>
-								</div>
-							</div>
-							<!-- End of Modal body -->
-						</div>
+            <!-- Modal -->
+            <div id={{member.id}} class="modal fade team_modal" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered">
 
-						<!-- End of Modal content -->
-					</div>
-					<!-- End of Modal dialog -->
-				</div>
-				<!-- End of Modal -->
-				{% endfor %}
-			{% else %}
-			<h3 class="text-center" style="padding-top: 5rem;">Team members' list coming soon...</h3>
-			{% endif %}
-		</div>
+                    <div class="modal-content ">
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="__shecodeteammember_box">
+                                        <div class="__shecodeteammember_img">
+                                            {% if member.image.url %}
+                                            <img src="{{member.image.secure_url}}" alt="{{member.name}}" class="img-responsive"> {% else %}
+                                            <img src="/images/default-team-member.png" alt="{{member.name}}" class="img-responsive"> {% endif %}
+                                        </div>
+                                        <div class="__shecodeteammember_text">
+                                            <h5 class="name">{{member.name}}</h5>
+                                            <p class="role">{{member.role}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="__shecodeteammember_details">
+                                        <span class="close" data-dismiss="modal" aria-hidden="true" title="close">x</span>
+                                        <br> {% if member.bio %}
+                                        <p>{{member.bio}}</p>
+                                        {% else %}
+                                        <p>Bio unavailable</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of Modal body -->
+                    </div>
+
+                    <!-- End of Modal content -->
+                </div>
+                <!-- End of Modal dialog -->
+            </div>
+            <!-- End of Modal -->
+            {% endfor %} {% else %}
+            <h3 class="text-center" style="padding-top: 5rem;">Team members' list coming soon...</h3>
+            {% endif %}
+        </div>
     </div>
 </section>
 {% endblock %}

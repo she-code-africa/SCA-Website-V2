@@ -1,22 +1,27 @@
 // partner slider
 $(document).ready(function() {
     $('.customer-logos').slick({
-        slidesToShow: 3,
-        slidesToScroll: 3,
+        slidesToShow: 2,
+        slidesToScroll: 2,
         autoplay: false,
         autoplaySpeed: 1500,
         arrows: false,
         dots: false,
         pauseOnHover: false,
         responsive: [{
+            breakpoint: 1440,
+            settings: {
+                slidesToShow: 2
+            }
+        }, {
             breakpoint: 768,
             settings: {
-                slidesToShow: 4
+                slidesToShow: 2
             }
         }, {
             breakpoint: 520,
             settings: {
-                slidesToShow: 3
+                slidesToShow: 2
             }
         }]
     });

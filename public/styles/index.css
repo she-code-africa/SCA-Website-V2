@@ -23,7 +23,14 @@
   @media screen 1024px
 ==================================================================*/
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) and (min-width:768px) {
+    .counter .__shecode_title {
+        margin-top: 10%;
+        font-size: 30px;
+    }
+    .__shecode_title {
+        font-size: 40px;
+    }
     .__shecodeformp {
         left: 37%;
     }
@@ -80,6 +87,13 @@
 }
 
 @media screen and (max-width: 768px) and (min-width: 375px) {
+    .counter .__shecode_title {
+        margin-top: 10%;
+        font-size: 25px;
+    }
+    .__shecode_block {
+        margin: 3rem 0;
+    }
     .__shecodeformcard {
         padding-top: 5%;
     }
@@ -194,7 +208,7 @@
         margin-top: 20px!important;
     }
     .__shecodeheader_image {
-        height: 408px;
+        height: 0;
     }
     /* team */
     .team_modal .modal-content {
@@ -237,7 +251,7 @@
         margin: auto;
     }
     .counter {
-        height: 230px;
+        height: 280px;
     }
 }
 
@@ -248,7 +262,7 @@
 
 @media screen and (max-width: 375px) {
     .counter {
-        height: 213px;
+        height: 255px;
     }
 }
 
@@ -258,6 +272,13 @@
 ==================================================================*/
 
 @media screen and (max-width: 320px) {
+    .counter .__shecode_title {
+        margin-top: 10%;
+        font-size: 25px;
+    }
+    .__shecode_block {
+        margin: 3rem 0;
+    }
     .__shecodeheader_subtitle h4 {
         font-size: 15px!important;
         margin-top: 15px!important;
