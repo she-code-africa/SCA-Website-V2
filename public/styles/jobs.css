@@ -415,3 +415,20 @@ p.post-a-job-cta {
 	flex-wrap: wrap;
 	justify-content: center;
 }
+
+.__register_form input::placeholder,
+.__register_form input::-webkit-datetime-edit-fields-wrapper,
+.__register_form textarea::placeholder,
+select:invalid,
+select option[value=""] {
+	font-family: Roboto, sans-serif;
+  color: #1A1A1A8A;
+}
+
+.__register_form select {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
+	background-repeat: no-repeat;
+	background-position: top 10px right 5px;
+}
