@@ -793,3 +793,18 @@ li.__shecodelink.active a {
 
 
 /* faq ends */
+
+.__socialmedia_dropdown {
+    width: 200px;
+    display: none;
+}
+
+.__socialmedia_dropdown.visible {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    color: #ffffff !important;
+    transition: all 0.4s ease-in;
+    text-transform: capitalize;
+}

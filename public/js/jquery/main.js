@@ -84,5 +84,8 @@ $(document).ready(function() {
         pauseOnHover: false
 
     });
+    $('#learn-more').on('click', function() {
+        $('.__socialmedia_dropdown').addClass('visible');
+    })
 });
 // partner slider end
