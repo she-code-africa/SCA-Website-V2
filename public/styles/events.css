@@ -34,7 +34,10 @@
     padding-right: 50px;
     line-height: 28px;
 }
+
+
 /* line-height: 50px; */
+
 .about_subtitle {
     text-align: left;
     font-size: 24px;
@@ -89,6 +92,7 @@
     text-align: center;
     padding-top: 2rem;
 }
+
 .about_team {
     font-size: 40px;
     font-weight: bold;
@@ -112,7 +116,7 @@
 .about_topic2 {
     text-align: left;
     font-size: 15px;
-    padding-top:17px;
+    padding-top: 17px;
 }
 
 .event_topic3,
@@ -197,7 +201,6 @@
 }
 
 @media only screen and (max-width: 600px) {
-    
     .event_title {
         padding-top: 50px
     }
@@ -229,7 +232,6 @@
         padding-top: 20px;
         margin-top: 20px;
     }
-    
     .about_topic {
         font-weight: bolder;
         font-size: 45px;
@@ -239,7 +241,6 @@
         font-weight: bold;
         font-size: 35px;
     }
-
     .about_topic:before,
     .event_topic3:before {
         width: 15%;
@@ -251,6 +252,7 @@
         padding-right: 5px;
     }
 }
+
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 
@@ -309,7 +311,7 @@
     }
 }
 
-@media only screen and (min-width: 768px )  and (max-width: 991px) {
+@media only screen and (min-width: 768px) and (max-width: 991px) {
     .about_side {
         margin-left: auto;
         margin-right: auto;
@@ -320,13 +322,14 @@
         width: 300px;
     }
 }
+
+
 /* Medium devices (landscape tablets, 768px and up) */
 
 @media only screen and (min-width: 768px) {
     .event_title {
         padding-top: 60px
     }
-
 }
 
 
@@ -351,6 +354,7 @@
         height: 550px;
         width: 400px;
         margin-top: 20px;
+        float: right;
     }
     .about_side {
         width: 385px;
@@ -386,7 +390,7 @@
         width: 450px;
     }
     .about_side {
-        width:385px;
+        width: 385px;
         height: 400px;
         margin-left: 15px;
         background-size: 100%;

@@ -16,9 +16,10 @@ Chapter.add({
     author: { type: Types.Relationship, ref: 'User', index: true },
     publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
     location: { type: String, initial: true, required: true },
+    country: { type: String, initial: true, required: true },
     socialMediaLink: { type: String, initial: true, required: true },
     categories: { type: Types.Relationship, ref: 'ChapterCategory', many: true },
 });
 
-Chapter.defaultColumns = 'chapterName, categories|20%, location|20%, state|20%,  publishedDate|20%, socialMediaLink';
+Chapter.defaultColumns = 'chapterName, categories|20%, location|20%, country, state|20%,  publishedDate|20%, socialMediaLink';
 Chapter.register();
