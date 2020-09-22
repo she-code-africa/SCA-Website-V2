@@ -163,6 +163,15 @@ html {
     font-size: 12px;
 }
 
+@media screen and (min-width:1025px) {
+    .tab-content .box h5 {
+        color: #000000;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 12px;
+    }
+}
+
 @media screen and (max-width: 768px) and (min-width: 426px) {
     .nav-tabs {
         border: 0;
