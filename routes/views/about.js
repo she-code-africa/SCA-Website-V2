@@ -1,7 +1,7 @@
 var keystone = require('keystone');
 var Team = keystone.list('Team');
 
-exports = module.exports = function (req, res) {
+exports = module.exports = function(req, res) {
 
     var view = new keystone.View(req, res);
     var locals = res.locals;
@@ -9,8 +9,8 @@ exports = module.exports = function (req, res) {
     locals.data = {
         teams: [],
     };
-    
-    view.query('teams', Team.model.find().where('state', 'published').sort('publishedDate').limit(6));
+
+    view.query('teams', Team.model.find().where('state', 'published').where('isLeader', 'true').sort('publishedDate'));
 
     // Render the view
     view.render('about');
