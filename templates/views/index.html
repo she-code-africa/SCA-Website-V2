@@ -353,7 +353,9 @@
         <section>
             <div class="contact_section">
                 {% if enquirySubmitted %}
-                <h3>Thanks for getting in touch.</h3>
+                <h3 class="text-center">Thanks for getting in touch, <br> our Team will be following up soon via mail
+                </h3>
+
                 {% else %}
                 <div class="row">
                     <div class="col-sm-3">
@@ -365,15 +367,15 @@
                             <form method="post">
                                 <input type="hidden" name="action" value="">
                                 <div class="form-group">
-                                    <input type="text" name="name.full" value="{{ formData[" name.full "] }}" class="form-control" placeholder="Full Name">
+                                    <input type="text" required name="name.full" value="{{ formData[" name.full "] }}" class="form-control" placeholder="Full Name">
                                 </div>
                                 <div class="form-group">
                                     {% set class = ( "has-error" if validationErrors.email else "" ) %}
-                                    <input type="text" name="email" value="{{ formData.email }}" class="form-control" placeholder="Email">
+                                    <input type="email" name="email" required value="{{ formData.email }}" class="form-control" placeholder="Email">
                                 </div>
                                 <br> {% set class = ( "has-error" if validationErrors.message else "" ) %}
                                 <div class="form-group">
-                                    <textarea name="message" value="{{ formData.message }}" class="form-control" rows="8" placeholder="What would you like to ask us?"></textarea>
+                                    <textarea required name="message" value="{{ formData.message }}" class="form-control" rows="8" placeholder="What would you like to ask us?"></textarea>
                                 </div>
                                 <a href=""></a>
                                 <button type="submit" class="btn shecode_button " style="width: 100%;">Send
