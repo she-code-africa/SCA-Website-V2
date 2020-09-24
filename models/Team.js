@@ -18,7 +18,7 @@ Team.add({
     author: { type: Types.Relationship, ref: 'User', index: true },
     publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
     image: { type: Types.CloudinaryImage },
-    bio: { type: Types.Textarea, max: 300, label: 'Bio(max. of 300 characters)' },
+    bio: { type: Types.Textarea, max: 1000, label: 'Bio(max. of 1000 characters)' },
 });
 
 Team.track = true;
