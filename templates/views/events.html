@@ -48,7 +48,7 @@
             <div class="col-md-6 col-lg-6 col-sm-6 topic_padding float-right">
                 <h4 class="event_topic3">{{event.title}}</h4>
                 <p class="event_topic2">{{event.description.md}}</p>
-                <a href="{{event.registrationLink}}" target="_blank" class="btn event_button">Register</a>
+                <a href="{{event.link}}" target="_blank" class="btn event_button">{{event.callToAction}}</a>
             </div>
         </div>
 
@@ -57,7 +57,7 @@
             <div class="col-md-6 col-lg-6 col-sm-6 topic_padding">
                 <h4 class="event_topic3">{{event.title}}</h4>
                 <p class="event_topic2">{{event.description.md}}</p>
-                <a href="{{event.registrationLink}}" target="_blank" class="btn event_button">Register</a>
+                <a href="{{event.link}}" target="_blank" class="btn event_button">{{event.callToAction}}</a>
             </div>
             <img class="col-md-6 col-lg-6 col-sm-6 float-right event_side_past2" src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
         </div>
@@ -84,7 +84,7 @@
             <div class="col-md-6 col-lg-6 col-sm-6 topic_padding">
                 <h4 class="event_topic3">{{event.title}}</h4>
                 <p class="event_topic2">{{event.description.md}}</p>
-                <a class="btn event_button" href="{{event.eventGalleryLink}}">SEE EVENT GALLERY</a>
+                <a class="btn event_button" href="{{event.link}}">{{event.callToAction}}</a>
             </div>
             <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2 float-right" src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
         </div>
@@ -94,7 +94,7 @@
             <div class="col-md-6 col-lg-6 col-sm-6 topic_padding float-right">
                 <h4 class="event_topic3">{{event.title}}</h4>
                 <p class="event_topic2">{{event.description.md}}</p>
-                <a class="btn event_button" href="{{event.eventGalleryLink}}">SEE EVENT GALLERY</a>
+                <a class="btn event_button" href="{{event.link}}">{{event.callToAction}}</a>
             </div>
         </div>
         {% endif %} {% endfor %} {% endif %}

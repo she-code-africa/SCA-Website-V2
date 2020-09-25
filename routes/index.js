@@ -27,9 +27,9 @@ keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
 // Handle 404 errors
-keystone.set('404', function (req, res, next) {
+keystone.set('404', function(req, res, next) {
     // middleware.theme(req, res, next);
-	res.status(404).render('errors/404');
+    res.status(404).render('errors/404');
 });
 
 // Import Route Controllers
@@ -38,7 +38,7 @@ var routes = {
 };
 
 // Setup Route Bindings
-exports = module.exports = function (app) {
+exports = module.exports = function(app) {
     // Views
     app.get('/', routes.views.index);
     app.post('/', routes.views.index);
