@@ -16,11 +16,13 @@ Event.add({
     state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
     author: { type: Types.Relationship, ref: 'User', index: true },
     publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
-    image: { type: Types.CloudinaryImage, initial: true, required: true },
+    image: { type: Types.CloudinaryImage, initial: true, required: true, label: 'Ímage(800x800)' },
     eventDate: { type: Types.Date, initial: true, required: true },
-    location: { type: String, initial: true, required: true },
-    registrationLink: { type: String, initial: true, label: 'Registration Link(should start with http:// or  https://)' },
-    eventGalleryLink: { type: String, initial: true, label: 'Event Gallery Link(should start with http:// or  https://)' },
+    // location: { type: String, initial: true, required: true },
+    callToAction: { type: String, initial: true },
+    link: { type: String, initial: true, label: 'Link(http:// or https://)' },
+    // registrationLink: { type: String, initial: true, label: 'Registration Link(should start with http:// or  https://)' },
+    // eventGalleryLink: { type: String, initial: true, label: 'Event Gallery Link(should start with http:// or  https://)' },
 });
 
 Event.defaultColumns = 'title, state|20%, eventDate|20%, publishedDate|20%';

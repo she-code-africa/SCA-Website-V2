@@ -26,14 +26,11 @@ var importRoutes = keystone.importer(__dirname);
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
-<<<<<<< HEAD
-=======
 // Handle 404 errors
-keystone.set('404', function (req, res, next) {
+keystone.set('404', function(req, res, next) {
     // middleware.theme(req, res, next);
-	res.status(404).render('errors/404');
+    res.status(404).render('errors/404');
 });
->>>>>>> 9c67c7df973cb659f43eec2ec3c8bf2e74ea90ac
 
 // Import Route Controllers
 var routes = {
