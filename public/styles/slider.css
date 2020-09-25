@@ -11,17 +11,47 @@
 
 @media screen and (min-width: 1025px) {
     .slick-slide {
-        width: 112px !important;
+        width: 112px;
         margin: 0px 20px !important;
     }
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 768px) and (min-width: 426px) {
     .customer-logos {
         padding-top: 5rem;
     }
     .counter_items {
         padding-top: 5rem;
+    }
+    .slick-slide img {
+        display: block;
+        height: 60px!important;
+    }
+}
+
+@media screen and (max-width: 425px) and (min-width: 321px) {
+    .customer-logos {
+        padding-top: 5rem;
+    }
+    .counter_items {
+        padding-top: 5rem;
+    }
+    .slick-slide img {
+        display: block;
+        height: 60px!important;
+    }
+}
+
+@media screen and (max-width: 320px) {
+    .customer-logos {
+        padding-top: 5rem;
+    }
+    .counter_items {
+        padding-top: 5rem;
+    }
+    .slick-slide img {
+        display: block;
+        height: 60px!important;
     }
 }
 
@@ -90,7 +120,6 @@
 .slick-slide {
     display: none;
     float: left;
-    height: 100%;
     min-height: 1px;
 }
 
@@ -100,6 +129,7 @@
 
 .slick-slide img {
     display: block;
+    height: 80px;
 }
 
 .slick-slide.slick-loading img {
@@ -120,7 +150,7 @@
 
 .slick-vertical .slick-slide {
     display: block;
-    height: auto;
+    height: 100%;
     border: 1px solid transparent;
 }
 

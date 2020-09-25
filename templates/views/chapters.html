@@ -11,15 +11,19 @@
             </p>
         </div>
         <div class="banner-btn">
-            <button class="btn sca-btn pink-btn">JOIN A CHAPTER</button>
-            <button class="btn sca-btn trans-btn">LEAD A CHAPTER</button>
+            <button class="btn sca-btn pink-btn"><a href="#chapter-tab"> JOIN A CHAPTER</a></button>
+            <button class="btn sca-btn trans-btn">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSduv_lZHaqaBIbmQrN4heqk99uJbZAikiE4DTmOePXM0v8oWQ/viewform"
+                    target="_blank">LEAD A CHAPTER</a>
+            </button>
+
         </div>
     </div>
 </div>
 {% endblock %} {% block content %}
 <div class="container">
     <div id="search">
-        <input type="text" placeholder="Search for a City, Campus, Country or Region">
+        <input type="text" placeholder="Search for a Country">
         <img src="../images/search.svg" alt="">
     </div>
 
@@ -43,8 +47,10 @@
         {% for member in chapters %}
         <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 filter {{member.categories}}">
             <div class="box">
-                <h5>{{member.chapterName}}</h5>
-                <p>{{member.location}}</p>
+                <a target="_blank" href="{{member.socialMediaLink}}">
+                    <h5>{{member.chapterName}}</h5>
+                    <p>{{member.location}}, {{member.country}}</p>
+                </a>
             </div>
         </div>
         {% endfor %}

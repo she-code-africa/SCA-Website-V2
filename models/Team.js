@@ -9,8 +9,8 @@ var Team = new keystone.List('Team', {
 });
 
 Team.add({
-	name: { type: String, initial: true, required: true },
-	role: { type: String },
+    name: { type: String, initial: true, required: true },
+    role: { type: String },
     membership: { type: Types.Relationship, ref: 'TeamCategory', many: true },
     isLeader: { type: Boolean, isRequired: true, defaultValue: false },
     publishedDate: { type: Types.Date, default: Date.now },
@@ -18,7 +18,7 @@ Team.add({
     author: { type: Types.Relationship, ref: 'User', index: true },
     publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
     image: { type: Types.CloudinaryImage },
-    bio: { type: Types.Textarea, },
+    bio: { type: Types.Textarea, max: 1000, label: 'Bio(max. of 1000 characters)' },
 });
 
 Team.track = true;

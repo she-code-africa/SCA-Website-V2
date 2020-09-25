@@ -47,6 +47,9 @@
     .__shecodeheader_subtitle h4 {
         font-size: 25px!important;
     }
+    .about_section .sub-text {
+        font-size: 11px
+    }
 }
 
 
@@ -133,6 +136,7 @@
         width: 300px;
         height: 400px;
         margin: auto;
+        float: none!important;
     }
 }
 
@@ -142,6 +146,9 @@
 ==================================================================*/
 
 @media screen and (max-width: 768px) {
+    .about_section .sub-text {
+        font-size: 12px
+    }
     .__footerbg .img-box {
         display: none;
     }
