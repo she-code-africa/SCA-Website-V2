@@ -25,7 +25,7 @@
     <form method="post">
         <input type="hidden" name="action" value="">
         <div id="search">
-            <input type="text" placeholder="Search for a Country e.g Nigeria, Kenya, Ghana etc" name="searchCountry" value="{{ formData.searchCountry }}">
+            <input type="text" placeholder="Search for a Country e.g Nigeria, Kenya, Ghana" name="searchCountry" value="{{ formData.searchCountry }}">
             <input type="image" name="submit" src="../images/search.svg" class="search-button">
         </div>
     </form>
@@ -57,10 +57,10 @@
         </div>
         {% endfor %}
     </div>
-    <!-- {% else %}
-    <div class="text-center">
-        <h4>We are coming to your country soon!!!</h4>
-    </div> -->
+    {% else %}
+    <div>
+        <h4 class="text-center">We will be in your country soon!!!</h4>
+    </div>
     {% endif %}
 </div>
 

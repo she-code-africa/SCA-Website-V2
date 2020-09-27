@@ -16,18 +16,10 @@ exports = module.exports = function(req, res) {
         chapters: [],
         category: [],
     };
-    var searchQuery = req.body.searchCountry;
-    // view.on('post', { action: '' }, function(next) {
-    //     Chapter.model.find().where('country', `${searchQuery}`).sort('publishedDate').exec(function(err, result) {
-    //         // console.log(result);
-    //         locals.data.chapters = result;
+    var searchQuery = '';
+    searchQuery = req.body.searchCountry;
 
-    //         // next(err);
-    //     });
-    //     next();
-    //     req.body.searchCountry = '';
-    // });
-    // console.log(searchQuery);
+
     // view.on('init', function (next) {
     // 	keystone.list('ChapterCategory').model.find().exec(function (err, result) {
     // 		locals.data.category = result;
@@ -35,10 +27,12 @@ exports = module.exports = function(req, res) {
     // 		next(err);
     // 	});
     // });
+    // console.log(searchQuery);
     view.query('category', ChapterCategory.model.find());
-    if (searchQuery !== "") {
+    if (searchQuery !== "" && searchQuery !== undefined) {
         view.query('chapters', Chapter.model.find().where('country', `${searchQuery}`).where('state', 'published').sort('publishedDate'));
-        req.body.searchCountry = '';
+
+        searchQuery = '';
     } else {
         view.query('chapters', Chapter.model.find().where('state', 'published').sort('publishedDate'));
     }
