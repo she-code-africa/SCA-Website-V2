@@ -66,14 +66,14 @@ html {
     position: relative;
 }
 
-#search img {
+#search .search-button {
     position: absolute;
     top: 37px;
     right: 23%;
     width: 10px;
 }
 
-#search input {
+#search input[type='text'] {
     width: 350px;
     height: 40px;
     background: #F7F7F7 0% 0% no-repeat padding-box;
@@ -110,7 +110,7 @@ html {
     float: left;
     margin-bottom: -2px;
     text-align: center;
-    padding: 20px 20px 0 20px;
+    padding: 20px 20px 0 12px;
     width: 50%;
 }
 

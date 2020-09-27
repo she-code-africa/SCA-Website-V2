@@ -22,11 +22,13 @@
 </div>
 {% endblock %} {% block content %}
 <div class="container">
-    <div id="search">
-        <input type="text" placeholder="Search for a Country">
-        <img src="../images/search.svg" alt="">
-    </div>
-
+    <form method="post">
+        <input type="hidden" name="action" value="">
+        <div id="search">
+            <input type="text" placeholder="Search for a Country e.g Nigeria, Kenya, Ghana" name="searchCountry" value="{{ formData.searchCountry }}">
+            <input type="image" name="submit" src="../images/search.svg" class="search-button">
+        </div>
+    </form>
     <div>
         <h3 class="__shecode_topic">Explore by Type</h3>
     </div>
@@ -54,6 +56,10 @@
             </div>
         </div>
         {% endfor %}
+    </div>
+    {% else %}
+    <div>
+        <h4 class="text-center">We will be in your country soon!!!</h4>
     </div>
     {% endif %}
 </div>
