@@ -1,6 +1,5 @@
 {% extends "layouts/default.html" %} {% block css %}
-<link rel="stylesheet" type="text/css" href="styles/chapters.css">{% endblock %} {% block head %}{% endblock %}
-{% block intro %}
+<link rel="stylesheet" type="text/css" href="styles/chapters.css">{% endblock %} {% block head %}{% endblock %} {% block intro %}
 <div id="chapter_banner">
     <div class="banner-text">
         <div class="banner-title">
@@ -8,8 +7,7 @@
         </div>
         <div class="banner-subtitle">
             <p>
-                You might want to consider starting a SheCodeAfrica Chapter in your campus or city. Not an expert in
-                tech yet? Not a problem (CTA)
+                You might want to consider starting a SheCodeAfrica Chapter in your campus or city. Not an expert in tech yet? Not a problem (CTA)
             </p>
         </div>
         <div class="banner-btn">
@@ -27,8 +25,7 @@
     <form method="post">
         <input type="hidden" name="action" value="">
         <div id="search">
-            <input type="text" placeholder="Search for a Country" name="searchCountry"
-                value="{{ formData.searchCountry }}">
+            <input type="text" placeholder="Search for a Country e.g Nigeria, Kenya, Ghana etc" name="searchCountry" value="{{ formData.searchCountry }}">
             <input type="image" name="submit" src="../images/search.svg" class="search-button">
         </div>
     </form>
@@ -60,13 +57,17 @@
         </div>
         {% endfor %}
     </div>
+    {% else %}
+    <div class="text-center">
+        <h4>We are coming to your country soon!!!</h4>
+    </div>
     {% endif %}
 </div>
 
 
 {% endblock %} {% block js %}
 <script>
-    $(document).ready(function () {
+    $(document).ready(function() {
         $(".filter-button:first").addClass("active")
         var fvalue = $(".filter-button:first").attr('data-filter');
 
@@ -74,7 +75,7 @@
         $('.filter').filter('.' + fvalue).show('3000');
 
 
-        $(".filter-button").click(function () {
+        $(".filter-button").click(function() {
             var value = $(this).attr('data-filter');
 
             $(".filter").not('.' + value).hide('3000');
