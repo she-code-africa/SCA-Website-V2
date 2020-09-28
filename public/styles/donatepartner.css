@@ -22,13 +22,6 @@
     border-bottom: 3px solid var(--primary-main-pink);
 }
 
-@media screen and (max-width:1440px) and (min-width:1024px) {
-    .__partner-donate>div {
-        height: 510px!important;
-        width: 32%!important
-    }
-}
-
 @media screen and (max-width:1024px) and (min-width:769px) {
     .__sponsors-partners_title {
         line-height: 1;

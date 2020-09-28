@@ -17,22 +17,19 @@ exports = module.exports = function(req, res) {
         category: [],
     };
     var searchQuery = '';
-    // searchQuery = req.body.searchCountry;
+    searchQuery = req.body.searchCountry;
 
 
-    function titleCase(str) {
-        var splitStr = str.toLowerCase().split(' ');
-        for (var i = 0; i < splitStr.length; i++) {
-            splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
-        }
-        // Directly return the joined string
-        return splitStr.join(' ');
-    }
-
-    console.log(req.body.searchCountry);
+    // view.on('init', function (next) {
+    // 	keystone.list('ChapterCategory').model.find().exec(function (err, result) {
+    // 		locals.data.category = result;
+    // 		console.log(result);
+    // 		next(err);
+    // 	});
+    // });
+    // console.log(searchQuery);
     view.query('category', ChapterCategory.model.find());
-    if (req.body.searchCountry !== "" && req.body.searchCountry !== undefined) {
-        searchQuery = titleCase(req.body.searchCountry)
+    if (searchQuery !== "" && searchQuery !== undefined) {
         view.query('chapters', Chapter.model.find().where('country', `${searchQuery}`).where('state', 'published').sort('publishedDate'));
 
         searchQuery = '';
