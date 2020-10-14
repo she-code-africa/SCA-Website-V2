@@ -223,6 +223,11 @@ Custom Css
     background: var(--primary-main-pink);
 }
 
+.light-pink-btn {
+	color: var(--primary-main-pink) !important;
+	background: #F0CDE1
+}
+
 .white-btn {
     color: var(--primary-main-pink) !important;
     background: #fff;
@@ -233,6 +238,11 @@ Custom Css
     color: var(--primary-main-pink) !important;
     background: #fff;
     border: 1px solid var(--primary-main-pink);
+}
+
+.light-pink-btn:hover {
+    color: #ffffff !important;
+    background: var(--primary-main-pink);
 }
 
 .white-btn:hover {

@@ -1,0 +1,56 @@
+{% extends "layouts/jobpost.html" %} 
+
+{% block content %}	
+		<div class="container __register">	
+				<section class="jobs __register_welcome">
+					<div class="flex-center">
+							<div class="__register_welcome_text">
+									<a class="logo" href="/">
+										<img src="../../images/she-code-africa-logo.svg" class="__shecodelogo">
+									</a>
+									<div class="welcome_text">
+											<h2 class="text-center">Job Details</h2>
+									</div>
+							</div>
+					</div>	
+				</section>
+
+				<section class="__register_form __jobdetails">
+					<form class="flex-center">
+						<div class="form-group">
+							<input type="text" name="job_title" class="form-control" placeholder="Job Title *" required>
+						</div>
+
+						<div class="form-group">
+							<select name="specialization" class="form-control" required>
+								<option value="" disabled selected hidden>Specialization *</option>
+								<option value="frontend">Frontend</option>
+							</select>
+						</div>
+
+						<div class="form-group">
+							<input type="date" name="last_entry_date" class="form-control" placeholder="Last Entry Date *" required>
+						</div>
+
+						<div class="form-group">
+							<input type="text" name="min_exp" class="form-control" placeholder="Minimum Experience">
+						</div>
+
+						<div class="form-group">
+							<textarea class="form-control job-desc" rows="8"
+									placeholder="Job Description"></textarea>
+						</div>
+
+						<div class="form-group">
+							<input type="email" name="min_exp" class="form-control" placeholder="Application Email Website *" required>
+						</div>
+					
+						<a href="/success" class="btn sca-btn pink-btn">
+							SUBMIT JOB DETAILS
+						</a>
+					</form>
+				</section>
+			
+			</div>
+{% endblock %}
+

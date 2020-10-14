@@ -1,0 +1,61 @@
+{% extends "layouts/jobpost.html" %} 
+
+{% block content %}	
+<div class="container __register">
+	<section class="jobs __register_welcome">
+		<div class="flex-center">
+				<div class="__register_welcome_text">
+						<a href="/" class="logo">
+							<img src="../../images/she-code-africa-logo.svg" class="__shecodelogo">
+						</a>
+						<div class="welcome_text">
+								<h2 class="text-center">Welcome Here</h2>
+								<p class="text-center">Reach top talent and find the right candidate today</p>
+						</div>
+						<div class="here org-details width-100">
+							<div class="first_ring"></div>
+							<div class="connector"></div>
+							<div class="second_ring"></div>
+						</div>
+				</div>
+		</div>	
+	</section>
+
+	<section class="__register_form">
+		<form class="flex-center">
+			<div class="form-group">
+				<input type="text" name="org_name" class="form-control" placeholder="Organization Name *" required>
+			</div>
+
+			<div class="form-group">
+				<select name="org_industry" class="form-control" required>
+					<option value="" disabled selected hidden>Organization Industry *</option>
+					<option value="hurr">Durr</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<input type="text" name="website_url" class="form-control" placeholder="Website URL">
+			</div>
+
+			<div class="form-group">
+				<select name="location" class="form-control" required>
+					<option value="" disabled selected hidden>Location *</option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<input type="text" name="org_address" class="form-control" placeholder="Organization Address *" required>
+			</div>		
+			
+			<a href="/jobs/register/contact-details" class="btn sca-btn light-pink-btn">
+				PROCEED
+			</a>
+		</form>
+		<p class="text-center post-a-job-cta">
+			<span>Already have an account?&nbsp;</span>
+			<a href="/jobs/org/login">LOGIN TO POST A JOB</a>
+		</p>
+	</section>
+</div>
+{% endblock %}

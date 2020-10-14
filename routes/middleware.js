@@ -24,7 +24,7 @@ exports.initLocals = function(req, res, next) {
         { label: 'Donate/Partner', key: 'partners', href: '/donate-partner' },
         { label: 'Chapters', key: 'chapters', href: '/chapters' },
         { label: 'Events', key: 'events', href: '/events' },
-        // { label: 'Jobs', key: 'jobs', href: '/jobs' },
+        { label: 'Job Opportunities', key: 'jobs', href: '/jobs' },
         // { label: 'Community', key: 'community', href: '/community' },
         // { label: 'Gallery', key: 'gallery', href: '/gallery' },
         // { label: 'Contact', key: 'contact', href: '/contact' },

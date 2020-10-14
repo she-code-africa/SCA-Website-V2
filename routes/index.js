@@ -27,7 +27,7 @@ keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
 // Handle 404 errors
-keystone.set('404', function(req, res, next) {
+keystone.set('404', function (req, res, next) {
     // middleware.theme(req, res, next);
     res.status(404).render('errors/404');
 });
@@ -38,7 +38,7 @@ var routes = {
 };
 
 // Setup Route Bindings
-exports = module.exports = function(app) {
+exports = module.exports = function (app) {
     // Views
 	app.get('/', routes.views.index);
 	app.post('/', routes.views.index);
@@ -53,9 +53,15 @@ exports = module.exports = function(app) {
 	app.post('/chapters', routes.views.chapters);
 	app.get('/chapters', routes.views.chapters);
 	app.get('/faq', routes.views.faq);
+	app.get('/jobs', routes.views.jobs);
+	app.get('/jobs/:org', routes.views.jobsorgdashboard);
+	app.get('/jobs/register/org-details', routes.views.jobsregister);
+	app.get('/jobs/register/contact-details', routes.views.jobsregister_contact);
+	app.get('/jobs/post/new', routes.views.jobdetails);
+	app.get('/jobs/org/login', routes.views.jobslogin);
+	app.get('/success', routes.views.successMessage);
     // app.get('/blog/:category?', routes.views.blog);
     // app.get('/blog/post/:post', routes.views.post);
-    // app.get('/jobs', routes.views.jobs);
     // app.get('/community', routes.views.community);
     // app.get('/gallery', routes.views.gallery);
     // app.all('/contact', routes.views.contact);
