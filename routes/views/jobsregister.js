@@ -3,31 +3,32 @@ var keystone = require('keystone');
 
 exports = module.exports = function (req, res) {
 
-    var view = new keystone.View(req, res);
-    var locals = res.locals;
+	var view = new keystone.View(req, res);
+	var locals = res.locals;
 
-    // item in the header navigation.
-    locals.section = 'jobs';
-    locals.form = req.body;
-    // locals.validationErrors = {};
+	// item in the header navigation.
+	locals.section = 'jobs';
+	locals.formData = req.body || {};
+	// locals.validationErrors = {};
 
-    // on adding company
-    view.on('post', { action: '' }, function () {
-        const dataToSave = {
-            name: locals.form.org_name,
-            industry: locals.form.org_industry,
-            website: locals.form.website_url,
-            address: locals.form.org_address,
-            location: locals.form.location,
-        };
-        console.log("the data is", dataToSave);
-        // save to session
-        // localStorage.setItem('companyData', dataToSave);
-        // next();
-        return res.redirect(`/jobs/register/contact-details?data=${dataToSave}`);
+	// on adding company
+	view.on('post', { action: '' }, function () {
+		const dataToSave = {
+			name: locals.formData.org_name,
+			industry: locals.formData.org_industry,
+			website: locals.formData.website_url,
+			address: locals.formData.org_address,
+			location: locals.formData.location,
+		};
+		// save to session
+		localStorage.setItem('companyData', dataToSave);
+		localStorage.getItem('companyData');
 
-    });
+		// next();
+		// return res.redirect(`/jobs/register/contact-details?data=${dataToSave}`);
 
-    // Render the view
-    view.render('jobsregister');
+	});
+
+	// Render the view
+	view.render('jobsregister');
 };

@@ -28,8 +28,8 @@ keystone.pre('render', middleware.flashMessages);
 
 // Handle 404 errors
 keystone.set('404', function (req, res, next) {
-    // middleware.theme(req, res, next);
-    res.status(404).render('errors/404');
+	// middleware.theme(req, res, next);
+	res.status(404).render('errors/404');
 });
 
 // Import Route Controllers
@@ -39,7 +39,7 @@ var routes = {
 
 // Setup Route Bindings
 exports = module.exports = function (app) {
-    // Views
+	// Views
 	app.get('/', routes.views.index);
 	app.post('/', routes.views.index);
 	app.get('/about', routes.views.about);
@@ -56,17 +56,18 @@ exports = module.exports = function (app) {
 	app.get('/jobs', routes.views.jobs);
 	app.get('/jobs/:org', routes.views.jobsorgdashboard);
 	app.get('/jobs/register/org-details', routes.views.jobsregister);
+	app.post('/jobs/register/org-details', routes.views.jobsregister);
 	app.get('/jobs/register/contact-details', routes.views.jobsregister_contact);
 	app.get('/jobs/post/new', routes.views.jobdetails);
 	app.get('/jobs/org/login', routes.views.jobslogin);
 	app.get('/success', routes.views.successMessage);
-    // app.get('/blog/:category?', routes.views.blog);
-    // app.get('/blog/post/:post', routes.views.post);
-    // app.get('/community', routes.views.community);
-    // app.get('/gallery', routes.views.gallery);
-    // app.all('/contact', routes.views.contact);
+	// app.get('/blog/:category?', routes.views.blog);
+	// app.get('/blog/post/:post', routes.views.post);
+	// app.get('/community', routes.views.community);
+	// app.get('/gallery', routes.views.gallery);
+	// app.all('/contact', routes.views.contact);
 
-    // NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
-    // app.get('/protected', middleware.requireUser, routes.views.protected);
+	// NOTE: To protect a route so that only admins can see it, use the requireUser middleware:
+	// app.get('/protected', middleware.requireUser, routes.views.protected);
 
 };
