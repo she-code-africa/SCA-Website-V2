@@ -1,4 +1,5 @@
 var keystone = require('keystone');
+var localStorage = require('../../utils/localStorage');
 // var Company = keystone.list('Company');
 
 exports = module.exports = function (req, res) {
@@ -20,12 +21,17 @@ exports = module.exports = function (req, res) {
 			address: locals.formData.org_address,
 			location: locals.formData.location,
 		};
-		// save to session
-		localStorage.setItem('companyData', dataToSave);
-		localStorage.getItem('companyData');
+		const dataToSaveString = JSON.stringify(dataToSave);
 
+		// save to session
+		localStorage.setItem('companyData', dataToSaveString);
+
+		/*
+			View stringified org data
+			console.log(localStorage.getItem('companyData'));
+		*/
 		// next();
-		// return res.redirect(`/jobs/register/contact-details?data=${dataToSave}`);
+		return res.redirect('/jobs/register/contact-details');
 
 	});
 

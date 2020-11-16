@@ -1,7 +1,11 @@
 var keystone = require('keystone');
 var Company = keystone.list('Company');
+var localStorage = require('../../utils/localStorage');
 
 exports = module.exports = function (req, res) {
+	// Retrieve Company data stored in session
+	const companyDetails = JSON.parse(localStorage.getItem('companyData')) || {};
+	console.log(companyDetails);
 
     var view = new keystone.View(req, res);
     var locals = res.locals;
