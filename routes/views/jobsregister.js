@@ -3,6 +3,7 @@ var localStorage = require('../../utils/localStorage');
 // var Company = keystone.list('Company');
 
 exports = module.exports = function (req, res) {
+	localStorage.removeItem('loggedInCompany');
 
 	var view = new keystone.View(req, res);
 	var locals = res.locals;
@@ -25,12 +26,6 @@ exports = module.exports = function (req, res) {
 
 		// save to session
 		localStorage.setItem('companyData', dataToSaveString);
-
-		/*
-			View stringified org data
-			console.log(localStorage.getItem('companyData'));
-		*/
-		// next();
 		return res.redirect('/jobs/register/contact-details');
 
 	});

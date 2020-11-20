@@ -1,16 +1,18 @@
+const cons = require('consolidate');
 var keystone = require('keystone');
 var Company = keystone.list('Company');
 var localStorage = require('../../utils/localStorage');
 
 exports = module.exports = function (req, res) {
-	// Retrieve Company data stored in session
-	const companyDetails = JSON.parse(localStorage.getItem('companyData')) || {};
-	console.log(companyDetails);
+    localStorage.removeItem('loggedInCompany');
+    const companyDetails = JSON.parse(localStorage.getItem('companyData')) || {};
+    if (!companyDetails.name) {
+        return res.redirect('/jobs/');
+    }
 
     var view = new keystone.View(req, res);
     var locals = res.locals;
-    //get data from storage or query string
-    //locals.companyData = req.session // req.url
+
     // new form data
     locals.formData = req.body || {};
 
@@ -19,19 +21,31 @@ exports = module.exports = function (req, res) {
 
     //on post form
     view.on('post', { action: '' }, function (next) {
+        // FIX THIS!!!
+        if (locals.formData.password !== locals.formData.cpassword) {
+            req.flash("error", "Passwords Do Not Match.");
+            locals.validationErrors = "Passwords Do Not Match.";
+        }
+
         var newCompany = new Company.model();
         var data = req.body;
-        // add from session or requery
-        // data.company_name = something from the session!?!?
+        data.companyName = companyDetails.name;
+        data.companyUrl = companyDetails.website;
+        data.location = companyDetails.location;
+        data.industry = companyDetails.industry;
+        data.address = companyDetails.address;
 
         newCompany.getUpdateHandler(req).process(data, {
             flashErrors: true,
+            errorMessage: 'An error occured. Try again',
         }, function (err) {
             if (err) {
                 locals.validationErrors = err.errors;
+                // req.flash('err')
             }
             else {
-                req.flash('success', 'Registered');
+                localStorage.removeItem('companyData');
+                localStorage.setItem('loggedInCompany', newCompany.slug);
                 return res.redirect('/jobs/' + newCompany.slug);
             }
             next();

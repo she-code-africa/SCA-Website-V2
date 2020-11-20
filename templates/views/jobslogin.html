@@ -1,34 +1,38 @@
-{% extends "layouts/jobpost.html" %} 
+{% extends "layouts/jobpost.html" %}
 
-{% block content %}	
+{% block content %}
 <div class="container __register">
 	<section class="jobs __register_welcome">
 		<div class="flex-center">
-				<div class="__register_welcome_text">
-						<a href="/" class="logo">
-							<img src="../../images/she-code-africa-logo.svg" class="__shecodelogo">
-						</a>
-						<div class="welcome_text">
-								<h2 class="text-center">Welcome Here</h2>
-								<p class="text-center">Reach top talent and find the right candidate today</p>
-						</div>
+			<div class="__register_welcome_text">
+				<a href="/" class="logo">
+					<img src="../../images/she-code-africa-logo.svg" class="__shecodelogo">
+				</a>
+				<div class="welcome_text">
+					<h2 class="text-center">Welcome Here</h2>
+					<p class="text-center">Reach top talent and find the right candidate today</p>
 				</div>
-		</div>	
+			</div>
+		</div>
 	</section>
 
 	<section class="__register_form">
-		<form class="flex-center">
+		<form class="flex-center" method="POST">
+			<input type="hidden" name="action" value="">
 			<div class="form-group">
-				<input type="email" name="email" class="form-control" placeholder="Email *" required>
+				<input type="email" name="email" class="form-control" placeholder="Email *" value="{{formData.email}}"
+					required>
 			</div>
 
 			<div class="form-group">
-				<input type="password" name="password" class="form-control" placeholder="Password" required>
-			</div>	
-			
-			<a href="/jobs/post/new" class="btn sca-btn light-pink-btn">
+				<input type="password" name="password" class="form-control" placeholder="Password *"
+					value="{{formData.password}}" required>
+			</div>
+
+			<button type="submit" class="btn sca-btn light-pink-btn">
 				LOGIN
-			</a>
+			</button>
+			<!-- href="/jobs/post/new" -->
 		</form>
 		<p class="text-center post-a-job-cta">
 			<span>Don't have an account?&nbsp;</span>

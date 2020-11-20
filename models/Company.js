@@ -21,10 +21,10 @@ Company.add({
     email: { type: Types.Email, initial: true, required: true, unique: true },
     phoneNumber: { type: String, initial: true, required: true },
     registeredDate: { type: Types.Date, default: Date.now },
+    password: { type: Types.Password, initial: true, required: true },
 });
 
-Company.relationship({ ref: 'Job', path: 'jobs', refPath: 'categories' });
-// Company.relationship({ ref: 'Company', path: 'jobs', refPath: 'categories' });
+Company.relationship({ ref: 'Job', path: 'jobs', refPath: 'company' });
 
 Company.defaultColumns = 'companyName, industry|20%, location|20%, contactName|20%';
 Company.register();

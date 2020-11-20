@@ -10,7 +10,7 @@
 			<div class="col-sm-8 col-xs-12">
 				<div class="__shecodeheader_text">
 					<div class="__shecodeheader_title">
-						<h1 class="text-center">Welcome,{{data.company.companyName}}</h1>
+						<h1 class="text-center">Welcome, {{data.company.companyName}}</h1>
 					</div>
 					<div class="__shecodeheader_subtitle">
 						<h4 class="text-center">
@@ -29,73 +29,30 @@
 {% endblock %}
 
 {% block content %}
+<!-- available company's posting -->
 <section class="container __jobs_preview section-whitespace-top">
 	<div class="container width-100 ">
+		{% if data.jobs.results|length %}
 		<div class="row flex-center flex-wrap">
+			{% for job in data.jobs.results %}
 			<div class="col-lg-4 col-sm-6 col-xs-12">
 				<div class="__jobs_preview_card">
 					<h3 class="title">
-						Senior Product Designer
+						{{job.title}}
 					</h3>
-					<p class="org">FairMoney, Lagos, Nigeria</p>
-					<p>We are a non profit organization focused on celebrating young girls in technology across Africa.
+					<p class="org">{{job.company.companyName}}, {{job.company.location}} </p>
+					<p>{{job.company.industry}}
 					</p>
-					<p class="posted-time">Posted 1 week ago</p>
-					<button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#job-view-more">
+					<p class="posted-time">Posted {{job._.publishedDate.format("MMMM Do, YYYY")}}</p>
+					<button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{job.id}}">
 						VIEW MORE
 					</button>
 				</div>
 			</div>
-
-			<div class="col-lg-4 col-sm-6 col-xs-12">
-				<div class="__jobs_preview_card">
-					<h3 class="title">
-						Senior Product Designer
-					</h3>
-					<p class="org">FairMoney, Lagos, Nigeria</p>
-					<p>We are a non profit organization focused on celebrating young girls in technology across Africa.
-					</p>
-					<p class="posted-time">Posted 1 week ago</p>
-					<button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#job-view-more">
-						VIEW MORE
-					</button>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-sm-6 col-xs-12">
-				<div class="__jobs_preview_card">
-					<h3 class="title">
-						Senior Product Designer
-					</h3>
-					<p class="org">FairMoney, Lagos, Nigeria</p>
-					<p>We are a non profit organization focused on celebrating young girls in technology across Africa.
-					</p>
-					<p class="posted-time">Posted 1 week ago</p>
-					<button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#job-view-more">
-						VIEW MORE
-					</button>
-				</div>
-			</div>
-
-			<div class="col-lg-4 col-sm-6 col-xs-12">
-				<div class="__jobs_preview_card">
-					<h3 class="title">
-						Senior Product Designer
-					</h3>
-					<p class="org">FairMoney, Lagos, Nigeria</p>
-					<p>We are a non profit organization focused on celebrating young girls in technology across Africa.
-					</p>
-					<p class="posted-time">Posted 1 week ago</p>
-					<button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#job-view-more">
-						VIEW MORE
-					</button>
-				</div>
-			</div>
-
 			<!-- Modal -->
-			<div id="job-view-more" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel"
+			<div id="{{job.id}}" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel"
 				aria-hidden="true">
-				<div class="modal-dialog">
+				<div class="modal-dialog modal-dialog-centered">
 
 					<div class="modal-content ">
 						<div class="modal-body">
@@ -103,66 +60,47 @@
 								<div class="col-sm-12 role-apply">
 									<div class="role">
 										<h3 class="title">
-											Senior Product Designer
+											{{job.title}}
 										</h3>
-										<p class="org">FairMoney, Lagos, Nigeria</p>
+										<p class="org">{{job.company.companyName}}, {{job.company.location}}</p>
 									</div>
 									<div class="apply">
 										<div class="job-status">
-											ACTIVE
+											{% if job.deadline < data.todayDate %} INACTIVE {% else %} ACTIVE {%endif%}
 										</div>
 										<button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal"
-											data-target="#job-view-more">
-											APPLY
+											data-target="#{{job.id}}">
+											CLOSE
 										</button>
 									</div>
+
 								</div>
 							</div>
-
 							<div class="row role-desc">
 								<div class="col-sm-12">
-									<p>
-										A Web Developer is responsible for the coding, design and layout of a website
-										according to a company’s specifications. As the role takes into consideration
-										user experience and function, a certain level of both graphic design and
-										computer programming is necessary. Once a website has been created, a Web
-										Developer will generally assist with the maintenance and upkeep of the website.
-									</p>
-									<p>
-										A Web Developer is responsible for the coding, design and layout of a website
-										according to a company’s specifications. As the role takes into consideration
-										user experience and function, a certain level of both graphic design and
-										computer programming is necessary. Once a website has been created, a Web
-										Developer will generally assist with the maintenance and upkeep of the website.
-									</p>
-									<p>
-										A Web Developer is responsible for the coding, design and layout of a website
-										according to a company’s specifications. As the role takes into consideration
-										user experience and function, a certain level of both graphic design and
-										computer programming is necessary. Once a website has been created, a Web
-										Developer will generally assist with the maintenance and upkeep of the website.
+									<p style="text-align: justify;">
+										{{job.jobDescription}}
 									</p>
 								</div>
 							</div>
-
 							<div class="row">
 								<div class="col-sm-12 grid-container margin-top-3r">
 									<div class="level">
-										<p class="__jobdeets_header">Seniority Level</p>
-										<p class="__jobdeets_body">Entry Level</p>
+										<p class="__jobdeets_header">Minimum Experience</p>
+										<p class="__jobdeets_body">{{job.minimumExperience}}</p>
 									</div>
 									<div class="industry">
 										<p class="__jobdeets_header">Industry</p>
-										<p class="__jobdeets_body">Staffing & Recruiting</p>
-										<p class="__jobdeets_body">Consumer Goods Retail</p>
+										<p class="__jobdeets_body">{{job.company.industry}}</p>
+										<p class="__jobdeets_body">{{job.categories.name}}</p>
 									</div>
 									<div class="employment-type">
-										<p class="__jobdeets_header">Employment Type</p>
-										<p class="__jobdeets_body">Full Time</p>
+										<p class="__jobdeets_header">Deadline</p>
+										<p class="__jobdeets_body">{{job._.deadline.format("MMMM Do, YYYY")}}</p>
 									</div>
 									<div class="salary-range">
 										<p class="__jobdeets_header">Salary Range</p>
-										<p class="__jobdeets_body">120,000 - 150,000</p>
+										<p class="__jobdeets_body">{{job.salaryRange}}</p>
 									</div>
 								</div>
 							</div>
@@ -175,8 +113,56 @@
 				<!-- End of Modal dialog -->
 			</div>
 			<!-- End of Modal -->
+			{% endfor %}
+
+		</div>
+		{% else %}
+		<h3 class="text-center" style="padding-top: 5rem;">You have not posted any jobs</h3>
+		{% endif %}
+		<div class="row flex-center flex-wrap">
+			{% if data.jobs.totalPages > 1 %}
+			<ul class="pagination">
+				{% if data.jobs.previous %}
+				<li>
+					<a href="?page={{ data.jobs.previous }}">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+					</a>
+				</li>
+				{% else %}
+				<li class="disabled">
+					<a href="?page=1">
+						<span class="glyphicon glyphicon-chevron-left"></span>
+					</a>
+				</li>
+				{% endif %}
+				{% for p in data.jobs.pages %}
+				{% set class = ( "active" if data.jobs.currentPage == p else "" ) %}
+				<li class="{{ class }}">
+					{% set page = ( (data.jobs.totalPages if i else 1) if p == "..." else p ) %}
+					<a href="?page={{ page }}">{{ p }}</a>
+				</li>
+				{% endfor %}
+				{% if data.posts.next %}
+				<li>
+					<a href="?page={{ data.jobs.next }}">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</a>
+				</li>
+				{% else %}
+				<li class="disabled">
+					<a href="?page={{ data.jobs.totalPages }}">
+						<span class="glyphicon glyphicon-chevron-right"></span>
+					</a>
+				</li>
+				{% endif %}
+			</ul>
+			{% endif %}
 		</div>
 	</div>
+	<!-- <p class="text-center post-a-job-cta">
+		<span>Don't have an account?&nbsp;</span>
+		<a href="/jobs/org/login">LOG OUT</a>
+	</p> -->
 </section>
 
 {% endblock %}

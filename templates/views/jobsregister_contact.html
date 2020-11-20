@@ -25,9 +25,10 @@
 	</section>
 
 	<section class="__register_form">
-		<form class="flex-center">
+		<form class="flex-center" method="POST">
+			<input type="hidden" name="action" value="">
 			<div class="form-group">
-				<input type="text" name="contact_name" value="{{formData.contact_name}}" class="form-control"
+				<input type="text" name="contactName" value="{{formData.contactName}}" class="form-control"
 					placeholder="Contact Name *" required>
 			</div>
 
@@ -35,7 +36,7 @@
 				<select name="location" class="form-control dailing-code">
 					<option value="+234" selected>+234</option>
 				</select>
-				<input type="number" name="phone_num" value="{{formData.phone_num}}" class="form-control"
+				<input type="number" name="phoneNumber" value="{{formData.phoneNumber}}" class="form-control"
 					placeholder="Phone Number *">
 			</div>
 
@@ -44,7 +45,20 @@
 					placeholder="Email Address *" required>
 			</div>
 
-			<button type="submit" class="btn sca-btn light-pink-btn">
+			<div class="form-group">
+				<label id="numerror" class="text text-danger text-center"></label>
+				<input type="password" name="password" id="password" value="{{formData.password}}" class="form-control"
+					placeholder="Password *" required>
+			</div>
+
+			<div class="form-group">
+				<input type="password" name="cpassword" id="cpassword" value="{{formData.cpassword}}"
+					class="form-control" placeholder="Confirm Password *" required>
+				<label id="error" class="text text-danger text-center" style="display: none;">Passwords Do Not
+					Match</label>
+			</div>
+
+			<button type="submit" class="btn sca-btn light-pink-btn" id="submitButton">
 				REGISTER
 			</button>
 			<!-- href="/jobs/atb-solutions" -->
@@ -55,4 +69,45 @@
 		</p>
 	</section>
 </div>
+<script>
+	var psw = document.getElementById("password");
+	var cpsw = document.getElementById("cpassword");
+	var submitButton = document.getElementById("submitButton");
+	cpsw.onblur = function () {
+		if (psw.value !== cpsw.value) {
+			document.getElementById("error").style.display = "block";
+			submitButton.style.visibility = "hidden";
+		} else {
+			document.getElementById("error").style.display = "none";
+			submitButton.style.visibility = "visible";
+		}
+	}
+	psw.onblur = function () {
+		if (psw.value !== cpsw.value) {
+			document.getElementById("error").style.display = "block";
+			submitButton.style.visibility = "hidden";
+		} else {
+			document.getElementById("error").style.display = "none";
+			submitButton.style.visibility = "visible";
+		}
+	}
+	cpsw.onkeyup = function () {
+		if (psw.value !== cpsw.value) {
+			document.getElementById("error").style.display = "block";
+			submitButton.style.visibility = "hidden";
+		} else {
+			document.getElementById("error").style.display = "none";
+			submitButton.style.visibility = "visible";
+		}
+	}
+	psw.onkeyup = function () {
+		if (psw.value.length < 8) {
+			document.getElementById("numerror").innerHTML = "Passwords must be at least 8 characters long";
+			submitButton.style.visibility = "hidden";
+		} else {
+			document.getElementById("numerror").innerHTML = "";
+			submitButton.style.visibility = "visible";
+		}
+	}
+</script>
 {% endblock %}
