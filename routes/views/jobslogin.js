@@ -16,22 +16,25 @@ exports = module.exports = function (req, res) {
     locals.company = [];
 
     view.on('post', { action: '' }, function (next) {
-       var q = Company.model.findOne()
-            .where('email', req.body.email).where('phoneNumber', req.body.password);
-
-        // q.exec(req, res, onSuccess, onFail);
+        var q = Company.model.findOne()
+            .where('email', req.body.email);
         q.exec(function (err, result) {
-            if (err) return res.err(err);
-            if (!result) {
-                req.flash('error', 'Credentials are incorrect.');
-                
+            if (result) {
+                result._.password.compare(req.body.password, function (err, isMatch) {
+                    if (!err && isMatch) {
+                        locals.company = result;
+                        localStorage.setItem('loggedInCompany', result.slug);
+                        return res.redirect('/jobs/' + result.slug);
+                    } else {
+                        req.flash('error', 'Incorrect email or password');
+                        return next({ message: 'Incorrect email or password' });
+                    }
+                });
+            } else {
+                req.flash('error', 'Incorrect email or password');
+                return next({ message: 'Incorrect email or password' });
             }
-
-            locals.company = result;
-            localStorage.setItem('loggedInCompany', result.slug);
-            return res.redirect('/jobs/' + result.slug);
         });
-        // next();
     });
 
     // Render the view

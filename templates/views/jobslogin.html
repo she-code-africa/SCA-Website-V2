@@ -17,6 +17,11 @@
 	</section>
 
 	<section class="__register_form">
+		{% if messages %}
+		<div class="alert alert-danger bg-danger text-white flex-center">
+			{{ messages.error}}
+		</div>
+		{% endif %}
 		<form class="flex-center" method="POST">
 			<input type="hidden" name="action" value="">
 			<div class="form-group">
