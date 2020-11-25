@@ -1,48 +1,47 @@
 .success-container {
-	height: 100%;
-	width: 100%;
-	background: #0000004D 0% 0% no-repeat padding-box;
+    height: 100%;
+    width: 100%;
+    background: #0000004D 0% 0% no-repeat padding-box;
 }
 
 .success {
-	width: 45vw;
-	height: 70vh;
-	padding: 9% 9% 5%;
-	background: #FFFFFF 0% 0% no-repeat padding-box;
-	box-shadow: 0px 3px 6px #00000029;
-	border-radius: 18px;
-	opacity: 1;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
+    width: 45vw;
+    height: 70vh;
+    padding: 9% 9% 5%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 18px;
+    opacity: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
-.success-tick > img {
-	width: 11rem;
+.success-tick>img {
+    width: 8rem;
 }
 
 .success-message {
-	font-size: 33px;
+    font-size: 28px;
+    line-height: 37px;
 }
 
 @media screen and (max-width: 768px) {
-	.success {
-		width: 90vw;
-		height: 45vh;
-	}
-
-	.success-tick > img {
-		width: 50%;
-	}
-
-	.success-message {
-		font-size: 20px;
-	}
+    .success {
+        width: 90vw;
+        height: 45vh;
+    }
+    .success-tick>img {
+        width: 50%;
+    }
+    .success-message {
+        font-size: 20px;
+    }
 }
 
 @media screen and (max-width: 1399px) and (min-width: 768px) {
-	.success {
-		width: 60vw;
-	}
+    .success {
+        width: 60vw;
+    }
 }
