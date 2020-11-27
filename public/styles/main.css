@@ -224,8 +224,8 @@ Custom Css
 }
 
 .light-pink-btn {
-	color: var(--primary-main-pink) !important;
-	background: #F0CDE1
+    color: var(--primary-main-pink) !important;
+    background: #F0CDE1
 }
 
 .white-btn {
@@ -817,4 +817,35 @@ li.__shecodelink.active a {
     color: #ffffff !important;
     transition: all 0.4s ease-in;
     text-transform: capitalize;
+}
+
+
+/* toaster/alert */
+
+.toast-modal {
+    display: none;
+    background: #c43686;
+    height: 70px;
+    width: 30%;
+    margin: auto;
+    color: #fff;
+    position: absolute;
+    top: 2%;
+    right: 2%;
+    border-radius: 5px;
+    padding: 10px;
+    z-index: 9999;
+}
+
+.toast-modal p {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.toast-modal .close {
+    color: #fff;
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    opacity: 1;
 }

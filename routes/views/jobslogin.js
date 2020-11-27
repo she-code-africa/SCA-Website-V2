@@ -3,7 +3,7 @@ var keystone = require('keystone');
 var Company = keystone.list('Company');
 var localStorage = require('../../utils/localStorage');
 
-exports = module.exports = function (req, res) {
+exports = module.exports = function(req, res) {
     localStorage.removeItem('loggedInCompany');
 
     var view = new keystone.View(req, res);
@@ -14,23 +14,27 @@ exports = module.exports = function (req, res) {
     // item in the header navigation.
     locals.section = 'jobs';
     locals.company = [];
+    locals.formerror = false;
 
-    view.on('post', { action: '' }, function (next) {
+    view.on('post', { action: '' }, function(next) {
         var q = Company.model.findOne()
             .where('email', req.body.email);
-        q.exec(function (err, result) {
+        q.exec(function(err, result) {
             if (result) {
-                result._.password.compare(req.body.password, function (err, isMatch) {
+                result._.password.compare(req.body.password, function(err, isMatch) {
                     if (!err && isMatch) {
+                        locals.formerror = false;
                         locals.company = result;
                         localStorage.setItem('loggedInCompany', result.slug);
                         return res.redirect('/jobs/' + result.slug);
                     } else {
+                        locals.formerror = true;
                         req.flash('error', 'Incorrect email or password');
                         return next({ message: 'Incorrect email or password' });
                     }
                 });
             } else {
+                locals.formerror = true;
                 req.flash('error', 'Incorrect email or password');
                 return next({ message: 'Incorrect email or password' });
             }
