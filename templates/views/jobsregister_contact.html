@@ -25,6 +25,16 @@
 	</section>
 
 	<section class="__register_form">
+		{% if formerror %}
+		<div class="alert alert-danger">
+			<div class="flex-center">
+				Email Address or Phone Number Exists.
+			</div>
+			<div class="flex-center">
+				<a href="/jobs/org/login">Log In Instead?</a>
+			</div>
+		</div>
+		{% endif %}
 		<form class="flex-center" method="POST">
 			<input type="hidden" name="action" value="">
 			<div class="form-group">
@@ -37,7 +47,7 @@
 					<option value="+234" selected>+234</option>
 				</select>
 				<input type="number" name="phoneNumber" value="{{formData.phoneNumber}}" class="form-control"
-					placeholder="Phone Number *">
+					placeholder="Phone Number *" required>
 			</div>
 
 			<div class="form-group">

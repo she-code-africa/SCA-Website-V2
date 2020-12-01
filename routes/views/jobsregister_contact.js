@@ -23,8 +23,10 @@ exports = module.exports = function (req, res) {
     view.on('post', { action: '' }, function (next) {
         // FIX THIS!!!
         if (locals.formData.password !== locals.formData.cpassword) {
+            locals.formerror = true;
             req.flash("error", "Passwords Do Not Match.");
             locals.validationErrors = "Passwords Do Not Match.";
+            return next({ message: 'Passwords Do Not Match' });
         }
 
         var newCompany = new Company.model();
@@ -40,8 +42,8 @@ exports = module.exports = function (req, res) {
             errorMessage: 'An error occured. Try again',
         }, function (err) {
             if (err) {
-                locals.validationErrors = err.errors;
-                // req.flash('err')
+                locals.formerror = true;
+                req.flash('error', err.detail.errmsg);
             }
             else {
                 localStorage.removeItem('companyData');

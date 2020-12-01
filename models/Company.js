@@ -19,7 +19,7 @@ Company.add({
     address: { type: String, initial: true, required: true },
     contactName: { type: String, initial: true, required: true },
     email: { type: Types.Email, initial: true, required: true, unique: true },
-    phoneNumber: { type: String, initial: true, required: true },
+    phoneNumber: { type: String, initial: true, required: true, unique: true },
     registeredDate: { type: Types.Date, default: Date.now },
     password: { type: Types.Password, initial: true, required: true },
 });
