@@ -30,10 +30,10 @@
 @media screen and (max-width: 768px) {
     .success {
         width: 90vw;
-        height: 45vh;
+        height: 90vh;
     }
     .success-tick>img {
-        width: 50%;
+        width: 40%;
     }
     .success-message {
         font-size: 20px;
