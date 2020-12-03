@@ -99,7 +99,7 @@ section.jobs-header {
 }
 
 .modal-dialog {
-    width: 80vw;
+    width: 65vw;
 }
 
 #job-view-more.modal.in {
@@ -321,6 +321,9 @@ section.__register_welcome .flex-center .close {
     }
     .connector {
         margin-top: 6px;
+    }
+    .modal-dialog {
+        width: 100vw;
     }
 }
 
