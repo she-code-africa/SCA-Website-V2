@@ -14,6 +14,7 @@ var Company = new keystone.List('Company', {
 Company.add({
     companyName: { type: String, initial: true, required: true },
     companyUrl: { type: String, initial: true },
+    categories: { type: Types.Relationship, ref: 'CompanyCategory', many: false },
     location: { type: String, initial: true, required: true },
     industry: { type: String, initial: true, required: true },
     address: { type: String, initial: true, required: true },
