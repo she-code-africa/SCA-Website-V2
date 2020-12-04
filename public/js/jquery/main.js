@@ -3,8 +3,8 @@ $(document).ready(function() {
     $('.customer-logos').slick({
         slidesToShow: 3,
         slidesToScroll: 1,
-        autoplay: false,
-        autoplaySpeed: 1500,
+        autoplay: true,
+        autoplaySpeed: 6000,
         arrows: false,
         dots: false,
         pauseOnHover: false,
