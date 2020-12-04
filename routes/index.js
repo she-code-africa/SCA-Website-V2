@@ -27,39 +27,43 @@ keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
 // Handle 404 errors
-keystone.set('404', function (req, res, next) {
+keystone.set('404', function(req, res, next) {
     // middleware.theme(req, res, next);
     res.status(404).render('errors/404');
 });
 
 // Import Route Controllers
 var routes = {
-	views: importRoutes('./views'),
+    views: importRoutes('./views'),
 };
 
 // Setup Route Bindings
-exports = module.exports = function (app) {
+exports = module.exports = function(app) {
     // Views
-	app.get('/', routes.views.index);
-	app.post('/', routes.views.index);
-	app.get('/about', routes.views.about);
-	app.get('/events', routes.views.events);
-	app.get('/events/:event', routes.views.event);
-	app.get('/team', routes.views.team);
-	app.get('/code-of-conduct', routes.views.conduct);
-	app.get('/donate-partner', routes.views.donatepartner);
-	app.get('/partner', routes.views.donatepartner);
-	app.get('/donate', routes.views.donatepartner);
-	app.post('/chapters', routes.views.chapters);
-	app.get('/chapters', routes.views.chapters);
-	app.get('/faq', routes.views.faq);
-	app.get('/jobs', routes.views.jobs);
-	app.get('/jobs/:org', routes.views.jobsorgdashboard);
-	app.get('/jobs/register/org-details', routes.views.jobsregister);
-	app.get('/jobs/register/contact-details', routes.views.jobsregister_contact);
-	app.get('/jobs/post/new', routes.views.jobdetails);
-	app.get('/jobs/org/login', routes.views.jobslogin);
-	app.get('/success', routes.views.successMessage);
+    app.get('/', routes.views.index);
+    app.post('/', routes.views.index);
+    app.get('/about', routes.views.about);
+    app.get('/events', routes.views.events);
+    app.get('/events/:event', routes.views.event);
+    app.get('/team', routes.views.team);
+    app.get('/code-of-conduct', routes.views.conduct);
+    app.get('/donate-partner', routes.views.donatepartner);
+    app.get('/partner', routes.views.donatepartner);
+    app.get('/donate', routes.views.donatepartner);
+    app.post('/chapters', routes.views.chapters);
+    app.get('/chapters', routes.views.chapters);
+    app.get('/faq', routes.views.faq);
+    app.get('/jobs', routes.views.jobs);
+    app.get('/jobs/:org', routes.views.jobsorgdashboard);
+    app.get('/jobs/register/org-details', routes.views.jobsregister);
+    app.post('/jobs/register/org-details', routes.views.jobsregister);
+    app.get('/jobs/register/contact-details', routes.views.jobsregister_contact);
+    app.post('/jobs/register/contact-details', routes.views.jobsregister_contact);
+    app.get('/jobs/post/new', routes.views.jobdetails);
+    app.post('/jobs/post/new', routes.views.jobdetails);
+    app.get('/jobs/org/login', routes.views.jobslogin);
+    app.post('/jobs/org/login', routes.views.jobslogin);
+    app.get('/success', routes.views.successMessage);
     // app.get('/blog/:category?', routes.views.blog);
     // app.get('/blog/post/:post', routes.views.post);
     // app.get('/community', routes.views.community);

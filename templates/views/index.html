@@ -24,8 +24,15 @@
     </div>
 
 </section>
-{% endblock %} {% block content %}
+{% endblock %} {% block content %} {% if enquirySubmitted %}
+<div id="toast" class="toast-modal" style="display: block">
+    <p>Thanks for getting in touch, <br> our Team will be following up soon via mail
+    </p>
+    <span class="close" onclick="closeModal();">&#215;</span>
+</div>
+</div>
 
+{% endif %}
 
 <div>
     <section>
@@ -156,6 +163,7 @@
                         <a href="https://www.facebook.com/SheCodeAfrica/" target="_blank"><img src="../images/facebook.png" alt=""></a>
                         <a href="https://www.medium.com/shecodeafrica" target="_blank"><img src="../images/medium.png" alt=""></a>
                         <a href="https://www.youtube.com/channel/UCNZzVEyJege5-d_ekKw6dFA" target="_blank"><img src="../images/youtube.png" alt=""></a>
+                        <a href="https://ng.linkedin.com/company/she-code-africa" target="_blank"><img src="../images/linkedin.png" alt=""></a>
                     </p>
                 </div>
                 <div class="col-md-6 col-lg-6 col-sm-6 home_side_follow float-right ">
@@ -353,11 +361,8 @@
         </div>
         <section>
             <div class="contact_section">
-                {% if enquirySubmitted %}
-                <h3 class="text-center">Thanks for getting in touch, <br> our Team will be following up soon via mail
-                </h3>
 
-                {% else %}
+
                 <div class="row">
                     <div class="col-sm-3">
                         <h4 class="__shecode_title">Contact <br> Us</h4>
@@ -385,10 +390,16 @@
                         </div>
                     </div>
                 </div>
-                {% endif %}
+
             </div>
         </section>
 
         {% endblock %} {% block js %}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
+        <script>
+            function closeModal() {
+                document.getElementById("toast").style.display = "none";
+
+            }
+        </script>
         {% endblock %}

@@ -28,6 +28,9 @@ exports = module.exports = function(req, res) {
                 locals.validationErrors = err.errors;
             } else {
                 locals.enquirySubmitted = true;
+                setTimeout(() => {
+                    locals.enquirySubmitted = false;
+                }, 3000)
 
             }
 
