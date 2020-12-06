@@ -15,6 +15,8 @@ exports = module.exports = function (req, res) {
 
     // new form data
     locals.formData = req.body || {};
+    locals.validationErrors = {};
+
 
     // item in the header navigation.
     locals.section = 'jobs';
@@ -36,6 +38,7 @@ exports = module.exports = function (req, res) {
         data.location = companyDetails.location;
         data.industry = companyDetails.industry;
         data.address = companyDetails.address;
+        data.categories = companyDetails.categories;
 
         newCompany.getUpdateHandler(req).process(data, {
             flashErrors: true,
@@ -43,7 +46,11 @@ exports = module.exports = function (req, res) {
         }, function (err) {
             if (err) {
                 locals.formerror = true;
-                req.flash('error', err.detail.errmsg);
+                if (err.detail.code === 11000) {
+                    locals.errorMessage = "Email or Phone Number Already Registered";
+                } else {
+                    locals.validationErrors = err.detail;
+                }
             }
             else {
                 localStorage.removeItem('companyData');
