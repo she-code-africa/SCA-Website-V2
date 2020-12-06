@@ -43,21 +43,30 @@ exports = module.exports = function(req, res) {
     view.on('post', { action: '' }, function(next) {
         var newJob = new Job.model();
         var data = req.body;
-        data.company = locals.company;
-
-        newJob.getUpdateHandler(req).process(data, {
-            flashErrors: true,
-        }, function(err) {
-            if (err) {
-                locals.validationErrors = err.errors;
-                req.flash('error', err.errors);
-            } else {
-                req.flash('success', 'Added');
-                localStorage.setItem('successMessages', newJob.title);
-                return res.redirect('/success');
-            }
+        if (data.categories === "other" && data.specialization === '') {
+            locals.errorMessage = "Select Specialization or Specify 'Other'";
             next();
-        })
+        } else {
+            if (data.categories === "other") {
+                data.categories = '';
+            } else {
+                data.specialization = ''
+            }
+            data.company = locals.company;
+            newJob.getUpdateHandler(req).process(data, {
+                flashErrors: true,
+            }, function (err) {
+                if (err) {
+                    locals.validationErrors = err.errors;
+                    req.flash('error', err.errors);
+                } else {
+                    req.flash('success', 'Added');
+                    localStorage.setItem('successMessages', newJob.title);
+                    return res.redirect('/success');
+                }
+                next();
+            });
+        }
     });
 
     // Render the view
