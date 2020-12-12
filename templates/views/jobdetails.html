@@ -86,15 +86,11 @@
     category.onchange = function () {
         if (category.value === "other") {
             specialization.style.display = "block";
-            console.log('here 1')
-            document.getElementById("specialization").required = true;
-            console.log('here 2')
-            document.getElementById("specialization").setAttribute("required", "true");
-            // specialization.setAttribute("required", "true");
+            specialization.required = true;
+           
         } else {
             specialization.style.display = "none";
             specialization.required = false;
-            specialization.removeAttribute("required");
         }
     }
 </script>
