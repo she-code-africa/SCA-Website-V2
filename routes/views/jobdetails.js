@@ -7,7 +7,7 @@ var Company = keystone.list('Company');
 var Job = keystone.list('Job');
 var localStorage = require('../../utils/localStorage');
 
-exports = module.exports = function (req, res) {
+exports = module.exports = function(req, res) {
     const companyData = localStorage.getItem('loggedInCompany') || "";
     if (companyData === "") {
         return res.redirect('/jobs');
@@ -24,30 +24,30 @@ exports = module.exports = function (req, res) {
     locals.formData = req.body || {};
     locals.company = [];
 
-    view.on('init', function (next) {
+    view.on('init', function(next) {
         Company.model.findOne()
             .where('slug', companyData)
-            .exec(function (err, result) {
+            .exec(function(err, result) {
                 locals.company = result;
                 next(err);
             });
     });
 
-    view.on('init', function (next) {
-        JobCategory.model.find().sort('name').exec(function (err, result) {
+    view.on('init', function(next) {
+        JobCategory.model.find().sort('name').exec(function(err, result) {
             locals.data.categories = result;
             next(err);
         });
     });
 
-    view.on('post', { action: '' }, function (next) {
+    view.on('post', { action: '' }, function(next) {
         var newJob = new Job.model();
         var data = req.body;
         data.company = locals.company;
 
         newJob.getUpdateHandler(req).process(data, {
             flashErrors: true,
-        }, function (err) {
+        }, function(err) {
             if (err) {
                 locals.validationErrors = err.errors;
                 req.flash('error', err.errors);

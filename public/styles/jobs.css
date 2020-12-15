@@ -99,7 +99,7 @@ section.jobs-header {
 }
 
 .modal-dialog {
-    width: 65vw;
+    width: 50vw;
 }
 
 #job-view-more.modal.in {
@@ -129,7 +129,7 @@ section.jobs-header {
 
 .role-apply {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     flex-wrap: wrap;
 }
 
@@ -147,6 +147,8 @@ section.jobs-header {
     margin-top: 3rem;
     color: var(--primary-gray);
 }
+
+.jobtype {}
 
 .level {
     grid-area: level;
