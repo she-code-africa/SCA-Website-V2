@@ -26,30 +26,41 @@
         <form class="flex-center" method="post">
             <input type="hidden" name="action" value="">
             <div class="form-group">
-                <input type="text" name="org_name" class="form-control" placeholder="Organization Name *" value="{{form.org_name}}" required>
+                <input type="text" name="org_name" class="form-control" placeholder="Organization Name *"
+                    value="{{form.org_name}}" required>
             </div>
 
             <div class="form-group">
                 <!-- <input type="text" name="org_industry" class="form-control" placeholder="Organization Industry *" value="{{form.org_industry}}" required> -->
-                <select name="org_industry" class="form-control" value="{{form.org_industry}}" required>
+                <select name="org_industry" id="org_industry" class="form-control" value="{{form.org_industry}}"
+                    required>
 
                     <option value="" disabled selected hidden>Organization Industry *</option>
                     {% for i in data.categories %}
                     <option value="{{i.id}}">{{i.name}}</option>
                     {% endfor%}
+                    <option value="other">Other</option>
                 </select>
             </div>
 
-            <div class="form-group">
-                <input type="url" name="website_url" class="form-control" placeholder="Website URL" value="{{form.website_url}}">
+            <div class="form-group" style="display: none;" id="industry">
+                <input type="text" name="industry" class="form-control" placeholder="Organization Industry"
+                    value="{{form.org_industry}}">
             </div>
 
             <div class="form-group">
-                <input type="text" name="location" class="form-control" placeholder="Location (e.g. Lagos, Nigeria)*" value="{{form.location}}" required />
+                <input type="url" name="website_url" class="form-control" placeholder="Website URL"
+                    value="{{form.website_url}}">
             </div>
 
             <div class="form-group">
-                <input type="text" name="org_address" class="form-control" placeholder="Organization Address *" value="{{form.org_address}}" required>
+                <input type="text" name="location" class="form-control" placeholder="Location (e.g. Lagos, Nigeria)*"
+                    value="{{form.location}}" required />
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="org_address" class="form-control" placeholder="Organization Address *"
+                    value="{{form.org_address}}" required>
             </div>
 
             <button type="submit" class="btn sca-btn light-pink-btn">
@@ -63,4 +74,15 @@
         </p>
     </section>
 </div>
+<script>
+    var org_ind = document.getElementById("org_industry");
+    var ind = document.getElementById("industry");
+    org_ind.onchange = function () {
+        if (org_ind.value === "other") {
+            ind.style.display = "block";
+        } else {
+            ind.style.display = "none";
+        }
+    }
+</script>
 {% endblock %}

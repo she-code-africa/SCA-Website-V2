@@ -26,47 +26,56 @@
     </section>
 
     <section class="__register_form">
-        {% if formerror %}
-        <div class="alert alert-danger">
-            <div class="flex-center">
-                Email Address or Phone Number Exists.
-            </div>
-            <div class="flex-center">
-                <a href="/jobs/org/login">Log In Instead?</a>
-            </div>
+        {% if errorMessage %}
+        <div class="alert alert-danger flex-center">
+            {{errorMessage}}
+        </div>
+        {% endif %}
+        {% if validationErrors|length %}
+        <div class="flex-center alert alert-danger">
+            Validation Error
         </div>
         {% endif %}
         <form class="flex-center" method="POST">
             <input type="hidden" name="action" value="">
             <div class="form-group">
-                <input type="text" name="contactName" value="{{formData.contactName}}" class="form-control" placeholder="Contact Name *" required>
+                <input type="text" name="contactName" value="{{formData.contactName}}" class="form-control"
+                    placeholder="Contact Name *" required>
             </div>
 
             <div class="form-group __contact_number">
                 <select name="location" class="form-control dailing-code">
-					<option value="+234" selected>+234</option>
-				</select>
-                <input type="number" name="phoneNumber" value="{{formData.phoneNumber}}" class="form-control" placeholder="Phone Number *" required>
+                    <option value="+234" selected>+234</option>
+                </select>
+                <input type="number" name="phoneNumber" value="{{formData.phoneNumber}}" class="form-control"
+                    placeholder="Phone Number *" required>
             </div>
 
             <div class="form-group">
-                <input type="email" name="email" value="{{formData.email}}" class="form-control" placeholder="Email Address *" required>
+                {% if validationErrors.email %}<label class="text text-danger text-center">
+                    {{validationErrors.email.error}}</label> {%endif%}
+
+                <input type="email" name="email" value="{{formData.email}}" class="form-control"
+                    placeholder="Email Address *" required>
             </div>
 
             <div class="form-group">
-                <label id="numerror" class="text text-danger text-center"></label>
-                <input type="password" name="password" id="password" value="{{formData.password}}" class="form-control" placeholder="Password *" required>
+                {% if validationErrors.password %}<label class="text text-danger text-center">
+                    {{validationErrors.password.error}}</label> {%endif%}
+                <input type="password" name="password" id="password" value="{{formData.password}}" class="form-control"
+                    placeholder="Password *" required>
             </div>
 
             <div class="form-group">
-                <input type="password" name="cpassword" id="cpassword" value="{{formData.cpassword}}" class="form-control" placeholder="Confirm Password *" required>
+                <input type="password" name="cpassword" id="cpassword" value="{{formData.cpassword}}"
+                    class="form-control" placeholder="Confirm Password *" required>
                 <label id="error" class="text text-danger text-center" style="display: none;">Passwords Do Not
-					Match</label>
+                    Match</label>
             </div>
 
             <button type="submit" class="btn sca-btn light-pink-btn" id="submitButton">
-				REGISTER
-			</button>
+                REGISTER
+            </button>
             <!-- href="/jobs/atb-solutions" -->
         </form>
         <p class="text-center post-a-job-cta">
@@ -79,7 +88,7 @@
     var psw = document.getElementById("password");
     var cpsw = document.getElementById("cpassword");
     var submitButton = document.getElementById("submitButton");
-    cpsw.onblur = function() {
+    cpsw.onblur = function () {
         if (psw.value !== cpsw.value) {
             document.getElementById("error").style.display = "block";
             submitButton.style.visibility = "hidden";
@@ -88,7 +97,7 @@
             submitButton.style.visibility = "visible";
         }
     }
-    psw.onblur = function() {
+    psw.onblur = function () {
         if (psw.value !== cpsw.value) {
             document.getElementById("error").style.display = "block";
             submitButton.style.visibility = "hidden";
@@ -97,21 +106,12 @@
             submitButton.style.visibility = "visible";
         }
     }
-    cpsw.onkeyup = function() {
+    cpsw.onkeyup = function () {
         if (psw.value !== cpsw.value) {
             document.getElementById("error").style.display = "block";
             submitButton.style.visibility = "hidden";
         } else {
             document.getElementById("error").style.display = "none";
-            submitButton.style.visibility = "visible";
-        }
-    }
-    psw.onkeyup = function() {
-        if (psw.value.length < 8) {
-            document.getElementById("numerror").innerHTML = "Passwords must be at least 8 characters long";
-            submitButton.style.visibility = "hidden";
-        } else {
-            document.getElementById("numerror").innerHTML = "";
             submitButton.style.visibility = "visible";
         }
     }

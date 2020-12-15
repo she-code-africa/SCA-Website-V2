@@ -18,6 +18,11 @@
     </section>
     {{emailmessage}}
     <section class="__register_form __jobdetails">
+        {% if errorMessage %}
+        <div class="alert alert-danger flex-center">
+            {{errorMessage}}
+        </div>
+        {% endif %}
         <form class="flex-center" method="POST">
             <input type="hidden" name="action" value="">
             <div class="form-group">
@@ -25,13 +30,18 @@
             </div>
 
             <div class="form-group">
-                <select name="categories" class="form-control" value="{{formData.categories}}" required>
+                <select name="categories" id="categories" class="form-control" value="{{formData.categories}}" required>
 
                     <option value="" disabled selected hidden>Job Type*</option>
                     {% for i in data.categories %}
                     <option value="{{i.id}}">{{i.name}}</option>
                     {% endfor%}
+                    <option value="other">Other</option>
                 </select>
+            </div>
+
+            <div class="form-group" style="display: none;" id="specialization">
+                <input type="text" name="specialization" class="form-control" placeholder="Specialization *" value="{{formData.categories}}">
             </div>
 
             <div class="form-group">
@@ -61,6 +71,19 @@
             <!-- href="/success" -->
         </form>
     </section>
-
 </div>
+<script>
+    var category = document.getElementById("categories");
+    var specialization = document.getElementById("specialization");
+    category.onchange = function() {
+        if (category.value === "other") {
+            specialization.style.display = "block";
+            specialization.required = true;
+
+        } else {
+            specialization.style.display = "none";
+            specialization.required = false;
+        }
+    }
+</script>
 {% endblock %}
