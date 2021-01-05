@@ -43,8 +43,8 @@
         </div>
         {% if data.upcomingEvents|length %} {% for event in data.upcomingEvents %} {% if data.upcomingEvents.indexOf(event) % 2 !== 0 %}
 
-        <div class="row row_padding">
-            <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{event.image.url }}" class="img-fluid" alt="{{event.title}}">
+        <div class="row row_padding __shecode_block">
+            <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{event.image.secure_url }}" class="img-fluid" alt="{{event.title}}">
             <div class="col-md-6 col-lg-6 col-sm-6 topic_padding float-right">
                 <h4 class="event_topic3">{{event.title}}</h4>
                 <p class="event_topic2">{{event.description.md}}</p>
@@ -53,13 +53,13 @@
         </div>
 
         {%else%}
-        <div class="row row_padding">
+        <div class="row row_padding __shecode_block">
             <div class="col-md-6 col-lg-6 col-sm-6 topic_padding">
                 <h4 class="event_topic3">{{event.title}}</h4>
                 <p class="event_topic2">{{event.description.md}}</p>
                 <a href="{{event.link}}" target="_blank" class="btn event_button">{{event.callToAction}}</a>
             </div>
-            <img class="col-md-6 col-lg-6 col-sm-6 float-right event_side_past2" src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
+            <img class="col-md-6 col-lg-6 col-sm-6 float-right event_side_past2" src="{{ event.image.secure_url }}" class="img-fluid" alt="{{event.title}}">
         </div>
         {% endif %} {% endfor %} {% endif %}
     </section>
@@ -86,11 +86,11 @@
                 <p class="event_topic2">{{event.description.md}}</p>
                 <a class="btn event_button" href="{{event.link}}">{{event.callToAction}}</a>
             </div>
-            <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2 float-right" src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
+            <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2 float-right" src="{{ event.image.secure_url }}" class="img-fluid" alt="{{event.title}}">
         </div>
         {%else%}
         <div class="row row_padding">
-            <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{ event.image.url }}" class="img-fluid" alt="{{event.title}}">
+            <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{ event.image.secure_url }}" class="img-fluid" alt="{{event.title}}">
             <div class="col-md-6 col-lg-6 col-sm-6 topic_padding float-right">
                 <h4 class="event_topic3">{{event.title}}</h4>
                 <p class="event_topic2">{{event.description.md}}</p>
