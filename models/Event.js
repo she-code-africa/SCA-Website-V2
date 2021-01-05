@@ -20,7 +20,7 @@ Event.add({
     eventDate: { type: Types.Date, initial: true, required: true },
     // location: { type: String, initial: true, required: true },
     callToAction: { type: String, initial: true },
-    link: { type: String, initial: true, label: 'Link(http:// or https://)' },
+    link: { type: String, initial: true, label: 'Link( https://)' },
     // registrationLink: { type: String, initial: true, label: 'Registration Link(should start with http:// or  https://)' },
     // eventGalleryLink: { type: String, initial: true, label: 'Event Gallery Link(should start with http:// or  https://)' },
 });

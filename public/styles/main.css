@@ -801,6 +801,23 @@ li.__shecodelink.active a {
     margin-top: 30px;
 }
 
+.donation-faq p {
+    display: flex;
+}
+
+.donation-faq ol li {
+    margin-bottom: 10px;
+}
+
+.sub_ol {
+    margin-right: 15px;
+    font-weight: 600;
+}
+
+.privacy-intro {
+    margin-top: 30px;
+}
+
 
 /* faq ends */
 
