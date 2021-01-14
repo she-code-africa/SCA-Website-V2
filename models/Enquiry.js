@@ -65,7 +65,7 @@ Enquiry.schema.methods.sendNotificationEmail = function(callback) {
             to: admins,
             from: {
                 name: 'She Code Africa',
-                email: 'contact@she-code-africa.com',
+                email: 'info@shecodeafrica.org',
             },
             subject: 'New Enquiry for She Code Africa',
             enquiry: enquiry,
