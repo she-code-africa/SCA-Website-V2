@@ -35,6 +35,7 @@ Enquiry.schema.pre('save', function(next) {
 
 Enquiry.schema.post('save', function() {
     if (this.wasNew) {
+        // console.log(this)
         this.sendNotificationEmail();
     }
 });
@@ -54,18 +55,20 @@ Enquiry.schema.methods.sendNotificationEmail = function(callback) {
     }
 
     var enquiry = this;
+
     var brand = keystone.get('brand');
 
     keystone.list('User').model.find().where('isAdmin', true).exec(function(err, admins) {
         if (err) return callback(err);
+
         new keystone.Email({
             templateName: 'enquiry-notification',
             transport: 'mailgun',
         }).send({
             to: admins,
             from: {
-                name: 'She Code Africa',
-                email: 'info@shecodeafrica.org',
+                name: enquiry.name.full,
+                email: enquiry.email,
             },
             subject: 'New Enquiry for She Code Africa',
             enquiry: enquiry,
