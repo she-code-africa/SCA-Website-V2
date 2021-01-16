@@ -49,8 +49,9 @@
             </div>
 
             <div class="form-group">
-                <input type="url" name="website_url" class="form-control" placeholder="Website URL"
-                    value="{{form.website_url}}">
+                <label class="text text-danger text-center">Must Include "http://" or "https://"</label>
+                <input type="url" name="website_url" class="form-control"
+                    placeholder="Website URL e.g https://example.org" value="{{form.website_url}}">
             </div>
 
             <div class="form-group">
