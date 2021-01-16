@@ -69,8 +69,10 @@
             </div>
 
             <div class="form-group">
-                <input type="url" name="applicationLink" class="form-control" placeholder="Application Website *"
-                    value="{{formData.applicationLink}}" required>
+                <label class="text text-danger text-center">Must Include "http://" or "https://"</label>
+                <input type="url" name="applicationLink" class="form-control"
+                    placeholder="Application Website(e.g https://apply.com) *" value="{{formData.applicationLink}}"
+                    required>
             </div>
 
             <button type="submit" class="btn sca-btn pink-btn">

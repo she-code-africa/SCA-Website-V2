@@ -59,15 +59,12 @@
 
                                     <div class="apply">
                                         <div class="job-status">
-                                            {% if job.deadline
-                                            < data.todayDate %} CLOSED {% elseif (job.state=='draft' ) %} INACTIVE
-                                            {% else %} ACTIVE {%endif%} </div>
-                                        <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal"
-                                            data-target="#{{job.id}}">
-                                            CLOSE
-                                        </button>
+                                            {% if job.deadline < data.todayDate %} CLOSED {% elseif (job.state=='draft' ) %} INACTIVE {% else %} ACTIVE {%endif%} </div>
+                                                <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{job.id}}">
+                                                    CLOSE
+                                                </button>
+                                        </div>
                                     </div>
-
                                 </div>
                             </div>
                             <div class="row role-desc">
@@ -195,13 +192,12 @@
                                     </div>
                                     <div class="apply">
                                         <div class="job-status">
-                                            {% if ujob.deadline
-                                            < data.todayDate %} CLOSED {% elseif (ujob.state=='draft' ) %} INACTIVE
-                                            {% else %} ACTIVE {%endif%} </div>
-                                        <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal"
-                                            data-target="#{{ujob.id}}">
-                                            CLOSE
-                                        </button>
+                                            {% if ujob.deadline < data.todayDate %} CLOSED {% elseif (ujob.state=='draft' ) %} INACTIVE {% else %} ACTIVE {%endif%} </div>
+                                                <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{ujob.id}}">
+                                                    CLOSE
+                                                </button>
+                                        </div>
+
                                     </div>
 
                                 </div>

@@ -23,7 +23,6 @@ exports = module.exports = function (req, res) {
 
     //on post form
     view.on('post', { action: '' }, function (next) {
-        // FIX THIS!!!
         if (locals.formData.password !== locals.formData.cpassword) {
             locals.formerror = true;
             req.flash("error", "Passwords Do Not Match.");
