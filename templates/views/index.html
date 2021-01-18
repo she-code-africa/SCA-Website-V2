@@ -369,7 +369,11 @@
                     </div>
                     <div class="col-sm-9">
                         <div class="__shecode_contactform">
-
+                            {% if formerror %}
+                            <div class="alert alert-danger bg-danger text-white flex-center">
+                                {{validationErrors}}
+                            </div>
+                            {% endif %}
                             <form method="post">
                                 <input type="hidden" name="action" value="">
                                 <div class="form-group">
@@ -386,6 +390,7 @@
                                 <a href=""></a>
                                 <button type="submit" class="btn shecode_button " style="width: 100%;">Send
                                     Message</button>
+                                <input type="hidden" id="g-recaptcha-response" name="g-recaptcha-response">
                             </form>
                         </div>
                     </div>
@@ -396,6 +401,20 @@
 
         {% endblock %} {% block js %}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
+        <script src="https://www.google.com/recaptcha/api.js?render=6LfwOzEaAAAAAGd32YjymqYT504nv9d4fAgI1uto"></script>
+        <script>
+            grecaptcha.ready(function() {
+                // do request for recaptcha token
+                // response is promise with passed token
+                grecaptcha.execute('6LfwOzEaAAAAAGd32YjymqYT504nv9d4fAgI1uto')
+                    .then(function(token) {
+                        // add token value to form
+                        myToken = token;
+                        document.getElementById("g-recaptcha-response").value = myToken;
+                    });
+            });
+        </script>
+
         <script>
             function closeModal() {
                 document.getElementById("toast").style.display = "none";
