@@ -16,12 +16,10 @@ exports = module.exports = function(req, res) {
     locals.enquirySubmitted = false;
 
     view.on('post', { action: '' }, function(next) {
-
-        // console.log(locals.formData);
         if (locals.formData['g-recaptcha-response'] === undefined || locals.formData['g-recaptcha-response'] === '' || locals.formData['g-recaptcha-response'] === null) {
             locals.validationErrors = 'There was a problem submitting your feedback';
         } else {
-            const secretKey = "6LfwOzEaAAAAAHrNymnQ-fGUPOHHIUXHuIwv7ytw";
+            const secretKey = process.env.CAPTCHA_SECRET_KEY;
             const verificationURL = "https://www.google.com/recaptcha/api/siteverify?secret=" + secretKey + "&response=" + locals.formData['g-recaptcha-response'];
 
             https.get(verificationURL, function(resp) {

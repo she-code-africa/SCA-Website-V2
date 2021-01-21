@@ -35,7 +35,6 @@ Enquiry.schema.pre('save', function(next) {
 
 Enquiry.schema.post('save', function() {
     if (this.wasNew) {
-        // console.log(this)
         this.sendNotificationEmail();
     }
 });
