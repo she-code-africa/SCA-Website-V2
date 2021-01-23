@@ -2,6 +2,7 @@ const cons = require('consolidate');
 var keystone = require('keystone');
 var Company = keystone.list('Company');
 var localStorage = require('../../utils/localStorage');
+const countryCodes = require('country-calling-code')
 
 exports = module.exports = function (req, res) {
     localStorage.removeItem('loggedInCompany');
@@ -13,6 +14,14 @@ exports = module.exports = function (req, res) {
     var view = new keystone.View(req, res);
     var locals = res.locals;
 
+    locals.data = {
+        message: localStorage.getItem('successMessages'),
+        companyName: localStorage.getItem('loggedInCompany'),
+    };
+
+    locals.countries = countryCodes.codes;
+
+
     // new form data
     locals.formData = req.body || {};
     locals.validationErrors = {};
@@ -20,7 +29,7 @@ exports = module.exports = function (req, res) {
 
     // item in the header navigation.
     locals.section = 'jobs';
-
+   
     //on post form
     view.on('post', { action: '' }, function (next) {
         if (locals.formData.password !== locals.formData.cpassword) {
