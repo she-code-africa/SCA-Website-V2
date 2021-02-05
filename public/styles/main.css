@@ -899,6 +899,26 @@ li.__shecodelink.active a {
     padding: 30px
 }
 
+#prompt .modal-body .close-div {
+    margin-bottom: 30px;
+}
+
+#prompt .modal-body .close {
+    opacity: 1
+}
+
+#prompt .modal-body .close:hover {
+    opacity: 0.2;
+}
+
+#prompt .modal-body .close img {
+    width: 35px;
+}
+
+#prompt .prompt-body {
+    margin-top: 52px;
+}
+
 @media (min-width: 768px) {
     #prompt .modal-dialog {
         width: 600px;
