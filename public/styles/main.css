@@ -866,3 +866,42 @@ li.__shecodelink.active a {
     top: 8px;
     opacity: 1;
 }
+
+
+/* donation prompt modal */
+
+#prompt {}
+
+#prompt img {
+    text-align: center;
+}
+
+#prompt h3 {
+    text-align: center;
+    font: normal normal medium 32px/32px Poppins;
+    letter-spacing: 0px;
+    color: #6D033F;
+    margin: 30px 0;
+}
+
+#prompt p {
+    text-align: center;
+    font: normal normal normal 20px/44px Roboto;
+    letter-spacing: 0px;
+    color: #000000;
+    opacity: 0.8;
+    margin-bottom: 0;
+    line-height: 25px;
+    margin-top: 20px;
+}
+
+#prompt .modal-body {
+    padding: 30px
+}
+
+@media (min-width: 768px) {
+    #prompt .modal-dialog {
+        width: 600px;
+        margin: 10% auto;
+    }
+}
