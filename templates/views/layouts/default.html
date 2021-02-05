@@ -19,20 +19,50 @@
     <link rel="stylesheet" type="text/css" href="../styles/index.css">
     <!-- WEBFONT -->
 
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
     <!-- ICON -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> {# This file provides the default styling for the KeystoneJS Content Editor #} {% if user and user.canAccessKeystone %}
-    <link href="../keystone/styles/content/editor.min.css" rel="stylesheet"> {% endif %} {# HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries Safely remove this block if you are not targeting IE8 #}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> {#
+    This file provides the default styling for the KeystoneJS Content Editor #} {% if user and user.canAccessKeystone %}
+    <link href="../keystone/styles/content/editor.min.css" rel="stylesheet"> {% endif %} {# HTML5 Shim and Respond.js
+    IE8 support of HTML5 elements and media queries Safely remove this block if you are not targeting IE8 #}
     <!--[if lt IE 9]>
 			<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
 			<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
 		<![endif]-->
 
-    {# Include template-specific stylesheets by extending the css block #} {% block css %}{% endblock %} {# Add any other template-specific HEAD tags by extending the head block #} {% block head %}{% endblock %}
+    {# Include template-specific stylesheets by extending the css block #} {% block css %}{% endblock %} {# Add any
+    other template-specific HEAD tags by extending the head block #} {% block head %}{% endblock %}
 </head>
 
 <body>
+    {# MODAL #}
+
+    <div id="prompt" class="modal" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog " role="document">
+            <div class="modal-content">
+
+                <div class="modal-body text-center">
+                    <div class="close-div">
+                        <button type="button" class="close " data-dismiss="modal" aria-label="Close">
+                            <img src="../images/cancel.svg" alt="" class="img-fluid">
+                        </button>
+                    </div>
+                    <div class="prompt-body">
+                        <img src="../images/donate-icon.svg" alt="">
+                        <h3>Sponsor a Tech Lady</h3>
+                        <p>Did you know by donating as little as $5.3(~3,000 NGN), you'd be helping us mentor and
+                            provide resources to 1 female in tech in 1 day.</p>
+                    </div>
+
+                    <div>
+                        <a type="button" class="btn shecode_button " href="/donate-partner">Make Donation</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     {# HEADER #}
     <header>
@@ -40,13 +70,15 @@
             <div class="nav-container">
                 <!-- TOGGLE -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target=".navbar-ex1-collapse">
                         <span class="sr-only">Toggle navigation</span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/"><img src="../images/she-code-africa-logo.svg" class="__shecodelogo"></a>
+                    <a class="navbar-brand" href="/"><img src="../images/she-code-africa-logo.svg"
+                            class="__shecodelogo"></a>
                 </div>
                 <!-- TOGGLING LINKS -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse __shecodenavcol">
@@ -73,8 +105,13 @@
 
     {# BODY #}
     <div id="body">
-        {# NOTE: There is no .container wrapping class around body blocks to allow more flexibility in design. Remember to include it in your templates when you override the intro and content blocks! #} {# The Intro block appears above flash messages (used for
-        temporary information display) #} {% block intro %}{% endblock %} {# Flash messages allow you to display once-off status messages to users, e.g. form validation errors, success messages, etc. #} {{ FM.flashMessages(messages) }} {# The content
+
+        {# NOTE: There is no .container wrapping class around body blocks to allow more flexibility in design. Remember
+        to include it in your templates when you override the intro and content blocks! #} {# The Intro block appears
+        above flash messages (used for
+        temporary information display) #} {% block intro %}{% endblock %} {# Flash messages allow you to display
+        once-off status messages to users, e.g. form validation errors, success messages, etc. #} {{
+        FM.flashMessages(messages) }} {# The content
         block should contain the body of your template"s content #} {% block content %}{% endblock %}
     </div>
 
@@ -107,13 +144,20 @@
                         <p class="__footera"><a href="https://bit.ly/scaslacksignup">Join Our Slack Community</a></p>
                         <!-- <p class="__footera"><a href="">Signup for our newsletter</a></p> -->
                         <p class="__footera">
-                            <a href="https://www.instagram.com/shecodeafrica/" target="_blank"><img src="../images/instagram.svg" alt=""></a>
-                            <a href="https://twitter.com/SheCodeAfrica" target="_blank"><img src="../images/twitter.svg" alt=""></a>
-                            <a href="https://www.facebook.com/SheCodeAfrica/" target="_blank"><img src="../images/facebook.svg" alt=""></a>
-                            <a href="https://www.medium.com/shecodeafrica" target="_blank"><img src="../images/medium-white.png" alt=""></a>
-                            <a href="https://www.youtube.com/channel/UCNZzVEyJege5-d_ekKw6dFA" target="_blank"><img src="../images/youtube.svg" alt=""></a>
-                            <a href="https://ng.linkedin.com/company/she-code-africa" target="_blank"><img src="../images/linkedin-white.png" alt=""></a>
-                            <a href="https://github.com/she-code-africa" target="_blank"><img src="../images/Github.png" alt=""></a>
+                            <a href="https://www.instagram.com/shecodeafrica/" target="_blank"><img
+                                    src="../images/instagram.svg" alt=""></a>
+                            <a href="https://twitter.com/SheCodeAfrica" target="_blank"><img src="../images/twitter.svg"
+                                    alt=""></a>
+                            <a href="https://www.facebook.com/SheCodeAfrica/" target="_blank"><img
+                                    src="../images/facebook.svg" alt=""></a>
+                            <a href="https://www.medium.com/shecodeafrica" target="_blank"><img
+                                    src="../images/medium-white.png" alt=""></a>
+                            <a href="https://www.youtube.com/channel/UCNZzVEyJege5-d_ekKw6dFA" target="_blank"><img
+                                    src="../images/youtube.svg" alt=""></a>
+                            <a href="https://ng.linkedin.com/company/she-code-africa" target="_blank"><img
+                                    src="../images/linkedin-white.png" alt=""></a>
+                            <a href="https://github.com/she-code-africa" target="_blank"><img src="../images/Github.png"
+                                    alt=""></a>
                         </p>
                     </div>
                 </div>
@@ -127,17 +171,29 @@
     </footer>
 
 
-    {# JAVASCRIPT #} {# jQuery 1.11.3 is included by default, and required by both Bootstrap and the KeystoneJS Content Editor. If you are not targeting IE8, you can upgrade to 2.1.4 (also bundled) for better performance. #}
+    {# JAVASCRIPT #} {# jQuery 1.11.3 is included by default, and required by both Bootstrap and the KeystoneJS Content
+    Editor. If you are not targeting IE8, you can upgrade to 2.1.4 (also bundled) for better performance. #}
     <script src="../js/jquery/jquery-3.1.1.min.js"></script>
 
-    {# Customise which Bootstrap javascript files are served by including them specifically here, instead of bootstrap-3.3.5.min.js #}
+    {# Customise which Bootstrap javascript files are served by including them specifically here, instead of
+    bootstrap-3.3.5.min.js #}
     <script src="../js/bootstrap/bootstrap.min.js"></script>
 
-    {# The KeystoneJS Content Editor provides support for ks-editable data attributes, which generate links to edit content for users who can access Keystone #} {% if user and user.canAccessKeystone %}
+    {# The KeystoneJS Content Editor provides support for ks-editable data attributes, which generate links to edit
+    content for users who can access Keystone #} {% if user and user.canAccessKeystone %}
     <script src="../keystone/js/content/editor.js"></script>
     {% endif %} {# Add scripts that are globally required by your site here. #}
     <script src="../js/jquery/main.js"></script>
-
+    <script>
+        let promptOpened = localStorage.getItem('opened')
+        if (promptOpened == null) {
+            $('#prompt').modal('hide');
+            setTimeout(() => {
+                $('#prompt').modal('toggle');
+                localStorage.setItem('opened', true)
+            }, 5000)
+        }
+    </script>
     {# Include template-specific javascript files by extending the js block #} {% block js %}{% endblock %}
 </body>
 
