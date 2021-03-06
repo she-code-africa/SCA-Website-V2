@@ -8,6 +8,7 @@
  * modules in your project's /lib directory.
  */
 var _ = require('lodash');
+var localStorage = require('../utils/localStorage.js');
 
 
 /**
@@ -24,7 +25,7 @@ exports.initLocals = function(req, res, next) {
         { label: 'Donate/Partner', key: 'partners', href: '/donate-partner' },
         { label: 'Chapters', key: 'chapters', href: '/chapters' },
         { label: 'Events', key: 'events', href: '/events' },
-        // { label: 'Job Opportunities', key: 'jobs', href: '/jobs' },
+        { label: 'Job Opportunities', key: 'jobs', href: '/jobs' },
         // { label: 'Community', key: 'community', href: '/community' },
         // { label: 'Gallery', key: 'gallery', href: '/gallery' },
         // { label: 'Contact', key: 'contact', href: '/contact' },
@@ -59,5 +60,14 @@ exports.requireUser = function(req, res, next) {
         res.redirect('/keystone/signin');
     } else {
         next();
+    }
+};
+
+exports.logoutUser = function(req, res, next) {
+    localStorage.removeItem('loggedInCompany');
+    if (!localStorage.getItem('loggedInCompany')) {
+        res.redirect('/jobs');
+    } else {
+        alert('Log out request failed, please try again');
     }
 };

@@ -82,13 +82,12 @@
                 </div>
                 <!-- TOGGLING LINKS -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse __shecodenavcol">
-                    <ul class="nav navbar-nav navbar-right">
+                    <ul class="nav navbar-nav">
                         {% for link in navLinks %}
                         <li class="__shecodelink {{ 'active' if link.key == section else '' }}">
                             <a href="{{ link.href }}">{{ link.label }}</a>
                         </li>
                         {% endfor %}
-
                         <!-- Keystone signin link not required on the page -->
                         <!-- {% if user %} {% if user.canAccessKeystone %}
                         <li class="__shecodelink"><a href="/keystone">Open Keystone</a></li>

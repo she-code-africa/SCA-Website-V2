@@ -14,8 +14,22 @@ exports = module.exports = function (req, res) {
     locals.data = {
         jobs: [],
         todayDate: new Date(),
+        company: [],
         companyName: localStorage.getItem('loggedInCompany') || "",
     }
+
+    //company details
+    view.on('init', function (next) {
+        var q = keystone.list('Company').model.findOne({ slug: localStorage.getItem('loggedInCompany') });
+
+        q.exec(function (err, result) {
+            if (!err) {
+                locals.data.company = result; 
+            }
+            next(err);
+        });
+
+    });
 
     view.on('init', function (next) {
         Job.paginate({

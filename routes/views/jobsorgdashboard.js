@@ -21,6 +21,7 @@ exports = module.exports = function (req, res) {
         company: [],
         jobs: [],
         ujobs: [],
+        companyName: localStorage.getItem('loggedInCompany') || "",
     };
 
     //company details

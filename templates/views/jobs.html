@@ -1,6 +1,20 @@
 {% extends "layouts/default.html" %} {% block css %}
 <link rel="stylesheet" type="text/css" href="styles/jobs.css"> {% endblock %} {% block intro %}
-<section class="jobs jobs-header section-whitespace-bottom">
+{% if data.companyName %}
+    <div class="dropdown jobsDropdownMenuContainer">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" id="jobsDropdownMenu">
+            <img src='/images/default-company-avatar.png' width="30" height="30" class="rounded-img"/>
+            <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="jobsDropdownMenu">
+            <li class="avatar-greeting">Hi, {{data.company.companyName}}</li>
+            <li role="separator" class="divider"></li>
+            <li><a href="/jobs/{{data.companyName}}">Profile</a></li>
+            <li><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+{% endif %}
+<section class="jobs jobs-header">
     <div class="container">
         <div class="row flex-center">
             <div class="col-sm-8 col-xs-12">
@@ -15,14 +29,10 @@
                         </h4>
                     </div>
                     {% if data.companyName %}
-                    <h4 class="__shecodeheader_subtitle">
-                        <a href="/jobs/{{data.companyName}}" title="View Added Jobs">
-                            <i>Logged In As {{data.companyName}}</i>
+                            <a href="/jobs/post/new" class="btn sca-btn pink-btn sca-btn-small">
+                            POST A JOB
                         </a>
-                    </h4>
-                    <a href="/jobs/post/new" class="btn sca-btn pink-btn sca-btn-small">
-                        POST A JOB
-                    </a> {% else %}
+                    {% else %}
                     <a href="/jobs/register/org-details" class="btn sca-btn pink-btn sca-btn-small">
                         POST A JOB
                     </a> {% endif %}
@@ -32,8 +42,9 @@
     </div>
 </section>
 {% endblock %} {% block content %}
-<section class="container __jobs_preview section-whitespace-top">
+<section class="container __jobs_preview">
     <div class="container width-100">
+        <h3 class="text-center job-type-header">Open Jobs</h3>
         <div class="row flex-center flex-wrap">
             {%if data.jobs.results|length %}{% for job in data.jobs.results %}
             <div class="col-lg-4 col-sm-6 col-xs-12">
@@ -136,7 +147,7 @@
             </div>
             <!-- End of Modal -->
             {% endfor %} {% else %}
-            <h3 class="text-center" style="padding-top: 5rem;">Jobs' list coming soon...</h3>
+            <p class="text-center">Jobs' list coming soon...</p>
             {%endif%}
 
         </div>
