@@ -164,10 +164,6 @@ section.jobs-header {
     padding: 10px 25px;
 }
 
-.role {
-    padding-top: 50px;
-}
-
 .role-desc {
     margin-top: 2rem;
     color: var(--primary-gray);
