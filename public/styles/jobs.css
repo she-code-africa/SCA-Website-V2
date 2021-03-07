@@ -50,12 +50,26 @@ section.jobs-header {
     align-items: center;
 }
 
+.container.width-100 {
+    padding-top: 5rem;
+}
+
 @media screen and (max-width: 424px) {
     .jobs .__shecodeheader_text {
         margin-bottom: 50px;
     }
     .__jobs_preview .col-xs-12 {
         padding: 0;
+    }
+
+    .container.width-100 {
+        padding-top: 0;
+    }
+}
+
+@media screen and (min-width: 376px) and (max-width: 768px) {
+    .container.width-100 {
+        padding-top: 3rem;
     }
 }
 
@@ -66,10 +80,6 @@ section.jobs-header {
     .jobs .__shecodeheader_subtitle {
         margin-bottom: 20px;
     }
-}
-
-.container.width-100 {
-    padding-top: 5rem;
 }
 
 .job-type-header {
@@ -98,8 +108,13 @@ section.jobs-header {
     /* width: 130px; */
     align-self: flex-end;
     /* margin-top: 18%; */
-    position: absolute;
-    bottom: 21%;
+}
+
+@media screen and (min-width: 425px) {
+    .__jobs_preview_card button {
+        position: absolute;
+        bottom: 21%;
+    }
 }
 
 .__jobs_preview_card .org {
@@ -391,11 +406,11 @@ section.__register_welcome .flex-center .close {
     color: gray;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     .container {
         padding: 0;
     }
-}
+} */
 
 @media screen and (max-width: 425px) {
     .__register,
@@ -473,7 +488,7 @@ select option[value=""] {
 .jobsDropdownMenuContainer {
     display: flex;
     justify-content: flex-end;
-    padding: 15px 50px 0;
+    padding: 15px 20px 0;
 }
 
 .jobsDropdownMenuContainer.open > .dropdown-menu-right {
