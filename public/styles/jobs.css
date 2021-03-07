@@ -7,12 +7,14 @@
 }
 
 section.jobs-header {
-    padding-top: 5rem;
+    padding-top: 3rem;
+    /* padding-bottom: 5rem; */
 }
 
 @media screen and (max-width: 768px) {
     section.jobs-header {
-        padding-top: 2rem;
+        padding-top: 1rem;
+        /* padding-bottom: 2rem; */
     }
 }
 
@@ -66,6 +68,14 @@ section.jobs-header {
     }
 }
 
+.container.width-100 {
+    padding-top: 5rem;
+}
+
+.job-type-header {
+    padding-bottom: 25px;
+}
+
 .__jobs_preview_card {
     /* width: 40%; */
     min-height: 330px;
@@ -80,10 +90,16 @@ section.jobs-header {
     color: var(--primary-gray);
 }
 
+.__jobs_preview_card p {
+    margin: 0 0 15px;
+}
+
 .__jobs_preview_card button {
     /* width: 130px; */
     align-self: flex-end;
-    margin-top: 8%;
+    /* margin-top: 18%; */
+    position: absolute;
+    bottom: 21%;
 }
 
 .__jobs_preview_card .org {
@@ -91,39 +107,41 @@ section.jobs-header {
 }
 
 .__jobs_preview_card .posted-time {
-    font-size: 13px;
+    font-size: 12px;
 }
 
-#job-view-more {
+
+
+.job-view-more {
     padding: 0 !important;
 }
 
-.modal-dialog {
+/* .modal-dialog {
     width: 50vw;
-}
+} */
 
-#job-view-more.modal.in {
+/* .job-view-more.modal.in {
     display: flex !important;
     align-items: center;
     justify-content: center;
-}
+} */
 
-#job-view-more .modal-body {
-    min-height: 70vh;
-    max-height: 80vh;
+.job-view-more .modal-body {
+    /* min-height: 70vh; */
+    max-height: 50vh;
 }
 
 @media screen and (min-width: 850px) {
-    #job-view-more .modal-body {
-        padding: 40px 60px 0;
+    .job-view-more .modal-body {
+        padding: 40px 40px 0;
     }
 }
 
-#job-view-more .modal-content {
+.job-view-more .modal-content {
     overflow-y: scroll;
 }
 
-#job-view-more .title {
+.job-view-more .title {
     color: var(--primary-black);
 }
 
@@ -131,20 +149,27 @@ section.jobs-header {
     display: flex;
     justify-content: flex-end;
     flex-wrap: wrap;
+    padding-left: 0;
+    padding-right: 0;
 }
 
 .apply {
     display: flex;
     /* flex-wrap: wrap; */
-    align-self: center;
+    /* align-self: center; */
 }
 
 .apply button {
     margin-top: 0;
+    padding: 10px 25px;
+}
+
+.role {
+    padding-top: 50px;
 }
 
 .role-desc {
-    margin-top: 3rem;
+    margin-top: 2rem;
     color: var(--primary-gray);
 }
 
@@ -193,9 +218,13 @@ div.grid-container:nth-last-child(2) {
     margin-top: 3rem;
 }
 
+.margin-top-2r {
+    margin-top: 2rem;
+}
+
 .job-status {
     display: inline-block;
-    padding: 15px 25px;
+    padding: 10px 25px;
     background-color: #DCDCDC;
     margin-right: 20px;
 }
