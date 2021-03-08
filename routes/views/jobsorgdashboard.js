@@ -18,9 +18,9 @@ exports = module.exports = function (req, res) {
     // item in the header navigation.
     locals.section = 'jobs';
     locals.data = {
-        company: [],
-        jobs: [],
-        ujobs: [],
+        company: {},
+        jobs: {},
+        ujobs: {},
         companyName: localStorage.getItem('loggedInCompany') || "",
     };
 
@@ -68,7 +68,7 @@ exports = module.exports = function (req, res) {
                 company: locals.data.company,
             },
 
-        }).where('state', 'draft')
+        }).where('state', ['draft', 'archived'])
             .sort('publishedDate')
             .populate({
                 path: 'company categories', populate: ['comapny.categories', 'categories'],
