@@ -67,9 +67,18 @@
                         <p class="text-justify">{{job.jobDescription}}</p>
                     {% endif %}
                     {% endif %}
-                    <p class="posted-time"> {% if job.publishedDate %}
-                        Posted {{job._.publishedDate.format("MMMM Do, YYYY")}}
-                        {%else%} Under Review {%endif%}</p>
+
+                    <div>
+                        {% if job.publishedDate %}
+                        <p class="posted-time">
+                            Published {{job._.publishedDate.format("MMMM Do, YYYY")}}
+                        </p>
+                        {%endif%}
+
+                        {% if job.state == 'published' %}
+                        <span class="label label-success">Active</span>
+                        {% endif %}
+                    </div>
                     <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{job.id}}">
                         VIEW MORE
                     </button>
@@ -204,9 +213,24 @@
                         <p class="text-justify">{{ujob.jobDescription}}</p>
                     {% endif %}
                     {% endif %}
-                    <p class="posted-time"> {% if ujob.publishedDate %}
-                        Posted {{ujob._.publishedDate.format("MMMM Do, YYYY")}}
-                        {%else%} Under Review {%endif%}</p>
+                    <div>
+                        {% if ujob.publishedDate %}
+                        <p class="posted-time">
+                            Published {{ujob._.publishedDate.format("MMMM Do, YYYY")}}                        
+                        </p>
+                        {%endif%}
+                        {% if ujob.deadline < data.todayDate %}
+                            {% if ujob.state == 'archived' %}
+                            <span class="label label-danger">Archived</span>
+                            {% else %}
+                            <span class="label label-default">Closed</span>
+                            {% endif %}
+                        {% elseif (ujob.state=='draft' ) %} 
+                        <span class="label label-info">Under Review</span>
+                        {% elseif (ujob.state=='archived' ) %}
+                        <span class="label label-danger">Archived</span>
+                        {%endif%}                      
+                    </div>                                
                     <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{ujob.id}}">
                         VIEW MORE
                     </button>
@@ -222,7 +246,18 @@
                                 <div class="col-sm-12 role-apply">
                                     <div class="apply">
                                         <div class="job-status">
-                                            {% if ujob.deadline < data.todayDate %} CLOSED {% elseif (ujob.state=='draft' ) %} INACTIVE {% else %} ACTIVE {%endif%}
+                                            <!-- {% if ujob.deadline < data.todayDate %} CLOSED {% elseif (ujob.state=='draft' ) %} INACTIVE {% else %} ACTIVE {%endif%} -->
+                                            {% if ujob.deadline < data.todayDate %}
+                                                {% if ujob.state == 'archived' %}
+                                                ARCHIVED
+                                                {% else %}
+                                                CLOSED
+                                                {% endif %}
+                                            {% elseif (ujob.state=='draft' ) %} 
+                                            INACTIVE
+                                            {% elseif (ujob.state=='archived' ) %}
+                                            ARCHIVED
+                                            {%endif%}
                                         </div>
                                         <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{ujob.id}}">
                                             CLOSE

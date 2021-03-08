@@ -69,7 +69,8 @@
                         <p class="text-justify">{{job.jobDescription}}</p>
                     {% endif %}
                     {% endif %}
-                    <p class="posted-time">Posted {{job._.publishedDate.format("MMMM Do, YYYY")}}</p>
+                    <p class="posted-time">
+                        Published {{job._.publishedDate.format("MMMM Do, YYYY")}}</p>
                     <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{job.id}}">
                         VIEW MORE
                     </button>
@@ -219,7 +220,7 @@
                         <p class="text-justify">{{job.jobDescription}}</p>
                     {% endif %}
                     {% endif %}
-                    <p class="posted-time">Posted {{job._.publishedDate.format("MMMM Do, YYYY")}}</p>
+                    <p class="posted-time">Published {{job._.publishedDate.format("MMMM Do, YYYY")}}</p>
                     <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{job.id}}">
                         VIEW MORE
                     </button>

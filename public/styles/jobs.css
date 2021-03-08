@@ -123,6 +123,8 @@ section.jobs-header {
 
 .__jobs_preview_card .posted-time {
     font-size: 12px;
+    display: inline-block;
+    margin-right: 8px;
 }
 
 
