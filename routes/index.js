@@ -56,13 +56,13 @@ exports = module.exports = function(app) {
     app.get('/privacy', routes.views.privacy);
     app.get('/terms', routes.views.terms);
     app.get('/jobs', routes.views.jobs);
-    app.get('/jobs/:org', routes.views.jobsorgdashboard);
+    app.get('/jobs/:org', middleware.verifyToken, routes.views.jobsorgdashboard);
     app.get('/jobs/register/org-details', routes.views.jobsregister);
     app.post('/jobs/register/org-details', routes.views.jobsregister);
     app.get('/jobs/register/contact-details', routes.views.jobsregister_contact);
     app.post('/jobs/register/contact-details', routes.views.jobsregister_contact);
-    app.get('/jobs/post/new', routes.views.jobdetails);
-    app.post('/jobs/post/new', routes.views.jobdetails);
+    // app.get('/jobs/post/new', routes.views.jobdetails);
+    app.post('/jobs/post/new', middleware.verifyToken, routes.views.jobdetails);
     app.get('/jobs/org/login', routes.views.jobslogin);
     app.post('/jobs/org/login', routes.views.jobslogin);
     app.get('/success', routes.views.successMessage);

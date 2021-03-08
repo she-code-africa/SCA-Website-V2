@@ -8,6 +8,7 @@
     "country-calling-code": "0.0.3",
     "dotenv": "4.0.0",
     "express-sslify": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
     "keystone": "^4.2.1",
     "keystone-email": "^1.1.0",
     "lodash": "^4.17.19",
