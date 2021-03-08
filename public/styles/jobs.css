@@ -490,8 +490,15 @@ select option[value=""] {
 .jobsDropdownMenuContainer {
     display: flex;
     justify-content: flex-end;
-    padding: 15px 20px 0;
+    padding: 15px 50px 0;
 }
+
+@media screen and (max-width: 768px) {
+    .jobsDropdownMenuContainer {
+        padding: 15px 20px 0;
+    }
+}
+
 
 .jobsDropdownMenuContainer.open > .dropdown-menu-right {
     margin-right: 50px;
