@@ -61,7 +61,7 @@ exports = module.exports = function(app) {
     app.post('/jobs/register/org-details', routes.views.jobsregister);
     app.get('/jobs/register/contact-details', routes.views.jobsregister_contact);
     app.post('/jobs/register/contact-details', routes.views.jobsregister_contact);
-    // app.get('/jobs/post/new', routes.views.jobdetails);
+    app.get('/jobs/post/new', middleware.verifyToken, routes.views.jobdetails);
     app.post('/jobs/post/new', middleware.verifyToken, routes.views.jobdetails);
     app.get('/jobs/org/login', routes.views.jobslogin);
     app.post('/jobs/org/login', routes.views.jobslogin);
