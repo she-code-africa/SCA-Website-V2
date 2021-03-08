@@ -8,6 +8,7 @@
  * modules in your project's /lib directory.
  */
 var _ = require('lodash');
+var jwt = require('jsonwebtoken');
 var localStorage = require('../utils/localStorage.js');
 
 
@@ -69,5 +70,29 @@ exports.logoutUser = function(req, res, next) {
         res.redirect('/jobs');
     } else {
         alert('Log out request failed, please try again');
+    }
+};
+
+exports.verifyToken = function(req, res, next) {
+    const token = localStorage.getItem('token');
+    if (token) {
+        jwt.verify(token, process.env.TOKEN_SECRET, (err, decoded) => {
+            if (err) {
+                if (err.message === 'jwt expired') {
+                    localStorage.removeItem('token');
+                    // req.flash('error', 'Authentication token has expired, please log in again');
+                    res.redirect('/jobs/org/login');
+                } else {
+                    localStorage.removeItem('token');
+                    // req.flash('error', 'Invalid authentication token, please log in to view page');
+                    res.redirect('/jobs/org/login');
+                }
+            } else {
+                next();
+            }
+        });
+    } else {
+        // req.flash('error', 'Please log in to view page');
+        res.redirect('/jobs/org/login');
     }
 };

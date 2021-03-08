@@ -1,5 +1,6 @@
 const cons = require('consolidate');
 var keystone = require('keystone');
+var jwt = require('jsonwebtoken');
 var Company = keystone.list('Company');
 var localStorage = require('../../utils/localStorage');
 const countryCodes = require('country-calling-code')
@@ -61,8 +62,10 @@ exports = module.exports = function (req, res) {
                 }
             }
             else {
+                const token = jwt.sign({}, process.env.TOKEN_SECRET, { expiresIn: process.env.TOKEN_EXPIRY });
                 localStorage.removeItem('companyData');
                 localStorage.setItem('loggedInCompany', newCompany.slug);
+                localStorage.setItem('token', token);
                 return res.redirect('/jobs/' + newCompany.slug);
             }
             next();
