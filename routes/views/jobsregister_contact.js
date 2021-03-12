@@ -45,9 +45,9 @@ exports = module.exports = function (req, res) {
         data.companyName = companyDetails.name;
         data.companyUrl = companyDetails.website;
         data.location = companyDetails.location;
-        data.industry = companyDetails.industry;
+        // data.industry = companyDetails.industry;
         data.address = companyDetails.address;
-        data.categories = companyDetails.categories;
+        // data.categories = companyDetails.categories;
 
         newCompany.getUpdateHandler(req).process(data, {
             flashErrors: true,
