@@ -16,7 +16,8 @@ exports = module.exports = function (req, res) {
         todayDate: new Date(),
         company: [],
         companyName: localStorage.getItem('loggedInCompany') || "",
-    }
+    },
+    locals.loggedOutUser = null
 
     //company details
     view.on('init', function (next) {
@@ -44,6 +45,17 @@ exports = module.exports = function (req, res) {
                 locals.data.jobs = results;
                 next(err);
             })
+    });
+
+    //check if user got to this page after a logout
+    view.on('init', function (next) {
+        const loggedOutUser = localStorage.getItem('loggedOutUser');
+
+        if (loggedOutUser === 'true') {
+            localStorage.removeItem('loggedOutUser');
+            locals.loggedOutUser = true;
+        }
+        next();
     });
 
     // Render the view

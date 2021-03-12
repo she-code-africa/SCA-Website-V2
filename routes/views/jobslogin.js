@@ -16,6 +16,18 @@ exports = module.exports = function(req, res) {
     locals.section = 'jobs';
     locals.company = [];
     locals.formerror = false;
+    locals.sessionExpired = undefined;
+
+    //check if user got to this page after session expired
+    view.on('init', function (next) {
+        const sessionExpiredMsg = localStorage.getItem('sessionExpired') ? localStorage.getItem('sessionExpired') : '';
+
+        if (sessionExpiredMsg) {
+            localStorage.removeItem('sessionExpired');
+            locals.sessionExpired = `${sessionExpiredMsg}`;
+        }
+        next();
+    });
 
     view.on('post', { action: '' }, function(next) {
         var q = Company.model.findOne()

@@ -5,7 +5,7 @@ var localStorage = require('../../utils/localStorage');
 var Job = keystone.list('Job');
 
 exports = module.exports = function (req, res) {
-    const companyData = localStorage.getItem('loggedInCompany') || "";
+    const companyData = localStorage.getItem('loggedInCompany') ? localStorage.getItem('loggedInCompany') : "";
     if (companyData === "") {
         return res.redirect('/jobs');
     } else if (companyData !== req.params.org) {
