@@ -8,6 +8,8 @@
  * modules in your project's /lib directory.
  */
 var _ = require('lodash');
+var jwt = require('jsonwebtoken');
+var localStorage = require('../utils/localStorage.js');
 
 
 /**
@@ -24,7 +26,7 @@ exports.initLocals = function(req, res, next) {
         { label: 'Donate/Partner', key: 'partners', href: '/donate-partner' },
         { label: 'Chapters', key: 'chapters', href: '/chapters' },
         { label: 'Events', key: 'events', href: '/events' },
-        // { label: 'Job Opportunities', key: 'jobs', href: '/jobs' },
+        { label: 'Job Opportunities', key: 'jobs', href: '/jobs' },
         // { label: 'Community', key: 'community', href: '/community' },
         // { label: 'Gallery', key: 'gallery', href: '/gallery' },
         // { label: 'Contact', key: 'contact', href: '/contact' },
@@ -59,5 +61,44 @@ exports.requireUser = function(req, res, next) {
         res.redirect('/keystone/signin');
     } else {
         next();
+    }
+};
+
+exports.logoutUser = function(req, res, next) {
+    localStorage.removeItem('loggedInCompany');
+    localStorage.removeItem('token');
+    if (!localStorage.getItem('loggedInCompany') && !localStorage.removeItem('token')) {
+        localStorage.setItem('loggedOutUser', true)
+        res.redirect('/jobs');
+    } else {
+        alert('Log out request failed, please try again');
+    }
+};
+
+exports.verifyToken = function(req, res, next) {
+    let locals = res.locals;
+    const token = localStorage.getItem('token');
+    locals.activeSession = undefined;
+
+    if (token) {
+        jwt.verify(token, process.env.TOKEN_SECRET, (err, decoded) => {
+            if (err) {
+                localStorage.removeItem('loggedInCompany');
+                localStorage.removeItem('token');
+
+                if (err.message === 'jwt expired') {
+                    localStorage.setItem('sessionExpired', 'Session expired, please log in to continue');
+                    res.redirect('/jobs/org/login');
+                } else {
+                    localStorage.setItem('sessionExpired', 'Invalid session, please log in to continue');
+                    res.redirect('/jobs/org/login');                  
+                }
+            } else {
+                next();
+            }
+        });
+    } else {
+        localStorage.setItem('sessionExpired', 'You need to be logged in to continue');
+        res.redirect('/jobs/org/login');
     }
 };

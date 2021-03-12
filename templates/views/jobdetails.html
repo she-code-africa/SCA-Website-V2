@@ -18,41 +18,61 @@
     </section>
     {{emailmessage}}
     <section class="__register_form __jobdetails">
+        {% if errorMessage %}
+        <div class="alert alert-danger flex-center">
+            {{errorMessage}}
+        </div>
+        {% endif %}
         <form class="flex-center" method="POST">
             <input type="hidden" name="action" value="">
             <div class="form-group">
-                <input type="text" name="title" class="form-control" placeholder="Job Title *" value="{{formData.title}}" required>
+                <input type="text" name="title" class="form-control" placeholder="Job Title *"
+                    value="{{formData.title}}" required>
             </div>
 
             <div class="form-group">
-                <select name="categories" class="form-control" value="{{formData.categories}}" required>
+                <select name="categories" id="categories" class="form-control" value="{{formData.categories}}" required>
 
-                    <option value="" disabled selected hidden>Specialization *</option>
+                    <option value="" disabled selected hidden>Job Type*</option>
                     {% for i in data.categories %}
                     <option value="{{i.id}}">{{i.name}}</option>
                     {% endfor%}
+                    <option value="other">Other</option>
                 </select>
             </div>
 
+            <div class="form-group" style="display: none;" id="specialization">
+                <input type="text" name="specialization" class="form-control" placeholder="Specialization *"
+                    value="{{formData.categories}}">
+            </div>
+
             <div class="form-group">
-                <input type="text" title="Application Deadline " onfocus="(this.type='date')" onblur="(this.type='text')" name="deadline" class="form-control" placeholder="Application Deadline *" value="{{formData.deadline}}" required>
+                <input type="text" title="Application Deadline " onfocus="(this.type='date')"
+                    onblur="(this.type='text')" name="deadline" class="form-control"
+                    placeholder="Application Deadline *" value="{{formData.deadline}}" required>
             </div>
 
             <div class="form-group">
                 <!-- <input type="text" name="minimumExperience" class="form-control" placeholder="Minimum Experience *" value="{{formData.minimumExperience}}" required> -->
-                <textarea name="minimumExperience" class="form-control job-desc" placeholder="Minimum Experience *" rows="3" value="{{formData.minimumExperience}}" required></textarea>
+                <textarea name="minimumExperience" class="form-control job-desc" placeholder="Minimum Experience *"
+                    rows="3" value="{{formData.minimumExperience}}" required></textarea>
             </div>
 
             <div class="form-group">
-                <textarea name="jobDescription" class="form-control job-desc" rows="8" placeholder="Job Description *" value="{{formData.jobDescription}}" required></textarea>
+                <textarea name="jobDescription" class="form-control job-desc" rows="8" placeholder="Job Description *"
+                    value="{{formData.jobDescription}}" required></textarea>
             </div>
 
             <div class="form-group">
-                <input type="text" name="salaryRange" class="form-control" value="{{formData.salaryRange}}" placeholder="Salary Range (e.g 150,000 - 200,000)" required>
+                <input type="text" name="salaryRange" class="form-control" value="{{formData.salaryRange}}"
+                    placeholder="Salary Range (e.g 150,000 - 200,000)" required>
             </div>
 
             <div class="form-group">
-                <input type="url" name="applicationLink" class="form-control" placeholder="Application Website *" value="{{formData.applicationLink}}" required>
+                <label class="text text-danger text-center">Must Include "http://" or "https://"</label>
+                <input type="url" name="applicationLink" class="form-control"
+                    placeholder="Application Website(e.g https://apply.com) *" value="{{formData.applicationLink}}"
+                    required>
             </div>
 
             <button type="submit" class="btn sca-btn pink-btn">
@@ -61,6 +81,19 @@
             <!-- href="/success" -->
         </form>
     </section>
-
 </div>
+<script>
+    var category = document.getElementById("categories");
+    var specialization = document.getElementById("specialization");
+    category.onchange = function () {
+        if (category.value === "other") {
+            specialization.style.display = "block";
+            specialization.required = true;
+           
+        } else {
+            specialization.style.display = "none";
+            specialization.required = false;
+        }
+    }
+</script>
 {% endblock %}

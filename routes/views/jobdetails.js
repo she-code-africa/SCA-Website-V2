@@ -44,7 +44,6 @@ exports = module.exports = function (req, res) {
         var newJob = new Job.model();
         var data = req.body;
         data.company = locals.company;
-
         newJob.getUpdateHandler(req).process(data, {
             flashErrors: true,
         }, function (err) {
@@ -52,12 +51,13 @@ exports = module.exports = function (req, res) {
                 locals.validationErrors = err.errors;
                 req.flash('error', err.errors);
             } else {
+                data.specialization = ''
                 req.flash('success', 'Added');
                 localStorage.setItem('successMessages', newJob.title);
                 return res.redirect('/success');
             }
             next();
-        })
+        });
     });
 
     // Render the view
