@@ -122,12 +122,15 @@
                                         <p class="__jobdeets_body">{{job.minimumExperience}}</p>
                                     </div>
                                     <div class="industry">
-                                        <p class="__jobdeets_header">Industry</p>
-                                        <p class="__jobdeets_body">{%if job.company.categories %}
-                                            {{job.company.categories.name}} {% else %}
-                                            {{job.company.industry}} {%endif%}
+                                        <p class="__jobdeets_header">Job Category</p>
+                                        <p class="__jobdeets_body">
+                                            {%if job.categories %} 
+                                            {{job.categories.name}}
+                                            {%else%} 
+                                            {{job.specialization}} 
+                                            {%endif%}
                                         </p>
-                                        <p class="__jobdeets_body">{{job.categories.name}}</p>
+                                        <!-- <p class="__jobdeets_body">{{job.categories.name}}</p> -->
                                     </div>
                                     <div class="employment-type">
                                         <p class="__jobdeets_header">Deadline</p>

@@ -16,12 +16,12 @@ exports = module.exports = function (req, res) {
     locals.formData = req.body || {};
     // locals.validationErrors = {}; 
 
-    view.on('init', function (next) {
-        CompanyCategory.model.find().sort('name').exec(function (err, result) {
-            locals.data.categories = result;
-            next(err);
-        });
-    });
+    // view.on('init', function (next) {
+    //     CompanyCategory.model.find().sort('name').exec(function (err, result) {
+    //         locals.data.categories = result;
+    //         next(err);
+    //     });
+    // });
 
     // on adding company
     view.on('post', { action: '' }, function () {
@@ -33,12 +33,12 @@ exports = module.exports = function (req, res) {
             address: locals.formData.org_address,
             location: locals.formData.location,
         };
-        if (locals.formData.org_industry === 'other') {
-            dataToSave.categories = ''
-            dataToSave.industry = locals.formData.industry
-        } else {
-            dataToSave.categories = locals.formData.org_industry
-        }
+        // if (locals.formData.org_industry === 'other') {
+        //     dataToSave.categories = ''
+        //     dataToSave.industry = locals.formData.industry
+        // } else {
+        //     dataToSave.categories = locals.formData.org_industry
+        // }
         // console.log(dataToSave);
         const dataToSaveString = JSON.stringify(dataToSave);
 
