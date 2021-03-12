@@ -366,9 +366,9 @@ section.__register_welcome .flex-center .close {
     .connector {
         margin-top: 6px;
     }
-    .modal-dialog {
+    /* .modal-dialog {
         width: 100vw;
-    }
+    } */
 }
 
 @media screen and (max-width: 375px) {

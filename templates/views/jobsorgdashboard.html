@@ -62,7 +62,7 @@
                     </p> -->
                     {% if job.jobDescription %}
                     {% if job.jobDescription.length > 200 %} 
-                        <p class="text-justify">{{ job.jobDescription.substring(0, 200) }}...</p>
+                        <p class="text-justify">{{ job.jobDescription.substring(0, 120) }}...</p>
                     {% else %}
                         <p class="text-justify">{{job.jobDescription}}</p>
                     {% endif %}
@@ -213,7 +213,7 @@
                     </p> -->
                     {% if ujob.jobDescription %}
                     {% if ujob.jobDescription.length > 200 %} 
-                        <p class="text-justify">{{ ujob.jobDescription.substring(0, 200) }}...</p>
+                        <p class="text-justify">{{ ujob.jobDescription.substring(0, 120) }}...</p>
                     {% else %}
                         <p class="text-justify">{{ujob.jobDescription}}</p>
                     {% endif %}
