@@ -66,7 +66,9 @@ exports.requireUser = function(req, res, next) {
 
 exports.logoutUser = function(req, res, next) {
     localStorage.removeItem('loggedInCompany');
-    if (!localStorage.getItem('loggedInCompany')) {
+    localStorage.removeItem('token');
+    if (!localStorage.getItem('loggedInCompany') && !localStorage.removeItem('token')) {
+        localStorage.setItem('loggedOutUser', true)
         res.redirect('/jobs');
     } else {
         alert('Log out request failed, please try again');
@@ -74,25 +76,29 @@ exports.logoutUser = function(req, res, next) {
 };
 
 exports.verifyToken = function(req, res, next) {
+    let locals = res.locals;
     const token = localStorage.getItem('token');
+    locals.activeSession = undefined;
+
     if (token) {
         jwt.verify(token, process.env.TOKEN_SECRET, (err, decoded) => {
             if (err) {
+                localStorage.removeItem('loggedInCompany');
+                localStorage.removeItem('token');
+
                 if (err.message === 'jwt expired') {
-                    localStorage.removeItem('token');
-                    // req.flash('error', 'Authentication token has expired, please log in again');
+                    localStorage.setItem('sessionExpired', 'Session expired, please log in to continue');
                     res.redirect('/jobs/org/login');
                 } else {
-                    localStorage.removeItem('token');
-                    // req.flash('error', 'Invalid authentication token, please log in to view page');
-                    res.redirect('/jobs/org/login');
+                    localStorage.setItem('sessionExpired', 'Invalid session, please log in to continue');
+                    res.redirect('/jobs/org/login');                  
                 }
             } else {
                 next();
             }
         });
     } else {
-        // req.flash('error', 'Please log in to view page');
+        localStorage.setItem('sessionExpired', 'You need to be logged in to continue');
         res.redirect('/jobs/org/login');
     }
 };

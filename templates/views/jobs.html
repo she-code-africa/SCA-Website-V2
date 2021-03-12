@@ -1,5 +1,14 @@
 {% extends "layouts/default.html" %} {% block css %}
-<link rel="stylesheet" type="text/css" href="styles/jobs.css"> {% endblock %} {% block intro %}
+<link rel="stylesheet" type="text/css" href="styles/jobs.css"> {% endblock %}
+
+{% block intro %}
+{% if loggedOutUser %}
+<div id="toast" class="toast-modal" style="display: block">
+    <p>Log out was successful</p>
+    <span class="close" onclick="closeModal();">&#215;</span>
+</div>
+{% endif %}
+
 {% if data.companyName %}
     <div class="dropdown jobsDropdownMenuContainer">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" id="jobsDropdownMenu">
@@ -347,5 +356,12 @@
         {%endif%}
     </div>
 </section>
+{% endblock %}
 
+{% block js %}
+    <script>
+        function closeModal() {
+            document.getElementById("toast").style.display = "none";
+        }
+    </script>
 {% endblock %}
