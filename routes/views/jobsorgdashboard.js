@@ -23,6 +23,15 @@ exports = module.exports = function (req, res) {
         ujobs: {},
         companyName: localStorage.getItem('loggedInCompany') || "",
     };
+    locals.dateDiff = function (deadline) {
+        jobsDeadline = new Date(deadline);
+        today = new Date();
+        return Math.floor(
+            (Date.UTC(jobsDeadline.getFullYear(), jobsDeadline.getMonth(), jobsDeadline.getDate()) 
+            - Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) ) 
+            / (1000 * 60 * 60 * 24)
+        );
+    }
 
     //company details
     view.on('init', function (next) {

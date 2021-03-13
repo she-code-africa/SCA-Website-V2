@@ -76,7 +76,11 @@
                         {%endif%}
 
                         {% if job.state == 'published' %}
+                        {% if dateDiff(job.deadline) >= 0 %}
                         <span class="label label-success">Active</span>
+                        {% else %}
+                        <span class="label label-default">Closed</span>
+                        {% endif %}
                         {% endif %}
                     </div>
                     <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{job.id}}">
@@ -95,7 +99,7 @@
                                 <div class="col-sm-12 role-apply">
                                     <div class="apply">
                                         <div class="job-status">
-                                            {% if job.deadline < data.todayDate %} CLOSED {% elseif (job.state=='draft' ) %} INACTIVE {% else %} ACTIVE {%endif%}
+                                            {% if dateDiff(job.deadline) < 0 %} CLOSED {% elseif (job.state=='draft' ) %} INACTIVE {% else %} ACTIVE {%endif%}
                                         </div>
                                         <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{job.id}}">
                                             CLOSE
@@ -224,7 +228,7 @@
                             Published {{ujob._.publishedDate.format("MMMM Do, YYYY")}}                        
                         </p>
                         {%endif%}
-                        {% if ujob.deadline < data.todayDate %}
+                        {% if dateDiff(ujob.deadline) < 0 %}
                             {% if ujob.state == 'archived' %}
                             <span class="label label-danger">Archived</span>
                             {% else %}
@@ -234,7 +238,7 @@
                         <span class="label label-info">Under Review</span>
                         {% elseif (ujob.state=='archived' ) %}
                         <span class="label label-danger">Archived</span>
-                        {%endif%}                      
+                        {%endif%}
                     </div>                                
                     <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{ujob.id}}">
                         VIEW MORE

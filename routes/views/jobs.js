@@ -16,8 +16,16 @@ exports = module.exports = function (req, res) {
         todayDate: new Date(),
         company: [],
         companyName: localStorage.getItem('loggedInCompany') || "",
-    },
-    locals.loggedOutUser = null
+    };
+    locals.loggedOutUser = null;
+    locals.dateDiff = function (deadline) {
+        jobsDeadline = new Date(deadline);
+        today = new Date();
+        return Math.floor(
+            (Date.UTC(jobsDeadline.getFullYear(), jobsDeadline.getMonth(), jobsDeadline.getDate()) 
+            - Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) ) 
+            /(1000 * 60 * 60 * 24));
+    };
 
     //company details
     view.on('init', function (next) {
