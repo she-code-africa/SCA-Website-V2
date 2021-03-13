@@ -45,154 +45,156 @@
     <div class="container width-100 ">
         <h3 class="text-center job-type-header">Published Jobs</h3>
         {% if data.jobs.results|length %}
-        <div class="row flex-center flex-wrap">
+            <!-- Jobs list row -->
+            <div class="row flex-center flex-wrap">
             {% for job in data.jobs.results %}
-            <div class="col-lg-4 col-sm-6 col-xs-12">
-                <div class="__jobs_preview_card">
-                    <h3 class="title">
-                        {{job.title}}
-                    </h3>
-                    <p class="org">
-                        {%if job.company %}
-                        {{job.company.companyName}}, {{job.company.location}}
-                        {%endif%}
-                    </p>
-                    <!-- <p>{%if job.company.categories %} {{job.company.categories.name}} {% else %}
-                        {{job.company.industry}} {%endif%}
-                    </p> -->
-                    {% if job.jobDescription %}
-                    {% if job.jobDescription.length > 200 %} 
-                        <p class="text-justify">{{ job.jobDescription.substring(0, 120) }}...</p>
-                    {% else %}
-                        <p class="text-justify">{{job.jobDescription}}</p>
-                    {% endif %}
-                    {% endif %}
-
-                    <div>
-                        {% if job.publishedDate %}
-                        <p class="posted-time">
-                            Published {{job._.publishedDate.format("MMMM Do, YYYY")}}
+                <div class="col-lg-4 col-sm-6 col-xs-12">
+                    <div class="__jobs_preview_card">
+                        <h3 class="title">
+                            {{job.title}}
+                        </h3>
+                        <p class="org">
+                            {%if job.company %}
+                            {{job.company.companyName}}, {{job.company.location}}
+                            {%endif%}
                         </p>
-                        {%endif%}
-
-                        {% if job.state == 'published' %}
-                        {% if dateDiff(job.deadline) >= 0 %}
-                        <span class="label label-success">Active</span>
+                        <!-- <p>{%if job.company.categories %} {{job.company.categories.name}} {% else %}
+                            {{job.company.industry}} {%endif%}
+                        </p> -->
+                        {% if job.jobDescription %}
+                        {% if job.jobDescription.length > 120 %} 
+                            <p class="text-justify">{{ job.jobDescription.substring(0, 120) }}...</p>
                         {% else %}
-                        <span class="label label-default">Closed</span>
+                            <p class="text-justify">{{job.jobDescription}}</p>
                         {% endif %}
                         {% endif %}
-                    </div>
-                    <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{job.id}}">
-                        VIEW MORE
-                    </button>
-                </div>
-            </div>
-            <!-- Modal -->
-            <div id="{{job.id}}" class="modal fade job-view-more" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
 
-                    <div class="modal-content ">
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-sm-12 role-apply">
-                                    <div class="apply">
-                                        <div class="job-status">
-                                            {% if dateDiff(job.deadline) < 0 %} CLOSED {% elseif (job.state=='draft' ) %} INACTIVE {% else %} ACTIVE {%endif%}
+                        <div>
+                            {% if job.publishedDate %}
+                            <p class="posted-time">
+                                Published {{job._.publishedDate.format("MMMM Do, YYYY")}}
+                            </p>
+                            {%endif%}
+
+                            {% if job.state == 'published' %}
+                            {% if dateDiff(job.deadline) >= 0 %}
+                            <span class="label label-success">Active</span>
+                            {% else %}
+                            <span class="label label-default">Closed</span>
+                            {% endif %}
+                            {% endif %}
+                        </div>
+                        <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{job.id}}">
+                            VIEW MORE
+                        </button>
+                    </div>
+                </div>
+                <!-- Modal -->
+                <div id="{{job.id}}" class="modal fade job-view-more" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+
+                        <div class="modal-content ">
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-12 role-apply">
+                                        <div class="apply">
+                                            <div class="job-status">
+                                                {% if dateDiff(job.deadline) < 0 %} CLOSED {% elseif (job.state=='draft' ) %} INACTIVE {% else %} ACTIVE {%endif%}
+                                            </div>
+                                            <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{job.id}}">
+                                                CLOSE
+                                            </button>
                                         </div>
-                                        <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{job.id}}">
-                                            CLOSE
-                                        </button>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row role-desc">
-                                <div class="col-sm-12">
-                                    <p style="text-align: justify;">
-                                        {{job.jobDescription}}
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 grid-container margin-top-2r">
-                                    <div class="level">
-                                        <p class="__jobdeets_header">Minimum Experience</p>
-                                        <p class="__jobdeets_body">{{job.minimumExperience}}</p>
-                                    </div>
-                                    <div class="industry">
-                                        <p class="__jobdeets_header">Job Category</p>
-                                        <!-- <p class="__jobdeets_body">{%if job.company.categories %}
-                                            {{job.company.categories.name}} {% else %}
-                                            {{job.company.industry}} {%endif%}
-                                        </p> -->
-                                        <p class="__jobdeets_body">
-                                            {%if job.categories %} 
-                                            {{job.categories.name}}
-                                            {%else%} 
-                                            {{job.specialization}} 
-                                            {%endif%}
+                                <div class="row role-desc">
+                                    <div class="col-sm-12">
+                                        <p style="text-align: justify;">
+                                            {{job.jobDescription}}
                                         </p>
                                     </div>
-                                    <div class="employment-type">
-                                        <p class="__jobdeets_header">Deadline</p>
-                                        <p class="__jobdeets_body">{{job._.deadline.format("MMMM Do, YYYY")}}</p>
-                                    </div>
-                                    <div class="salary-range">
-                                        <p class="__jobdeets_header">Salary Range</p>
-                                        <p class="__jobdeets_body">{{job.salaryRange}}</p>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 grid-container margin-top-2r">
+                                        <div class="level">
+                                            <p class="__jobdeets_header">Minimum Experience</p>
+                                            <p class="__jobdeets_body">{{job.minimumExperience}}</p>
+                                        </div>
+                                        <div class="industry">
+                                            <p class="__jobdeets_header">Job Category</p>
+                                            <!-- <p class="__jobdeets_body">{%if job.company.categories %}
+                                                {{job.company.categories.name}} {% else %}
+                                                {{job.company.industry}} {%endif%}
+                                            </p> -->
+                                            <p class="__jobdeets_body">
+                                                {%if job.categories %} 
+                                                {{job.categories.name}}
+                                                {%else%} 
+                                                {{job.specialization}} 
+                                                {%endif%}
+                                            </p>
+                                        </div>
+                                        <div class="employment-type">
+                                            <p class="__jobdeets_header">Deadline</p>
+                                            <p class="__jobdeets_body">{{job._.deadline.format("MMMM Do, YYYY")}}</p>
+                                        </div>
+                                        <div class="salary-range">
+                                            <p class="__jobdeets_header">Salary Range</p>
+                                            <p class="__jobdeets_body">{{job.salaryRange}}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <!-- End of Modal body -->
                         </div>
-                        <!-- End of Modal body -->
+
+                        <!-- End of Modal content -->
                     </div>
-
-                    <!-- End of Modal content -->
+                    <!-- End of Modal dialog -->
                 </div>
-                <!-- End of Modal dialog -->
+                <!-- End of Modal -->
+            {% endfor %}
             </div>
-            <!-- End of Modal -->
 
+            <!-- Pagination row -->
             {% if data.jobs.totalPages > 1 %}
             <div class="row flex-center flex-wrap">
-            <ul class="pagination">
-                {% if data.jobs.previous %}
-                <li>
-                    <a href="?page={{ data.jobs.previous }}">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                </li>
-                {% else %}
-                <li class="disabled">
-                    <a href="?page=1">
-                        <span class="glyphicon glyphicon-chevron-left"></span>
-                    </a>
-                </li>
-                {% endif %} {% for p in data.jobs.pages %}
-                {% set class = ( "active" if data.jobs.currentPage == p else "" ) %}
-                <li class="{{ class }}">
-                    {% set page = ( (data.jobs.totalPages if i else 1) if p == "..." else p ) %}
-                    <a href="?page={{ page }}">{{ p }}</a>
-                </li>
-                {% endfor %} {% if data.jobs.next %}
-                <li>
-                    <a href="?page={{ data.jobs.next }}">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
-                </li>
-                {% else %}
-                <li class="disabled">
-                    <a href="?page={{ data.jobs.totalPages }}">
-                        <span class="glyphicon glyphicon-chevron-right"></span>
-                    </a>
-                </li>
-                {% endif %}
-            </ul>         
-        </div>
-        {% endif %}
-        {% endfor %}
-        </div>
+                <ul class="pagination">
+                    {% if data.jobs.previous %}
+                    <li>
+                        <a href="?page={{ data.jobs.previous }}">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="disabled">
+                        <a href="?page=1">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                    </li>
+                    {% endif %} {% for p in data.jobs.pages %}
+                    {% set class = ( "active" if data.jobs.currentPage == p else "" ) %}
+                    <li class="{{ class }}">
+                        {% set page = ( (data.jobs.totalPages if i else 1) if p == "..." else p ) %}
+                        <a href="?page={{ page }}">{{ p }}</a>
+                    </li>
+                    {% endfor %} {% if data.jobs.next %}
+                    <li>
+                        <a href="?page={{ data.jobs.next }}">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </li>
+                    {% else %}
+                    <li class="disabled">
+                        <a href="?page={{ data.jobs.totalPages }}">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+            {% endif %}
         {% else %}
         <p class="text-center">You have no published jobs</p>
         {% endif %}   
@@ -200,136 +202,138 @@
     <div class="container width-100 ">
         <h3 class="text-center job-type-header">Unpublished Jobs</h3>
         {% if data.ujobs.results|length %}
+        <!-- Jobs row -->
         <div class="row flex-center flex-wrap">
-            {% for ujob in data.ujobs.results %}
-            <div class="col-lg-4 col-sm-6 col-xs-12">
-                <div class="__jobs_preview_card">
-                    <h3 class="title">
-                        {{ujob.title}}
-                    </h3>
-                    <p class="org">
-                        {%if ujob.company %}
-                        {{ujob.company.companyName}}, {{ujob.company.location}}
-                        {%endif%}
-                    </p>
-                    <!-- <p>{%if ujob.company.categories %} {{ujob.company.categories.name}} {% else %}
-                        {{ujob.company.industry}} {%endif%}
-                    </p> -->
-                    {% if ujob.jobDescription %}
-                    {% if ujob.jobDescription.length > 200 %} 
-                        <p class="text-justify">{{ ujob.jobDescription.substring(0, 120) }}...</p>
-                    {% else %}
-                        <p class="text-justify">{{ujob.jobDescription}}</p>
-                    {% endif %}
-                    {% endif %}
-                    <div>
-                        {% if ujob.publishedDate %}
-                        <p class="posted-time">
-                            Published {{ujob._.publishedDate.format("MMMM Do, YYYY")}}                        
+            {% for ujob in data.ujobs.results %}          
+                <div class="col-lg-4 col-sm-6 col-xs-12">
+                    <div class="__jobs_preview_card">
+                        <h3 class="title">
+                            {{ujob.title}}
+                        </h3>
+                        <p class="org">
+                            {%if ujob.company %}
+                            {{ujob.company.companyName}}, {{ujob.company.location}}
+                            {%endif%}
                         </p>
-                        {%endif%}
-                        {% if dateDiff(ujob.deadline) < 0 %}
-                            {% if ujob.state == 'archived' %}
+                        <!-- <p>{%if ujob.company.categories %} {{ujob.company.categories.name}} {% else %}
+                            {{ujob.company.industry}} {%endif%}
+                        </p> -->
+                        {% if ujob.jobDescription %}
+                        {% if ujob.jobDescription.length > 200 %} 
+                            <p class="text-justify">{{ ujob.jobDescription.substring(0, 120) }}...</p>
+                        {% else %}
+                            <p class="text-justify">{{ujob.jobDescription}}</p>
+                        {% endif %}
+                        {% endif %}
+                        <div>
+                            {% if ujob.publishedDate %}
+                            <p class="posted-time">
+                                Published {{ujob._.publishedDate.format("MMMM Do, YYYY")}}                        
+                            </p>
+                            {%endif%}
+                            {% if dateDiff(ujob.deadline) < 0 %}
+                                {% if ujob.state == 'archived' %}
+                                <span class="label label-danger">Archived</span>
+                                {% else %}
+                                <span class="label label-default">Closed</span>
+                                {% endif %}
+                            {% elseif (ujob.state=='draft' ) %} 
+                            <span class="label label-info">Under Review</span>
+                            {% elseif (ujob.state=='archived' ) %}
                             <span class="label label-danger">Archived</span>
-                            {% else %}
-                            <span class="label label-default">Closed</span>
-                            {% endif %}
-                        {% elseif (ujob.state=='draft' ) %} 
-                        <span class="label label-info">Under Review</span>
-                        {% elseif (ujob.state=='archived' ) %}
-                        <span class="label label-danger">Archived</span>
-                        {%endif%}
-                    </div>                                
-                    <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{ujob.id}}">
-                        VIEW MORE
-                    </button>
-                </div>
-            </div>
-            <!-- Modal -->
-            <div id="{{ujob.id}}" class="modal fade job-view-more" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content ">
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-sm-12 role-apply">
-                                    <div class="apply">
-                                        <div class="job-status">
-                                            <!-- {% if ujob.deadline < data.todayDate %} CLOSED {% elseif (ujob.state=='draft' ) %} INACTIVE {% else %} ACTIVE {%endif%} -->
-                                            {% if ujob.deadline < data.todayDate %}
-                                                {% if ujob.state == 'archived' %}
-                                                ARCHIVED
-                                                {% else %}
-                                                CLOSED
-                                                {% endif %}
-                                            {% elseif (ujob.state=='draft' ) %} 
-                                            INACTIVE
-                                            {% elseif (ujob.state=='archived' ) %}
-                                            ARCHIVED
-                                            {%endif%}
-                                        </div>
-                                        <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{ujob.id}}">
-                                            CLOSE
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="role">
-                                <h3 class="title">
-                                    {{ujob.title}}
-                                </h3>
-                                <p class="org">{{ujob.company.companyName}}, {{ujob.company.location}}</p>
-                            </div>
-                            <div class="row role-desc">
-                                <div class="col-sm-12">
-                                    <p style="text-align: justify;">
-                                        {{ujob.jobDescription}}
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-sm-12 grid-container margin-top-2r">
-                                    <div class="level">
-                                        <p class="__jobdeets_header">Minimum Experience</p>
-                                        <p class="__jobdeets_body">{{ujob.minimumExperience}}</p>
-                                    </div>
-                                    <div class="industry">
-                                        <p class="__jobdeets_header">Job  Category</p>
-                                        <!-- <p class="__jobdeets_body">{%if ujob.company.categories %}
-                                            {{ujob.company.categories.name}} {% else %}
-                                            {{ujob.company.industry}} {%endif%}
-                                        </p> -->
-                                        <p class="__jobdeets_body">{%if ujob.categories %} {{ujob.categories.name}}
-                                            {%else%} {{ujob.specialization}} {%endif%}</p>
-                                    </div>
-                                    <div class="employment-type">
-                                        <p class="__jobdeets_header">Deadline</p>
-                                        <p class="__jobdeets_body">{{ujob._.deadline.format("MMMM Do, YYYY")}}</p>
-                                    </div>
-                                    <div class="salary-range">
-                                        <p class="__jobdeets_header">Salary Range</p>
-                                        <p class="__jobdeets_body">{{ujob.salaryRange}}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- End of Modal body -->
+                            {%endif%}
+                        </div>                                
+                        <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{ujob.id}}">
+                            VIEW MORE
+                        </button>
                     </div>
-
-                    <!-- End of Modal content -->
                 </div>
-                <!-- End of Modal dialog -->
-            </div>
-            <!-- End of Modal -->
-            {% endfor %}
 
+                <!-- Modal -->
+                <div id="{{ujob.id}}" class="modal fade job-view-more" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content ">
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-12 role-apply">
+                                        <div class="apply">
+                                            <div class="job-status">
+                                                <!-- {% if ujob.deadline < data.todayDate %} CLOSED {% elseif (ujob.state=='draft' ) %} INACTIVE {% else %} ACTIVE {%endif%} -->
+                                                {% if ujob.deadline < data.todayDate %}
+                                                    {% if ujob.state == 'archived' %}
+                                                    ARCHIVED
+                                                    {% else %}
+                                                    CLOSED
+                                                    {% endif %}
+                                                {% elseif (ujob.state=='draft' ) %} 
+                                                INACTIVE
+                                                {% elseif (ujob.state=='archived' ) %}
+                                                ARCHIVED
+                                                {%endif%}
+                                            </div>
+                                            <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{ujob.id}}">
+                                                CLOSE
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="role">
+                                    <h3 class="title">
+                                        {{ujob.title}}
+                                    </h3>
+                                    <p class="org">{{ujob.company.companyName}}, {{ujob.company.location}}</p>
+                                </div>
+                                <div class="row role-desc">
+                                    <div class="col-sm-12">
+                                        <p style="text-align: justify;">
+                                            {{ujob.jobDescription}}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 grid-container margin-top-2r">
+                                        <div class="level">
+                                            <p class="__jobdeets_header">Minimum Experience</p>
+                                            <p class="__jobdeets_body">{{ujob.minimumExperience}}</p>
+                                        </div>
+                                        <div class="industry">
+                                            <p class="__jobdeets_header">Job  Category</p>
+                                            <!-- <p class="__jobdeets_body">{%if ujob.company.categories %}
+                                                {{ujob.company.categories.name}} {% else %}
+                                                {{ujob.company.industry}} {%endif%}
+                                            </p> -->
+                                            <p class="__jobdeets_body">{%if ujob.categories %} {{ujob.categories.name}}
+                                                {%else%} {{ujob.specialization}} {%endif%}</p>
+                                        </div>
+                                        <div class="employment-type">
+                                            <p class="__jobdeets_header">Deadline</p>
+                                            <p class="__jobdeets_body">{{ujob._.deadline.format("MMMM Do, YYYY")}}</p>
+                                        </div>
+                                        <div class="salary-range">
+                                            <p class="__jobdeets_header">Salary Range</p>
+                                            <p class="__jobdeets_body">{{ujob.salaryRange}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- End of Modal body -->
+                        </div>
+
+                        <!-- End of Modal content -->
+                    </div>
+                    <!-- End of Modal dialog -->
+                </div>
+                <!-- End of Modal -->
+            {% endfor %}
         </div>
         {% else %}
         <p class="text-center">You have no unpublished jobs</p>
         {% endif %}
 
+        <!-- Pagination row -->
+        {% if data.ujobs.totalPages > 1 %}
         <div class="row flex-center flex-wrap">
-            {% if data.ujobs.totalPages > 1 %}
             <ul class="pagination">
                 {% if data.ujobs.previous %}
                 <li>
@@ -363,8 +367,8 @@
                 </li>
                 {% endif %}
             </ul>
-            {% endif %}
         </div>
+        {% endif %}
     </div>
 </section>
 
