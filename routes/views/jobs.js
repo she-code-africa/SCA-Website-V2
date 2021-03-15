@@ -1,6 +1,9 @@
+require('dotenv').config();
+
 var keystone = require('keystone');
 var Job = keystone.list('Job');
 var localStorage = require('../../utils/localStorage');
+var paginate = require('../../utils/paginate');
 
 
 exports = module.exports = function (req, res) {
@@ -12,7 +15,7 @@ exports = module.exports = function (req, res) {
     // item in the header navigation.
     locals.section = 'jobs';
     locals.data = {
-        jobs: [],
+        openJobs: [],
         todayDate: new Date(),
         company: [],
         companyName: localStorage.getItem('loggedInCompany') || "",
@@ -26,6 +29,7 @@ exports = module.exports = function (req, res) {
             - Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) ) 
             /(1000 * 60 * 60 * 24));
     };
+    locals.paginationMetadata = {};
 
     //company details
     view.on('init', function (next) {
@@ -40,17 +44,31 @@ exports = module.exports = function (req, res) {
 
     });
 
-    view.on('init', function (next) {
-        Job.paginate({
-            page: req.query.page || 1,
-            perPage: 7,
-        }).where('state', 'published')
+    view.on('init', async function (next) {
+        let currentPage = Number(req.query.page) || 1;
+        let pagesize = Number(process.env.JOBS_PAGE_SIZE);
+        let firstPage = 1;
+
+        let totalJobsCount = await Job.model.count({state: 'published', deadline: {$gte: new Date()}}, function (err, count) {
+            return count;
+        });
+
+        Job.model.find({state: 'published', deadline: {$gte: new Date()}})
+            .skip(pagesize * (currentPage - 1))
+            .limit(pagesize)
             .sort('publishedDate')
             .populate({
                 path: 'company categories', populate: ['comapny.categories', 'categories'],
             })
-            .exec(function (err, results) {
-                locals.data.jobs = results;
+            .exec(async function (err, results) {
+                locals.data.openJobs = results;
+                locals.data.paginationMetadata = await paginate(
+                    currentPage,
+                    firstPage,
+                    pagesize,
+                    totalJobsCount,
+                );
+
                 next(err);
             })
     });

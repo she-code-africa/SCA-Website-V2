@@ -44,10 +44,10 @@
 <section class="container __jobs_preview">
     <div class="container width-100 ">
         <h3 class="text-center job-type-header">Published Jobs</h3>
-        {% if data.jobs.results|length %}
+        {% if data.allPublishedJobs|length %}
             <!-- Jobs list row -->
             <div class="row flex-center flex-wrap">
-            {% for job in data.jobs.results %}
+            {% for job in data.allPublishedJobs %}
                 <div class="col-lg-4 col-sm-6 col-xs-12">
                     <div class="__jobs_preview_card">
                         <h3 class="title">
@@ -158,12 +158,12 @@
             </div>
 
             <!-- Pagination row -->
-            {% if data.jobs.totalPages > 1 %}
+            {% if data.paginationMetadataPublished.pages | length > 1 %}
             <div class="row flex-center flex-wrap">
                 <ul class="pagination">
-                    {% if data.jobs.previous %}
+                    {% if data.paginationMetadataPublished.previous %}
                     <li>
-                        <a href="?page={{ data.jobs.previous }}">
+                        <a href="?page={{ data.paginationMetadataPublished.previous }}&section=published">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </a>
                     </li>
@@ -173,21 +173,22 @@
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </a>
                     </li>
-                    {% endif %} {% for p in data.jobs.pages %}
-                    {% set class = ( "active" if data.jobs.currentPage == p else "" ) %}
+                    {% endif %} {% for p in data.paginationMetadataPublished.pages %}
+                    {% set class = ( "active" if data.paginationMetadataPublished.currentPage == p else "" ) %}
                     <li class="{{ class }}">
-                        {% set page = ( (data.jobs.totalPages if i else 1) if p == "..." else p ) %}
-                        <a href="?page={{ page }}">{{ p }}</a>
+                        {% set page = ( (data.paginationMetadataPublished.totalPages if i else 1) if p == "..." else p ) %}
+                        <a href="?page={{ page }}&section=published">{{ p }}</a>
                     </li>
-                    {% endfor %} {% if data.jobs.next %}
+                    {% endfor %} 
+                    {% if data.paginationMetadataPublished.pages.includes(data.paginationMetadataPublished.next) %}
                     <li>
-                        <a href="?page={{ data.jobs.next }}">
+                        <a href="?page={{ data.paginationMetadataPublished.next }}&section=published">
                             <span class="glyphicon glyphicon-chevron-right"></span>
                         </a>
                     </li>
                     {% else %}
                     <li class="disabled">
-                        <a href="?page={{ data.jobs.totalPages }}">
+                        <a href="?page={{ data.paginationMetadataPublished.totalPages }}">
                             <span class="glyphicon glyphicon-chevron-right"></span>
                         </a>
                     </li>
@@ -201,10 +202,10 @@
     </div>
     <div class="container width-100 ">
         <h3 class="text-center job-type-header">Unpublished Jobs</h3>
-        {% if data.ujobs.results|length %}
+        {% if data.unpublishedJobs|length %}
         <!-- Jobs row -->
         <div class="row flex-center flex-wrap">
-            {% for ujob in data.ujobs.results %}          
+            {% for ujob in data.unpublishedJobs %}          
                 <div class="col-lg-4 col-sm-6 col-xs-12">
                     <div class="__jobs_preview_card">
                         <h3 class="title">
@@ -332,12 +333,12 @@
         {% endif %}
 
         <!-- Pagination row -->
-        {% if data.ujobs.totalPages > 1 %}
+        {% if data.paginationMetadataUnpublished.pages | length > 1 %}
         <div class="row flex-center flex-wrap">
             <ul class="pagination">
-                {% if data.ujobs.previous %}
+                {% if data.paginationMetadataUnpublished.previous %}
                 <li>
-                    <a href="?page={{ data.ujobs.previous }}">
+                    <a href="?page={{ data.paginationMetadataUnpublished.previous }}&section=unpublished">
                         <span class="glyphicon glyphicon-chevron-left"></span>
                     </a>
                 </li>
@@ -347,21 +348,22 @@
                         <span class="glyphicon glyphicon-chevron-left"></span>
                     </a>
                 </li>
-                {% endif %} {% for p in data.ujobs.pages %}
-                {% set class = ( "active" if data.ujobs.currentPage == p else "" ) %}
+                {% endif %} {% for p in data.paginationMetadataUnpublished.pages %}
+                {% set class = ( "active" if data.paginationMetadataUnpublished.currentPage == p else "" ) %}
                 <li class="{{ class }}">
-                    {% set page = ( (data.ujobs.totalPages if i else 1) if p == "..." else p ) %}
-                    <a href="?page={{ page }}">{{ p }}</a>
+                    {% set page = ( (data.paginationMetadataUnpublished.totalPages if i else 1) if p == "..." else p ) %}
+                    <a href="?page={{ page }}&section=unpublished">{{ p }}</a>
                 </li>
-                {% endfor %} {% if data.ujobs.next %}
+                {% endfor %} 
+                {% if data.paginationMetadataUnpublished.pages.includes(data.paginationMetadataUnpublished.next) %}
                 <li>
-                    <a href="?page={{ data.ujobs.next }}">
+                    <a href="?page={{ data.paginationMetadataUnpublished.next }}&section=unpublished">
                         <span class="glyphicon glyphicon-chevron-right"></span>
                     </a>
                 </li>
                 {% else %}
                 <li class="disabled">
-                    <a href="?page={{ data.ujobs.totalPages }}">
+                    <a href="?page={{ data.paginationMetadataUnpublished.totalPages }}">
                         <span class="glyphicon glyphicon-chevron-right"></span>
                     </a>
                 </li>

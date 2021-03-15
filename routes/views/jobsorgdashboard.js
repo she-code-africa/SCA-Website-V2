@@ -1,8 +1,11 @@
+require('dotenv').config();
+
 const cons = require('consolidate');
 var keystone = require('keystone');
 const { keys } = require('lodash');
 var localStorage = require('../../utils/localStorage');
 var Job = keystone.list('Job');
+var paginate = require('../../utils/paginate');
 
 exports = module.exports = function (req, res) {
     const companyData = localStorage.getItem('loggedInCompany') ? localStorage.getItem('loggedInCompany') : "";
@@ -19,8 +22,8 @@ exports = module.exports = function (req, res) {
     locals.section = 'jobs';
     locals.data = {
         company: {},
-        jobs: {},
-        ujobs: {},
+        allPublishedJobs: {},
+        unpublishedJobs: {},
         companyName: localStorage.getItem('loggedInCompany') || "",
     };
     locals.dateDiff = function (deadline) {
@@ -31,7 +34,9 @@ exports = module.exports = function (req, res) {
             - Date.UTC(today.getFullYear(), today.getMonth(), today.getDate()) ) 
             / (1000 * 60 * 60 * 24)
         );
-    }
+    };
+    locals.paginationMetadataPublished = {};
+    locals.paginationMetadataUnpublished = {};
 
     //company details
     view.on('init', function (next) {
@@ -49,41 +54,61 @@ exports = module.exports = function (req, res) {
     });
 
     // all published jobs events
-    view.on('init', function (next) {
-        Job.paginate({
-            page: req.query.page || 1,
-            perPage: 5,
-            filters: {
-                company: locals.data.company,
-            },
+    view.on('init', async function (next) {
+        let currentPage = req.query.section == 'published' || req.query.section == 'all'
+            ? Number(req.query.page) || 1
+            : 1;
+        let pagesize = Number(process.env.JOBS_PAGE_SIZE);
+        let firstPage = 1;
+        let totalJobsCount = await Job.model.count({state: 'published', company: locals.data.company}, function (err, count) {
+            return count;
+        });
 
-        }).where('state', 'published')
+        Job.model.find({state: 'published', company: locals.data.company})
+            .skip(pagesize * (currentPage - 1))
+            .limit(pagesize)
             .sort('publishedDate')
             .populate({
                 path: 'company categories', populate: ['comapny.categories', 'categories'],
             })
-            .exec(function (err, results) {
-                locals.data.jobs = results;
+            .exec(async function (err, results) {
+                locals.data.allPublishedJobs = results;
+                locals.data.paginationMetadataPublished = await paginate(
+                    currentPage,
+                    firstPage,
+                    pagesize,
+                    totalJobsCount
+                );
                 next(err);
             })
     });
 
     // all unpublished jobs events
-    view.on('init', function (next) {
-        Job.paginate({
-            page: req.query.page || 1,
-            perPage: 5,
-            filters: {
-                company: locals.data.company,
-            },
+    view.on('init', async function (next) {
+        let currentPage = req.query.section == 'unpublished' || req.query.section == 'all'
+            ? Number(req.query.page) || 1
+            : 1;
+        let pagesize = Number(process.env.JOBS_PAGE_SIZE);
+        let firstPage = 1;
+        let totalJobsCount = await Job.model.count({state: ['draft', 'archived'], company: locals.data.company}, function (err, count) {
+            return count;
+        });
 
-        }).where('state', ['draft', 'archived'])
+        Job.model.find({state: ['draft', 'archived'], company: locals.data.company})
+            .skip(pagesize * (currentPage - 1))
+            .limit(pagesize)
             .sort('publishedDate')
             .populate({
                 path: 'company categories', populate: ['comapny.categories', 'categories'],
             })
-            .exec(function (err, results) {
-                locals.data.ujobs = results;
+            .exec(async function (err, results) {
+                locals.data.unpublishedJobs = results;
+                locals.data.paginationMetadataUnpublished = await paginate(
+                    currentPage,
+                    firstPage,
+                    pagesize,
+                    totalJobsCount,
+                );
                 next(err);
             })
     });
