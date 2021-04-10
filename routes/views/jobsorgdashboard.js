@@ -8,7 +8,11 @@ var Job = keystone.list('Job');
 var paginate = require('../../utils/paginate');
 
 exports = module.exports = function (req, res) {
-    const companyData = localStorage.getItem('loggedInCompany') ? localStorage.getItem('loggedInCompany') : "";
+    const { cookieTag } = req.decoded || {};
+
+    const companyData = localStorage.getItem(`loggedInCompany-${cookieTag}`) 
+        ? localStorage.getItem(`loggedInCompany-${cookieTag}`) 
+        : "";
     if (companyData === "") {
         return res.redirect('/jobs');
     } else if (companyData !== req.params.org) {
@@ -24,7 +28,7 @@ exports = module.exports = function (req, res) {
         company: {},
         allPublishedJobs: {},
         unpublishedJobs: {},
-        companyName: localStorage.getItem('loggedInCompany') || "",
+        companyName: localStorage.getItem(`loggedInCompany-${cookieTag}`) || "",
     };
     locals.dateDiff = function (deadline) {
         jobsDeadline = new Date(deadline);

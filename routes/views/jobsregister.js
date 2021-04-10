@@ -4,8 +4,6 @@ var localStorage = require('../../utils/localStorage');
 var CompanyCategory = keystone.list('CompanyCategory');
 
 exports = module.exports = function (req, res) {
-    localStorage.removeItem('loggedInCompany');
-
     var view = new keystone.View(req, res);
     var locals = res.locals;
     locals.data = {
@@ -45,7 +43,6 @@ exports = module.exports = function (req, res) {
         // save to session
         localStorage.setItem('companyData', dataToSaveString);
         return res.redirect('/jobs/register/contact-details');
-
     });
 
     // Render the view

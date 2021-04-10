@@ -8,7 +8,8 @@ var Job = keystone.list('Job');
 var localStorage = require('../../utils/localStorage');
 
 exports = module.exports = function (req, res) {
-    const companyData = localStorage.getItem('loggedInCompany') || "";
+    const { cookieTag } = req.decoded || {};
+    const companyData = localStorage.getItem(`loggedInCompany-${cookieTag}`) || "";
     if (companyData === "") {
         return res.redirect('/jobs');
     }

@@ -1,10 +1,19 @@
-{% extends "layouts/default.html" %} {% block css %}
-<link rel="stylesheet" type="text/css" href="styles/jobs.css"> {% endblock %} {% block intro %} {% if loggedOutUser %}
+{% extends "layouts/default.html" %} 
+{% block css %}
+<link rel="stylesheet" type="text/css" href="styles/jobs.css"> 
+{% endblock %} 
+
+{% block intro %}
+{% if tag %}
+{% set loggedOut = ( true if loggedOutCompany  === 'loggedOutCompany-' + tag else false ) %}
+{% if loggedOut %}
 <div id="toast" class="toast-modal" style="display: block">
     <p>Log out was successful</p>
     <span class="close" onclick="closeModal();">&#215;</span>
 </div>
-{% endif %} {% if data.companyName %}
+{% endif %}
+{% endif %} 
+{% if data.companyName %}
 <div class="dropdown jobsDropdownMenuContainer">
     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" id="jobsDropdownMenu">
         <img src='/images/default-company-avatar.png' width="30" height="30" class="rounded-img" />
@@ -43,7 +52,8 @@
         </div>
     </div>
 </section>
-{% endblock %} {% block content %}
+{% endblock %} 
+{% block content %}
 <section class="container __jobs_preview">
     <div class="container width-100">
         <h3 class="text-center job-type-header">Jobs</h3>

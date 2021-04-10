@@ -7,10 +7,9 @@ var paginate = require('../../utils/paginate');
 
 
 exports = module.exports = function (req, res) {
-
     var view = new keystone.View(req, res);
     var locals = res.locals;
-
+    const clientCookieTag = req.signedCookies.tag;
 
     // item in the header navigation.
     locals.section = 'jobs';
@@ -18,9 +17,9 @@ exports = module.exports = function (req, res) {
         openJobs: [],
         todayDate: new Date(),
         company: [],
-        companyName: localStorage.getItem('loggedInCompany') || "",
+        companyName: localStorage.getItem(`loggedInCompany-${clientCookieTag}`) || "",
     };
-    locals.loggedOutUser = null;
+    locals.loggedOutCompany = null;
     locals.dateDiff = function (deadline) {
         jobsDeadline = new Date(deadline);
         today = new Date();
@@ -33,7 +32,7 @@ exports = module.exports = function (req, res) {
 
     //company details
     view.on('init', function (next) {
-        var q = keystone.list('Company').model.findOne({ slug: localStorage.getItem('loggedInCompany') });
+        var q = keystone.list('Company').model.findOne({ slug: localStorage.getItem(`loggedInCompany-${clientCookieTag}`) });
 
         q.exec(function (err, result) {
             if (!err) {
@@ -75,11 +74,14 @@ exports = module.exports = function (req, res) {
 
     //check if user got to this page after a logout
     view.on('init', function (next) {
-        const loggedOutUser = localStorage.getItem('loggedOutUser');
+        const loggedOutCompany = localStorage.getItem(`loggedOutCompany-${clientCookieTag}`);
 
-        if (loggedOutUser === 'true') {
-            localStorage.removeItem('loggedOutUser');
-            locals.loggedOutUser = true;
+        if (loggedOutCompany === 'true') {
+            localStorage.removeItem(`loggedOutCompany-${clientCookieTag}`);
+            locals.loggedOutCompany = `loggedOutCompany-${clientCookieTag}`;
+            locals.tag = `${clientCookieTag}`
+
+            res.clearCookie('tag')
         }
         next();
     });

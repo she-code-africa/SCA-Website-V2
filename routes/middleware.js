@@ -65,33 +65,71 @@ exports.requireUser = function(req, res, next) {
 };
 
 exports.logoutUser = function(req, res, next) {
-    localStorage.removeItem('loggedInCompany');
-    localStorage.removeItem('token');
-    if (!localStorage.getItem('loggedInCompany') && !localStorage.removeItem('token')) {
-        localStorage.setItem('loggedOutUser', true)
+    const clientCookieTag = req.signedCookies.tag;
+    let correspondingSlug = localStorage.getItem(`loggedInCompany-${clientCookieTag}`);
+    let serverCookieTag = localStorage.getItem(`${correspondingSlug}`.normalize());
+
+    localStorage.removeItem(`${correspondingSlug}`)
+    localStorage.removeItem(`loggedInCompany-${serverCookieTag}`);
+    localStorage.removeItem(`token-${serverCookieTag}`);
+    // res.clearCookie('tag');
+
+    if (!localStorage.getItem(`loggedInCompany-${serverCookieTag}`) && !localStorage.removeItem(`token-${clientCookieTag}`)) {
+        localStorage.setItem(`loggedOutCompany-${serverCookieTag}`, true)
         res.redirect('/jobs');
     } else {
         alert('Log out request failed, please try again');
     }
 };
 
+exports.getCookieAndFiles = function(req, res, next) {
+    const clientCookieTag = req.signedCookies.tag;
+    let correspondingToken;
+    let correspondingSlug;
+    let serverCookieTag;
+
+    if (clientCookieTag) {      
+        correspondingToken = localStorage.getItem(`token-${clientCookieTag}`);
+        correspondingSlug = localStorage.getItem(`loggedInCompany-${clientCookieTag}`);
+        serverCookieTag = localStorage.getItem(`${correspondingSlug}`.normalize());
+
+        if (clientCookieTag === serverCookieTag) {
+            req.decoded = {
+                cookieTag: serverCookieTag,
+                token: correspondingToken,
+                slug: correspondingSlug,
+            }
+            next();
+        } else {
+            localStorage.setItem('sessionExpired', 'You need to be logged in to continue');
+            res.redirect('/jobs/org/login');
+        }     
+    } else {
+        localStorage.setItem('sessionExpired', 'You need to be logged in to continue');
+        res.redirect('/jobs/org/login');
+    }
+}
+
 exports.verifyToken = function(req, res, next) {
     let locals = res.locals;
-    const token = localStorage.getItem('token');
     locals.activeSession = undefined;
+    const { cookieTag, token, slug } = req.decoded || {};
 
     if (token) {
         jwt.verify(token, process.env.TOKEN_SECRET, (err, decoded) => {
             if (err) {
-                localStorage.removeItem('loggedInCompany');
-                localStorage.removeItem('token');
+                localStorage.removeItem(`${slug}`)
+                localStorage.removeItem(`loggedInCompany-${cookieTag}`);
+                localStorage.removeItem(`token-${cookieTag}`);
+                res.clearCookie('tag');
 
                 if (err.message === 'jwt expired') {
+                    res.clearCookie('tag');
                     localStorage.setItem('sessionExpired', 'Session expired, please log in to continue');
                     res.redirect('/jobs/org/login');
                 } else {
                     localStorage.setItem('sessionExpired', 'Invalid session, please log in to continue');
-                    res.redirect('/jobs/org/login');                  
+                    res.redirect('/jobs/org/login');              
                 }
             } else {
                 next();

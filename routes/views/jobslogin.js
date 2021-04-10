@@ -3,10 +3,9 @@ var keystone = require('keystone');
 var jwt = require('jsonwebtoken');
 var Company = keystone.list('Company');
 var localStorage = require('../../utils/localStorage');
+const generateCookieTag = require('../../utils/generateCookieTag');
 
 exports = module.exports = function(req, res) {
-    localStorage.removeItem('loggedInCompany');
-
     var view = new keystone.View(req, res);
     var locals = res.locals;
 
@@ -29,6 +28,47 @@ exports = module.exports = function(req, res) {
         next();
     });
 
+    //check if user still has active session
+    /*
+        - check for cookie tag
+        - if cookie tag exists
+            - check if any token has the tag appended to it
+            - if there is a token
+                - get loggedInCompany with the tag appended
+                - redirect user to that company page
+            - if there is no token
+                - render log in page
+    */
+    view.on('init', function(next) {
+        const clientCookieTag = req.signedCookies.tag;
+        if (!clientCookieTag) {
+            next();
+        }
+    
+        let correspondingToken = localStorage.getItem(`token-${clientCookieTag}`);
+        let correspondingSlug = localStorage.getItem(`loggedInCompany-${clientCookieTag}`);
+        let serverCookieTag = localStorage.getItem(`${correspondingSlug}`.normalize());
+
+        if (clientCookieTag === serverCookieTag && correspondingToken) {
+            jwt.verify(correspondingToken, process.env.TOKEN_SECRET, (err, decoded) => {
+                if (err) {
+                    localStorage.removeItem(`${correspondingSlug}`)
+                    localStorage.removeItem(`loggedInCompany-${serverCookieTag}`);
+                    localStorage.removeItem(`token-${serverCookieTag}`);
+                    res.clearCookie('tag');
+    
+                    next();
+                } else {
+                    return res.redirect('/jobs/' + correspondingSlug);
+                }
+            });
+        } 
+        // else {
+        //     next();
+        // }     
+    })
+
+
     view.on('post', { action: '' }, function(next) {
         var q = Company.model.findOne()
             .where('email', req.body.email);
@@ -37,11 +77,15 @@ exports = module.exports = function(req, res) {
                 result._.password.compare(req.body.password, function(err, isMatch) {
                     if (!err && isMatch) {
                         const token = jwt.sign({}, process.env.TOKEN_SECRET, { expiresIn: process.env.TOKEN_EXPIRY });
+                        const tag = generateCookieTag();
                         
                         locals.formerror = false;
                         locals.company = result;
-                        localStorage.setItem('loggedInCompany', result.slug);
-                        localStorage.setItem('token', token);
+                        localStorage.setItem(`loggedInCompany-${tag}`, result.slug);
+                        localStorage.setItem(`token-${tag}`, token);
+                        localStorage.setItem(`${result.slug}`, tag);
+                        res.cookie('tag', tag, {signed: true});
+
                         return res.redirect('/jobs/' + result.slug);
                     } else {
                         locals.formerror = true;
