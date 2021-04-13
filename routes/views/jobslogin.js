@@ -3,7 +3,7 @@ var keystone = require('keystone');
 var jwt = require('jsonwebtoken');
 var Company = keystone.list('Company');
 var localStorage = require('../../utils/localStorage');
-const generateCookieTag = require('../../utils/generateCookieTag');
+const generateRandomString = require('../../utils/generateRandomString');
 
 exports = module.exports = function(req, res) {
     var view = new keystone.View(req, res);
@@ -19,11 +19,15 @@ exports = module.exports = function(req, res) {
 
     //check if user got to this page after session expired
     view.on('init', function (next) {
-        const sessionExpiredMsg = localStorage.getItem('sessionExpired') ? localStorage.getItem('sessionExpired') : '';
+        const clientCookieTag = req.signedCookies.tag;
+        const sessionExpiredMsg = localStorage.getItem(`sessionExpired-${clientCookieTag}`)
+            ? localStorage.getItem(`sessionExpired-${clientCookieTag}`) 
+            : '';
 
         if (sessionExpiredMsg) {
-            localStorage.removeItem('sessionExpired');
+            localStorage.removeItem(`sessionExpired-${clientCookieTag}`);
             locals.sessionExpired = `${sessionExpiredMsg}`;
+            res.clearCookie('tag');
         }
         next();
     });
@@ -43,30 +47,30 @@ exports = module.exports = function(req, res) {
         const clientCookieTag = req.signedCookies.tag;
         if (!clientCookieTag) {
             next();
-        }
-    
-        let correspondingToken = localStorage.getItem(`token-${clientCookieTag}`);
-        let correspondingSlug = localStorage.getItem(`loggedInCompany-${clientCookieTag}`);
-        let serverCookieTag = localStorage.getItem(`${correspondingSlug}`.normalize());
+        } else {
+            let correspondingToken = localStorage.getItem(`token-${clientCookieTag}`);
+            let correspondingSlug = localStorage.getItem(`loggedInCompany-${clientCookieTag}`);
+            let serverCookieTag = localStorage.getItem(`${correspondingSlug}`.normalize());
 
-        if (clientCookieTag === serverCookieTag && correspondingToken) {
-            jwt.verify(correspondingToken, process.env.TOKEN_SECRET, (err, decoded) => {
-                if (err) {
-                    localStorage.removeItem(`${correspondingSlug}`)
-                    localStorage.removeItem(`loggedInCompany-${serverCookieTag}`);
-                    localStorage.removeItem(`token-${serverCookieTag}`);
-                    res.clearCookie('tag');
-    
-                    next();
-                } else {
-                    return res.redirect('/jobs/' + correspondingSlug);
-                }
-            });
-        } 
-        // else {
-        //     next();
-        // }     
-    })
+            if (clientCookieTag === serverCookieTag && correspondingToken) {
+                jwt.verify(correspondingToken, process.env.TOKEN_SECRET, (err, decoded) => {
+                    if (err) {
+                        localStorage.removeItem(`${correspondingSlug}`)
+                        localStorage.removeItem(`loggedInCompany-${serverCookieTag}`);
+                        localStorage.removeItem(`token-${serverCookieTag}`);
+                        res.clearCookie('tag');
+        
+                        next();
+                    } else {
+                        return res.redirect('/jobs/' + correspondingSlug);
+                    }
+                });
+            } 
+            else {
+                next();
+            }     
+        }
+    });
 
 
     view.on('post', { action: '' }, function(next) {
@@ -77,7 +81,7 @@ exports = module.exports = function(req, res) {
                 result._.password.compare(req.body.password, function(err, isMatch) {
                     if (!err && isMatch) {
                         const token = jwt.sign({}, process.env.TOKEN_SECRET, { expiresIn: process.env.TOKEN_EXPIRY });
-                        const tag = generateCookieTag();
+                        const tag = generateRandomString();
                         
                         locals.formerror = false;
                         locals.company = result;

@@ -2,6 +2,7 @@ var keystone = require('keystone');
 var localStorage = require('../../utils/localStorage');
 // var Company = keystone.list('Company');
 var CompanyCategory = keystone.list('CompanyCategory');
+const generateRandomString = require('../../utils/generateRandomString');
 
 exports = module.exports = function (req, res) {
     var view = new keystone.View(req, res);
@@ -41,8 +42,11 @@ exports = module.exports = function (req, res) {
         const dataToSaveString = JSON.stringify(dataToSave);
 
         // save to session
-        localStorage.setItem('companyData', dataToSaveString);
-        return res.redirect('/jobs/register/contact-details');
+        const pageId = generateRandomString();
+        let hash = Buffer.from(pageId).toString('base64');
+
+        localStorage.setItem(`companyData-${hash}`, dataToSaveString);
+        return res.redirect(`/jobs/register/contact-details?hash=${hash}`);
     });
 
     // Render the view

@@ -4,16 +4,17 @@ var jwt = require('jsonwebtoken');
 var Company = keystone.list('Company');
 var localStorage = require('../../utils/localStorage');
 const countryCodes = require('country-calling-code');
-const generateCookie = require('../../utils/generateCookieTag');
+const generateRandomString = require('../../utils/generateRandomString');
 
 exports = module.exports = function (req, res) {
-    const companyDetails = JSON.parse(localStorage.getItem('companyData')) || {};
-    if (!companyDetails.name) {
-        return res.redirect('/jobs');
-    }
-
     var view = new keystone.View(req, res);
     var locals = res.locals;
+    let hash = req.query.hash;
+
+    const companyDetails = JSON.parse(localStorage.getItem(`companyData-${hash}`)) || {};
+    if (!hash || !companyDetails.name) {
+        return res.redirect('/jobs');
+    }
 
     locals.countries = countryCodes.codes;
 
@@ -58,10 +59,10 @@ exports = module.exports = function (req, res) {
             }
             else {
                 const token = jwt.sign({}, process.env.TOKEN_SECRET, { expiresIn: process.env.TOKEN_EXPIRY });
-                const tag = generateCookie();
+                const tag = generateRandomString();
 
                 res.cookie('tag', tag, {signed: true});
-                localStorage.removeItem('companyData');
+                localStorage.removeItem(`companyData-${hash}`);
                 localStorage.setItem(`loggedInCompany-${tag}`, newCompany.slug);
                 localStorage.setItem(`token-${tag}`, token);
                 localStorage.setItem(newCompany.slug, tag);
