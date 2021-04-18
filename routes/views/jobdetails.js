@@ -16,11 +16,15 @@ exports = module.exports = function (req, res) {
 
     var view = new keystone.View(req, res);
     var locals = res.locals;
+    const today = new Date().toISOString().split('T')[0];
+    const oneYearFromNow = new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0];
 
     // item in the header navigation.
     locals.section = 'jobs';
     locals.data = {
         categories: [],
+        today,
+        oneYearFromNow,
     };
     locals.formData = req.body || {};
     locals.company = [];

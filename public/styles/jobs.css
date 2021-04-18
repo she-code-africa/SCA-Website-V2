@@ -388,6 +388,10 @@ section.__register_welcome .flex-center .close {
     margin: 5rem auto;
 }
 
+.__register_form.__jobdetails {
+    padding-bottom: 4rem;
+}
+
 .__register_form form {
     flex-direction: column;
 }
