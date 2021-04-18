@@ -5,6 +5,8 @@ var Company = keystone.list('Company');
 var localStorage = require('../../utils/localStorage');
 const countryCodes = require('country-calling-code');
 const generateRandomString = require('../../utils/generateRandomString');
+const PNF = require('google-libphonenumber').PhoneNumberFormat;
+const phoneUtil = require('google-libphonenumber').PhoneNumberUtil.getInstance();
 
 exports = module.exports = function (req, res) {
     var view = new keystone.View(req, res);
@@ -29,6 +31,19 @@ exports = module.exports = function (req, res) {
 
     //on post form
     view.on('post', { action: '' }, function (next) {
+        var data = req.body;
+        let numberWithCallingCode;
+        const parsedPhoneNumber = phoneUtil.parseAndKeepRawInput(data.phoneNumber, data.countryCode);
+
+        if (phoneUtil.isValidNumberForRegion(parsedPhoneNumber, data.countryCode)) {
+            numberWithCallingCode = phoneUtil.format(parsedPhoneNumber, PNF.E164);
+        } else {
+            locals.formerror = true;
+            req.flash("error", "Invalid Phone Number");
+            locals.validationErrors.phoneNumber = "Invalid Phone Number";
+            return next({ message: 'Invalid Phone Number' });
+        }
+
         if (locals.formData.password !== locals.formData.cpassword) {
             locals.formerror = true;
             req.flash("error", "Passwords Do Not Match.");
@@ -37,12 +52,12 @@ exports = module.exports = function (req, res) {
         }
 
         var newCompany = new Company.model();
-        var data = req.body;
         data.companyName = companyDetails.name;
         data.companyUrl = companyDetails.website;
         data.location = companyDetails.location;
         // data.industry = companyDetails.industry;
         data.address = companyDetails.address;
+        data.phoneNumber = numberWithCallingCode;
         // data.categories = companyDetails.categories;
 
         newCompany.getUpdateHandler(req).process(data, {

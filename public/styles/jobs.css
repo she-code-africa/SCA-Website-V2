@@ -244,6 +244,10 @@ div.grid-container:nth-last-child(2) {
 
 
 /* JOBS REGISTER */
+.container.__register {
+    padding-left: 0;
+    padding-right: 0;
+}
 
 section.__register_welcome .flex-center {
     position: relative;
@@ -389,7 +393,7 @@ section.__register_welcome .flex-center .close {
 }
 
 .__register_form .form-control {
-    width: 31vw;
+    width: 100%;
     height: 45px;
 }
 
@@ -456,6 +460,10 @@ div.__contact_number>.dailing-code {
     }
 }
 
+.__register_form .form-group {
+    width: 100%;
+}
+
 .form-group .job-desc {
     height: auto;
 }
@@ -516,4 +524,16 @@ select option[value=""] {
 
 .avatar-greeting {
     padding: 4px 20px 0px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input#phoneNumber::-webkit-outer-spin-button,
+input#phoneNumber::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input#phoneNumber[type=number] {
+  -moz-appearance: textfield;
 }

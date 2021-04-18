@@ -43,11 +43,17 @@
                     placeholder="Contact Name *" required>
             </div>
 
-            <div class="form-group __contact_number">                
-                <select name="location" id="location" class="form-control dailing-code">
-                    <option value="+234" selected>Nigeria</option>
+            {% if validationErrors.phoneNumber %}
+                <div>
+                    <label class="text text-danger text-center">
+                        {{validationErrors.phoneNumber}}
+                    </label> 
+                </div>             
+            {%endif%}  
+            <div class="form-group __contact_number">           
+                <select name="countryCode" id="countryCode" class="form-control dailing-code">
                     {% for i in countries %}
-                    <option value="{{i.countryCodes}}">{{i.country}}</option>
+                    <option value="{{i.isoCode2}}" {{'selected' if i.isoCode2 == 'NG'}}>+{{i.countryCodes}}</option>
                     {%endfor%}
                 </select>
                 <input type="number" name="phoneNumber" id="phoneNumber" value="{{formData.phoneNumber}}" class="form-control"
@@ -88,45 +94,35 @@
     </section>
 </div>
 <script>
-    var psw = document.getElementById("password");
-    var cpsw = document.getElementById("cpassword");
-    var countries = document.getElementById("location");
-    var pno = document.getElementById("phoneNumber");
+    var password = document.getElementById("password");
+    var confirmPassword = document.getElementById("cpassword");
+    var countries = document.getElementById("countryCode");
+    var phoneNumber = document.getElementById("phoneNumber");
     var submitButton = document.getElementById("submitButton");
 
-    countries.onchange = function () {
-        pno.value = countries.value;
-        // console.log('changer');
-        // console.log(pno.value);
-        // console.log(countries".value);
-    }
+    // countries.onchange = function () {
+    //     phoneNumber.value = countries.value;
+    //     console.log('changer');
+    //     console.log(phoneNumber.value);
+    //     console.log(countries.value);
+    // }
 
-
-    cpsw.onblur = function () {
-        if (psw.value !== cpsw.value) {
+    password.onkeyup = function () {
+        if (confirmPassword.value && password.value !== confirmPassword.value) {
             document.getElementById("error").style.display = "block";
-            submitButton.style.visibility = "hidden";
+            submitButton.disabled = true;
         } else {
             document.getElementById("error").style.display = "none";
-            submitButton.style.visibility = "visible";
+            submitButton.disabled = false;
         }
     }
-    psw.onblur = function () {
-        if (psw.value !== cpsw.value) {
+    confirmPassword.onkeyup = function () {
+        if (password.value !== confirmPassword.value) {
             document.getElementById("error").style.display = "block";
-            submitButton.style.visibility = "hidden";
+            submitButton.disabled = true;
         } else {
             document.getElementById("error").style.display = "none";
-            submitButton.style.visibility = "visible";
-        }
-    }
-    cpsw.onkeyup = function () {
-        if (psw.value !== cpsw.value) {
-            document.getElementById("error").style.display = "block";
-            submitButton.style.visibility = "hidden";
-        } else {
-            document.getElementById("error").style.display = "none";
-            submitButton.style.visibility = "visible";
+            submitButton.disabled = false;
         }
     }
 </script>
