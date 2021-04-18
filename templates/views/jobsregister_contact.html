@@ -115,9 +115,23 @@
     //     console.log(phoneNumber.value);
     //     console.log(countries.value);
     // }
-
+    password.onblur = function () {
+        if (password.value.length < 8) {
+            document.getElementById("error").textContent = "Password cannot be less than 8 characters";
+            document.getElementById("error").style.display = "block";
+            submitButton.disabled = true;
+        } else if (confirmPassword.value && password.value !== confirmPassword.value) {
+            document.getElementById("error").textContent = "Password do not match";
+            document.getElementById("error").style.display = "block";
+            submitButton.disabled = true;
+        } else {
+            document.getElementById("error").style.display = "none";
+            submitButton.disabled = false;
+        }
+    }
     password.onkeyup = function () {
         if (confirmPassword.value && password.value !== confirmPassword.value) {
+            document.getElementById("error").textContent = "Password do not match";
             document.getElementById("error").style.display = "block";
             submitButton.disabled = true;
         } else {
@@ -127,10 +141,8 @@
     }
     confirmPassword.onkeyup = function () {
         if (password.value && password.value !== confirmPassword.value) {
+            document.getElementById("error").textContent = "Password do not match";
             document.getElementById("error").style.display = "block";
-            submitButton.disabled = true;
-        } else if (password.value && confirmPassword.value.length < 8) {
-            document.getElementById("error").textContent = "Password cannot be less than 8 characters";
             submitButton.disabled = true;
         } else {
             document.getElementById("error").style.display = "none";
