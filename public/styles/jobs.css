@@ -537,3 +537,15 @@ input#phoneNumber::-webkit-inner-spin-button {
 input#phoneNumber[type=number] {
   -moz-appearance: textfield;
 }
+
+.password-hint.glyphicon {
+    top: 0;
+    border-top: 1px solid #e1e1e1 !important;
+    border-right: 0;
+    border-bottom: 0;
+}
+
+.password-hint:hover {
+    cursor: pointer;
+    color: var(--primary-main-pink);
+}

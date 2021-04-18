@@ -71,15 +71,24 @@
             <div class="form-group">
                 {% if validationErrors.password %}<label class="text text-danger text-center">
                     {{validationErrors.password.error}}</label> {%endif%}
-                <input type="password" name="password" id="password" value="{{formData.password}}" class="form-control"
-                    placeholder="Password *" required>
+                <div class="input-group">
+                    <input type="password" name="password" id="password" value="{{formData.password}}" class="form-control"
+                        placeholder="Password *" required>
+                    <span class="input-group-addon glyphicon glyphicon-info-sign password-hint"
+                        title="1. Password must be longer than 8 characters. &#10;2. Password must not be common or frequently used."></span>
+                </div>
             </div>
 
             <div class="form-group">
-                <input type="password" name="cpassword" id="cpassword" value="{{formData.cpassword}}"
-                    class="form-control" placeholder="Confirm Password *" required>
-                <label id="error" class="text text-danger text-center" style="display: none;">Passwords Do Not
-                    Match</label>
+                <div class="input-group">
+                    <input type="password" name="cpassword" id="cpassword" value="{{formData.cpassword}}"
+                        class="form-control" placeholder="Confirm Password *" required>
+                        <span class="input-group-addon glyphicon glyphicon-info-sign password-hint"
+                            title="1. Password must be longer than 8 characters. &#10;2. Password must not be common or frequently used."></span>
+                </div>
+                <label id="error" class="text text-danger text-center" style="display: none;">
+                    Passwords Do Not Match
+                </label>
             </div>
 
             <button type="submit" class="btn sca-btn light-pink-btn" id="submitButton">
@@ -119,6 +128,8 @@
     confirmPassword.onkeyup = function () {
         if (password.value !== confirmPassword.value) {
             document.getElementById("error").style.display = "block";
+            submitButton.disabled = true;
+        } else if (confirmPassword.value.length < 8) {
             submitButton.disabled = true;
         } else {
             document.getElementById("error").style.display = "none";
