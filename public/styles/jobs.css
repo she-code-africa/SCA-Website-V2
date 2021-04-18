@@ -416,6 +416,10 @@ section.__register_welcome .flex-center .close {
     color: gray;
 }
 
+.__register_form #error {
+    padding-top: 8px;
+}
+
 /* @media screen and (max-width: 768px) {
     .container {
         padding: 0;

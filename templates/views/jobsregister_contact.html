@@ -126,10 +126,11 @@
         }
     }
     confirmPassword.onkeyup = function () {
-        if (password.value !== confirmPassword.value) {
+        if (password.value && password.value !== confirmPassword.value) {
             document.getElementById("error").style.display = "block";
             submitButton.disabled = true;
-        } else if (confirmPassword.value.length < 8) {
+        } else if (password.value && confirmPassword.value.length < 8) {
+            document.getElementById("error").textContent = "Password cannot be less than 8 characters";
             submitButton.disabled = true;
         } else {
             document.getElementById("error").style.display = "none";
