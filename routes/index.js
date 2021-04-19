@@ -55,6 +55,7 @@ exports = module.exports = function(app) {
     app.get('/faq', routes.views.faq);
     app.get('/privacy', routes.views.privacy);
     app.get('/terms', routes.views.terms);
+    app.get('/testimonials', routes.views.testimonials);
     // app.get('/jobs', routes.views.jobs);
     // app.get('/jobs/:org', routes.views.jobsorgdashboard);
     // app.get('/jobs/register/org-details', routes.views.jobsregister);
