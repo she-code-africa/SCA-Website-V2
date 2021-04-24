@@ -96,17 +96,21 @@
 
                         <div class="modal-content ">
                             <div class="modal-body">
-                                <div class="row">
-                                    <div class="col-sm-12 role-apply">
-                                        <div class="apply">
-                                            <div class="job-status">
-                                                {% if dateDiff(job.deadline) < 0 %} CLOSED {% elseif (job.state=='draft' ) %} INACTIVE {% else %} ACTIVE {%endif%}
-                                            </div>
-                                            <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{job.id}}">
-                                                CLOSE
-                                            </button>
+                                <div class="col-sm-12 role-apply">
+                                    <div class="apply">
+                                        <div class="job-status">
+                                            {% if dateDiff(job.deadline) < 0 %} CLOSED {% elseif (job.state=='draft' ) %} INACTIVE {% else %} ACTIVE {%endif%}
                                         </div>
+                                        <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{job.id}}">
+                                            CLOSE
+                                        </button>
                                     </div>
+                                </div>
+                                <div class="role">
+                                    <h3 class="title">
+                                        {{job.title}}
+                                    </h3>
+                                    <p class="org">{{job.company.companyName}}, {{job.company.location}}</p>
                                 </div>
                                 <div class="row role-desc">
                                     <div class="col-sm-12">
@@ -256,7 +260,7 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content ">
                             <div class="modal-body">
-                                <div class="row">
+                                <!-- <div class="row"> -->
                                     <div class="col-sm-12 role-apply">
                                         <div class="apply">
                                             <div class="job-status">
@@ -278,7 +282,7 @@
                                             </button>
                                         </div>
                                     </div>
-                                </div>
+                                <!-- </div> -->
                                 <div class="role">
                                     <h3 class="title">
                                         {{ujob.title}}

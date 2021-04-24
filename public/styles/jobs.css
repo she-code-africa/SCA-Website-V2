@@ -155,7 +155,7 @@ section.jobs-header {
 }
 
 .job-view-more .modal-content {
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .job-view-more .title {
@@ -369,6 +369,10 @@ section.__register_welcome .flex-center .close {
     }
     .connector {
         margin-top: 6px;
+    }
+
+    .job-status {
+        margin-right: 10px;
     }
     /* .modal-dialog {
         width: 100vw;

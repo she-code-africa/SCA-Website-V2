@@ -93,13 +93,13 @@ exports = module.exports = function(req, res) {
                         return res.redirect('/jobs/' + result.slug);
                     } else {
                         locals.formerror = true;
-                        req.flash('error', 'Incorrect email or password');
+                        // req.flash('error', 'Incorrect email or password');
                         return next({ message: 'Incorrect email or password' });
                     }
                 });
             } else {
                 locals.formerror = true;
-                req.flash('error', 'Incorrect email or password');
+                // req.flash('error', 'Incorrect email or password');
                 return next({ message: 'Incorrect email or password' });
             }
         });
