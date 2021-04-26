@@ -18,111 +18,49 @@
     </section>
     {{emailmessage}}
     <section class="__register_form __jobdetails">
-        {% if errorMessage %}
-        <div class="alert alert-danger flex-center">
-            {{errorMessage}}
-        </div>
-        {% endif %}
         <form class="flex-center" method="POST">
             <input type="hidden" name="action" value="">
             <div class="form-group">
-                <input type="text" name="title" class="form-control" placeholder="Job Title *"
-                    value="{{formData.title}}" required>
+                <input type="text" name="title" class="form-control" placeholder="Job Title *" value="{{formData.title}}" required>
             </div>
 
             <div class="form-group">
-                <select name="categories" id="categories" class="form-control" value="{{formData.categories}}" required>
+                <select name="categories" class="form-control" value="{{formData.categories}}" required>
 
-                    <option value="" disabled selected hidden>Job Type*</option>
+                    <option value="" disabled selected hidden>Specialization *</option>
                     {% for i in data.categories %}
                     <option value="{{i.id}}">{{i.name}}</option>
                     {% endfor%}
-                    <option value="other">Other</option>
                 </select>
             </div>
 
-            <div class="form-group" style="display: none;" id="specialization">
-                <input type="text" name="specialization" class="form-control" placeholder="Specialization *"
-                    value="{{formData.categories}}">
-            </div>
-
             <div class="form-group">
-                <label id="deadline-error" class="text text-danger text-center" style="display: none;"></label>
-                <input type="text" title="Application Deadline " onfocus="(this.type='date')"
-                    name="deadline" id="deadline" class="form-control"
-                    placeholder="Application Deadline *" value="{{formData.deadline}}" required min={{data.today}} max={{data.oneYearFromNow}}>
+                <input type="text" title="Application Deadline " onfocus="(this.type='date')" onblur="(this.type='text')" name="deadline" class="form-control" placeholder="Application Deadline *" value="{{formData.deadline}}" required>
             </div>
 
             <div class="form-group">
                 <!-- <input type="text" name="minimumExperience" class="form-control" placeholder="Minimum Experience *" value="{{formData.minimumExperience}}" required> -->
-                <textarea name="minimumExperience" class="form-control job-desc" placeholder="Minimum Experience *"
-                    rows="3" value="{{formData.minimumExperience}}" required></textarea>
+                <textarea name="minimumExperience" class="form-control job-desc" placeholder="Minimum Experience *" rows="3" value="{{formData.minimumExperience}}" required></textarea>
             </div>
 
             <div class="form-group">
-                <textarea name="jobDescription" class="form-control job-desc" rows="8" placeholder="Job Description *"
-                    value="{{formData.jobDescription}}" required></textarea>
+                <textarea name="jobDescription" class="form-control job-desc" rows="8" placeholder="Job Description *" value="{{formData.jobDescription}}" required></textarea>
             </div>
 
             <div class="form-group">
-                <input type="text" name="salaryRange" class="form-control" value="{{formData.salaryRange}}"
-                    placeholder="Salary Range (e.g 150,000 - 200,000)" required>
+                <input type="text" name="salaryRange" class="form-control" value="{{formData.salaryRange}}" placeholder="Salary Range (e.g 150,000 - 200,000)" required>
             </div>
 
             <div class="form-group">
-                <label class="text text-danger text-center">Must Include "http://" or "https://"</label>
-                <input type="url" name="applicationLink" class="form-control"
-                    placeholder="Application Website(e.g https://apply.com) *" value="{{formData.applicationLink}}"
-                    required>
+                <input type="url" name="applicationLink" class="form-control" placeholder="Application Website *" value="{{formData.applicationLink}}" required>
             </div>
 
-            <button type="submit" class="btn sca-btn pink-btn" id="job-details-submit-btn">
+            <button type="submit" class="btn sca-btn pink-btn">
                 SUBMIT JOB DETAILS
             </button>
             <!-- href="/success" -->
         </form>
     </section>
+
 </div>
-<script>
-    var category = document.getElementById("categories");
-    var specialization = document.getElementById("specialization");
-    var applicationDeadline = document.getElementById("deadline");
-    var deadlineError = document.getElementById("deadline-error");
-    var submitButton = document.getElementById("job-details-submit-btn");
-
-    const today = new Date().toISOString().split('T')[0];
-    const oneYearFromDate = function (date = 'today') {
-        if (date === 'today') {
-            return new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0];
-        } else {
-            return new Date(new Date(date).setFullYear(new Date(date).getFullYear() + 1)).toISOString().split('T')[0];
-        }     
-    };
-
-    category.onchange = function () {
-        if (category.value === "other") {
-            specialization.style.display = "block";
-            specialization.required = true;
-        } else {
-            specialization.style.display = "none";
-            specialization.required = false;
-        }
-    }
-
-    applicationDeadline.onblur = function () {
-        this.type = "text";
-        if (applicationDeadline.value < today) {
-            deadlineError.textContent = "Deadline cannot be in the past";
-            deadlineError.style.display = "block";
-            submitButton.disabled = true;
-        } else if (applicationDeadline.value >= today && new Date(applicationDeadline.value).toISOString().split('T')[0] > oneYearFromDate()) {
-            deadlineError.textContent = "Job cannot be open for more than a year";
-            deadlineError.style.display = "block";
-            submitButton.disabled = true;
-        } else {
-            deadlineError.style.display = "none";
-            submitButton.disabled = false;
-        }
-    }
-</script>
 {% endblock %}

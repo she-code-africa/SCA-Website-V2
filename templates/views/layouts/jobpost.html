@@ -23,7 +23,7 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	{# This file provides the default styling for the KeystoneJS Content Editor #}
 	{% if user and user.canAccessKeystone %}
-	<link href="../../keystone/styles/content/editor.min.css" rel="stylesheet"> {% endif %}
+	<link href="../keystone/styles/content/editor.min.css" rel="stylesheet"> {% endif %}
 	{# HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries Safely remove this block if you are not targeting IE8 #}
 	<!--[if lt IE 9]>
 				<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
@@ -39,13 +39,6 @@
 	
 	{% block content %} {% endblock %}
 
-	<script src="../../js/jquery/jquery-3.1.1.min.js"></script>
-  <script src="../../js/bootstrap/bootstrap.min.js"></script>
-	{# Add scripts that are globally required by your site here. #}
-  <script src="../../js/jquery/main.js"></script>
-
-	{# Include template-specific javascript files by extending the js block #} 
-	{% block js %}{% endblock %}
 </body>
 
 </html>

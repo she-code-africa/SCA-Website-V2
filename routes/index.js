@@ -20,7 +20,6 @@
 
 var keystone = require('keystone');
 var middleware = require('./middleware');
-var cookieParser = require('cookie-parser');
 var importRoutes = keystone.importer(__dirname);
 
 // Common Middleware
@@ -40,8 +39,6 @@ var routes = {
 
 // Setup Route Bindings
 exports = module.exports = function(app) {
-    app.use(cookieParser(process.env.TOKEN_SECRET));
-    
     // Views
     app.get('/', routes.views.index);
     app.post('/', routes.views.index);
@@ -58,19 +55,17 @@ exports = module.exports = function(app) {
     app.get('/faq', routes.views.faq);
     app.get('/privacy', routes.views.privacy);
     app.get('/terms', routes.views.terms);
-    app.get('/jobs', routes.views.jobs);
-    app.get('/jobs/:org', middleware.getCookieAndFiles, middleware.verifyToken, routes.views.jobsorgdashboard);
-    app.get('/jobs/register/org-details', routes.views.jobsregister);
-    app.post('/jobs/register/org-details', routes.views.jobsregister);
-    app.get('/jobs/register/contact-details', routes.views.jobsregister_contact);
-    app.post('/jobs/register/contact-details', routes.views.jobsregister_contact);
-    app.get('/jobs/post/new', middleware.getCookieAndFiles, middleware.verifyToken, routes.views.jobdetails);
-    app.post('/jobs/post/new', middleware.getCookieAndFiles, middleware.verifyToken, routes.views.jobdetails);
-    app.get('/jobs/org/login', routes.views.jobslogin);
-    app.post('/jobs/org/login', routes.views.jobslogin);
+    // app.get('/jobs', routes.views.jobs);
+    // app.get('/jobs/:org', routes.views.jobsorgdashboard);
+    // app.get('/jobs/register/org-details', routes.views.jobsregister);
+    // app.post('/jobs/register/org-details', routes.views.jobsregister);
+    // app.get('/jobs/register/contact-details', routes.views.jobsregister_contact);
+    // app.post('/jobs/register/contact-details', routes.views.jobsregister_contact);
+    // app.get('/jobs/post/new', routes.views.jobdetails);
+    // app.post('/jobs/post/new', routes.views.jobdetails);
+    // app.get('/jobs/org/login', routes.views.jobslogin);
+    // app.post('/jobs/org/login', routes.views.jobslogin);
     app.get('/success', routes.views.successMessage);
-    app.get('/logout', middleware.logoutUser);
-
     // app.get('/blog/:category?', routes.views.blog);
     // app.get('/blog/post/:post', routes.views.post);
     // app.get('/community', routes.views.community);
