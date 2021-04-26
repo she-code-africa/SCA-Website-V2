@@ -8,8 +8,6 @@
  * modules in your project's /lib directory.
  */
 var _ = require('lodash');
-var jwt = require('jsonwebtoken');
-var localStorage = require('../utils/localStorage.js');
 
 
 /**
@@ -26,7 +24,7 @@ exports.initLocals = function(req, res, next) {
         { label: 'Donate/Partner', key: 'partners', href: '/donate-partner' },
         { label: 'Chapters', key: 'chapters', href: '/chapters' },
         { label: 'Events', key: 'events', href: '/events' },
-        { label: 'Job Opportunities', key: 'jobs', href: '/jobs' },
+        // { label: 'Job Opportunities', key: 'jobs', href: '/jobs' },
         // { label: 'Community', key: 'community', href: '/community' },
         // { label: 'Gallery', key: 'gallery', href: '/gallery' },
         // { label: 'Contact', key: 'contact', href: '/contact' },
@@ -61,81 +59,5 @@ exports.requireUser = function(req, res, next) {
         res.redirect('/keystone/signin');
     } else {
         next();
-    }
-};
-
-exports.logoutUser = function(req, res, next) {
-    const clientCookieTag = req.signedCookies.tag;
-    let correspondingSlug = localStorage.getItem(`loggedInCompany-${clientCookieTag}`);
-    let serverCookieTag = localStorage.getItem(`${correspondingSlug}`.normalize());
-
-    localStorage.removeItem(`${correspondingSlug}`)
-    localStorage.removeItem(`loggedInCompany-${serverCookieTag}`);
-    localStorage.removeItem(`token-${serverCookieTag}`);
-    // res.clearCookie('tag');
-
-    if (!localStorage.getItem(`loggedInCompany-${serverCookieTag}`) && !localStorage.removeItem(`token-${clientCookieTag}`)) {
-        localStorage.setItem(`loggedOutCompany-${serverCookieTag}`, true)
-        res.redirect('/jobs');
-    } else {
-        alert('Log out request failed, please try again');
-    }
-};
-
-exports.getCookieAndFiles = function(req, res, next) {
-    const clientCookieTag = req.signedCookies.tag;
-    let correspondingToken;
-    let correspondingSlug;
-    let serverCookieTag;
-
-    if (clientCookieTag) {     
-        correspondingToken = localStorage.getItem(`token-${clientCookieTag}`);
-        correspondingSlug = localStorage.getItem(`loggedInCompany-${clientCookieTag}`);
-        serverCookieTag = localStorage.getItem(`${correspondingSlug}`.normalize());
-
-        if (clientCookieTag === serverCookieTag) {
-            req.decoded = {
-                cookieTag: serverCookieTag,
-                token: correspondingToken,
-                slug: correspondingSlug,
-            }
-            next();
-        } else {
-            localStorage.setItem(`sessionExpired-${clientCookieTag}`, 'You need to be logged in to continue');
-            res.redirect('/jobs/org/login');
-        }     
-    } else {
-        // localStorage.setItem('sessionExpired', 'You need to be logged in to continue');
-        res.redirect('/jobs/org/login');
-    }
-}
-
-exports.verifyToken = function(req, res, next) {
-    let locals = res.locals;
-    locals.activeSession = undefined;
-    const { cookieTag, token, slug } = req.decoded || {};
-
-    if (token) {
-        jwt.verify(token, process.env.TOKEN_SECRET, (err, decoded) => {
-            if (err) {
-                localStorage.removeItem(`${slug}`)
-                localStorage.removeItem(`loggedInCompany-${cookieTag}`);
-                localStorage.removeItem(`token-${cookieTag}`);
-                // res.clearCookie('tag'); // cleared in jobslogin.js so session expired message can be retrieved with the tag
-                
-                if (err.message === 'jwt expired') {
-                    localStorage.setItem(`sessionExpired-${cookieTag}`, 'Session expired, please log in to continue');
-                    res.redirect('/jobs/org/login');
-                } else {
-                    localStorage.setItem(`sessionExpired-${cookieTag}`, 'Invalid session, please log in to continue');
-                    res.redirect('/jobs/org/login');              
-                }
-            } else {
-                next();
-            }
-        });
-    } else {
-        // localStorage.setItem('sessionExpired', 'You need to be logged in to continue');
-        res.redirect('/jobs/org/login');
     }
 };

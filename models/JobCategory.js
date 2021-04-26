@@ -6,11 +6,11 @@ var keystone = require('keystone');
  */
 
 var JobCategory = new keystone.List('JobCategory', {
-    autokey: { from: 'name', path: 'key', unique: true },
+	autokey: { from: 'name', path: 'key', unique: true },
 });
 
 JobCategory.add({
-    name: { type: String, required: true },
+	name: { type: String, required: true },
 });
 
 JobCategory.relationship({ ref: 'Job', path: 'jobs', refPath: 'categories' });

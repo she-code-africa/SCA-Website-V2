@@ -1,11 +1,4 @@
 {% extends "layouts/jobpost.html" %} {% block content %}
-{% if sessionExpired %}
-<div id="toast" class="toast-modal" style="display: block">
-    <p>{{sessionExpired}}</p>
-    <span class="close" onclick="closeModal();">&#215;</span>
-</div>
-{% endif %}
-
 <div class="container __register">
     <section class="jobs __register_welcome">
         <div class="flex-center">
@@ -51,12 +44,4 @@
         </p>
     </section>
 </div>
-{% endblock %}
-
-{% block js %}
-    <script>
-        function closeModal() {
-            document.getElementById("toast").style.display = "none";
-        }
-    </script>
 {% endblock %}

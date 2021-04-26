@@ -8,23 +8,18 @@ var Job = keystone.list('Job');
 var localStorage = require('../../utils/localStorage');
 
 exports = module.exports = function (req, res) {
-    const { cookieTag } = req.decoded || {};
-    const companyData = localStorage.getItem(`loggedInCompany-${cookieTag}`) || "";
+    const companyData = localStorage.getItem('loggedInCompany') || "";
     if (companyData === "") {
         return res.redirect('/jobs');
     }
 
     var view = new keystone.View(req, res);
     var locals = res.locals;
-    const today = new Date().toISOString().split('T')[0];
-    const oneYearFromNow = new Date(new Date().setFullYear(new Date().getFullYear() + 1)).toISOString().split('T')[0];
 
     // item in the header navigation.
     locals.section = 'jobs';
     locals.data = {
         categories: [],
-        today,
-        oneYearFromNow,
     };
     locals.formData = req.body || {};
     locals.company = [];
@@ -49,6 +44,7 @@ exports = module.exports = function (req, res) {
         var newJob = new Job.model();
         var data = req.body;
         data.company = locals.company;
+
         newJob.getUpdateHandler(req).process(data, {
             flashErrors: true,
         }, function (err) {
@@ -56,13 +52,12 @@ exports = module.exports = function (req, res) {
                 locals.validationErrors = err.errors;
                 req.flash('error', err.errors);
             } else {
-                data.specialization = ''
                 req.flash('success', 'Added');
                 localStorage.setItem('successMessages', newJob.title);
                 return res.redirect('/success');
             }
             next();
-        });
+        })
     });
 
     // Render the view

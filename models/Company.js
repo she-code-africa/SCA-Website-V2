@@ -16,7 +16,7 @@ Company.add({
     companyUrl: { type: String, initial: true },
     categories: { type: Types.Relationship, ref: 'CompanyCategory', many: false },
     location: { type: String, initial: true, required: true },
-    industry: { type: String },
+    industry: { type: String, initial: true, required: true },
     address: { type: String, initial: true, required: true },
     contactName: { type: String, initial: true, required: true },
     email: { type: Types.Email, initial: true, required: true, unique: true },

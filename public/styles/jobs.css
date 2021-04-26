@@ -7,14 +7,12 @@
 }
 
 section.jobs-header {
-    padding-top: 3rem;
-    /* padding-bottom: 5rem; */
+    padding-top: 5rem;
 }
 
 @media screen and (max-width: 768px) {
     section.jobs-header {
-        padding-top: 1rem;
-        /* padding-bottom: 2rem; */
+        padding-top: 2rem;
     }
 }
 
@@ -50,26 +48,12 @@ section.jobs-header {
     align-items: center;
 }
 
-.container.width-100 {
-    padding-top: 5rem;
-}
-
 @media screen and (max-width: 424px) {
     .jobs .__shecodeheader_text {
         margin-bottom: 50px;
     }
     .__jobs_preview .col-xs-12 {
         padding: 0;
-    }
-
-    .container.width-100 {
-        padding-top: 0;
-    }
-}
-
-@media screen and (min-width: 376px) and (max-width: 768px) {
-    .container.width-100 {
-        padding-top: 3rem;
     }
 }
 
@@ -80,10 +64,6 @@ section.jobs-header {
     .jobs .__shecodeheader_subtitle {
         margin-bottom: 20px;
     }
-}
-
-.job-type-header {
-    padding-bottom: 25px;
 }
 
 .__jobs_preview_card {
@@ -100,21 +80,10 @@ section.jobs-header {
     color: var(--primary-gray);
 }
 
-.__jobs_preview_card p {
-    margin: 0 0 15px;
-}
-
 .__jobs_preview_card button {
     /* width: 130px; */
     align-self: flex-end;
-    /* margin-top: 18%; */
-}
-
-@media screen and (min-width: 425px) {
-    .__jobs_preview_card button {
-        position: absolute;
-        bottom: 21%;
-    }
+    margin-top: 8%;
 }
 
 .__jobs_preview_card .org {
@@ -122,71 +91,62 @@ section.jobs-header {
 }
 
 .__jobs_preview_card .posted-time {
-    font-size: 12px;
-    display: inline-block;
-    margin-right: 8px;
+    font-size: 13px;
 }
 
-
-
-.job-view-more {
+#job-view-more {
     padding: 0 !important;
 }
 
-/* .modal-dialog {
-    width: 50vw;
-} */
+.modal-dialog {
+    width: 65vw;
+}
 
-/* .job-view-more.modal.in {
+#job-view-more.modal.in {
     display: flex !important;
     align-items: center;
     justify-content: center;
-} */
+}
 
-.job-view-more .modal-body {
-    /* min-height: 70vh; */
-    max-height: 50vh;
+#job-view-more .modal-body {
+    min-height: 70vh;
+    max-height: 80vh;
 }
 
 @media screen and (min-width: 850px) {
-    .job-view-more .modal-body {
-        padding: 40px 40px 0;
+    #job-view-more .modal-body {
+        padding: 40px 60px 0;
     }
 }
 
-.job-view-more .modal-content {
-    overflow-y: auto;
+#job-view-more .modal-content {
+    overflow-y: scroll;
 }
 
-.job-view-more .title {
+#job-view-more .title {
     color: var(--primary-black);
 }
 
 .role-apply {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     flex-wrap: wrap;
-    padding-left: 0;
-    padding-right: 0;
 }
 
 .apply {
     display: flex;
     /* flex-wrap: wrap; */
-    /* align-self: center; */
+    align-self: center;
 }
 
 .apply button {
     margin-top: 0;
-    padding: 10px 25px;
 }
 
 .role-desc {
-    margin-top: 2rem;
+    margin-top: 3rem;
     color: var(--primary-gray);
 }
-
-.jobtype {}
 
 .level {
     grid-area: level;
@@ -231,23 +191,15 @@ div.grid-container:nth-last-child(2) {
     margin-top: 3rem;
 }
 
-.margin-top-2r {
-    margin-top: 2rem;
-}
-
 .job-status {
     display: inline-block;
-    padding: 10px 25px;
+    padding: 15px 25px;
     background-color: #DCDCDC;
     margin-right: 20px;
 }
 
 
 /* JOBS REGISTER */
-.container.__register {
-    padding-left: 0;
-    padding-right: 0;
-}
 
 section.__register_welcome .flex-center {
     position: relative;
@@ -370,13 +322,9 @@ section.__register_welcome .flex-center .close {
     .connector {
         margin-top: 6px;
     }
-
-    .job-status {
-        margin-right: 10px;
-    }
-    /* .modal-dialog {
+    .modal-dialog {
         width: 100vw;
-    } */
+    }
 }
 
 @media screen and (max-width: 375px) {
@@ -392,16 +340,12 @@ section.__register_welcome .flex-center .close {
     margin: 5rem auto;
 }
 
-.__register_form.__jobdetails {
-    padding-bottom: 4rem;
-}
-
 .__register_form form {
     flex-direction: column;
 }
 
 .__register_form .form-control {
-    width: 100%;
+    width: 31vw;
     height: 45px;
 }
 
@@ -420,15 +364,11 @@ section.__register_welcome .flex-center .close {
     color: gray;
 }
 
-.__register_form #error {
-    padding-top: 8px;
-}
-
-/* @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
     .container {
         padding: 0;
     }
-} */
+}
 
 @media screen and (max-width: 425px) {
     .__register,
@@ -472,10 +412,6 @@ div.__contact_number>.dailing-code {
     }
 }
 
-.__register_form .form-group {
-    width: 100%;
-}
-
 .form-group .job-desc {
     height: auto;
 }
@@ -505,59 +441,4 @@ select option[value=""] {
     background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/><path d='M0 0h24v24H0z' fill='none'/></svg>");
     background-repeat: no-repeat;
     background-position: top 10px right 5px;
-}
-
-.jobsDropdownMenuContainer {
-    display: flex;
-    justify-content: flex-end;
-    padding: 15px 50px 0;
-}
-
-@media screen and (max-width: 768px) {
-    .jobsDropdownMenuContainer {
-        padding: 15px 20px 0;
-    }
-}
-
-
-.jobsDropdownMenuContainer.open > .dropdown-menu-right {
-    margin-right: 50px;
-}
-
-.jobsDropdownMenuContainer.open .dropdown-menu > li > a {
-    padding: 7px 20px;
-}
-
-.rounded-img {
-    border: 1px solid black;
-    border-radius: 50%;
-    padding: 3px;
-}
-
-.avatar-greeting {
-    padding: 4px 20px 0px;
-}
-
-/* Chrome, Safari, Edge, Opera */
-input#phoneNumber::-webkit-outer-spin-button,
-input#phoneNumber::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Firefox */
-input#phoneNumber[type=number] {
-  -moz-appearance: textfield;
-}
-
-.password-hint.glyphicon {
-    top: 0;
-    border-top: 1px solid #e1e1e1 !important;
-    border-right: 0;
-    border-bottom: 0;
-}
-
-.password-hint:hover {
-    cursor: pointer;
-    color: var(--primary-main-pink);
 }

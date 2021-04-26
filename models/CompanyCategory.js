@@ -1,9 +1,9 @@
 var keystone = require('keystone');
 
 /**
- * CompanyCategory Model
+ * JobCategory Model
  * ==================
- */ 
+ */
 
 var CompanyCategory = new keystone.List('CompanyCategory', {
     autokey: { from: 'name', path: 'key', unique: true },
