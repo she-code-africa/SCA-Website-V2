@@ -765,7 +765,7 @@ li.__shecodelink.active a {
 }
 
 .container h3 {
-    margin-bottom: 20px;
+    margin-bottom: 5px;
 }
 
 .panel-group .faq-list {
@@ -842,7 +842,7 @@ li.__shecodelink.active a {
 .toast-modal {
     display: none;
     background: #c43686;
-    height: 70px;
+    /* height: 70px; */
     width: 30%;
     margin: auto;
     color: #fff;
@@ -857,12 +857,13 @@ li.__shecodelink.active a {
 .toast-modal p {
     font-size: 13px;
     font-weight: bold;
+    margin: 5px;
 }
 
 .toast-modal .close {
     color: #fff;
     position: absolute;
-    right: 8px;
+    right: 12px;
     top: 8px;
     opacity: 1;
 }
