@@ -1,5 +1,7 @@
 var keystone = require('keystone');
 var Types = keystone.Field.Types;
+// var deepPopulate = require('mongoose-deep-populate')(keystone.mongoose);
+// Job.schema.plugin(deepPopulate);
 
 /**
  * Job Model
@@ -14,6 +16,7 @@ var Job = new keystone.List('Job', {
 Job.add({
     title: { type: String, initial: true, required: true },
     categories: { type: Types.Relationship, ref: 'JobCategory', many: false },
+    specialization: { type: String },
     deadline: { type: Types.Date, index: true },
     state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
     publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
