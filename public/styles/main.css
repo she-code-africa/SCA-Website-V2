@@ -592,6 +592,9 @@ li.__shecodelink.active a {
 #testimonials .box img {
     display: block;
     margin: 30px auto;
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
 }
 
 #testimonials .testimonial_text {

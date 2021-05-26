@@ -1,5 +1,6 @@
 <div id="testimonials" class="container">
     <div class="row event_topic">
+
         <div class="col-sm-2 col-md-2 col-lg-2">
 
         </div>
@@ -14,10 +15,9 @@
     <div class="col-sm-12">
         <div class="testimonials slider">
             {% for testimonial in testimonials %}
-
             <div class="slide">
                 <div class="box">
-                    <img src="{{testimonial.image}}" alt="">
+                    <img src="{{testimonial.image.secure_url}}" alt="">
                     <div>
                         <p class="testimonial_text">
                             {{testimonial.description}}

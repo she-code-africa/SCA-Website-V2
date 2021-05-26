@@ -41,7 +41,7 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function(app) {
     app.use(cookieParser(process.env.TOKEN_SECRET));
-    
+
     // Views
     app.get('/', routes.views.index);
     app.post('/', routes.views.index);
