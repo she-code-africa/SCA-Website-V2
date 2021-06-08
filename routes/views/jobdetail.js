@@ -33,7 +33,7 @@ exports = module.exports = function (req, res) {
                 if (result != null) {
                     locals.data.job = result;
                 } else {
-                    return res.status(404);
+                    return res.status(404).render('errors/404');
                 }
                 next(err);
             })

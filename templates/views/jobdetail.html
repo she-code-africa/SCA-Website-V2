@@ -1,6 +1,7 @@
 {% extends "layouts/jobdetail.html" %} 
 {% block intro %}
 <div class="container jobs-detail-container">
+{% if data.job %}
   <section class="jobs">
     <div class="col-sm-12 role-apply">
         <div class="apply">
@@ -87,6 +88,7 @@
       </button>
     </div>
   </section>
+{% endif %}
 </div>
 {% endblock %}
 {% block js %}
