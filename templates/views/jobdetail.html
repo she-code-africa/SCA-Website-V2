@@ -31,7 +31,7 @@
               {%endif%}
             </div>
             {% if (data.job.state == 'archived') or (data.job.state=='inactive') %}
-              <button class="btn sca-btn pink-btn sca-btn-small" onclick="goBack()">
+              <button class="btn sca-btn pink-btn sca-btn-small" style="display: none" onclick="goBack()">
                 CLOSE
               </button>
             {% elseif data.job.state == 'published' %}
@@ -56,7 +56,7 @@
     <div class="row role-desc">
         <div class="col-sm-12">
           <p class="__jobdeets_header">Job Description</p>
-            <p style="text-align: justify;">
+            <p class="text-justify break-word-overflow">
                 {{data.job.jobDescription}}
             </p>
         </div>
@@ -83,7 +83,7 @@
         </div>
     </div>
     <div>
-      <button class="btn sca-btn pink-btn sca-btn-small" onclick="goBack()">
+      <button class="btn sca-btn pink-btn sca-btn-small" id="backBtn" style="display: none" onclick="goBack()">
         <span class="glyphicon glyphicon-chevron-left"></span> Back
       </button>
     </div>
@@ -93,6 +93,12 @@
 {% endblock %}
 {% block js %}
 <script>
+  (function () {
+    if (document.referrer.includes(location.origin)) { 
+      document.getElementById("backBtn").style.display = "block";
+    } 
+  })();
+
   function goBack() {
     window.history.back();
   }

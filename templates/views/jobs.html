@@ -74,7 +74,7 @@
                             </p> -->
                             {% if job.jobDescription %} 
                                 {% if job.jobDescription.length > 120 %}
-                                <p class="text-justify">{{ job.jobDescription.substring(0, 120) }}...</p>
+                                <p class="text-justify break-word-overflow">{{ job.jobDescription.substring(0, 120) }}...</p>
                                 {% else %}
                                 <p class="text-justify">{{job.jobDescription}}</p>
                                 {% endif %} 
