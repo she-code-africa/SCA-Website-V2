@@ -61,6 +61,7 @@ exports = module.exports = function(app) {
     app.get('/testimonials', routes.views.testimonials);
     app.get('/jobs', routes.views.jobs);
     app.get('/jobs/:org', middleware.getCookieAndFiles, middleware.verifyToken, routes.views.jobsorgdashboard);
+    app.get('/view/jobs/:id', routes.views.jobdetail);
     app.get('/jobs/register/org-details', routes.views.jobsregister);
     app.post('/jobs/register/org-details', routes.views.jobsregister);
     app.get('/jobs/register/contact-details', routes.views.jobsregister_contact);
