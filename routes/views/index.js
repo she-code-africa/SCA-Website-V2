@@ -13,7 +13,7 @@ exports = module.exports = function(req, res) {
     locals.enquiryTypes = Enquiry.fields.enquiryType.ops;
     locals.formData = req.body || {};
     locals.formerror = false;
-    locals.validationErrors = {};
+    locals.validationErrors = {};   
     locals.enquirySubmitted = false;
     locals.data = {
         testimonials: [],
