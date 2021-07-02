@@ -146,7 +146,7 @@
         </div>
         <div class="__footerdownbg">
             <div class="container">
-                <p class="text-center"><a href=""> All right reserved. She code Africa. 2020</a></p>
+                <p class="text-center"><a href=""> All right reserved. She code Africa. <span id="year"></span></a></p>
             </div>
         </div>
     </footer>
@@ -163,6 +163,7 @@
     {% endif %} {# Add scripts that are globally required by your site here. #}
     <script src="../js/jquery/main.js"></script>
     <script>
+        document.getElementById("year").innerHTML = new Date().getFullYear();
         let promptOpened = localStorage.getItem('opened')
         if (promptOpened == null) {
             $('#prompt').modal('hide');
