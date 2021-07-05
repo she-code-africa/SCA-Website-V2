@@ -41,7 +41,7 @@ var routes = {
 // Setup Route Bindings
 exports = module.exports = function(app) {
     app.use(cookieParser(process.env.TOKEN_SECRET));
-    
+
     // Views
     app.get('/', routes.views.index);
     app.post('/', routes.views.index);
@@ -58,6 +58,7 @@ exports = module.exports = function(app) {
     app.get('/faq', routes.views.faq);
     app.get('/privacy', routes.views.privacy);
     app.get('/terms', routes.views.terms);
+    app.get('/testimonials', routes.views.testimonials);
     app.get('/jobs', routes.views.jobs);
     app.get('/jobs/:org', middleware.getCookieAndFiles, middleware.verifyToken, routes.views.jobsorgdashboard);
     app.get('/view/jobs/:id', routes.views.jobdetail);
@@ -69,6 +70,7 @@ exports = module.exports = function(app) {
     app.post('/jobs/post/new', middleware.getCookieAndFiles, middleware.verifyToken, routes.views.jobdetails);
     app.get('/jobs/org/login', routes.views.jobslogin);
     app.post('/jobs/org/login', routes.views.jobslogin);
+
     app.get('/success', routes.views.successMessage);
     app.get('/logout', middleware.logoutUser);
 

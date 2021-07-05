@@ -1,5 +1,6 @@
 var keystone = require('keystone');
 var Enquiry = keystone.list('Enquiry');
+var Testimonial = keystone.list('Testimonial');
 const https = require('https');
 
 exports = module.exports = function(req, res) {
@@ -12,8 +13,14 @@ exports = module.exports = function(req, res) {
     locals.enquiryTypes = Enquiry.fields.enquiryType.ops;
     locals.formData = req.body || {};
     locals.formerror = false;
-    locals.validationErrors = {};
+    locals.validationErrors = {};   
     locals.enquirySubmitted = false;
+    locals.data = {
+        testimonials: [],
+    };
+
+
+    view.query('testimonials', Testimonial.model.find());
 
     view.on('post', { action: '' }, function(next) {
         if (locals.formData['g-recaptcha-response'] === undefined || locals.formData['g-recaptcha-response'] === '' || locals.formData['g-recaptcha-response'] === null) {
