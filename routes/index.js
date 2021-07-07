@@ -61,6 +61,10 @@ exports = module.exports = function(app) {
     app.get('/jobs', routes.views.jobs);
     app.get('/jobs/:org', middleware.getCookieAndFiles, middleware.verifyToken, routes.views.jobsorgdashboard);
     app.get('/view/jobs/:id', routes.views.jobdetail);
+    app.get('/edit/jobs/:org', middleware.getCookieAndFiles, middleware.verifyToken, routes.views.editorgprofile_orgdetails);
+    app.post('/edit/jobs/:org', middleware.getCookieAndFiles, middleware.verifyToken, routes.views.editorgprofile_orgdetails);
+    app.get('/edit/:org/contact-details', middleware.getCookieAndFiles, middleware.verifyToken, routes.views.editorgprofile_contactdetails);
+    app.post('/edit/:org/contact-details', middleware.getCookieAndFiles, middleware.verifyToken, routes.views.editorgprofile_contactdetails);
     app.get('/jobs/register/org-details', routes.views.jobsregister);
     app.post('/jobs/register/org-details', routes.views.jobsregister);
     app.get('/jobs/register/contact-details', routes.views.jobsregister_contact);
