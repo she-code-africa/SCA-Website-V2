@@ -17,6 +17,7 @@ var Job = new keystone.List('Job', {
 Job.add({
     title: { type: String, initial: true, required: true },
     categories: { type: Types.Relationship, ref: 'JobCategory', many: false },
+    jobType: { type: Types.Relationship, ref: 'JobType', many: false },
     specialization: { type: String },
     deadline: { type: Types.Date, index: true },
     state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
@@ -25,7 +26,9 @@ Job.add({
     jobDescription: { type: Types.Textarea },
     applicationLink: { type: String, initial: true, required: true },
     // applicationEmail: { type: Types.Email, initial: true, required: true },
+    salaryCurrency: { type: String },
     salaryRange: { type: String },
+    location: { type: String },
     company: { type: Types.Relationship, ref: 'Company', index: true },
 });
 
