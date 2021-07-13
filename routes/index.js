@@ -71,6 +71,9 @@ exports = module.exports = function(app) {
     app.post('/jobs/org/login', routes.views.jobslogin);
     app.get('/success', routes.views.successMessage);
     app.get('/logout', middleware.logoutUser);
+    app.get('/programs', routes.views.programs);
+    app.get('/programs/:program', routes.views.program);
+
 
     // app.get('/blog/:category?', routes.views.blog);
     // app.get('/blog/post/:post', routes.views.post);
