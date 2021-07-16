@@ -1,0 +1,75 @@
+{% extends "layouts/jobpost.html" %} {% block content %}
+<div class="container __register">
+    <section class="jobs __register_welcome">
+        <div class="flex-center">
+            <div class="__register_welcome_text">
+                <div class="welcome_text">
+                    <h2 class="text-center">Edit Profile</h2>
+                    <!-- <p class="text-center">Reach top talent and find the right candidate today</p> -->
+                </div>
+                <div class="here contact-details width-100">
+                    <a href="/jobs/register/org-details">
+                        <div class="first_ring"></div>
+                    </a>
+                    <div class="connector"></div>
+                    <div class="second_ring">
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a title="go back" href="/jobs" class="close">&#215;</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="__register_form">
+        {% if errorMessage %}
+        <div class="alert alert-danger flex-center">
+            {{errorMessage}}
+        </div>
+        {% endif %}
+        {% if validationErrors|length %}
+        <div class="flex-center alert alert-danger">
+            Validation Error
+        </div>
+        {% endif %}
+        <form class="flex-center" method="post">
+            <input type="hidden" name="action" value="">
+            <div class="form-group">
+                <input type="text" name="contactName" value="{{data.company.contactName}}" class="form-control"
+                    placeholder="Contact Name *" required>
+            </div>
+
+            {% if validationErrors.phoneNumber %}
+                <div>
+                    <label class="text text-danger text-center">
+                        {{validationErrors.phoneNumber}}
+                    </label> 
+                </div>             
+            {%endif%}  
+            <div class="form-group __contact_number">           
+                <select name="countryCode" id="countryCode" class="form-control dailing-code">
+                    {% for i in countries %}
+                    <option value="{{i.isoCode2}}" {{'selected' if i.isoCode2 == 'NG'}}>+{{i.countryCodes}}</option>
+                    {%endfor%}
+                </select>
+                {% set phoneNumberWithoutCountryCode = data.company.phoneNumber.slice(4) %}
+                <input type="number" name="phoneNumber" id="phoneNumber" value="{{phoneNumberWithoutCountryCode}}" class="form-control"
+                    placeholder="Phone Number *" required>
+            </div>
+
+            <div class="form-group">
+                {% if validationErrors.email %}<label class="text text-danger text-center">
+                    {{validationErrors.email.error}}</label> {%endif%}
+
+                <input type="email" name="email" value="{{data.company.email}}" class="form-control"
+                    placeholder="Email Address *" readonly>
+            </div>
+
+            <button type="submit" class="btn sca-btn light-pink-btn" id="submitButton">
+                SAVE
+            </button>
+        </form>
+    </section>
+</div>
+{% endblock %}

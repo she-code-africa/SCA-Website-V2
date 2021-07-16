@@ -33,11 +33,20 @@
             <div class="form-group">
                 <select name="categories" id="categories" class="form-control" value="{{formData.categories}}" required>
 
-                    <option value="" disabled selected hidden>Job Type*</option>
+                    <option value="" disabled selected hidden>Field*</option>
                     {% for i in data.categories %}
                     <option value="{{i.id}}">{{i.name}}</option>
                     {% endfor%}
                     <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <select name="jobType" id="jobType" class="form-control" value="{{formData.jobTypes}}" required>
+                    <option value="" disabled selected hidden>Job Type*</option>
+                    {% for i in data.jobTypes %}
+                    <option value="{{i.id}}">{{i.name}}</option>
+                    {% endfor%}
                 </select>
             </div>
 
@@ -64,9 +73,21 @@
                     value="{{formData.jobDescription}}" required></textarea>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" style="display: flex;">
+                <select name="salaryCurrency" id="salaryCurrency" class="currency-code">
+                    {% for i in data.currencyCodes %}
+                    <option value="{{i}}">{{i}}</option>
+                    {% endfor %}
+                </select>
                 <input type="text" name="salaryRange" class="form-control" value="{{formData.salaryRange}}"
-                    placeholder="Salary Range (e.g 150,000 - 200,000)" required>
+                    placeholder="Salary Range (e.g 150,000 - 200,000)" required style="margin-left: 5px;">
+            </div>
+
+            <div class="form-group">
+                <label class="text text-danger text-center">Exact location or "Remote" if it is a remote role</label>
+                <input type="location" name="location" class="form-control"
+                    placeholder="Location or Remote (if fully remote) *" value="{{formData.location}}"
+                    required>
             </div>
 
             <div class="form-group">

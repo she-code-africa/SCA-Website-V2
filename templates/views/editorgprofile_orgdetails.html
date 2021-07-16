@@ -1,0 +1,63 @@
+{% extends "layouts/jobdetail.html" %} {% block content %}
+<div class="container __register">
+    <section class="jobs __register_welcome">
+        <div class="flex-center">
+            <div class="__register_welcome_text">
+                <div class="welcome_text">
+                    <h2 class="text-center">Edit Profile</h2>
+                    <!-- <p class="text-center">Reach top talent and find the right candidate today</p> -->
+                </div>
+                <div class="here org-details width-100">
+                    <div class="first_ring"></div>
+                    <div class="connector"></div>
+                    <div class="second_ring"></div>
+                </div>
+            </div>
+            <div>
+                <a title="go back" href="/jobs" class="close">&#215;</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="__register_form">
+        <form class="flex-center" method="post">
+            <input type="hidden" name="action" value="">
+            <div class="form-group">
+                <input type="text" name="org_name" class="form-control" placeholder="Organization Name *"
+                    value="{{data.company.companyName}}" required readonly>
+            </div>
+
+            <div class="form-group">
+                <label class="text text-danger text-center">Must Include "http://" or "https://"</label>
+                <input type="url" name="website_url" class="form-control"
+                    placeholder="Website URL e.g https://example.org" value="{{data.company.companyUrl}}">
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="location" class="form-control" placeholder="Location (e.g. Lagos, Nigeria)*"
+                    value="{{data.company.location}}" required />
+            </div>
+
+            <div class="form-group">
+                <input type="text" name="org_address" class="form-control" placeholder="Organization Address *"
+                    value="{{data.company.address}}" required>
+            </div>
+
+            <button type="submit" class="btn sca-btn light-pink-btn">
+                PROCEED
+            </button>
+        </form>
+    </section>
+</div>
+<script>
+    var org_ind = document.getElementById("org_industry");
+    var ind = document.getElementById("industry");
+    org_ind.onchange = function () {
+        if (org_ind.value === "other") {
+            ind.style.display = "block";
+        } else {
+            ind.style.display = "none";
+        }
+    }
+</script>
+{% endblock %}

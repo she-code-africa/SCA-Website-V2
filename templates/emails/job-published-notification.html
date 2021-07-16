@@ -1,0 +1,17 @@
+<h1>Hi %recipient.firstName%</h1>
+<p class="text-larger">Your job posting has been published.</p>
+{% if enquiry.email %}	<p class="text-larger">
+		Your job posting with the details below is now active.
+	</p>
+
+  <div>
+    <h4>JOB DETAILS:</h4>
+    <h4 style="margin-bottom: 0;">Job Title</h4>
+    <span>{{ job.title }}</span>
+
+    <h4 style="margin-bottom: 0;">Job Description</h4>
+    <span>{{ job.jobDescription }}</span>
+
+    <h4 style="margin-bottom: 0;">Application Link</h4>
+    <span>{{ job.applicationLink }}</span>
+  </div>
