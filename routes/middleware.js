@@ -25,7 +25,8 @@ exports.initLocals = function(req, res, next) {
         { label: 'About', key: 'about', href: '/about' },
         { label: 'Donate/Partner', key: 'partners', href: '/donate-partner' },
         { label: 'Chapters', key: 'chapters', href: '/chapters' },
-        { label: 'Events', key: 'events', href: '/events' },
+        // { label: 'Events', key: 'events', href: '/events' },
+        { label: 'Programs', key: 'programs', href: '/programs' },
         { label: 'Job Opportunities', key: 'jobs', href: '/jobs' },
         // { label: 'Community', key: 'community', href: '/community' },
         // { label: 'Gallery', key: 'gallery', href: '/gallery' },
@@ -88,7 +89,7 @@ exports.getCookieAndFiles = function(req, res, next) {
     let correspondingSlug;
     let serverCookieTag;
 
-    if (clientCookieTag) {     
+    if (clientCookieTag) {
         correspondingToken = localStorage.getItem(`token-${clientCookieTag}`);
         correspondingSlug = localStorage.getItem(`loggedInCompany-${clientCookieTag}`);
         serverCookieTag = localStorage.getItem(`${correspondingSlug}`.normalize());
@@ -103,7 +104,7 @@ exports.getCookieAndFiles = function(req, res, next) {
         } else {
             localStorage.setItem(`sessionExpired-${clientCookieTag}`, 'You need to be logged in to continue');
             res.redirect('/jobs/org/login');
-        }     
+        }
     } else {
         // localStorage.setItem('sessionExpired', 'You need to be logged in to continue');
         res.redirect('/jobs/org/login');
@@ -122,13 +123,13 @@ exports.verifyToken = function(req, res, next) {
                 localStorage.removeItem(`loggedInCompany-${cookieTag}`);
                 localStorage.removeItem(`token-${cookieTag}`);
                 // res.clearCookie('tag'); // cleared in jobslogin.js so session expired message can be retrieved with the tag
-                
+
                 if (err.message === 'jwt expired') {
                     localStorage.setItem(`sessionExpired-${cookieTag}`, 'Session expired, please log in to continue');
                     res.redirect('/jobs/org/login');
                 } else {
                     localStorage.setItem(`sessionExpired-${cookieTag}`, 'Invalid session, please log in to continue');
-                    res.redirect('/jobs/org/login');              
+                    res.redirect('/jobs/org/login');
                 }
             } else {
                 next();

@@ -1,0 +1,50 @@
+{% extends "layouts/default.html" %} {% block css %}
+<link rel="stylesheet" type="text/css" href="styles/events.css">{% endblock %} {% block head %}{% endblock %} {% block intro %}
+<div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7 col-sm-7 col-lg-7">
+                <p class="event_title">Programs</p>
+                <p class="about_subtitle">
+                    All our programs are specifically designed to empower
+                    <span class="__shecodegirls">young African girls and women in tech</span> with the technical and career skills needed to scale in their fields” We are a non-profit organization
+                </p>
+                <!-- <p>
+                    <a href="Join Community"></a>
+                </p> -->
+            </div>
+            <div class="col-md-5 col-sm-5 col-lg-5 event_side">
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %} {% block content %}
+<div class="container">
+    <section>
+        <div id="chapter-tab">
+            <ul class="nav nav-tabs" id="myTab">
+                {% for cat in category %}
+                <li class="nav-item">
+                    <a class="nav-link filter-button" data-filter="{{cat.id}}">
+                        {{cat.name}}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="row tab-content">
+            {% for member in chapters %}
+            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 filter {{member.categories}}">
+                <div class="box">
+                    <a target="_blank" href="{{member.socialMediaLink}}">
+                        <h5>{{member.chapterName}}</h5>
+                        <p>{{member.location}}, {{member.country}}</p>
+                    </a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+{% endblock %}

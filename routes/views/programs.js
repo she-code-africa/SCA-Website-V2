@@ -9,7 +9,16 @@ exports = module.exports = function(req, res) {
     locals.data = {
         upcomingPrograms: [],
         pastPrograms: [],
+        categories: []
     };
+
+    //get categories
+    view.on('init', function(next) {
+        keystone.list('ProgramCategory').model.find().exec(function(err, result) {
+            locals.data.categories = result;
+            next(err);
+        });
+    });
 
     // past programs
     view.on('init', function(next) {

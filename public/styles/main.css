@@ -277,10 +277,33 @@ Custom Css
 
 .__shecodelink a:hover,
 li.__shecodelink.active a {
+    font-size: 15px;
     color: var(--primary-main-pink);
     transform: scale(1.04);
     border-bottom: 3px solid var(--primary-main-pink);
     transition: transform 0.4s ease-in-out;
+}
+
+.__shecodelink a.dropdown-toggle:hover,
+.__shecodelink a.dropdown-toggle:focus {
+    background-color: transparent!important;
+}
+
+.__shecodelink ul li {
+    margin-bottom: 10px;
+}
+
+.__shecodelink ul li a {
+    text-align: left;
+}
+
+.__shecodelink ul li a:hover {
+    color: var(--primary-main-pink);
+    transform: scale(1);
+    border-bottom: none;
+    transition: none;
+    background-color: #eeeeee;
+    font-weight: bold;
 }
 
 .__shecodecontent {
