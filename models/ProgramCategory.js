@@ -1,5 +1,5 @@
 var keystone = require('keystone');
-
+var Types = keystone.Field.Types;
 /**
  * ProgramCategory Model
  * ==================
@@ -10,7 +10,8 @@ var ProgramCategory = new keystone.List('ProgramCategory', {
 });
 
 ProgramCategory.add({
-    name: { type: String, required: true },
+    name: { type: String, initial: true, required: true },
+    description: { type: Types.Textarea, max: 250 }
 });
 
 ProgramCategory.relationship({ ref: 'Program', path: 'programs', refPath: 'categories' });

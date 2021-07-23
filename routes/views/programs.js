@@ -1,5 +1,5 @@
 var keystone = require('keystone');
-
+var ProgramCategory = keystone.list('ProgramCategory');
 exports = module.exports = function(req, res) {
 
     var view = new keystone.View(req, res);
@@ -13,12 +13,7 @@ exports = module.exports = function(req, res) {
     };
 
     //get categories
-    view.on('init', function(next) {
-        keystone.list('ProgramCategory').model.find().exec(function(err, result) {
-            locals.data.categories = result;
-            next(err);
-        });
-    });
+    view.query('categories', ProgramCategory.model.find());
 
     // past programs
     view.on('init', function(next) {

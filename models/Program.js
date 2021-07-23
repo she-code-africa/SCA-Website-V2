@@ -17,9 +17,10 @@ Program.add({
     image: { type: Types.CloudinaryImage, initial: true, required: true, label: 'Ímage(800x800)' },
     startDate: { type: Types.Date, initial: true, required: true },
     endDate: { type: Types.Date, initial: true, required: true },
+    categories: { type: Types.Relationship, ref: 'ProgramCategory', many: true },
     stories: { type: Types.Relationship, ref: 'ProgramStories', many: true },
     reaches: { type: Types.Relationship, ref: 'ProgramReaches', many: true },
 });
 
-Program.defaultColumns = 'title, state|20%, startDate|20%, endDate|20%';
+Program.defaultColumns = 'title, categories|20%, state|20%, startDate|20%, endDate|20%';
 Program.register();

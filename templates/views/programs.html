@@ -1,5 +1,6 @@
 {% extends "layouts/default.html" %} {% block css %}
-<link rel="stylesheet" type="text/css" href="styles/events.css">{% endblock %} {% block head %}{% endblock %} {% block intro %}
+<link rel="stylesheet" type="text/css" href="styles/programs.css">
+<link rel="stylesheet" type="text/css" href="styles/events.css"> {% endblock %} {% block head %}{% endblock %} {% block intro %}
 <div>
     <div class="container">
         <div class="row">
@@ -21,11 +22,13 @@
 {% endblock %} {% block content %}
 <div class="container">
     <section>
-        <div id="chapter-tab">
+
+        <div id="programs-tab">
+
             <ul class="nav nav-tabs" id="myTab">
-                {% for cat in category %}
+                {{ selected_id }} {% for cat in categories %}
                 <li class="nav-item">
-                    <a class="nav-link filter-button" data-filter="{{cat.id}}">
+                    <a class="nav-link filter-button" data-filter="{{cat.id}}" :onclick={{selected_id=cat.id}}>
                         {{cat.name}}
                     </a>
                 </li>
@@ -34,17 +37,30 @@
         </div>
 
         <div class="row tab-content">
-            {% for member in chapters %}
-            <div class="col-lg-2 col-md-3 col-sm-4 col-xs-12 filter {{member.categories}}">
-                <div class="box">
-                    <a target="_blank" href="{{member.socialMediaLink}}">
-                        <h5>{{member.chapterName}}</h5>
-                        <p>{{member.location}}, {{member.country}}</p>
-                    </a>
-                </div>
+            selected= {{ selected_id }} {% for i in categories%}
+            <div id="program-content" class="">
+                {% if i.id == selected_id %} {{i}} {% endif %}
             </div>
             {% endfor %}
         </div>
     </section>
 </div>
+{% endblock %} {% block js %}
+<script>
+    var fvalue;
+    $(document).ready(function() {
+        $(".filter-button:first").addClass("active")
+        fvalue = $(".filter-button:first").attr('data-filter');
+        localStorage.setItem('id', fvalue)
+
+        $(".filter-button").click(function() {
+            fvalue = $(this).attr('data-filter');
+            if ($(".filter-button").removeClass("active")) {
+                $(this).removeClass("active");
+            }
+            $(this).addClass("active");
+        });
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.js"></script>
 {% endblock %}
