@@ -75,8 +75,8 @@
             </div>
             <div class="industry">
                 <p class="__jobdeets_header">Field</p>
-                <p class="__jobdeets_body">{%if data.job.categories %} {{data.job.categories.name}}
-                    {%else%} {{data.job.specialization}} {%endif%}</p>
+                {% set field = (data.job.categories.name if data.job.categories.name !== 'Other' else data.job.specialization) %}
+                <p class="__jobdeets_body">{{field}}</p>
             </div>
             <div class="employment-type">
                 <p class="__jobdeets_header">Deadline</p>

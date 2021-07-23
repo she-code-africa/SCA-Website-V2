@@ -37,8 +37,12 @@
                     {% for i in data.categories %}
                     <option value="{{i.id}}">{{i.name}}</option>
                     {% endfor%}
-                    <option value="other">Other</option>
                 </select>
+            </div>
+
+            <div class="form-group" style="display: none;" id="specialization">
+                <input type="text" name="specialization" class="form-control" placeholder="Specialization *"
+                    value="{{formData.specialization}}">
             </div>
 
             <div class="form-group">
@@ -48,11 +52,6 @@
                     <option value="{{i.id}}">{{i.name}}</option>
                     {% endfor%}
                 </select>
-            </div>
-
-            <div class="form-group" style="display: none;" id="specialization">
-                <input type="text" name="specialization" class="form-control" placeholder="Specialization *"
-                    value="{{formData.categories}}">
             </div>
 
             <div class="form-group">
@@ -121,7 +120,7 @@
     };
 
     category.onchange = function () {
-        if (category.value === "other") {
+        if (category.options[category.selectedIndex].text === "Other") {
             specialization.style.display = "block";
             specialization.required = true;
         } else {
