@@ -9,6 +9,7 @@ var paginate = require('../../utils/paginate');
 
 exports = module.exports = function (req, res) {
     const { cookieTag } = req.decoded || {};
+    const slug = req.params.org;
 
     const companyData = localStorage.getItem(`loggedInCompany-${cookieTag}`) 
         ? localStorage.getItem(`loggedInCompany-${cookieTag}`) 
@@ -41,10 +42,11 @@ exports = module.exports = function (req, res) {
     };
     locals.paginationMetadataPublished = {};
     locals.paginationMetadataUnpublished = {};
+    locals.successfulCompanyEdit = localStorage.getItem(`successfulEdit-${slug}`) || '';
 
     //company details
     view.on('init', function (next) {
-        var q = keystone.list('Company').model.findOne({ slug: req.params.org });
+        var q = keystone.list('Company').model.findOne({ slug });
 
         q.exec(function (err, result) {
             if (result != null) {
@@ -116,6 +118,12 @@ exports = module.exports = function (req, res) {
                 next(err);
             })
     });
+
+    view.on('init', function (next) {
+        localStorage.removeItem(`successfulEdit-${slug}`);
+        next();
+    });
+
     // Render the view
     view.render('jobsorgdashboard');
 };

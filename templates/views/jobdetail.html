@@ -1,0 +1,113 @@
+{% extends "layouts/jobdetail.html" %} 
+{% block intro %}
+<div class="container jobs-detail-container">
+{% if data.job %}
+  <section class="jobs">
+    <div class="col-sm-12 role-apply">
+        <div class="apply">
+            <div class="job-status">
+              <!-- unpublished job -->
+              {% if (data.job.state == 'archived') or (data.job.state=='draft') %}
+                {% if data.job.deadline < data.todayDate %}
+                    {% if data.job.state == 'archived' %}
+                    ARCHIVED
+                    {% else %}
+                    CLOSED
+                    {% endif %}
+                {% elseif (data.job.state=='draft' ) %} 
+                INACTIVE
+                {% elseif (data.job.state=='archived' ) %}
+                ARCHIVED
+                {%endif%}
+              <!-- published job -->
+              {% elseif data.job.state == 'published' %}
+                {% if dateDiff(data.job.deadline) < 0 %} 
+                  CLOSED 
+                {% elseif (job.state=='draft' ) %} 
+                  INACTIVE 
+                {% else %}
+                  ACTIVE
+                {%endif%}
+              {%endif%}
+            </div>
+            {% if (data.job.state == 'archived') or (data.job.state=='inactive') %}
+              <button class="btn sca-btn pink-btn sca-btn-small" style="display: none" onclick="goBack()">
+                CLOSE
+              </button>
+            {% elseif data.job.state == 'published' %}
+              {% if dateDiff(data.job.deadline) < 0 %} 
+              <button class="btn sca-btn pink-btn sca-btn-small" onclick="goBack()">
+                CLOSE
+              </button>
+              {% else %}
+              <a href="{{data.job.applicationLink}}" target="_blank">
+                <button class="btn sca-btn pink-btn sca-btn-small">APPLY</button>
+              </a>
+              {%endif%}
+            {% endif %}
+        </div>
+    </div>
+    <div class="role">
+        <h3 class="title">
+        {{data.job.title}} {%if data.job.jobType %} <span class="jobType">({{data.job.jobType.name}})</span> {%endif%}
+        </h3>
+        <p class="org">{{data.job.company.companyName}}, {{data.job.location}}</p>
+    </div>
+    <div class="row role-desc">
+        <div class="col-sm-12">
+          <p class="__jobdeets_header">Job Description</p>
+            <p class="text-justify break-word-overflow" style="white-space: pre-wrap;">{{data.job.jobDescription}}</p>
+        </div>
+    </div>
+    {%if data.job.location %}
+    <div class="row role-desc">
+      <div class="col-sm-12">
+        <p class="__jobdeets_header">Location</p>
+          <p class="text-justify break-word-overflow" style="white-space: pre-wrap;">{{data.job.location}}</p>
+      </div>
+    </div>
+    {%endif%}
+    <div class="row">
+        <div class="col-sm-12 grid-container margin-top-2r">
+            <div class="level">
+                <p class="__jobdeets_header">Minimum Experience</p>
+                <p class="__jobdeets_body">{{data.job.minimumExperience}}</p>
+            </div>
+            <div class="industry">
+                <p class="__jobdeets_header">Field</p>
+                {% set field = (data.job.categories.name if data.job.categories.name !== 'Other' else data.job.specialization) %}
+                <p class="__jobdeets_body">{{field}}</p>
+            </div>
+            <div class="employment-type">
+                <p class="__jobdeets_header">Deadline</p>
+                <p class="__jobdeets_body">{{data.job._.deadline.format("MMMM Do, YYYY")}}</p>
+            </div>
+            <div class="salary-range">
+                <p class="__jobdeets_header">Salary Range</p>
+                {% set currency = (data.job.salaryCurrency if data.job.salaryCurrency else '') %}
+                <p class="__jobdeets_body">{{currency + ' ' + data.job.salaryRange}}</p>
+            </div>
+        </div>
+    </div>
+    <div>
+      <button class="btn sca-btn pink-btn sca-btn-small" id="backBtn" style="display: none" onclick="goBack()">
+        <span class="glyphicon glyphicon-chevron-left"></span> Back
+      </button>
+    </div>
+  </section>
+{% endif %}
+</div>
+{% endblock %}
+{% block js %}
+<script>
+  (function () {
+    if (document.referrer.includes(location.origin)) { 
+      document.getElementById("backBtn").style.display = "block";
+    } 
+  })();
+
+  function goBack() {
+    window.history.back();
+  }
+</script>
+{% endblock %}

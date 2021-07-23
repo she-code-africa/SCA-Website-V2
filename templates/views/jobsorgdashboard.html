@@ -3,6 +3,15 @@
 <link rel="stylesheet" type="text/css" href="../styles/jobs.css"> 
 {% endblock %} 
 {% block intro %}
+
+{% set loggedOut = ( true if loggedOutCompany  === 'loggedOutCompany-' + tag else false ) %}
+{% if successfulCompanyEdit %}
+<div id="toast" class="toast-modal" style="display: block">
+    <p>Profile update was successful</p>
+    <span class="close" onclick="closeModal();">&#215;</span>
+</div>
+{% endif %}
+
 {% if data.companyName %}
     <div class="dropdown jobsDropdownMenuContainer">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true" id="profileJobsDropdownMenu">
@@ -11,6 +20,7 @@
         </a>
         <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="profileJobsDropdownMenu">
             <li><a href="/jobs">Jobs</a></li>
+            <li><a href="/edit/jobs/{{data.companyName}}">Edit Profile</a></li>
             <li><a href="/logout">Logout</a></li>
         </ul>
     </div>
@@ -63,9 +73,9 @@
                         </p> -->
                         {% if job.jobDescription %}
                         {% if job.jobDescription.length > 120 %} 
-                            <p class="text-justify">{{ job.jobDescription.substring(0, 120) }}...</p>
+                            <p class="text-justify break-word-overflow">{{ job.jobDescription.substring(0, 120) }}...</p>
                         {% else %}
-                            <p class="text-justify">{{job.jobDescription}}</p>
+                            <p class="text-justify break-word-overflow">{{job.jobDescription}}</p>
                         {% endif %}
                         {% endif %}
 
@@ -84,80 +94,13 @@
                             {% endif %}
                             {% endif %}
                         </div>
-                        <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{job.id}}">
-                            VIEW MORE
+                        <button class="btn sca-btn pink-btn sca-btn-small">
+                            <a href="/view/jobs/{{job._id}}">
+                                VIEW MORE
+                            </a>                    
                         </button>
                     </div>
                 </div>
-                <!-- Modal -->
-                <div id="{{job.id}}" class="modal fade job-view-more" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-
-                        <div class="modal-content ">
-                            <div class="modal-body">
-                                <div class="col-sm-12 role-apply">
-                                    <div class="apply">
-                                        <div class="job-status">
-                                            {% if dateDiff(job.deadline) < 0 %} CLOSED {% elseif (job.state=='draft' ) %} INACTIVE {% else %} ACTIVE {%endif%}
-                                        </div>
-                                        <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{job.id}}">
-                                            CLOSE
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="role">
-                                    <h3 class="title">
-                                        {{job.title}}
-                                    </h3>
-                                    <p class="org">{{job.company.companyName}}, {{job.company.location}}</p>
-                                </div>
-                                <div class="row role-desc">
-                                    <div class="col-sm-12">
-                                        <p style="text-align: justify;">
-                                            {{job.jobDescription}}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12 grid-container margin-top-2r">
-                                        <div class="level">
-                                            <p class="__jobdeets_header">Minimum Experience</p>
-                                            <p class="__jobdeets_body">{{job.minimumExperience}}</p>
-                                        </div>
-                                        <div class="industry">
-                                            <p class="__jobdeets_header">Job Category</p>
-                                            <!-- <p class="__jobdeets_body">{%if job.company.categories %}
-                                                {{job.company.categories.name}} {% else %}
-                                                {{job.company.industry}} {%endif%}
-                                            </p> -->
-                                            <p class="__jobdeets_body">
-                                                {%if job.categories %} 
-                                                {{job.categories.name}}
-                                                {%else%} 
-                                                {{job.specialization}} 
-                                                {%endif%}
-                                            </p>
-                                        </div>
-                                        <div class="employment-type">
-                                            <p class="__jobdeets_header">Deadline</p>
-                                            <p class="__jobdeets_body">{{job._.deadline.format("MMMM Do, YYYY")}}</p>
-                                        </div>
-                                        <div class="salary-range">
-                                            <p class="__jobdeets_header">Salary Range</p>
-                                            <p class="__jobdeets_body">{{job.salaryRange}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End of Modal body -->
-                        </div>
-
-                        <!-- End of Modal content -->
-                    </div>
-                    <!-- End of Modal dialog -->
-                </div>
-                <!-- End of Modal -->
             {% endfor %}
             </div>
 
@@ -225,9 +168,9 @@
                         </p> -->
                         {% if ujob.jobDescription %}
                         {% if ujob.jobDescription.length > 200 %} 
-                            <p class="text-justify">{{ ujob.jobDescription.substring(0, 120) }}...</p>
+                            <p class="text-justify break-word-overflow">{{ ujob.jobDescription.substring(0, 120) }}...</p>
                         {% else %}
-                            <p class="text-justify">{{ujob.jobDescription}}</p>
+                            <p class="text-justify break-word-overflow">{{ujob.jobDescription}}</p>
                         {% endif %}
                         {% endif %}
                         <div>
@@ -248,88 +191,14 @@
                             <span class="label label-danger">Archived</span>
                             {%endif%}
                         </div>                                
-                        <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{ujob.id}}">
-                            VIEW MORE
+                        <!-- <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{ujob.id}}"> -->
+                        <button class="btn sca-btn pink-btn sca-btn-small">
+                            <a href="/view/jobs/{{ujob._id}}">
+                                VIEW MORE
+                            </a>                    
                         </button>
                     </div>
                 </div>
-
-                <!-- Modal -->
-                <div id="{{ujob.id}}" class="modal fade job-view-more" tabindex="-1" role="dialog" aria-labelledby="contactModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content ">
-                            <div class="modal-body">
-                                <!-- <div class="row"> -->
-                                    <div class="col-sm-12 role-apply">
-                                        <div class="apply">
-                                            <div class="job-status">
-                                                <!-- {% if ujob.deadline < data.todayDate %} CLOSED {% elseif (ujob.state=='draft' ) %} INACTIVE {% else %} ACTIVE {%endif%} -->
-                                                {% if ujob.deadline < data.todayDate %}
-                                                    {% if ujob.state == 'archived' %}
-                                                    ARCHIVED
-                                                    {% else %}
-                                                    CLOSED
-                                                    {% endif %}
-                                                {% elseif (ujob.state=='draft' ) %} 
-                                                INACTIVE
-                                                {% elseif (ujob.state=='archived' ) %}
-                                                ARCHIVED
-                                                {%endif%}
-                                            </div>
-                                            <button class="btn sca-btn pink-btn sca-btn-small" data-toggle="modal" data-target="#{{ujob.id}}">
-                                                CLOSE
-                                            </button>
-                                        </div>
-                                    </div>
-                                <!-- </div> -->
-                                <div class="role">
-                                    <h3 class="title">
-                                        {{ujob.title}}
-                                    </h3>
-                                    <p class="org">{{ujob.company.companyName}}, {{ujob.company.location}}</p>
-                                </div>
-                                <div class="row role-desc">
-                                    <div class="col-sm-12">
-                                        <p style="text-align: justify;">
-                                            {{ujob.jobDescription}}
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-12 grid-container margin-top-2r">
-                                        <div class="level">
-                                            <p class="__jobdeets_header">Minimum Experience</p>
-                                            <p class="__jobdeets_body">{{ujob.minimumExperience}}</p>
-                                        </div>
-                                        <div class="industry">
-                                            <p class="__jobdeets_header">Job  Category</p>
-                                            <!-- <p class="__jobdeets_body">{%if ujob.company.categories %}
-                                                {{ujob.company.categories.name}} {% else %}
-                                                {{ujob.company.industry}} {%endif%}
-                                            </p> -->
-                                            <p class="__jobdeets_body">{%if ujob.categories %} {{ujob.categories.name}}
-                                                {%else%} {{ujob.specialization}} {%endif%}</p>
-                                        </div>
-                                        <div class="employment-type">
-                                            <p class="__jobdeets_header">Deadline</p>
-                                            <p class="__jobdeets_body">{{ujob._.deadline.format("MMMM Do, YYYY")}}</p>
-                                        </div>
-                                        <div class="salary-range">
-                                            <p class="__jobdeets_header">Salary Range</p>
-                                            <p class="__jobdeets_body">{{ujob.salaryRange}}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- End of Modal body -->
-                        </div>
-
-                        <!-- End of Modal content -->
-                    </div>
-                    <!-- End of Modal dialog -->
-                </div>
-                <!-- End of Modal -->
             {% endfor %}
         </div>
         {% else %}
@@ -378,4 +247,10 @@
     </div>
 </section>
 
+{% endblock %} {% block js %}
+<script>
+    function closeModal() {
+        document.getElementById("toast").style.display = "none";
+    }
+</script>
 {% endblock %}

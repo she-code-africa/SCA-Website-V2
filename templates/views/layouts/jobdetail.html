@@ -7,10 +7,9 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta
-		name="description"
-		content="Empowering and celebrating women in tech across Africa."
+			name="description"
+			content="Empowering and celebrating women in tech across Africa."
 	/>
-
 	<title>{{ title|default("SHE CODE AFRICA") }}</title>
 
 	<!-- STYLESHEETS -->
@@ -40,6 +39,33 @@
 </head>
 
 <body id="body">
+  {# HEADER #}
+    <header>
+        <nav class="navbar __shecodenavbar" role="navigation">
+            <div class="nav-container">
+                <!-- TOGGLE -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/"><img src="../../images/she-code-africa-logo.svg" class="__shecodelogo"></a>
+                </div>
+                <!-- TOGGLING LINKS -->
+                <div class="collapse navbar-collapse navbar-ex1-collapse __shecodenavcol">
+                    <ul class="nav navbar-nav">
+                        {% for link in navLinks %}
+                        <li class="__shecodelink {{ 'active' if link.key == section else '' }}">
+                            <a href="{{ link.href }}">{{ link.label }}</a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 	{% block intro %}{% endblock %}
 	
 	{% block content %} {% endblock %}
@@ -52,5 +78,4 @@
 	{# Include template-specific javascript files by extending the js block #} 
 	{% block js %}{% endblock %}
 </body>
-
 </html>
