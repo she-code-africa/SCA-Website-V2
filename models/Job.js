@@ -32,10 +32,11 @@ Job.add({
     company: { type: Types.Relationship, ref: 'Company', index: true },
 });
 
-Job.schema.methods.sendNotificationEmail = async function (emailPayload, callback) {
+async function getNotificationParams (job, callback, includeAdmins = false) {
     let jobOwner;
-    const job = this;
+    let communityManagers;
     const brand = keystone.get('brand');
+
     if (typeof callback !== 'function') {
         callback = function(err) {
             if (err) {
@@ -58,7 +59,21 @@ Job.schema.methods.sendNotificationEmail = async function (emailPayload, callbac
         }
     });
 
-    const communityManagers = await keystone.list('Team').model.find({ state: 'published', role: 'Community Manager' });
+    if (includeAdmins) {
+        communityManagers = await keystone.list('Team').model.find({ state: 'published', role: 'Community Manager' });
+    }
+
+
+    return { 
+        brand,
+        jobOwner,
+        modifiedCallback: callback,
+        ...(communityManagers && { communityManagers }),
+    };
+}
+
+Job.schema.methods.sendNewJobNotificationEmail = async function (job, callback) {
+    const { brand, jobOwner, communityManagers, modifiedCallback } = await getNotificationParams(job, callback, true);
 
     keystone.list('User').model.find({
         $and: [
@@ -66,58 +81,61 @@ Job.schema.methods.sendNotificationEmail = async function (emailPayload, callbac
             { 'name.last': { $in: communityManagers.map(function (manager) { return manager.name.split(' ')[1]; }) }},
         ]
     }).exec(function(err, admins) {
-        if (err) return callback(err);
-        if (job.isNew && job.state === 'draft') {
-            new keystone.Email({
-                templateName: 'job-posted-admin-notification',
-                transport: 'mailgun',
-            }).send({
-                to: admins,
-                from: {
-                    name: brand,
-                    email: 'info@shecodeafrica.org',
-                },
-                subject: 'A new job is awaiting your approval',
-                job,
-            }, callback);
+        if (err) return modifiedCallback(err);
+        new keystone.Email({
+            templateName: 'job-posted-admin-notification',
+            transport: 'mailgun',
+        }).send({
+            to: admins,
+            from: {
+                name: brand,
+                email: 'info@shecodeafrica.org',
+            },
+            subject: 'A new job is awaiting your approval',
+            job,
+        }, modifiedCallback);
 
-            new keystone.Email({
-                templateName: 'job-posted-notification',
-                transport: 'mailgun',
-            }).send({
-                to: jobOwner,
-                from: {
-                    name: brand,
-                    email: 'info@shecodeafrica.org',
-                },
-                subject: 'Your new job posting has been received',
-                job,
-            }, callback);
-        }
-        if (job.isModified('state') && job.state === 'published') {
-            new keystone.Email({
-                templateName: 'job-published-notification',
-                transport: 'mailgun',
-            }).send({
-                to: jobOwner,
-                from: {
-                    name: brand,
-                    email: 'info@shecodeafrica.org',
-                },
-                subject: 'Your New Job Posting is Now Active',
-                job,
-            }, callback);
-        }
+        new keystone.Email({
+            templateName: 'job-posted-notification',
+            transport: 'mailgun',
+        }).send({
+            to: jobOwner,
+            from: {
+                name: brand,
+                email: 'info@shecodeafrica.org',
+            },
+            subject: 'Your new job posting has been received',
+            job,
+        }, modifiedCallback);
     });
+};
+
+Job.schema.methods.sendPublishedJobNotificationEmail = async function (job, callback) {
+    const { brand, jobOwner, modifiedCallback } = await getNotificationParams(job, callback);
+
+    if (jobOwner.email && jobOwner.name) {
+        new keystone.Email({
+            templateName: 'job-published-notification',
+            transport: 'mailgun',
+        }).send({
+            to: jobOwner,
+            from: {
+                name: brand,
+                email: 'info@shecodeafrica.org',
+            },
+            subject: 'Your New Job Posting is Now Active',
+            job,
+        }, modifiedCallback);
+    }
 };
 
 Job.schema.pre('save', function (next) {
     let job = this;
     if (job.isNew && job.state === 'draft') {
-        this.sendNotificationEmail();
+        this.sendNewJobNotificationEmail(job);
     }
     if (job.isModified('state') && job.state === 'published') {
-        this.sendNotificationEmail();
+        this.sendPublishedJobNotificationEmail(job);
     }
     return next();
 });

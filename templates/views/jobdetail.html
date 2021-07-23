@@ -84,7 +84,8 @@
             </div>
             <div class="salary-range">
                 <p class="__jobdeets_header">Salary Range</p>
-                <p class="__jobdeets_body">{{data.job.salaryRange}}</p>
+                {% set currency = (data.job.salaryCurrency if data.job.salaryCurrency else '') %}
+                <p class="__jobdeets_body">{{currency + ' ' + data.job.salaryRange}}</p>
             </div>
         </div>
     </div>
