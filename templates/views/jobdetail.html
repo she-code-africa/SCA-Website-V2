@@ -49,18 +49,24 @@
     </div>
     <div class="role">
         <h3 class="title">
-            {{data.job.title}}
+        {{data.job.title}} {%if data.job.jobType %} <span class="jobType">({{data.job.jobType.name}})</span> {%endif%}
         </h3>
-        <p class="org">{{data.job.company.companyName}}, {{data.job.company.location}}</p>
+        <p class="org">{{data.job.company.companyName}}, {{data.job.location}}</p>
     </div>
     <div class="row role-desc">
         <div class="col-sm-12">
           <p class="__jobdeets_header">Job Description</p>
-            <p class="text-justify break-word-overflow">
-                {{data.job.jobDescription}}
-            </p>
+            <p class="text-justify break-word-overflow" style="white-space: pre-wrap;">{{data.job.jobDescription}}</p>
         </div>
     </div>
+    {%if data.job.location %}
+    <div class="row role-desc">
+      <div class="col-sm-12">
+        <p class="__jobdeets_header">Location</p>
+          <p class="text-justify break-word-overflow" style="white-space: pre-wrap;">{{data.job.location}}</p>
+      </div>
+    </div>
+    {%endif%}
     <div class="row">
         <div class="col-sm-12 grid-container margin-top-2r">
             <div class="level">
@@ -68,9 +74,9 @@
                 <p class="__jobdeets_body">{{data.job.minimumExperience}}</p>
             </div>
             <div class="industry">
-                <p class="__jobdeets_header">Job  Category</p>
-                <p class="__jobdeets_body">{%if data.job.categories %} {{data.job.categories.name}}
-                    {%else%} {{data.job.specialization}} {%endif%}</p>
+                <p class="__jobdeets_header">Field</p>
+                {% set field = (data.job.categories.name if data.job.categories.name !== 'Other' else data.job.specialization) %}
+                <p class="__jobdeets_body">{{field}}</p>
             </div>
             <div class="employment-type">
                 <p class="__jobdeets_header">Deadline</p>
@@ -78,7 +84,8 @@
             </div>
             <div class="salary-range">
                 <p class="__jobdeets_header">Salary Range</p>
-                <p class="__jobdeets_body">{{data.job.salaryRange}}</p>
+                {% set currency = (data.job.salaryCurrency if data.job.salaryCurrency else '') %}
+                <p class="__jobdeets_body">{{currency + ' ' + data.job.salaryRange}}</p>
             </div>
         </div>
     </div>

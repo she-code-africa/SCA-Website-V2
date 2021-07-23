@@ -5,6 +5,7 @@ const { result } = require('lodash');
 var JobCategory = keystone.list('JobCategory');
 var Company = keystone.list('Company');
 var Job = keystone.list('Job');
+var JobType = keystone.list('JobType');
 var localStorage = require('../../utils/localStorage');
 
 exports = module.exports = function (req, res) {
@@ -23,8 +24,10 @@ exports = module.exports = function (req, res) {
     locals.section = 'jobs';
     locals.data = {
         categories: [],
+        jobTypes: [],
         today,
         oneYearFromNow,
+        currencyCodes: ['NGN', 'USD', 'EUR', 'CAD'],
     };
     locals.formData = req.body || {};
     locals.company = [];
@@ -41,6 +44,13 @@ exports = module.exports = function (req, res) {
     view.on('init', function (next) {
         JobCategory.model.find().sort('name').exec(function (err, result) {
             locals.data.categories = result;
+            next(err);
+        });
+    });
+
+    view.on('init', function (next) {
+        JobType.model.find().sort('name').exec(function (err, result) {
+            locals.data.jobTypes = result;
             next(err);
         });
     });
