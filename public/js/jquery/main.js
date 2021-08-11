@@ -4,9 +4,10 @@ $(document).ready(function() {
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 6000,
+        autoplaySpeed: 1000,
         arrows: false,
         dots: false,
+        infinite: true,
         pauseOnHover: false,
         responsive: [{
                 breakpoint: 1440,
