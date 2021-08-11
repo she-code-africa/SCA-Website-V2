@@ -487,6 +487,18 @@ li.__shecodelink.active a {
     background-position: center;
 }
 
+.program_left_img {
+    background: transparent url('../images/event_image3.png') 0% 0% no-repeat padding-box;
+    width: 400px;
+    height: 400px;
+    background-size: contain;
+    background-position: center;
+}
+
+.cohort {
+    font: normal normal bold 24px/29px Montserrat;
+}
+
 .__shecode_block {
     margin: 8rem 0
 }
@@ -508,7 +520,7 @@ li.__shecodelink.active a {
 .__shecode_title {
     text-align: left;
     font-weight: bold;
-    font-size: 45px;
+    font-size: 40px;
     letter-spacing: 1.44px;
     left: 50%;
     margin-top: 16%;
@@ -574,7 +586,7 @@ li.__shecodelink.active a {
 
 .counter .__shecode_title {
     margin-top: 10%;
-    font-size: 40px;
+    font-size: 35px;
 }
 
 

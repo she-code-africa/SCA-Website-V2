@@ -84,6 +84,16 @@ $(document).ready(function() {
         pauseOnHover: false
 
     });
+    $('.success_stories').slick({
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 8000,
+        arrows: false,
+        dots: false,
+        pauseOnHover: false
+
+    });
     $('#learn-more').on('click', function() {
         $('.__socialmedia_dropdown').addClass('visible');
     })
