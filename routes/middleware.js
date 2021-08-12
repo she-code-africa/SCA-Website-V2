@@ -77,7 +77,7 @@ exports.logoutUser = function(req, res, next) {
 
     if (!localStorage.getItem(`loggedInCompany-${serverCookieTag}`) && !localStorage.removeItem(`token-${clientCookieTag}`)) {
         localStorage.setItem(`loggedOutCompany-${serverCookieTag}`, true)
-        res.redirect('/jobs');
+        res.redirect('/jobs/org/login');
     } else {
         alert('Log out request failed, please try again');
     }
