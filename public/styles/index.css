@@ -29,7 +29,7 @@
         font-size: 30px;
     }
     .__shecode_title {
-        font-size: 40px;
+        font-size: 45px;
     }
     .__shecodeformp {
         left: 37%;
@@ -132,7 +132,8 @@
     .home_side_identify,
     .home_side_event,
     .home_side_partner,
-    .home_side_follow {
+    .home_side_follow,
+    .program_left_img {
         width: 300px;
         height: 400px;
         margin: auto;
@@ -313,7 +314,8 @@
     .home_side_identify,
     .home_side_event,
     .home_side_partner,
-    .home_side_follow {
+    .home_side_follow,
+    .program_left_img {
         width: 300px;
         height: 400px;
     }

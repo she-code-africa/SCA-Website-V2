@@ -29,7 +29,7 @@ exports = module.exports = function(req, res) {
         return splitStr.join(' ');
     }
 
-    console.log(req.body.searchCountry);
+    // console.log(req.body.searchCountry);
     view.query('category', ChapterCategory.model.find());
     if (req.body.searchCountry !== "" && req.body.searchCountry !== undefined) {
         searchQuery = titleCase(req.body.searchCountry)

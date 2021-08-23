@@ -1,45 +1,51 @@
 var keystone = require('keystone');
-
+var Programs = keystone.list('Program');
+var Cohort = keystone.list('ProgramCohort');
+var Reach = keystone.list('ProgramReaches');
+var Stories = keystone.list('ProgramStories');
+var Gallery = keystone.list('ProgramGallery')
 exports = module.exports = function(req, res) {
 
     var view = new keystone.View(req, res);
     var locals = res.locals;
 
+    // item in the header navigation.
     locals.section = 'programs';
+    locals.error = null;
     locals.data = {
-        upcomingPrograms: [],
-        pastPrograms: [],
+        programs: [],
+        reaches: [],
+        stories: [],
+        gallery: [],
+        past: [],
+        current: [],
+        upcoming: []
     };
 
-    // past programs
-    view.on('init', function(next) {
-        var q = keystone.list('Program').model
-            .where({
-                state: 'archived',
-                startDate: { $lt: new Date() },
-            })
-            .sort('-startDate');;
+    view.query('programs', Programs.model.find());
+    view.query('reaches', Reach.model.find());
+    view.query('stories', Stories.model.find());
+    view.query('gallery', Gallery.model.find());
+    //past
+    view.query('past', Cohort.model.find().where({
+        state: 'published',
+        endDate: { $lt: new Date() },
+    }).sort('-endDate'));
+    //current
+    view.query('current', Cohort.model.find().where({
+            state: 'published',
+            endDate: { $gte: new Date() },
+        })
+        .sort('-endDate'));
 
-        q.exec(function(err, result) {
-            locals.data.pastPrograms = result;
-            next(err);
-        });
-    });
+    //upcoming
+    view.query('upcoming', Cohort.model.find().where({
+            state: 'published',
+            startDate: { $gte: new Date() },
+        })
+        .sort('-startDate'));
 
-    // upcoming programs
-    view.on('init', function(next) {
-        var q = keystone.list('Program').model
-            .where({
-                state: 'upcoming',
-                startDate: { $gte: new Date() },
-            })
-            .sort('-startDate');
 
-        q.exec(function(err, results) {
-            locals.data.upcomingPrograms = results;
-            next(err);
-        });
-    });
-
+    // Render the view
     view.render('programs');
 };

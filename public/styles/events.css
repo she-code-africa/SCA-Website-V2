@@ -47,11 +47,9 @@
     .card {
         height: 300px
     }
-
     .errorhead {
         font-size: 16px;
     }
-
     /* .img404 {
         height: 214px;
     } */
@@ -61,7 +59,6 @@
     .img404 {
         height: 265px;
     }
-
     .card {
         height: 465px;
     }
@@ -71,7 +68,6 @@
     .card {
         height: 360px
     }
-
     .img404 {
         height: 200px;
     }
@@ -267,7 +263,7 @@
 }
 
 .row_padding {
-    padding-top: 100px;
+    padding-top: 60px;
 }
 
 .valueDiv {

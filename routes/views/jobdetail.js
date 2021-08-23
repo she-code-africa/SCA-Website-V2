@@ -26,6 +26,7 @@ exports = module.exports = function (req, res) {
     //job details
     view.on('init', function (next) {
         Job.model.findOne({ _id: req.params.id })
+            .populate('jobType')
             .populate({
                 path: 'company categories', populate: ['comapny.categories', 'categories'],
             })

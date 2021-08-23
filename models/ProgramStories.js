@@ -14,10 +14,13 @@ var ProgramStories = new keystone.List('ProgramStories', {
 ProgramStories.add({
     name: { type: String, initial: true, required: true },
     position: { type: String, initial: true, required: true },
-    description: { type: Types.Html, wysiwyg: true, height: 150 },
-    image: { type: Types.CloudinaryImage }
+    content: { type: Types.Markdown, initial: true, required: true, height: 100, markedOptions: { gfm: true } },
+    image: { type: Types.CloudinaryImage },
+    program: { type: Types.Relationship, ref: 'Program', many: true },
+
 });
 
-ProgramStories.relationship({ ref: 'Program', path: 'programs', refPath: 'stories' });
 
+
+ProgramStories.defaultColumns = 'name, position, image,  program';
 ProgramStories.register();

@@ -1,10 +1,9 @@
-
 var keystone = require('keystone');
 var Program = keystone.list('Program');
 
-exports = module.exports = function (req, res) {
+exports = module.exports = function(req, res) {
     var view = new keystone.View(req, res);
-    
+
     var locals = res.locals;
 
     locals.section = 'programs';
@@ -12,14 +11,16 @@ exports = module.exports = function (req, res) {
         program: {},
     };
 
-    view.on('init', function (next) {
+    view.on('init', function(next) {
         Program.model.findOne({ _id: req.params.id })
             .populate({
-                path: 'program stories', populate: ['program.stories', 'stories'],
-                path: 'program reaches', populate: ['program.reaches', 'reaches'],
+                path: 'program stories',
+                populate: ['program.stories', 'stories'],
+                path: 'program reaches',
+                populate: ['program.reaches', 'reaches'],
 
             })
-            .exec(async function (err, result) {
+            .exec(async function(err, result) {
                 if (result != null) {
                     locals.data.program = result;
                 } else {

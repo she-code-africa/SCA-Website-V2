@@ -8,14 +8,16 @@ var Types = keystone.Field.Types;
 
 
 var ProgramReaches = new keystone.List('ProgramReaches', {
-    autokey: { from: 'content', path: 'key' },
+    autokey: { from: 'name', path: 'key', unique: true },
 });
 
 ProgramReaches.add({
-    content: { type: String, initial: true, required: true },
-    position: { type: Number, initial: true, required: true },
+    name: { type: String, initial: true, required: true },
+    count: { type: Number, initial: true, required: true },
+    program: { type: Types.Relationship, ref: 'Program', many: true },
+
 });
 
-ProgramReaches.relationship({ ref: 'Program', path: 'programs', refPath: 'reaches' });
-
+ProgramReaches.defaultSort = 'name';
+ProgramReaches.defaultColumns = 'name, count, program';
 ProgramReaches.register();

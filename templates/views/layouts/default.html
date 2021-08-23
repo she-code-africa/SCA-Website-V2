@@ -7,7 +7,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="She Code Africa">
+    <meta property="og:image" content="https://www.shecodeafrica.org/images/logo-inverted.png" />
+    <meta property="og:description" content="We are a non-profit organization focused on celebrating and empowering young Girls and Women in Technology across Africa." />
+    <meta property="og:updated_time" content="updatedtime">
+
+    <link rel="icon" type="image/png" href="https://www.shecodeafrica.org/images/she-code-africa-logo.png" />
+
     <meta name="monetization" content="$ilp.uphold.com/kkd4KdPQwqJM">
+    <meta name="description" content="Empowering and celebrating women in tech across Africa." />
     <title>{{ title|default("SHE CODE AFRICA") }}</title>
 
     <!-- STYLESHEETS -->
@@ -78,8 +88,19 @@
                     <ul class="nav navbar-nav">
                         {% for link in navLinks %}
                         <li class="__shecodelink {{ 'active' if link.key == section else '' }}">
-                            <a href="{{ link.href }}">{{ link.label }}</a>
+                            {% if link.label == 'Programs' %}
+                            <a type="toggle" href="#" class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Programs
+                                <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/events">Our Events</a></li>
+                                <li><a href="/programs">Our Programs</a></li>
+                            </ul>
+                            {% else %}
+                            <a href="{{ link.href }}">{{ link.label }}</a> {% endif %}
                         </li>
+
                         {% endfor %}
                         <!-- Keystone signin link not required on the page -->
                         <!-- {% if user %} {% if user.canAccessKeystone %}
