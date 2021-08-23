@@ -59,9 +59,9 @@
         <h3 class="text-center job-type-header">Jobs</h3>
         {%if data.openJobs|length %}
             <!-- Jobs list row -->
-            <div class="row flex-center flex-wrap">
+            <div class="row flex-center flex-wrap" style="align-items: stretch;">
             {% for job in data.openJobs %}
-                    <div class="col-lg-4 col-sm-6 col-xs-12">
+                    <div class="col-lg-4 col-sm-6 col-xs-12" style="padding-bottom: 2rem;">
                         <div class="__jobs_preview_card">
                             <h3 class="title">
                                 {{job.title}}
@@ -74,9 +74,9 @@
                             </p> -->
                             {% if job.jobDescription %} 
                                 {% if job.jobDescription.length > 120 %}
-                                <p class="text-justify break-word-overflow">{{ job.jobDescription.substring(0, 120) }}...</p>
+                                <p class="text-justify break-word-overflow" style="flex: auto;">{{ job.jobDescription.substring(0, 120) }}...</p>
                                 {% else %}
-                                <p class="text-justify">{{job.jobDescription}}</p>
+                                <p class="text-justify" style="flex: auto;">{{job.jobDescription}}</p>
                                 {% endif %} 
                             {% endif %}
                             <p class="posted-time">
