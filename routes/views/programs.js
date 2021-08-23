@@ -1,59 +1,51 @@
 var keystone = require('keystone');
-var Program = keystone.list('Program');
+var Programs = keystone.list('Program');
+var Cohort = keystone.list('ProgramCohort');
+var Reach = keystone.list('ProgramReaches');
+var Stories = keystone.list('ProgramStories');
+var Gallery = keystone.list('ProgramGallery')
 exports = module.exports = function(req, res) {
 
     var view = new keystone.View(req, res);
     var locals = res.locals;
 
+    // item in the header navigation.
     locals.section = 'programs';
+    locals.error = null;
     locals.data = {
-        // upcomingPrograms: [],
-        // pastPrograms: [],
-        programs: []
+        programs: [],
+        reaches: [],
+        stories: [],
+        gallery: [],
+        past: [],
+        current: [],
+        upcoming: []
     };
-    var searchQuery = '';
 
-    //get programs
-    view.query('programs', Program.model.find());
-    if (req.body.programId !== "" && req.body.programId !== undefined) {
-        searchQuery = titleCase(req.body.programId)
-        console.log(searchQuery)
-            // view.query('chapters', Chapter.model.find().where('country', `${searchQuery}`).where('state', 'published').sort('publishedDate'));
+    view.query('programs', Programs.model.find());
+    view.query('reaches', Reach.model.find());
+    view.query('stories', Stories.model.find());
+    view.query('gallery', Gallery.model.find());
+    //past
+    view.query('past', Cohort.model.find().where({
+        state: 'published',
+        endDate: { $lt: new Date() },
+    }).sort('-endDate'));
+    //current
+    view.query('current', Cohort.model.find().where({
+            state: 'published',
+            endDate: { $gte: new Date() },
+        })
+        .sort('-endDate'));
 
-        // searchQuery = '';
-    }
+    //upcoming
+    view.query('upcoming', Cohort.model.find().where({
+            state: 'published',
+            startDate: { $gte: new Date() },
+        })
+        .sort('-startDate'));
 
 
-
-    // past programs
-    // view.on('init', function(next) {
-    //     var q = keystone.list('Program').model
-    //         .where({
-    //             state: 'archived',
-    //             startDate: { $lt: new Date() },
-    //         })
-    //         .sort('-startDate');;
-
-    //     q.exec(function(err, result) {
-    //         locals.data.pastPrograms = result;
-    //         next(err);
-    //     });
-    // });
-
-    // upcoming programs
-    // view.on('init', function(next) {
-    //     var q = keystone.list('Program').model
-    //         .where({
-    //             state: 'published',
-    //             startDate: { $gte: new Date() },
-    //         })
-    //         .sort('-startDate');
-
-    //     q.exec(function(err, results) {
-    //         locals.data.upcomingPrograms = results;
-    //         next(err);
-    //     });
-    // });
-
+    // Render the view
     view.render('programs');
 };

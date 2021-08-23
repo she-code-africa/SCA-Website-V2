@@ -5,11 +5,15 @@ var keystone = require('keystone');
  * ==================
  */
 
-var Program = new keystone.List('Program');
+var Program = new keystone.List('Program', {
+    map: { name: 'name' },
+    autokey: { path: 'slug', from: 'name', unique: true },
+})
+
 var Types = keystone.Field.Types;
 
 Program.add({
-    name: { type: String, required: true, index: true },
+    name: { type: String, required: true },
     description: { type: Types.Markdown, initial: true, required: true, height: 100, markedOptions: { gfm: true } },
 });
 

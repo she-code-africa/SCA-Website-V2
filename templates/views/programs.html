@@ -22,7 +22,7 @@
 {% endblock %} {% block content %}
 
 <section>
-    {% if programs.length %}{% set program = {} %}
+    {% if programs.length %}
     <div class="container">
         <div id="programs-tab">
 
@@ -33,11 +33,6 @@
                     <a class="nav-link filter-button" data-filter="{{cat.id}}">
                         {{cat.name}}
                     </a>
-                    <form method="post">
-                        <input type="hidden" name="action" value="">
-                        <input id="program-id" type="hidden" name="programId" value="{{ formData.programId }}">
-                    </form>
-
                 </li>
                 {% endfor %}
             </ul>
@@ -46,187 +41,101 @@
 
 
     <div class="row tab-content">
-        <div class="container">
-            <div id="program-content" class="">
-                <div class="row event_topic row_padding">
-                    <div class="col-sm-2 col-md-2 col-lg-2">
-
-                    </div>
-                    <div class="col-sm-8 col-md-8 col-lg-8  ">
-                        <h4 class="program_topic1  ">{{ program.name }}</h4>
-                        <p class="__program_subtopic1">Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r </p>
-                    </div>
-                    <div class="col-sm-2 col-md-2 col-lg-2">
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="gallery-row  ">
-                <div class="column">
-                    <img src="https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-
-                    <img src="https://images.pexels.com/photos/38867/pexels-photo-38867.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-
-                    <img src="https://images.pexels.com/photos/406014/pexels-photo-406014.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-
-
-                </div>
-                <div class="column">
-                    <img src="https://images.pexels.com/photos/1389994/pexels-photo-1389994.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-
-                    <img src="https://images.pexels.com/photos/1254140/pexels-photo-1254140.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-
-                    <img src="https://images.pexels.com/photos/320014/pexels-photo-320014.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-                </div>
-                <div class="column">
-                    <img src="https://images.pexels.com/photos/39317/chihuahua-dog-puppy-cute-39317.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-
-                    <img src="https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-
-                    <img src="https://images.pexels.com/photos/1452717/pexels-photo-1452717.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="" />
-
-
-                </div>
-            </div>
-        </div>
-
-        <div class="about_section counter">
+        {% for cat in programs %}
+        <div class="filter {{cat.id}}">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-3">
-                        <h4 class="__shecode_title">Our Reach <br> So Far</h4>
+                <div id="program-content" class="">
+                    <div class="row event_topic row_padding">
+                        <div class="col-sm-2 col-md-2 col-lg-2">
+
+                        </div>
+                        <div class="col-sm-8 col-md-8 col-lg-8 ">
+                            <h4 class="program_topic1 ">{{ cat.name }}</h4>
+                            <p class="__program_subtopic1">
+                                {{cat.description.md}}
+                            </p>
+                        </div>
+                        <div class="col-sm-2 col-md-2 col-lg-2">
+
+                        </div>
                     </div>
-                    <div class="col-sm-9 ">
-                        <div class="counter_items  slider">
-                            <div class="slide">
-                                <h4>3.5k+</h4>
-                                <p>Sample Text</p>
-                            </div>
-                            <div class="slide">
-                                <h4>15+</h4>
-                                <p>Sample Text</p>
-                            </div>
-                            <div class="slide">
-                                <h4>32+</h4>
-                                <p>Sample Text</p>
+                </div>
+            </div>
+            <div class="container">
+
+                <div class="gallery-row ">
+                    {% for row in gallery %} {% for i in row.program %} {% if i== cat.id %}
+
+                    <div class="row">
+                        {% for x in row.images %}
+                        <div class="col-sm-4">
+                            <img src="{{x.secure_url}}" alt="" class="img-fluid" />
+                        </div>
+                        {% endfor %}
+                    </div>
+
+                    {% endif %} {% endfor %} {% endfor %}
+                </div>
+            </div>
+
+            <div class="about_section counter">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <h4 class="__shecode_title">Our Reach <br> So Far</h4>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="counter_items  slider">
+                                {% for row in reaches %} {% for i in row.program %} {% if i== cat.id %}
+                                <div class="slide">
+                                    <h4>{{row.count}}</h4>
+                                    <p>{{row.name}}</p>
+                                </div>
+
+                                {% endif %} {% endfor %} {% endfor %}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="container">
-            <div id="program-content" class="">
-                <div class="row event_topic row_padding">
-                    <div class="col-sm-2 col-md-2 col-lg-2">
+            <div class="container">
+                <div id="program-content" class="">
+                    <div class="row event_topic row_padding">
+                        <div class="col-sm-2 col-md-2 col-lg-2">
 
-                    </div>
-                    <div class="col-sm-8 col-md-8 col-lg-8  ">
-                        <h4 class="program_topic1  ">Success Stories</h4>
-                        <p class="__program_subtopic1">Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r </p>
-                    </div>
-                    <div class="col-sm-2 col-md-2 col-lg-2">
+                        </div>
+                        <div class="col-sm-8 col-md-8 col-lg-8 ">
+                            <h4 class="program_topic1 ">Success Stories</h4>
+                            <!-- <p class="__program_subtopic1">Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r </p> -->
+                        </div>
+                        <div class="col-sm-2 col-md-2 col-lg-2">
 
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div id="success" class="container">
+                <div id="success" class="container">
 
-                <div class="col-sm-12">
-                    <div class="success_stories slider">
+                    <div class="col-sm-12">
+                        <div class="success_stories slider">
+                            {% for row in stories %} {% for i in row.program %} {% if i== cat.id %}
+                            <div class="slide">
+                                <div class="box">
+                                    <div style="display: flex; justify-content: space-between">
+                                        <img class="success_img" src="{{row.image.secure_url}}" alt="">
+                                        <div class="name_box">
+                                            <p class="success_name">{{row.name}}</p>
+                                            <span class="success_role">{{row.position}}</span>
+                                        </div>
+                                    </div>
 
-                        <div class="slide">
-                            <div class="box">
-                                <div style="display: flex; justify-content: space-between">
-                                    <img class="success_img" src="/images/people.png" alt="">
-                                    <div class="name_box">
-                                        <p class="success_name ">Folashade Ayanfe</p>
-                                        <span class="success_role">Senior Product Designer, Google</span>
+                                    <div>
+                                        <p class="success_text"> {{row.content.md}}</p>
+
                                     </div>
                                 </div>
-
-                                <div>
-                                    <p class="success_text">
-                                        Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r. Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore
-                                        culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r </p>
-
-                                </div>
                             </div>
-                        </div>
-                        <div class="slide">
-                            <div class="box">
-                                <div style="display: flex; justify-content: space-between">
-                                    <img class="success_img" src="/images/people.png" alt="">
-                                    <div class="name_box">
-                                        <p class="success_name ">Folashade Ayanfe</p>
-                                        <span class="success_role">Senior Product Designer, Google</span>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <p class="success_text">
-                                        Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r. Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore
-                                        culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r </p>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="box">
-                                <div style="display: flex; justify-content: space-between">
-                                    <img class="success_img" src="/images/people.png" alt="">
-                                    <div class="name_box">
-                                        <p class="success_name ">Folashade Ayanfe</p>
-                                        <span class="success_role">Senior Product Designer, Google</span>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <p class="success_text">
-                                        Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r. Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore
-                                        culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r </p>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="box">
-                                <div style="display: flex; justify-content: space-between">
-                                    <img class="success_img" src="/images/people.png" alt="">
-                                    <div class="name_box">
-                                        <p class="success_name ">Folashade Ayanfe</p>
-                                        <span class="success_role">Senior Product Designer, Google</span>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <p class="success_text">
-                                        Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r. Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore
-                                        culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r </p>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="slide">
-                            <div class="box">
-                                <div style="display: flex; justify-content: space-between">
-                                    <img class="success_img" src="/images/people.png" alt="">
-                                    <div class="name_box">
-                                        <p class="success_name ">Folashade Ayanfe</p>
-                                        <span class="success_role">Senior Product Designer, Google</span>
-                                    </div>
-                                </div>
-
-                                <div>
-                                    <p class="success_text">
-                                        Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r. Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore
-                                        culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r </p>
-
-                                </div>
-                            </div>
+                            {% endif %} {% endfor %} {% endfor %}
                         </div>
 
                     </div>
@@ -240,16 +149,17 @@
         </div>
 
         <!-- upcoming -->
-        <section class="container">
+        {% if upcoming.length %}
+        <section class="container upcoming {{cat.id}}">
 
             <div id="program-content" class="">
                 <div class="row event_topic row_padding">
                     <div class="col-sm-2 col-md-2 col-lg-2">
 
                     </div>
-                    <div class="col-sm-8 col-md-8 col-lg-8  ">
-                        <h4 class="program_topic1  ">Upcoming Cohort</h4>
-                        <p class="__program_subtopic1">Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r </p>
+                    <div class="col-sm-8 col-md-8 col-lg-8 ">
+                        <h4 class="program_topic1 ">Upcoming Cohort</h4>
+                        <p class="__program_subtopic1">View our upcoming programs and discover events curated to match your technical passion and skills.</p>
                     </div>
                     <div class="col-sm-2 col-md-2 col-lg-2">
 
@@ -257,39 +167,38 @@
                 </div>
             </div>
             <section class="__shecode_block">
+                {% for row in upcoming %} {% for i in row.program %} {% if i== cat.id %}
+                <div class="row" style="padding: 50px 0;">
+                    <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{row.image.secure_url}}" class="img-fluid" alt="{{row.title}}">
 
+                    <div class="col-md-6 col-lg-6 col-sm-6 float-right">
+                        <h4 class="__shecode_title">{{row.title}} <span class="cohort">({{row.cohort}})</span></h4>
+                        <p class="__shecode_subtitle"> {{row.description.md}} </p>
 
-                <div class="row ">
-                    <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2 " src="/images/event_image3.png" class="img-fluid" alt="{{event.title}}">
-
-                    <div class="col-md-6 col-lg-6 col-sm-6  float-right">
-                        <h4 class="__shecode_title">Mentorship Program <span class="cohort">(Cohort 5)</span></h4>
-                        <p class="__shecode_subtitle">
-                            Participate in any of our online or offline events and trainings: Technical and non-Technical Events, Meetups, Mentoring Program
-                        </p>
-
-                        <a href="https://bit.ly/scaslacksignup" class="btn shecode_button">GET NOTIFIED </a>
+                        <a href="{{row.link}}" class="btn shecode_button">{{row.callToAction}} </a>
                     </div>
                 </div>
+
+                {% endif %} {% endfor %} {% endfor %}
 
             </section>
 
             <div></div>
 
         </section>
-
+        {% endif %}
         <!-- current -->
-        <section class="container">
+        {% if current.length %}
+        <section class="container current {{cat.id}}">
 
             <div id="program-content" class="">
                 <div class="row event_topic row_padding">
                     <div class="col-sm-2 col-md-2 col-lg-2">
 
                     </div>
-                    <div class="col-sm-8 col-md-8 col-lg-8  ">
-                        <h4 class="program_topic1  ">Current Cohort</h4>
-                        <p class="__program_subtopic1">
-                            Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r </p>
+                    <div class="col-sm-8 col-md-8 col-lg-8">
+                        <h4 class="program_topic1">Current Cohort</h4>
+
                     </div>
                     <div class="col-sm-2 col-md-2 col-lg-2">
 
@@ -297,60 +206,65 @@
                 </div>
             </div>
             <section class="__shecode_block">
-                <div class="row ">
+                {% for row in current %} {% for i in row.program %} {% if i== cat.id %}
+                <div class="row" style="padding: 50px 0;">
 
-                    <div class="col-md-6 col-lg-6 col-sm-6  ">
-                        <h4 class="__shecode_title">Mentorship Program <span class="cohort">(Cohort 4)</span></h4>
-                        <p class="__shecode_subtitle">
-                            Sponsor our next event via a donation or Partner with our organisation to reach more women in tech across Africa and help us make an impact! Your support would go a long way.
-                        </p>
+                    <div class=" col-md-6 col-lg-6 col-sm-6 ">
+                        <h4 class="__shecode_title ">{{row.title}} <span class="cohort ">({{row.cohort}})</span></h4>
+                        <p class="__shecode_subtitle ">{{row.description.md}} </p>
 
-                        <a href="https://bit.ly/scaslacksignup" class="btn shecode_button">SEE MORE </a>
+
+                        <a href="{{row.link}} " class="btn shecode_button ">{{row.callToAction}}</a>
                     </div>
-                    <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2 float-right" src="/images/mentorship.png" class="img-fluid" alt="{{event.title}}">
+                    <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2 float-right " src="{{row.image.secure_url}} " class="img-fluid " alt="{{row.title}} ">
 
                 </div>
 
+                {% endif %} {% endfor %} {% endfor %}
             </section>
 
             <div></div>
 
         </section>
+        {% endif %}
         <!-- past -->
-        <section class="container">
+        {% if past.length %}
+        <section class="container past {{cat.id}} ">
 
-            <div id="program-content" class="">
-                <div class="row event_topic row_padding">
-                    <div class="col-sm-2 col-md-2 col-lg-2">
+            <div id="program-content " class=" ">
+                <div class="row event_topic row_padding ">
+                    <div class="col-sm-2 col-md-2 col-lg-2 ">
 
                     </div>
-                    <div class="col-sm-8 col-md-8 col-lg-8  ">
-                        <h4 class="program_topic1  ">Past Cohort</h4>
-                        <p class="__program_subtopic1">Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r </p>
+                    <div class="col-sm-8 col-md-8 col-lg-8 ">
+                        <h4 class="program_topic1 ">Past Cohort</h4>
+                        <p class="__program_subtopic1 ">View some of our past programs and the amazing moments. </p>
                     </div>
-                    <div class="col-sm-2 col-md-2 col-lg-2">
+                    <div class="col-sm-2 col-md-2 col-lg-2 ">
 
                     </div>
                 </div>
             </div>
-            <section class="__shecode_block">
-                <div class="row ">
-                    <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2 " src="/images/mentorship.png" class="img-fluid" alt="{{event.title}}">
+            <section class="__shecode_block ">
+                {% for row in past %} {% for i in row.program %} {% if i== cat.id %} {{row.endDate}}
+                <div class="row " style="padding: 50px 0;">
+                    <img class=" col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{row.image.secure_url}}" class="img-fluid" alt="{{row.title}}">
 
-                    <div class="col-md-6 col-lg-6 col-sm-6  float-right">
-                        <h4 class="__shecode_title">Mentorship Program <span class="cohort">(Cohort 3)</span></h4>
-                        <p class="__shecode_subtitle">
-                            Sponsor our next event via a donation or Partner with our organisation to reach more women in tech across Africa and help us make an impact! Your support would go a long way.
-                        </p>
-
+                    <div class="col-md-6 col-lg-6 col-sm-6 float-right">
+                        <h4 class="__shecode_title">{{row.title}} <span class="cohort">({{row.cohort}})</span></h4>
+                        <p class="__shecode_subtitle">{{row.description.md}} </p>
+                        <a href="{{row.link}}" class="btn shecode_button">{{row.callToAction}} </a>
                     </div>
                 </div>
-
+                {% endif %} {% endfor %} {% endfor %}
             </section>
 
             <div></div>
 
         </section>
+        {% endif %}
+    </div>
+    {% endfor %}
     </div>
     {% else %}
     <div>
@@ -364,20 +278,36 @@
 <script>
     var fvalue;
     $(document).ready(function() {
-        $(".filter-button:first").addClass("active")
-        fvalue = $(".filter-button:first").attr('data-filter');
-        localStorage.setItem('id', fvalue)
+        $(" .filter-button:first").addClass(" active")
+        fvalue = $(" .filter-button:first").attr('data-filter');
+        $(" .filter").not('.' + fvalue).hide('3000');
+        $(" .upcoming").not('.' + fvalue).hide('3000');
+        $(" .current").not('.' + fvalue).hide('3000');
+        $(" .past").not('.' + fvalue).hide('3000');
 
-        $(".filter-button").click(function() {
+        $('.filter').filter('.' + fvalue).show('3000');
+        $('.upcoming').filter('.' + fvalue).show('3000');
+        $('.current').filter('.' + fvalue).show('3000');
+        $('.past').filter('.' + fvalue).show('3000');
+
+
+
+        $(" .filter-button").click(function() {
             fvalue = $(this).attr('data-filter');
-            if ($(".filter-button").removeClass("active")) {
-                $(this).removeClass("active");
+
+            $(" .filter").not('.' + fvalue).hide('3000');
+            $(" .upcoming").not('.' + fvalue).hide('3000');
+            $(" .current").not('.' + fvalue).hide('3000');
+            $(" .past").not('.' + fvalue).hide('3000');
+
+            $('.filter').filter('.' + fvalue).show('3000');
+            $('.upcoming').filter('.' + fvalue).show('3000');
+            $('.current').filter('.' + fvalue).show('3000');
+            $('.past').filter('.' + fvalue).show('3000');
+            if ($(" .filter-button").removeClass(" active")) {
+                $(this).removeClass(" active");
             }
-            $(this).addClass("active");
-            $("#program-id").val(fvalue)
-            $("form").submit(function(event) {
-                event.preventDefault();
-            });
+            $(this).addClass(" active");
         });
 
     });
