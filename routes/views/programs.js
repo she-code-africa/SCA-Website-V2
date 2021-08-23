@@ -47,7 +47,7 @@ exports = module.exports = function(req, res) {
         .sort('-startDate'));
 
 
-    //formatdate
+
     //format date
 
     // const d = new Date('2010-08-05')
