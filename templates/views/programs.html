@@ -20,7 +20,6 @@
 </div>
 
 {% endblock %} {% block content %}
-
 <section>
     {% if programs.length %}
     <div class="container">
@@ -246,14 +245,15 @@
                 </div>
             </div>
             <section class="__shecode_block ">
-                {% for row in past %} {% for i in row.program %} {% if i== cat.id %} {{row.endDate}}
+                {% for row in past %} {% for i in row.program %} {% if i== cat.id %}
                 <div class="row " style="padding: 50px 0;">
                     <img class=" col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{row.image.secure_url}}" class="img-fluid" alt="{{row.title}}">
 
                     <div class="col-md-6 col-lg-6 col-sm-6 float-right">
                         <h4 class="__shecode_title">{{row.title}} <span class="cohort">({{row.cohort}})</span></h4>
                         <p class="__shecode_subtitle">{{row.description.md}} </p>
-                        <a href="{{row.link}}" class="btn shecode_button">{{row.callToAction}} </a>
+                        <!-- <h5 class="__shecode_date">{{row.startDate}}</h5> -->
+                        <!-- <a href="{{row.link}}" class="btn shecode_button">{{row.callToAction}} </a> -->
                     </div>
                 </div>
                 {% endif %} {% endfor %} {% endfor %}

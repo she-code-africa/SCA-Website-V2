@@ -30,7 +30,8 @@ exports = module.exports = function(req, res) {
     view.query('past', Cohort.model.find().where({
         state: 'published',
         endDate: { $lt: new Date() },
-    }).sort('-endDate'));
+    }).sort('-endDate'))
+
     //current
     view.query('current', Cohort.model.find().where({
             state: 'published',
@@ -45,6 +46,16 @@ exports = module.exports = function(req, res) {
         })
         .sort('-startDate'));
 
+
+    //formatdate
+    //format date
+
+    // const d = new Date('2010-08-05')
+    // const ye = new Intl.DateTimeFormat('en', { year: 'numeric' }).format(d)
+    // const mo = new Intl.DateTimeFormat('en', { month: 'short' }).format(d)
+    // const da = new Intl.DateTimeFormat('en', { day: '2-digit' }).format(d)
+
+    // console.log(`${da}-${mo}-${ye}`)
 
     // Render the view
     view.render('programs');
