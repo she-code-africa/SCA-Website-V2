@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="styles/programs.css">
 <link rel="stylesheet" type="text/css" href="styles/events.css"> {% endblock %} {% block head %}{% endblock %} {% block intro %}
 
-<div class="container">
+<div class="container" class="__program_shecode_block">
     <div class="row">
         <div class="col-md-7 col-sm-7 col-lg-7">
             <p class="event_title">Programs</p>
@@ -20,7 +20,7 @@
 </div>
 
 {% endblock %} {% block content %}
-<section>
+<section id="programs" class="__program_shecode_block">
     {% if programs.length %}
     <div class="container">
         <div id="programs-tab">
@@ -60,6 +60,7 @@
                     </div>
                 </div>
             </div>
+            {% if upcoming.length %}
             <div class="container">
 
                 <div class="gallery-row ">
@@ -76,7 +77,7 @@
                     {% endif %} {% endfor %} {% endfor %}
                 </div>
             </div>
-
+            {% endif %}
             <div class="about_section counter">
                 <div class="container">
                     <div class="row">
@@ -167,7 +168,7 @@
             </div>
             <section class="__shecode_block">
                 {% for row in upcoming %} {% for i in row.program %} {% if i== cat.id %}
-                <div class="row" style="padding: 50px 0;">
+                <div class="row inner_block">
                     <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{row.image.secure_url}}" class="img-fluid" alt="{{row.title}}">
 
                     <div class="col-md-6 col-lg-6 col-sm-6 float-right">
@@ -200,13 +201,13 @@
 
                     </div>
                     <div class="col-sm-2 col-md-2 col-lg-2">
-
+                        <p class="__program_subtopic1">View our ongoing programs </p>
                     </div>
                 </div>
             </div>
             <section class="__shecode_block">
                 {% for row in current %} {% for i in row.program %} {% if i== cat.id %}
-                <div class="row" style="padding: 50px 0;">
+                <div class="row inner_block">
 
                     <div class=" col-md-6 col-lg-6 col-sm-6 ">
                         <h4 class="__shecode_title ">{{row.title}} <span class="cohort ">({{row.cohort}})</span></h4>
@@ -246,7 +247,7 @@
             </div>
             <section class="__shecode_block ">
                 {% for row in past %} {% for i in row.program %} {% if i== cat.id %}
-                <div class="row " style="padding: 50px 0;">
+                <div class="row inner_block">
                     <img class=" col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{row.image.secure_url}}" class="img-fluid" alt="{{row.title}}">
 
                     <div class="col-md-6 col-lg-6 col-sm-6 float-right">
@@ -263,6 +264,7 @@
 
         </section>
         {% endif %}
+
     </div>
     {% endfor %}
     </div>

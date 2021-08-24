@@ -1,4 +1,10 @@
-        #programs-tab {}
+        #programs-tab .nav-tabs {
+            overflow-y: hidden;
+            flex-flow: nowrap;
+            max-width: 1000px;
+            overflow-x: scroll;
+            display: -webkit-box!important;
+        }
         
         #programs-tab .nav>li>a {
             text-align: center;
@@ -67,7 +73,7 @@
             background: var(--primary-white) 0% 0% no-repeat padding-box;
             box-shadow: inset 0px 3px 2px #00000029, 0px 3px 6px #00000029;
             border-radius: 8px;
-            height: 300px;
+            /* height: 300px; */
             padding: 20px;
             margin-bottom: 50px;
         }
@@ -110,4 +116,21 @@
             color: #000000;
             margin-top: 20px;
             line-height: 20px;
+        }
+        
+        .inner_block {
+            padding: 50px 0;
+        }
+        
+        @media screen and (max-width: 480px) {
+            .event_side {
+                margin-top: 50px;
+                height: 500px!important;
+            }
+            .__program_shecode_block {
+                margin: 0 1rem;
+            }
+            .inner_block {
+                padding: 0px!important;
+            }
         }

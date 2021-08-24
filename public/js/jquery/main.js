@@ -92,7 +92,35 @@ $(document).ready(function() {
         autoplaySpeed: 8000,
         arrows: false,
         dots: false,
-        pauseOnHover: false
+        pauseOnHover: false,
+        responsive: [{
+                breakpoint: 991,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                }
+            }, {
+                breakpoint: 426,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 375,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            },
+            {
+                breakpoint: 320,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                }
+            }
+        ]
 
     });
     $('#learn-more').on('click', function() {
