@@ -7,26 +7,26 @@
 
 <div class="container" class="__program_shecode_block">
     <div class="row">
-        <div class="col-md-7 col-sm-7 col-lg-7">
-            <p class="event_title">Programs</p>
-            <p class="about_subtitle">
+        <div class="col-sm-12">
+            <p class="page_title">Programs</p>
+            <p class="page_subtitle">
                 All our programs are specifically designed to empower
                 <span class="__shecodegirls">young African girls and women in tech</span> with the technical and career skills needed to scale in their fields” We are a non-profit organization
             </p>
         </div>
-        <div class="col-md-5 col-sm-5 col-lg-5 event_side">
-        </div>
+        <!-- <div class="col-md-5 col-sm-5 col-lg-5 event_side">
+        </div> -->
     </div>
 </div>
 
 {% endblock %} {% block content %}
 <section id="programs" class="__program_shecode_block">
-    {% if programs.length %}
+    {% if categories.length %}
     <div class="container">
         <div id="programs-tab">
 
             <ul class="nav nav-tabs" id="myTab">
-                {% for cat in programs %}
+                {% for cat in categories %}
 
                 <li class="nav-item">
                     <a class="nav-link filter-button" data-filter="{{cat.id}}">
@@ -40,7 +40,8 @@
 
 
     <div class="row tab-content">
-        {% for cat in programs %}
+        {% for cat in categories %}
+
         <div class="filter {{cat.id}}">
             <div class="container">
                 <div id="program-content" class="">
@@ -60,24 +61,7 @@
                     </div>
                 </div>
             </div>
-            {% if upcoming.length %}
-            <div class="container">
-
-                <div class="gallery-row ">
-                    {% for row in gallery %} {% for i in row.program %} {% if i== cat.id %}
-
-                    <div class="row">
-                        {% for x in row.images %}
-                        <div class="col-sm-4">
-                            <img src="{{x.secure_url}}" alt="" class="img-fluid" />
-                        </div>
-                        {% endfor %}
-                    </div>
-
-                    {% endif %} {% endfor %} {% endfor %}
-                </div>
-            </div>
-            {% endif %}
+          
             <div class="about_section counter">
                 <div class="container">
                     <div class="row">
@@ -86,7 +70,7 @@
                         </div>
                         <div class="col-sm-9">
                             <div class="counter_items  slider">
-                                {% for row in reaches %} {% for i in row.program %} {% if i== cat.id %}
+                                {% for row in reaches %}{% for i in row.category %} {% if i== cat.id %}
                                 <div class="slide">
                                     <h4>{{row.count}}</h4>
                                     <p>{{row.name}}</p>
@@ -98,6 +82,9 @@
                     </div>
                 </div>
             </div>
+
+            <!-- testimonials -->
+            {% if categories.length %}
             <div class="container">
                 <div id="program-content" class="">
                     <div class="row event_topic row_padding">
@@ -106,7 +93,6 @@
                         </div>
                         <div class="col-sm-8 col-md-8 col-lg-8 ">
                             <h4 class="program_topic1 ">Success Stories</h4>
-                            <!-- <p class="__program_subtopic1">Eu enim occaecat voluptate elit tempor consequat consequat nulla deserunt est. Dolore culpa amet pariatur excepteur nostrud duis ipsum amet do. Tempor cupidatat sunt r </p> -->
                         </div>
                         <div class="col-sm-2 col-md-2 col-lg-2">
 
@@ -118,7 +104,7 @@
 
                     <div class="col-sm-12">
                         <div class="success_stories slider">
-                            {% for row in stories %} {% for i in row.program %} {% if i== cat.id %}
+                            {% for row in stories %} {% if row.categories== cat.id %}
                             <div class="slide">
                                 <div class="box">
                                     <div style="display: flex; justify-content: space-between">
@@ -135,7 +121,7 @@
                                     </div>
                                 </div>
                             </div>
-                            {% endif %} {% endfor %} {% endfor %}
+                            {% endif %} {% endfor %}
                         </div>
 
                     </div>
@@ -146,6 +132,7 @@
 
 
             </div>
+            {% endif %}
         </div>
 
         <!-- upcoming -->
@@ -167,19 +154,21 @@
                 </div>
             </div>
             <section class="__shecode_block">
-                {% for row in upcoming %} {% for i in row.program %} {% if i== cat.id %}
+                {% for row in upcoming %} {% if row.categories== cat.id %}
                 <div class="row inner_block">
-                    <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{row.image.secure_url}}" class="img-fluid" alt="{{row.title}}">
+                    <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{row.banner.secure_url}}" class="img-fluid" alt="{{row.title}}">
 
                     <div class="col-md-6 col-lg-6 col-sm-6 float-right">
                         <h4 class="__shecode_title">{{row.title}} <span class="cohort">({{row.cohort}})</span></h4>
-                        <p class="__shecode_subtitle"> {{row.description.md}} </p>
+                        <p class="__shecode_subtitle"> {{row.content.brief }} </p>
 
-                        <a href="{{row.link}}" class="btn shecode_button">{{row.callToAction}} </a>
+                        <a href="/programs/program/{{row.id}}" class="btn shecode_button">See More </a>
                     </div>
                 </div>
 
-                {% endif %} {% endfor %} {% endfor %}
+
+
+                {% endif %} {% endfor %}
 
             </section>
 
@@ -198,29 +187,29 @@
                     </div>
                     <div class="col-sm-8 col-md-8 col-lg-8">
                         <h4 class="program_topic1">Current Cohort</h4>
-
+                        <p class="__program_subtopic1">View our ongoing programs </p>
                     </div>
                     <div class="col-sm-2 col-md-2 col-lg-2">
-                        <p class="__program_subtopic1">View our ongoing programs </p>
+
                     </div>
                 </div>
             </div>
             <section class="__shecode_block">
-                {% for row in current %} {% for i in row.program %} {% if i== cat.id %}
+                {% for row in current %} {% if row.categories== cat.id %}
                 <div class="row inner_block">
 
                     <div class=" col-md-6 col-lg-6 col-sm-6 ">
                         <h4 class="__shecode_title ">{{row.title}} <span class="cohort ">({{row.cohort}})</span></h4>
-                        <p class="__shecode_subtitle ">{{row.description.md}} </p>
+                        <p class="__shecode_subtitle"> {{row.content.brief }} </p>
 
 
-                        <a href="{{row.link}} " class="btn shecode_button ">{{row.callToAction}}</a>
+                        <a href="/programs/program/{{row.id}}" class="btn shecode_button">See More </a>
                     </div>
-                    <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2 float-right " src="{{row.image.secure_url}} " class="img-fluid " alt="{{row.title}} ">
+                    <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2 float-right " src="{{row.banner.secure_url}} " class="img-fluid " alt="{{row.title}} ">
 
                 </div>
 
-                {% endif %} {% endfor %} {% endfor %}
+                {% endif %} {% endfor %}
             </section>
 
             <div></div>
@@ -246,24 +235,28 @@
                 </div>
             </div>
             <section class="__shecode_block ">
-                {% for row in past %} {% for i in row.program %} {% if i== cat.id %}
+                {% for row in past %} {% if row.categories== cat.id %}
                 <div class="row inner_block">
-                    <img class=" col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{row.image.secure_url}}" class="img-fluid" alt="{{row.title}}">
+                    <img class=" col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{row.banner.secure_url}}" class="img-fluid" alt="{{row.title}}">
 
                     <div class="col-md-6 col-lg-6 col-sm-6 float-right">
                         <h4 class="__shecode_title">{{row.title}} <span class="cohort">({{row.cohort}})</span></h4>
-                        <p class="__shecode_subtitle">{{row.description.md}} </p>
-                        <!-- <h5 class="__shecode_date">{{row.startDate}}</h5> -->
-                        <!-- <a href="{{row.link}}" class="btn shecode_button">{{row.callToAction}} </a> -->
+                        <p class="__shecode_subtitle"> {{row.content.brief }} </p>
+
+                        <a href="/programs/program/{{row.id}}" class="btn shecode_button">See More </a>
                     </div>
                 </div>
-                {% endif %} {% endfor %} {% endfor %}
+
+                {% endif %} {% endfor %}
             </section>
 
             <div></div>
 
         </section>
         {% endif %}
+
+
+
 
     </div>
     {% endfor %}
@@ -311,6 +304,7 @@
             }
             $(this).addClass(" active");
         });
+
 
     });
 </script>
