@@ -513,7 +513,7 @@ li.__shecodelink.active a {
 
 .__shecode_subtitle {
     text-align: left;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 27px;
 }
 
@@ -581,7 +581,7 @@ li.__shecodelink.active a {
     height: 150px;
     background: #EEEEF0 0% 0% no-repeat padding-box;
     padding: 20px;
-    margin: 50px 0;
+    margin: 60px 0;
 }
 
 .counter .__shecode_title {

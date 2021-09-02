@@ -20,7 +20,7 @@
 </div>
 
 {% endblock %} {% block content %}
-<section id="programs" class="__program_shecode_block">
+<section id="programs" class="__program_shecode_block row_padding">
     {% if categories.length %}
     <div class="container">
         <div id="programs-tab">
@@ -45,7 +45,7 @@
         <div class="filter {{cat.id}}">
             <div class="container">
                 <div id="program-content" class="">
-                    <div class="row event_topic row_padding">
+                    <div class="row event_topic ">
                         <div class="col-sm-2 col-md-2 col-lg-2">
 
                         </div>
@@ -61,7 +61,7 @@
                     </div>
                 </div>
             </div>
-          
+
             <div class="about_section counter">
                 <div class="container">
                     <div class="row">
@@ -85,8 +85,8 @@
 
             <!-- testimonials -->
             {% if categories.length %}
-            <div class="container">
-                <div id="program-content" class="">
+            <div class="container ">
+                <div id="program-content" class="row_padding">
                     <div class="row event_topic row_padding">
                         <div class="col-sm-2 col-md-2 col-lg-2">
 
@@ -137,10 +137,10 @@
 
         <!-- upcoming -->
         {% if upcoming.length %}
-        <section class="container upcoming {{cat.id}}">
+        <section class="container row_padding upcoming {{cat.id}}">
 
             <div id="program-content" class="">
-                <div class="row event_topic row_padding">
+                <div class="row event_topic ">
                     <div class="col-sm-2 col-md-2 col-lg-2">
 
                     </div>
@@ -153,7 +153,7 @@
                     </div>
                 </div>
             </div>
-            <section class="__shecode_block">
+            <section class=" ">
                 {% for row in upcoming %} {% if row.categories== cat.id %}
                 <div class="row inner_block">
                     <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{row.banner.secure_url}}" class="img-fluid" alt="{{row.title}}">
@@ -178,10 +178,10 @@
         {% endif %}
         <!-- current -->
         {% if current.length %}
-        <section class="container current {{cat.id}}">
+        <section class="container row_padding current {{cat.id}}">
 
             <div id="program-content" class="">
-                <div class="row event_topic row_padding">
+                <div class="row event_topic  ">
                     <div class="col-sm-2 col-md-2 col-lg-2">
 
                     </div>
@@ -194,7 +194,7 @@
                     </div>
                 </div>
             </div>
-            <section class="__shecode_block">
+            <section class=" ">
                 {% for row in current %} {% if row.categories== cat.id %}
                 <div class="row inner_block">
 
@@ -218,10 +218,10 @@
         {% endif %}
         <!-- past -->
         {% if past.length %}
-        <section class="container past {{cat.id}} ">
+        <section class="container row_padding past {{cat.id}} ">
 
             <div id="program-content " class=" ">
-                <div class="row event_topic row_padding ">
+                <div class="row event_topic  ">
                     <div class="col-sm-2 col-md-2 col-lg-2 ">
 
                     </div>
@@ -234,7 +234,7 @@
                     </div>
                 </div>
             </div>
-            <section class="__shecode_block ">
+            <section class=" ">
                 {% for row in past %} {% if row.categories== cat.id %}
                 <div class="row inner_block">
                     <img class=" col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{row.banner.secure_url}}" class="img-fluid" alt="{{row.title}}">

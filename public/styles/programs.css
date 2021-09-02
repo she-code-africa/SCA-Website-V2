@@ -2,7 +2,7 @@
     text-align: center;
     padding-top: 50px;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 45px;
     letter-spacing: 1.44px;
     color: var(--primary-dark-pink);
     padding-bottom: 20px;
@@ -11,7 +11,7 @@
 
 .page_subtitle {
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
     letter-spacing: 0.76px;
     padding-right: 50px;
     line-height: 28px;
@@ -33,13 +33,14 @@
     overflow-y: hidden;
     flex-flow: nowrap;
     max-width: 1000px;
-    overflow-x: scroll;
+    overflow-x: auto;
     display: -webkit-box!important;
+    margin: auto;
 }
 
 #programs-tab .nav>li>a {
     text-align: center;
-    font: normal normal 600 12px/24px Montserrat;
+    font: normal normal 600 16px/24px Montserrat;
     letter-spacing: 0px;
     color: #0D2543;
     cursor: pointer;
@@ -76,7 +77,7 @@
 
 .__program_subtopic1 {
     text-align: center;
-    font-size: 14px;
+    font-size: 18px;
     line-height: 20px;
     color: #1A1A1A;
 }
