@@ -59,6 +59,8 @@ exports = module.exports = function(app) {
     app.get('/privacy', routes.views.privacy);
     app.get('/terms', routes.views.terms);
     app.get('/jobs', routes.views.jobs);
+    app.get('/forgot-password', routes.views.forgotpassword);
+    app.post('/forgot-password', routes.views.forgotpassword);
     app.get('/jobs/:org', middleware.getCookieAndFiles, middleware.verifyToken, routes.views.jobsorgdashboard);
     app.get('/view/jobs/:id', routes.views.jobdetail);
     app.get('/edit/jobs/:org', middleware.getCookieAndFiles, middleware.verifyToken, routes.views.editorgprofile_orgdetails);
