@@ -19,26 +19,23 @@ Token.add({
     },
 });
 
-Token.schema.post('save', function() {
-  this.sendResetLinkEmail();
-});
-
-Token.schema.methods.sendResetLinkEmail = async function (callback) {
+Token.schema.methods.sendResetLinkEmail = async function (token, callback) {
   if (typeof callback !== 'function') {
-      callback = function(err) {
-          if (err) {
-              console.error('There was an error sending reset link email:', err);
-          }
-      };
+    callback = function(err) {
+        if (err) {
+            console.error('There was an error sending reset link email:', err);
+            return callback(new Error('There was an error sending reset link email'));
+        }
+    };
   }
 
   if (!process.env.MAILGUN_API_KEY || !process.env.MAILGUN_DOMAIN) {
-      console.log('Unable to send email - no mailgun credentials provided');
-      return callback(new Error('could not find mailgun credentials'));
+    console.log('Unable to send email - no mailgun credentials provided');
+    return callback(new Error('could not find mailgun credentials'));
   }
 
   let company;
-  let { token, companyId } = this;
+  let { companyId } = this;
   let brand = keystone.get('brand');
   await Company.model.findById(companyId).exec(function (err, result) {
     if (result != null) {

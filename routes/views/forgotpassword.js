@@ -12,40 +12,39 @@ exports = module.exports = function (req, res) {
   locals.formData = req.body || {};
   locals.validationErrors = {};
   locals.resetTokenSaved = false;
+  locals.emailLinkError = false;
 
   view.on('post', { action: '' }, function (next) {
-    var data = req.body;
-    const q = Company.model.findOne({ email: req.body.email });
-    q.exec(function (err, result) {
-      if (result === null) {
+    Company.model.findOne({ email: req.body.email }).exec(async function (err, company) {
+      if (company === null) {
         locals.validationErrors.email = "No company associated with email";
         return next({ message: 'No company associated with email' });
       } else {
-        const companyId = result._id;
-        var newResetToken = new Token.model();
-        const tokenQuery = Token.model.findOne({ companyId });
-        tokenQuery.exec(function (err, result) {
-          // TODO: Delete existing token
-          // if (result) {
-          //   result.delete();
-          // }
+        const companyId = company._id;
+        await Token.model.deleteOne({ companyId });
 
-          let resetToken = crypto.randomBytes(32).toString('hex');
-          let updater = newResetToken.getUpdateHandler(req);
+        let resetToken = crypto.randomBytes(32).toString('hex');
+        let updater = new Token.model().getUpdateHandler(req);
 
-          updater.process({ companyId, token: resetToken }, {
-              flashErrors: true,
-              errorMessage: 'An error occured. Try again',
-          }, function (err) {
-            if (err) {
-              locals.validationErrors = err.errors;
-            
-            } else {
-              locals.resetTokenSaved = true;
-            }
-            next();
+        updater.process({ companyId, token: resetToken }, {
+          flashErrors: true,
+          errorMessage: 'An error occured. Try again',
+        }, function (err) {
+          if (err) {
+            locals.validationErrors = err.errors;
+          } else {
+            Token.model.findOne({ companyId }).exec(async function (err, newToken) {
+              try {
+                newToken.sendResetLinkEmail(resetToken);
+                locals.resetTokenSaved = true;
+              } catch (error) {
+                locals.emailLinkError = true;
+              }
+              res.redirect('/mailSuccess');
+            });
+          }
+          // next();
         });
-        })
       }
     });
 });
