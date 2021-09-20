@@ -16,6 +16,16 @@ exports = module.exports = function(req, res) {
     locals.company = [];
     locals.formerror = false;
     locals.sessionExpired = undefined;
+    locals.passwordReset = undefined;
+
+    // check if user got to this page after password reset
+    view.on('init', function (next) {
+        const referer = req.headers.referer;
+        if (referer.includes('passwordReset')) {
+            locals.passwordReset = true;
+        }
+        next();
+    });
 
     //check if user got to this page after session expired
     view.on('init', function (next) {
