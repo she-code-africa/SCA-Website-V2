@@ -24,7 +24,7 @@ Token.schema.methods.sendResetLinkEmail = async function (token, callback) {
     callback = function(err) {
         if (err) {
             console.error('There was an error sending reset link email:', err);
-            return callback(new Error('There was an error sending reset link email'));
+            // return callback(new Error('There was an error sending reset link email'));
         }
     };
   }
