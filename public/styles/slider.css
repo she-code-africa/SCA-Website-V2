@@ -130,6 +130,7 @@
 .slick-slide img {
     display: block;
     height: 80px;
+    object-fit: contain;
 }
 
 .slick-slide.slick-loading img {
