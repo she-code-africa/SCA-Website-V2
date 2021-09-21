@@ -7,27 +7,26 @@
 
 <div class="container" class="__program_shecode_block">
     <div class="row">
-        <div class="col-sm-12">
-            <p class="page_title">Programs</p>
+        <div class="col-md-7 col-sm-7 col-lg-7">
+            <p class="page_title">Technical Programs & Bootcamps</p>
             <p class="page_subtitle">
                 All our programs are specifically designed to empower
                 <span class="__shecodegirls">young African girls and women in tech</span> with the technical and career skills needed to scale in their fields” We are a non-profit organization
             </p>
         </div>
-        <!-- <div class="col-md-5 col-sm-5 col-lg-5 event_side">
-        </div> -->
+        <div class="col-md-5 col-sm-5 col-lg-5 event_side2">
+        </div>
     </div>
 </div>
 
 {% endblock %} {% block content %}
-<section id="programs" class="__program_shecode_block row_padding">
+<section id="programs" class="__program_shecode_block ">
     {% if categories.length %}
     <div class="container">
         <div id="programs-tab">
 
             <ul class="nav nav-tabs" id="myTab">
                 {% for cat in categories %}
-
                 <li class="nav-item">
                     <a class="nav-link filter-button" data-filter="{{cat.id}}">
                         {{cat.name}}
@@ -66,7 +65,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-sm-3">
-                            <h4 class="__shecode_title">Our Reach <br> So Far</h4>
+                            <h4 class="__shecode_title">Program Impact</h4>
                         </div>
                         <div class="col-sm-9">
                             <div class="counter_items  slider">
@@ -83,60 +82,10 @@
                 </div>
             </div>
 
-            <!-- testimonials -->
-            {% if categories.length %}
-            <div class="container ">
-                <div id="program-content" class="row_padding">
-                    <div class="row event_topic row_padding">
-                        <div class="col-sm-2 col-md-2 col-lg-2">
-
-                        </div>
-                        <div class="col-sm-8 col-md-8 col-lg-8 ">
-                            <h4 class="program_topic1 ">Success Stories</h4>
-                        </div>
-                        <div class="col-sm-2 col-md-2 col-lg-2">
-
-                        </div>
-                    </div>
-                </div>
-
-                <div id="success" class="container">
-
-                    <div class="col-sm-12">
-                        <div class="success_stories slider">
-                            {% for row in stories %} {% if row.categories== cat.id %}
-                            <div class="slide">
-                                <div class="box">
-                                    <div style="display: flex; justify-content: space-between">
-                                        <img class="success_img" src="{{row.image.secure_url}}" alt="">
-                                        <div class="name_box">
-                                            <p class="success_name">{{row.name}}</p>
-                                            <span class="success_role">{{row.position}}</span>
-                                        </div>
-                                    </div>
-
-                                    <div>
-                                        <p class="success_text"> {{row.content.md}}</p>
-
-                                    </div>
-                                </div>
-                            </div>
-                            {% endif %} {% endfor %}
-                        </div>
-
-                    </div>
-
-
-
-                </div>
-
-
-            </div>
-            {% endif %}
         </div>
 
         <!-- upcoming -->
-        {% if upcoming.length %}
+        {% if upcoming.length>0 %}
         <section class="container row_padding upcoming {{cat.id}}">
 
             <div id="program-content" class="">
@@ -153,20 +102,21 @@
                     </div>
                 </div>
             </div>
-            <section class=" ">
+            <section class="slider upcoming_program">
                 {% for row in upcoming %} {% if row.categories== cat.id %}
-                <div class="row inner_block">
-                    <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{row.banner.secure_url}}" class="img-fluid" alt="{{row.title}}">
 
-                    <div class="col-md-6 col-lg-6 col-sm-6 float-right">
-                        <h4 class="__shecode_title">{{row.title}} <span class="cohort">({{row.cohort}})</span></h4>
-                        <p class="__shecode_subtitle"> {{row.content.brief }} </p>
+                <div class="slide">
+                    <div class="row inner_block">
+                        <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{row.banner.secure_url}}" class="img-fluid" alt="{{row.title}}">
 
-                        <a href="/programs/program/{{row.id}}" class="btn shecode_button">See More </a>
+                        <div class="col-md-6 col-lg-6 col-sm-6 float-right">
+                            <h4 class="__shecode_title">{{row.title}} <span class="cohort">({{row.cohort}})</span></h4>
+                            <p class="__shecode_subtitle"> {{row.content.brief }} </p>
+
+                            <a href="/programs/program/{{row.id}}" class="btn shecode_button">See More </a>
+                        </div>
                     </div>
                 </div>
-
-
 
                 {% endif %} {% endfor %}
 
@@ -175,9 +125,10 @@
             <div></div>
 
         </section>
+
         {% endif %}
         <!-- current -->
-        {% if current.length %}
+        {% if current.length>0 %}
         <section class="container row_padding current {{cat.id}}">
 
             <div id="program-content" class="">
@@ -194,19 +145,22 @@
                     </div>
                 </div>
             </div>
-            <section class=" ">
+            <section class=" slider current_program">
                 {% for row in current %} {% if row.categories== cat.id %}
-                <div class="row inner_block">
+                <div class="slide">
+                    <div class="row inner_block">
 
-                    <div class=" col-md-6 col-lg-6 col-sm-6 ">
-                        <h4 class="__shecode_title ">{{row.title}} <span class="cohort ">({{row.cohort}})</span></h4>
-                        <p class="__shecode_subtitle"> {{row.content.brief }} </p>
+                        <div class=" col-md-6 col-lg-6 col-sm-6 ">
+                            <h4 class="__shecode_title ">{{row.title}} <span class="cohort ">({{row.cohort}})</span>
+                            </h4>
+                            <p class="__shecode_subtitle"> {{row.content.brief }} </p>
 
 
-                        <a href="/programs/program/{{row.id}}" class="btn shecode_button">See More </a>
+                            <a href="/programs/program/{{row.id}}" class="btn shecode_button">See More </a>
+                        </div>
+                        <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2 float-right " style=" margin-right: 10px;" src="{{row.banner.secure_url}} " class="img-fluid " alt="{{row.title}} ">
+
                     </div>
-                    <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2 float-right " src="{{row.banner.secure_url}} " class="img-fluid " alt="{{row.title}} ">
-
                 </div>
 
                 {% endif %} {% endfor %}
@@ -217,7 +171,7 @@
         </section>
         {% endif %}
         <!-- past -->
-        {% if past.length %}
+        {% if past.length>0 %}
         <section class="container row_padding past {{cat.id}} ">
 
             <div id="program-content " class=" ">
@@ -234,16 +188,18 @@
                     </div>
                 </div>
             </div>
-            <section class=" ">
+            <section class="slider past_program ">
                 {% for row in past %} {% if row.categories== cat.id %}
-                <div class="row inner_block">
-                    <img class=" col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{row.banner.secure_url}}" class="img-fluid" alt="{{row.title}}">
+                <div class="slide">
+                    <div class="row inner_block">
+                        <img class=" col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{row.banner.secure_url}}" class="img-fluid" alt="{{row.title}}">
 
-                    <div class="col-md-6 col-lg-6 col-sm-6 float-right">
-                        <h4 class="__shecode_title">{{row.title}} <span class="cohort">({{row.cohort}})</span></h4>
-                        <p class="__shecode_subtitle"> {{row.content.brief }} </p>
+                        <div class="col-md-6 col-lg-6 col-sm-6 float-right">
+                            <h4 class="__shecode_title">{{row.title}} <span class="cohort">({{row.cohort}})</span></h4>
+                            <p class="__shecode_subtitle"> {{row.content.brief }} </p>
 
-                        <a href="/programs/program/{{row.id}}" class="btn shecode_button">See More </a>
+                            <a href="/programs/program/{{row.id}}" class="btn shecode_button">See More </a>
+                        </div>
                     </div>
                 </div>
 
@@ -254,18 +210,88 @@
 
         </section>
         {% endif %}
+        <!-- testimonials -->
+        {% if stories.length>0 %}
+        <div class="container  filter {{cat.id}}">
+            <div id="program-content" class=" ">
+                <div class="row event_topic row_padding">
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+
+                    </div>
+                    <div class="col-sm-8 col-md-8 col-lg-8 ">
+                        <h4 class="program_topic1 ">Success Stories</h4>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="success" class="container">
+
+                <div class="col-sm-12">
+                    <div class="success_stories slider">
+                        {% for row in stories %} {% if row.categories== cat.id %}
+                        <div class="slide">
+                            <div class="box">
+                                <div style="display: flex; justify-content: space-between">
+                                    <img class="success_img" src="{{row.image.secure_url}}" alt="">
+                                    <div class="name_box">
+                                        <p class="success_name">{{row.name}}</p>
+                                        <span class="success_role">{{row.position}}</span>
+                                    </div>
+                                </div>
+
+                                <div>
+                                    <p class="success_text"> {{row.content.md}}</p>
+
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %} {% endfor %}
+                    </div>
+
+                </div>
 
 
 
+            </div>
 
+
+        </div>
+        {% endif %}
+        <div class="container filter {{cat.id}}">
+            <div id="program-content" class=" ">
+                <div class="row event_topic row_padding">
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+
+                    </div>
+                    <div class="col-sm-8 col-md-8 col-lg-8 ">
+                        <h4 class="program_topic1 ">Program Sponsors & Partners</h4>
+                    </div>
+                    <div class="col-sm-2 col-md-2 col-lg-2">
+
+                    </div>
+                </div>
+                <div id="sponsors" class="row mt-5"> {% for row in cat.sponsors%}
+                    <div class="col-lg-2 col-md-2 col-sm-3 col-xs-6">
+                        <div class="img-box"><img class="img-fluid img-responsive" src="{{row.secure_url}}" /></div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        {% endfor %}
     </div>
-    {% endfor %}
-    </div>
+
+
     {% else %}
     <div>
         <h4 class="text-center">Programs coming soon!!!</h4>
     </div>
     {% endif %}
+
 </section>
 
 

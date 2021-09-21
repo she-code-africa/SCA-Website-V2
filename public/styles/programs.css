@@ -1,16 +1,16 @@
 .page_title {
-    text-align: center;
+    text-align: left;
     padding-top: 50px;
     font-weight: bold;
     font-size: 45px;
     letter-spacing: 1.44px;
     color: var(--primary-dark-pink);
     padding-bottom: 20px;
-    line-height: 40px;
+    line-height: 45px;
 }
 
 .page_subtitle {
-    text-align: center;
+    text-align: left;
     font-size: 20px;
     letter-spacing: 0.76px;
     padding-right: 50px;
@@ -98,7 +98,7 @@
 }
 
 #success {
-    padding-top: 100px;
+    padding-top: 50px;
 }
 
 #success .slide .box {
@@ -154,7 +154,7 @@
     padding: 50px 0;
 }
 
-.slick-slide img {
+#success .slick-slide img {
     display: block;
     max-height: 250px;
 }
@@ -163,8 +163,36 @@
     margin-bottom: 50px;
 }
 
+#sponsors {
+    margin-top: 40px;
+}
+
+#sponsors .img-box {
+    margin: 10px 5px;
+}
+
+#sponsors img {
+    width: 100%;
+    height: 100px;
+}
+
+@media screen and (max-width:768px) {
+    .page_title {
+        font-size: 40px;
+    }
+    .page_subtitle {
+        font-size: 18px;
+    }
+    .__program_subtopic1 {
+        font-size: 16px;
+    }
+    .__shecode_title {
+        margin-top: 10%;
+    }
+}
+
 @media screen and (max-width: 480px) {
-    .event_side {
+    .event_side2 {
         margin-top: 50px;
         height: 500px!important;
     }
@@ -173,5 +201,8 @@
     }
     .inner_block {
         padding: 0px!important;
+    }
+    #sponsors img {
+        height: 100px;
     }
 }
