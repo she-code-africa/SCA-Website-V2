@@ -17,6 +17,6 @@ ProgramCategory.add({
     sponsors: { type: Types.CloudinaryImages, many: true },
 });
 
-ProgramCategory.relationship({ ref: 'ProgramCategory', path: 'programs', refPath: 'categories' });
+// ProgramCategory.relationship({ ref: 'ProgramCategory', path: 'programs', refPath: 'categories' });
 
 ProgramCategory.register();

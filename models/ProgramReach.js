@@ -14,10 +14,10 @@ var ProgramReaches = new keystone.List('ProgramReaches', {
 ProgramReaches.add({
     name: { type: String, initial: true, required: true },
     count: { type: Number, initial: true, required: true },
-    category: { type: Types.Relationship, ref: 'ProgramCategory', many: true },
+    categories: { type: Types.Relationship, ref: 'ProgramCategory', many: true },
 
 });
 
 ProgramReaches.defaultSort = 'name';
-ProgramReaches.defaultColumns = 'name, count, category';
+ProgramReaches.defaultColumns = 'name, count, categories';
 ProgramReaches.register();
