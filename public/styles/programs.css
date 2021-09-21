@@ -154,7 +154,8 @@
     padding: 50px 0;
 }
 
-#success .slick-slide img {
+#success .slick-slide img,
+#gallery .slick-slide img {
     display: block;
     max-height: 250px;
 }
