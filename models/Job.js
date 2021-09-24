@@ -60,7 +60,16 @@ async function getNotificationParams (job, callback, includeAdmins = false) {
     });
 
     if (includeAdmins) {
-        communityManagers = await keystone.list('Team').model.find({ state: 'published', role: 'Community Manager' });
+        communityManagers = await keystone.list('Team').model.find({
+            state: 'published',
+            role : {
+                $in : [
+                    'Founder',
+                    'Community Manager',
+                    'Lead, Community Manager',
+                ],
+            },
+        });
     }
 
 
