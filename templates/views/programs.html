@@ -83,7 +83,46 @@
             </div>
 
         </div>
+  <!-- current -->
+  {% if current.length>0 %}
+  <section class="container row_padding current {{cat.id}}">
 
+      <div id="program-content" class="">
+          <div class="row event_topic  ">
+              <div class="col-sm-2 col-md-2 col-lg-2">
+
+              </div>
+              <div class="col-sm-8 col-md-8 col-lg-8">
+                  <h4 class="program_topic1">Current Cohort</h4>
+                  <p class="__program_subtopic1">View our ongoing programs </p>
+              </div>
+              <div class="col-sm-2 col-md-2 col-lg-2">
+
+              </div>
+          </div>
+      </div>
+      <section class="  current_program">
+          {% for row in current %} {% if row.categories== cat.id %}
+          <div class="row inner_block">
+              <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2 " src="{{row.banner.secure_url}} " class="img-fluid " alt="{{row.title}} ">
+
+              <div class=" col-md-6 col-lg-6 col-sm-6  float-right">
+                  <h4 class="__shecode_title ">{{row.title}} <span class="cohort ">({{row.cohort}})</span>
+                  </h4>
+                  <p class="__shecode_subtitle"> {{row.content.brief }} </p>
+
+
+                  <a href="/programs/program/{{row.id}}" class="btn shecode_button">See More </a>
+              </div>
+            
+          </div>
+          {% endif %} {% endfor %}
+      </section>
+
+      <div></div>
+
+  </section>
+  {% endif %}
         <!-- upcoming -->
         {% if upcoming.length>0 %}
         <section class="container row_padding upcoming {{cat.id}}">
@@ -102,22 +141,22 @@
                     </div>
                 </div>
             </div>
-            <section class="slider upcoming_program">
+            <section class="  upcoming_program">
                 {% for row in upcoming %} {% if row.categories== cat.id %}
 
-                <div class="slide">
-                    <div class="row inner_block">
-                        <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{row.banner.secure_url}}" class="img-fluid" alt="{{row.title}}">
-
-                        <div class="col-md-6 col-lg-6 col-sm-6 float-right">
-                            <h4 class="__shecode_title">{{row.title}} <span class="cohort">({{row.cohort}})</span></h4>
-                            <p class="__shecode_subtitle"> {{row.content.brief }} </p>
-
-                            <a href="/programs/program/{{row.id}}" class="btn shecode_button">See More </a>
-                        </div>
+                <div class="row inner_block">
+                    <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2 " src="{{row.banner.secure_url}} " class="img-fluid " alt="{{row.title}} ">
+      
+                    <div class=" col-md-6 col-lg-6 col-sm-6  float-right">
+                        <h4 class="__shecode_title ">{{row.title}} <span class="cohort ">({{row.cohort}})</span>
+                        </h4>
+                        <p class="__shecode_subtitle"> {{row.content.brief }} </p>
+      
+      
+                        <a href="/programs/program/{{row.id}}" class="btn shecode_button">See More </a>
                     </div>
+                  
                 </div>
-
                 {% endif %} {% endfor %}
 
             </section>
@@ -127,49 +166,7 @@
         </section>
 
         {% endif %}
-        <!-- current -->
-        {% if current.length>0 %}
-        <section class="container row_padding current {{cat.id}}">
-
-            <div id="program-content" class="">
-                <div class="row event_topic  ">
-                    <div class="col-sm-2 col-md-2 col-lg-2">
-
-                    </div>
-                    <div class="col-sm-8 col-md-8 col-lg-8">
-                        <h4 class="program_topic1">Current Cohort</h4>
-                        <p class="__program_subtopic1">View our ongoing programs </p>
-                    </div>
-                    <div class="col-sm-2 col-md-2 col-lg-2">
-
-                    </div>
-                </div>
-            </div>
-            <section class=" slider current_program">
-                {% for row in current %} {% if row.categories== cat.id %}
-                <div class="slide">
-                    <div class="row inner_block">
-
-                        <div class=" col-md-6 col-lg-6 col-sm-6 ">
-                            <h4 class="__shecode_title ">{{row.title}} <span class="cohort ">({{row.cohort}})</span>
-                            </h4>
-                            <p class="__shecode_subtitle"> {{row.content.brief }} </p>
-
-
-                            <a href="/programs/program/{{row.id}}" class="btn shecode_button">See More </a>
-                        </div>
-                        <img class="col-md-6 col-lg-6 col-sm-6 event_side_past2 float-right " style=" margin-right: 10px;" src="{{row.banner.secure_url}} " class="img-fluid " alt="{{row.title}} ">
-
-                    </div>
-                </div>
-
-                {% endif %} {% endfor %}
-            </section>
-
-            <div></div>
-
-        </section>
-        {% endif %}
+      
         <!-- past -->
         {% if past.length>0 %}
         <section class="container row_padding past {{cat.id}} ">
@@ -188,19 +185,19 @@
                     </div>
                 </div>
             </div>
-            <section class="slider past_program ">
+            <section class="row past_program ">
                 {% for row in past %} {% if row.categories== cat.id %}
-                <div class="slide">
-                    <div class="row inner_block">
-                        <img class=" col-md-6 col-lg-6 col-sm-6 event_side_past2" src="{{row.banner.secure_url}}" class="img-fluid" alt="{{row.title}}">
+                <div class='col-md-4 col-sm-6'>
+                  <div class="past-content">
+                    <img class="program_side_past2" src="{{row.banner.secure_url}}" class="img-fluid" alt="{{row.title}}">
 
-                        <div class="col-md-6 col-lg-6 col-sm-6 float-right">
-                            <h4 class="__shecode_title">{{row.title}} <span class="cohort">({{row.cohort}})</span></h4>
-                            <p class="__shecode_subtitle"> {{row.content.brief }} </p>
+                    <div class="past_text">
+                        <h4 class="__shecode_title">{{row.title}} <span class="cohort">({{row.cohort}})</span></h4>
+                        <p class="__shecode_subtitle"> {{row.content.brief }} </p>
 
-                            <a href="/programs/program/{{row.id}}" class="btn shecode_button">See More </a>
-                        </div>
+                        <a href="/programs/program/{{row.id}}" class="btn shecode_button">See More </a>
                     </div>
+                  </div>
                 </div>
 
                 {% endif %} {% endfor %}

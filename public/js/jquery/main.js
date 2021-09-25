@@ -161,36 +161,9 @@ $(document).ready(function() {
         ]
 
     });
-    $('.upcoming_program').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 8000,
-        arrows: false,
-        dots: true,
-        pauseOnHover: false
-
-    });
-    $('.current_program').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 8000,
-        arrows: false,
-        dots: true,
-        pauseOnHover: false
-
-    });
-    $('.past_program').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 8000,
-        arrows: false,
-        dots: true,
-        pauseOnHover: false
-
-    });
+    
+   
+    
     $('#learn-more').on('click', function() {
         $('.__socialmedia_dropdown').addClass('visible');
     })

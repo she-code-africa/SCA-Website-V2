@@ -27,11 +27,12 @@ exports = module.exports = function(req, res) {
     view.query('past', Programs.model.find().where({
         state: 'published',
         endDate: { $lt: new Date() },
-    }).sort('-endDate'))
+    }).sort('-endDate').limit(3))
 
     //current
     view.query('current', Programs.model.find().where({
             state: 'published',
+             startDate: { $lt: new Date() },
             endDate: { $gte: new Date() },
         })
         .sort('-endDate'));
@@ -41,7 +42,7 @@ exports = module.exports = function(req, res) {
             state: 'published',
             startDate: { $gte: new Date() },
         })
-        .sort('-startDate'));
+        .sort('-startDate').limit(1));
 
 
 
