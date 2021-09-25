@@ -18,7 +18,7 @@ exports = module.exports = function(req, res) {
                 state: 'published',
                 eventDate: { $lt: new Date() },
             })
-            .sort('-eventDate');;
+            .sort('-eventDate').limit(5);;
 
         q.exec(function(err, result) {
             locals.data.pastEvents = result;
