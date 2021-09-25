@@ -15,7 +15,7 @@ Token.add({
     createdAt: {
       type: Types.Date,
       default: Date.now,
-      expires: 3600,// this is the expiry time in seconds
+      expires: 86400,// this is the expiry time in seconds
     },
 });
 
