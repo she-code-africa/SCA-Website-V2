@@ -69,7 +69,7 @@
                         </div>
                         <div class="col-sm-9">
                             <div class="counter_items  slider">
-                                {% for row in reaches %}{% for i in row.category %} {% if i== cat.id %}
+                                {% for row in reaches %} {% for i in row.categories %} {% if i== cat.id %}
                                 <div class="slide">
                                     <h4>{{row.count}}</h4>
                                     <p>{{row.name}}</p>

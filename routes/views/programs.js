@@ -32,7 +32,7 @@ exports = module.exports = function(req, res) {
     //current
     view.query('current', Programs.model.find().where({
             state: 'published',
-             startDate: { $lt: new Date() },
+            startDate: { $lt: new Date() },
             endDate: { $gte: new Date() },
         })
         .sort('-endDate'));
