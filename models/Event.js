@@ -16,7 +16,7 @@ Event.add({
     state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
     author: { type: Types.Relationship, ref: 'User', index: true },
     publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
-    image: { type: Types.CloudinaryImage, initial: true, required: true, label: 'Ímage(800x800)' },
+    image: { type: Types.CloudinaryImage, initial: true, required: true, label: 'Ímage(500x500)' },
     eventDate: { type: Types.Date, initial: true, required: true },
     // location: { type: String, initial: true, required: true },
     callToAction: { type: String, initial: true },

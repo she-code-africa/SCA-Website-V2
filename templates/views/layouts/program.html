@@ -8,33 +8,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <meta property="og:title" :content='{{ title|default("SHE CODE AFRICA") }}' />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="She Code Africa">
-    <meta property="og:image" content="https://res.cloudinary.com/she-code-africa/image/upload/v1629879613/logo-inverted_1_fn6wfc.png" />
+    <meta property="og:image" content="https://www.shecodeafrica.org/images/logo-inverted.png" />
     <meta property="og:description" content="We are a non-profit organization focused on celebrating and empowering young Girls and Women in Technology across Africa." />
     <meta property="og:updated_time" content="updatedtime">
 
     <link rel="icon" type="image/png" href="https://www.shecodeafrica.org/images/she-code-africa-logo.png" />
 
     <meta name="monetization" content="$ilp.uphold.com/kkd4KdPQwqJM">
-    <meta name="description" content="We are a non-profit organization focused on celebrating and empowering young Girls and Women in Technology across Africa." />
+    <meta name="description" content="Empowering and celebrating women in tech across Africa." />
     <title>{{ title|default("SHE CODE AFRICA") }}</title>
 
     <!-- STYLESHEETS -->
     {# Customise the stylesheet for your site by editing /public/styles/site.sass #}
-    <link href="../styles/site.css" rel="stylesheet">
+    <link href="../../styles/site.css" rel="stylesheet">
     <!-- CUSTOM STYLES -->
-    <link rel="stylesheet" type="text/css" href="../styles/variables.css">
-    <link rel="stylesheet" type="text/css" href="../styles/main.css">
-    <link rel="stylesheet" type="text/css" href="../styles/index.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/variables.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/main.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.css" integrity="sha512-wR4oNhLBHf7smjy0K4oqzdWumd+r5/+6QO/vDda76MW5iug4PT7v86FoEkySIJft3XA0Ae6axhIvHrqwm793Nw==" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.css" integrity="sha512-6lLUdeQ5uheMFbWm3CP271l14RsX1xtx+J5x2yeIDkkiBpeVTNhTqijME7GgRKKi6hCqovwCoBTlRBEC20M8Mg==" crossorigin="anonymous" />
+
+    <link rel="stylesheet" type="text/css" href="../../styles/programs.css">
+    <link rel="stylesheet" type="text/css" href="../../styles/events.css">
     <!-- WEBFONT -->
 
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- ICON -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> {# This file provides the default styling for the KeystoneJS Content Editor #} {% if user and user.canAccessKeystone %}
-    <link href="../keystone/styles/content/editor.min.css" rel="stylesheet"> {% endif %} {# HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries Safely remove this block if you are not targeting IE8 #}
+    <link href="../../keystone/styles/content/editor.min.css" rel="stylesheet"> {% endif %} {# HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries Safely remove this block if you are not targeting IE8 #}
     <!--[if lt IE 9]>
 			<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
 			<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
@@ -53,11 +57,11 @@
                 <div class="modal-body text-center">
                     <div class="close-div">
                         <button type="button" class="close " data-dismiss="modal" aria-label="Close">
-                            <img src="../images/cancel.svg" alt="" class="img-fluid">
-                        </button>
+							<img src="../../images/cancel.svg" alt="" class="img-fluid">
+						</button>
                     </div>
                     <div class="prompt-body">
-                        <img src="../images/donate-icon.svg" alt="">
+                        <img src="../../images/donate-icon.svg" alt="">
                         <h3>Sponsor a Tech Lady</h3>
                         <p>Did you know by donating as little as $5.3(~3,000 NGN), you'd be helping us mentor and provide resources to 1 female in tech in 1 day.</p>
                     </div>
@@ -77,12 +81,12 @@
                 <!-- TOGGLE -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="/"><img src="../images/she-code-africa-logo.svg" class="__shecodelogo"></a>
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+                    <a class="navbar-brand" href="/"><img src="../../images/she-code-africa-logo.svg" class="__shecodelogo"></a>
                 </div>
                 <!-- TOGGLING LINKS -->
                 <div class="collapse navbar-collapse navbar-ex1-collapse __shecodenavcol">
@@ -91,9 +95,9 @@
                         <li class="__shecodelink {{ 'active' if link.key == section else '' }}">
                             {% if link.label == 'Programs' %}
                             <a type="toggle" href="#" class=" dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Programs
-                                <span class="caret"></span>
-                            </a>
+								Programs
+								<span class="caret"></span>
+							</a>
                             <ul class="dropdown-menu">
                                 <li><a href="/events">Our Events</a></li>
                                 <li><a href="/programs">Our Programs</a></li>
@@ -132,7 +136,7 @@
             <div class="container">
                 <div class="row text-left">
                     <div class=" img-box col-lg-3 col-md-3 col-sm-4 text-center">
-                        <img src="../images/logo-inverted.svg" class="__shecodelogo">
+                        <img src="../../images/logo-inverted.svg" class="__shecodelogo">
                     </div>
                     <div class="col-lg-3 col-md-3 col-sm-4">
                         <p class="__footerp">Get Involved</p>
@@ -154,13 +158,13 @@
                         <p class="__footera"><a href="https://bit.ly/scaslacksignup">Join Our Slack Community</a></p>
                         <!-- <p class="__footera"><a href="">Signup for our newsletter</a></p> -->
                         <p class="__footera">
-                            <a href="https://www.instagram.com/shecodeafrica/" target="_blank"><img src="../images/instagram.svg" alt=""></a>
-                            <a href="https://twitter.com/SheCodeAfrica" target="_blank"><img src="../images/twitter.svg" alt=""></a>
-                            <a href="https://www.facebook.com/SheCodeAfrica/" target="_blank"><img src="../images/facebook.svg" alt=""></a>
-                            <a href="https://www.medium.com/shecodeafrica" target="_blank"><img src="../images/medium-white.png" alt=""></a>
-                            <a href="https://www.youtube.com/channel/UCNZzVEyJege5-d_ekKw6dFA" target="_blank"><img src="../images/youtube.svg" alt=""></a>
-                            <a href="https://ng.linkedin.com/company/she-code-africa" target="_blank"><img src="../images/linkedin-white.png" alt=""></a>
-                            <a href="https://github.com/she-code-africa" target="_blank"><img src="../images/Github.png" alt=""></a>
+                            <a href="https://www.instagram.com/shecodeafrica/" target="_blank"><img src="../../images/instagram.svg" alt=""></a>
+                            <a href="https://twitter.com/SheCodeAfrica" target="_blank"><img src="../../images/twitter.svg" alt=""></a>
+                            <a href="https://www.facebook.com/SheCodeAfrica/" target="_blank"><img src="../../images/facebook.svg" alt=""></a>
+                            <a href="https://www.medium.com/shecodeafrica" target="_blank"><img src="../../images/medium-white.png" alt=""></a>
+                            <a href="https://www.youtube.com/channel/UCNZzVEyJege5-d_ekKw6dFA" target="_blank"><img src="../../images/youtube.svg" alt=""></a>
+                            <a href="https://ng.linkedin.com/company/she-code-africa" target="_blank"><img src="../../images/linkedin-white.png" alt=""></a>
+                            <a href="https://github.com/she-code-africa" target="_blank"><img src="../../images/Github.png" alt=""></a>
                         </p>
                     </div>
                 </div>
@@ -175,15 +179,15 @@
 
 
     {# JAVASCRIPT #} {# jQuery 1.11.3 is included by default, and required by both Bootstrap and the KeystoneJS Content Editor. If you are not targeting IE8, you can upgrade to 2.1.4 (also bundled) for better performance. #}
-    <script src="../js/jquery/jquery-3.1.1.min.js"></script>
+    <script src="../../js/jquery/jquery-3.1.1.min.js"></script>
 
     {# Customise which Bootstrap javascript files are served by including them specifically here, instead of bootstrap-3.3.5.min.js #}
-    <script src="../js/bootstrap/bootstrap.min.js"></script>
+    <script src="../../js/bootstrap/bootstrap.min.js"></script>
 
     {# The KeystoneJS Content Editor provides support for ks-editable data attributes, which generate links to edit content for users who can access Keystone #} {% if user and user.canAccessKeystone %}
-    <script src="../keystone/js/content/editor.js"></script>
+    <script src="../../keystone/js/content/editor.js"></script>
     {% endif %} {# Add scripts that are globally required by your site here. #}
-    <script src="../js/jquery/main.js"></script>
+    <script src="../../js/jquery/main.js"></script>
     <script>
         document.getElementById("year").innerHTML = new Date().getFullYear();
         let promptOpened = localStorage.getItem('opened')

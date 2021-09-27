@@ -1,0 +1,71 @@
+{% extends "layouts/program.html" %} {% block intro %}
+<div id="program" class="container" class="__program_shecode_block">
+    <div class="row">
+        <div class="col-sm-12" style="margin-bottom: 50px;">
+            <a href="/programs" class=" btn shecode_button"> <i class="fa fa-arrow-left"></i> Back To All Programs </a>
+        </div>
+        <div class="col-sm-7">
+            <p class="page_title">{{program.title}}</p>
+            <p class="page_subtitle">
+                {{program.content.brief}}
+            </p>
+            <p class="date">{{program.start }} - {{program.end }}</p>
+        </div>
+        <div class="col-md-5 col-sm-5 col-lg-5">
+            <img class="  event_side_past2" src="{{program.banner.secure_url}}" class="img-fluid" alt="{{program.title}}">
+        </div>
+    </div>
+</div>
+
+{% endblock %} {% block content %}
+<section id="programs" class="__program_shecode_block">
+
+    <!--gallery -->
+    {% if program.images.length %}
+    <div class="container">
+        <div id="program-content" class="">
+            <div class="row event_topic row_padding">
+                <div class="col-sm-2 col-md-2 col-lg-2">
+
+                </div>
+                <div class="col-sm-8 col-md-8 col-lg-8 ">
+                    <h4 class="program_topic1 " style="margin-bottom:30px">Gallery</h4>
+                </div>
+                <div class="col-sm-2 col-md-2 col-lg-2">
+
+                </div>
+            </div>
+        </div>
+
+        <div id="gallery" class="container">
+            <div class="col-sm-12">
+                <div class="program_gallery slider">
+                    {% for row in program.images %}
+                    <div class="slide">
+                        <div class="box">
+                            <img class="img-fluid img-resonsive" src="{{row.secure_url}}" alt="">
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    {% endif %}
+    <div class="container row_padding">
+        <div> {{program.content.extended.md}}</div>
+        {% if program.link %}
+        <div style="text-align: center;">
+            <a target="_blank" href="{{program.link}}" class="btn shecode_button">{{program.callToAction}} </a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+
+{% endblock %} {% block js %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js" integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg==" crossorigin="anonymous"></script>
+
+{% endblock %}
