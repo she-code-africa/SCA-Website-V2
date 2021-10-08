@@ -60,8 +60,15 @@
                 </div>
             </div>
         </div>
+
+
+
+
+
         <!-- counter -->
+        {% if reaches.length > 0 %}
         <div class="about_section counter {{cat.id}}">
+
             <div class="container">
                 <div class="row">
                     <div class="col-sm-3">
@@ -80,11 +87,14 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!-- current -->
-        {% if current.length>0 %}
-        <section class="container row_padding current {{cat.id}}">
 
+        </div>
+        {% endif %}
+        <!-- current -->
+
+        {% if current.length > 0 %}{% set current_lgt = 0 %} {% for row in current %} {% if row.categories== cat.id %} {% set current_lgt = current_lgt + 1 %} {% endif %} {% endfor %}
+        <section class="container row_padding current {{cat.id}}">
+            {% if current_lgt > 0 %}
             <div id="program-content" class="">
                 <div class="row event_topic  ">
                     <div class="col-sm-2 col-md-2 col-lg-2">
@@ -99,6 +109,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
             <section class="  current_program">
                 {% for row in current %} {% if row.categories== cat.id %}
                 <div class="row inner_block">
@@ -122,9 +133,9 @@
         </section>
         {% endif %}
         <!-- upcoming -->
-        {% if upcoming.length>0 %}
+        {% if upcoming.length > 0 %}{% set upcoming_lgt = 0 %} {% for row in upcoming %} {% if row.categories== cat.id %} {% set upcoming_lgt = upcoming_lgt + 1 %} {% endif %} {% endfor %}
         <section class="container row_padding upcoming {{cat.id}}">
-
+            {% if upcoming_lgt > 0 %}
             <div id="program-content" class="">
                 <div class="row event_topic ">
                     <div class="col-sm-2 col-md-2 col-lg-2">
@@ -139,6 +150,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}
             <section class="  upcoming_program">
                 {% for row in upcoming %} {% if row.categories== cat.id %}
 
@@ -166,9 +178,10 @@
         {% endif %}
 
         <!-- past -->
-        {% if past.length>0 %}
-        <section class="container row_padding past {{cat.id}} ">
+        {% if past.length > 0 %}{% set past_lgt = 0 %} {% for row in past %} {% if row.categories== cat.id %} {% set past_lgt = past_lgt + 1 %} {% endif %} {% endfor %}
 
+        <section class="container row_padding past {{cat.id}} ">
+            {% if past_lgt > 0 %}
             <div id="program-content " class=" ">
                 <div class="row event_topic  ">
                     <div class="col-sm-2 col-md-2 col-lg-2 ">
@@ -182,7 +195,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div> {% endif %}
             <section class="row past_program ">
                 {% for row in past %} {% if row.categories== cat.id %}
                 <div class='col-md-4 col-sm-6'>
@@ -206,8 +219,9 @@
         </section>
         {% endif %}
         <!-- testimonials -->
-        {% if stories.length>0 %}
+        {% if stories.length > 0 %}{% set stories_lgt = 0 %} {% for row in stories %} {% if row.categories== cat.id %} {% set stories_lgt = stories_lgt + 1 %} {% endif %} {% endfor %}
         <div class="container story  filter {{cat.id}}">
+            {% if stories_lgt > 0 %}
             <div id="program-content" class=" ">
                 <div class="row event_topic row_padding">
                     <div class="col-sm-2 col-md-2 col-lg-2">
@@ -221,7 +235,7 @@
                     </div>
                 </div>
             </div>
-
+            {% endif %}
             <div id="success" class="container">
 
                 <div class="col-sm-12">
@@ -252,15 +266,13 @@
 
             </div>
 
-
-        </div>
+        </div> {% endif %}
         <!-- sponsors -->
-        {% endif %}
+        {% if cat.sponsors.length > 0 %}
         <div class="container spons filter {{cat.id}}">
             <div id="program-content" class=" ">
                 <div class="row event_topic row_padding">
                     <div class="col-sm-2 col-md-2 col-lg-2">
-
                     </div>
                     <div class="col-sm-8 col-md-8 col-lg-8 ">
                         <h4 class="program_topic1 ">Program Sponsors & Partners</h4>
@@ -277,8 +289,7 @@
                 </div>
             </div>
         </div>
-
-        {% endfor %}
+        {% endif %} {% endfor %}
     </div>
 
 
