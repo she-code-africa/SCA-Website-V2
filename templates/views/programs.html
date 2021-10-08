@@ -92,9 +92,9 @@
         {% endif %}
         <!-- current -->
 
-        {% if current.length > 0 %}{% set current_lgt = 0 %} {% for row in current %} {% if row.categories== cat.id %} {% set current_lgt = current_lgt + 1 %} {% endif %} {% endfor %}
+        {% set current_lgt = 0 %} {% for row in current %} {% if row.categories== cat.id %} {% set current_lgt = current_lgt + 1 %} {% endif %} {% endfor %} {% if current_lgt > 0 %}
         <section class="container row_padding current {{cat.id}}">
-            {% if current_lgt > 0 %}
+
             <div id="program-content" class="">
                 <div class="row event_topic  ">
                     <div class="col-sm-2 col-md-2 col-lg-2">
@@ -109,7 +109,7 @@
                     </div>
                 </div>
             </div>
-            {% endif %}
+
             <section class="  current_program">
                 {% for row in current %} {% if row.categories== cat.id %}
                 <div class="row inner_block">
@@ -133,9 +133,9 @@
         </section>
         {% endif %}
         <!-- upcoming -->
-        {% if upcoming.length > 0 %}{% set upcoming_lgt = 0 %} {% for row in upcoming %} {% if row.categories== cat.id %} {% set upcoming_lgt = upcoming_lgt + 1 %} {% endif %} {% endfor %}
+        {% set upcoming_lgt = 0 %} {% for row in upcoming %} {% if row.categories== cat.id %} {% set upcoming_lgt = upcoming_lgt + 1 %} {% endif %} {% endfor %} {% if upcoming_lgt > 0 %}
         <section class="container row_padding upcoming {{cat.id}}">
-            {% if upcoming_lgt > 0 %}
+
             <div id="program-content" class="">
                 <div class="row event_topic ">
                     <div class="col-sm-2 col-md-2 col-lg-2">
@@ -150,7 +150,7 @@
                     </div>
                 </div>
             </div>
-            {% endif %}
+
             <section class="  upcoming_program">
                 {% for row in upcoming %} {% if row.categories== cat.id %}
 
@@ -178,10 +178,9 @@
         {% endif %}
 
         <!-- past -->
-        {% if past.length > 0 %}{% set past_lgt = 0 %} {% for row in past %} {% if row.categories== cat.id %} {% set past_lgt = past_lgt + 1 %} {% endif %} {% endfor %}
-
+        {% set past_lgt = 0 %} {% for row in past %} {% if row.categories== cat.id %} {% set past_lgt = past_lgt + 1 %} {% endif %} {% endfor %} {% if past_lgt > 0 %}
         <section class="container row_padding past {{cat.id}} ">
-            {% if past_lgt > 0 %}
+
             <div id="program-content " class=" ">
                 <div class="row event_topic  ">
                     <div class="col-sm-2 col-md-2 col-lg-2 ">
@@ -195,7 +194,7 @@
 
                     </div>
                 </div>
-            </div> {% endif %}
+            </div>
             <section class="row past_program ">
                 {% for row in past %} {% if row.categories== cat.id %}
                 <div class='col-md-4 col-sm-6'>
@@ -355,6 +354,7 @@
                 title: 'Loading!',
                 html: 'Please wait...',
                 timer: 5000,
+                allowOutsideClick: false,
                 timerProgressBar: true,
                 didOpen: () => {
                     Swal.showLoading()
