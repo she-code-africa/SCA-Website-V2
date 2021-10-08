@@ -129,7 +129,8 @@ $(document).ready(function() {
         autoplay: true,
         autoplaySpeed: 8000,
         arrows: true,
-        dots: false,
+        dots: true,
+        variableWidth: true,
         pauseOnHover: false,
         responsive: [{
                 breakpoint: 991,
@@ -161,9 +162,9 @@ $(document).ready(function() {
         ]
 
     });
-    
-   
-    
+
+
+
     $('#learn-more').on('click', function() {
         $('.__socialmedia_dropdown').addClass('visible');
     })
