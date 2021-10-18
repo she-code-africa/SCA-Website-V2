@@ -14,7 +14,7 @@ var ProgramStories = new keystone.List('ProgramStories', {
 ProgramStories.add({
     name: { type: String, initial: true, required: true },
     position: { type: String, initial: true, required: true },
-    content: { type: Types.Markdown, initial: true, required: true, height: 100, markedOptions: { gfm: true } },
+    content: { type: Types.Markdown, initial: true, required: true, label: 'Content(max. of 200 char)', height: 100, min: 0, max: 200, markedOptions: { gfm: true } },
     image: { type: Types.CloudinaryImage },
     categories: { type: Types.Relationship, ref: 'ProgramCategory' },
 
