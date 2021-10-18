@@ -35,6 +35,9 @@
     max-width: 1000px;
     overflow-x: auto;
     display: -webkit-box!important;
+    display: -moz-box!important;
+    display: -ms-flexbox!important;
+    display: -webkit-flex!important;
     margin: auto;
 }
 

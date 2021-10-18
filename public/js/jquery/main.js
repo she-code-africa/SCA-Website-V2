@@ -42,7 +42,7 @@ $(document).ready(function() {
         slidesToShow: 2,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 6000,
+        autoplaySpeed: 4000,
         arrows: false,
         dots: true,
         pauseOnHover: false,
