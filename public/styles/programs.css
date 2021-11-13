@@ -41,6 +41,11 @@
     margin: auto;
 }
 
+#programs-tab .nav-tabs::-webkit-scrollbar {
+    height: 2px;
+    width: 2px;
+}
+
 #programs-tab .nav > li {
     flex: none;
 }
