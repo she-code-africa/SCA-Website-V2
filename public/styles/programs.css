@@ -41,6 +41,15 @@
     margin: auto;
 }
 
+#programs-tab .nav-tabs::-webkit-scrollbar {
+    height: 2px;
+    width: 2px;
+}
+
+#programs-tab .nav > li {
+    flex: none;
+}
+
 #programs-tab .nav>li>a {
     text-align: center;
     font: normal normal 600 16px/24px Montserrat;
@@ -67,7 +76,7 @@
     margin: 0 auto;
     width: 100%;
     padding-top: 5px;
-    border-bottom: 2px solid var(--primary-dark-pink);
+    border-bottom: 3px solid var(--primary-dark-pink);
 }
 
 .program_topic1 {
