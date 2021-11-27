@@ -22,6 +22,49 @@
     border-bottom: 3px solid var(--primary-main-pink);
 }
 
+.box {
+    margin: auto 20px;
+    background: #F7F7F7 0% 0% no-repeat padding-box;
+    border-radius: 4px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.box h5 {
+    line-height: 48px;
+    margin: 0;
+}
+
+.box:hover,
+.box:focus,
+.box.active {
+    background: #EACFE029 0% 0% no-repeat padding-box;
+    border: 1px solid #6C003E;
+    border-radius: 4px;
+}
+
+.filter span {
+    font-style: italic;
+    color: #b70569;
+}
+
+.acct-details {
+    border: 1px solid #f7f7f7;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 4px 8px #e9e7e7;
+}
+
+.mini-title {
+    text-align: left;
+    font-weight: 500;
+}
+
+.mini-text {
+    text-align: left;
+    font-weight: 900;
+}
+
 @media screen and (max-width:1440px) and (min-width:1024px) {
     .__partner-donate>div {
         height: 510px!important;
