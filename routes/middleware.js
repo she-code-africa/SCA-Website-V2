@@ -144,14 +144,10 @@ exports.verifyToken = function(req, res, next) {
 /**
     Redirect www (www.shecodeafrica.org) to root domain (shecodeafrica.org)
 */
-exports.redirectToFullDomainName = function (req, res, next) {
-    console.log(req, 'req');
-    console.log(req.headers.host, 'req.headers.host');
-    console.log(req.hostname, 'req.hostname');
-    console.log(req.originalUrl, 'req.originalUrl');
-    // if(req.headers.host === 'example.com') {
-    //     return res.redirect('http://www.example.com' + req.url);
-    // }
+exports.redirectToRootDomain = function (req, res, next) {
+    if(req.hostname.includes(process.env.SUB_DOMAIN)) {
+        return res.redirect(process.env.ROOT_DOMAIN_URL + req.url);
+    }
     next();
 };
 
