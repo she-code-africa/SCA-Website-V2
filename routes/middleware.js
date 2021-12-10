@@ -142,13 +142,16 @@ exports.verifyToken = function(req, res, next) {
 };
 
 /**
-    Redirect www (www.shecodeafrica.org) to root domain (shecodeafrica.org)
+    Redirect www (www.shecodeafrica.org) to root domain (shecodeafrica.org) or http to https
 */
 exports.redirectToRootDomain = function (req, res, next) {
-    if(req.hostname.includes(process.env.SUB_DOMAIN)) {
-        return res.redirect(process.env.ROOT_DOMAIN_URL + req.url);
+    if (process.env.NODE_ENV === 'production') {
+        if(req.hostname.includes(process.env.SUB_DOMAIN) || req.headers['x-forwarded-proto'] !== 'https') {
+            return res.redirect(process.env.ROOT_DOMAIN_URL + req.url);
+        }
+        next();
     }
-    next();
+    
 };
 
 /**

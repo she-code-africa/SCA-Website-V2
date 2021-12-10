@@ -25,7 +25,7 @@ var importRoutes = keystone.importer(__dirname);
 
 // Common Middleware
 keystone.pre('routes', middleware.redirectToRootDomain);
-keystone.pre('routes', middleware.redirectToHttps);
+// keystone.pre('routes', middleware.redirectToHttps);
 keystone.pre('routes', middleware.initLocals);
 keystone.pre('render', middleware.flashMessages);
 
