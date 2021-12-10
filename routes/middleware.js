@@ -145,6 +145,7 @@ exports.verifyToken = function(req, res, next) {
     Redirect www (www.shecodeafrica.org) to root domain (shecodeafrica.org)
 */
 exports.redirectToFullDomainName = function (req, res, next) {
+    console.log(req, 'req');
     console.log(req.headers.host, 'req.headers.host');
     console.log(req.hostname, 'req.hostname');
     console.log(req.originalUrl, 'req.originalUrl');
@@ -160,7 +161,7 @@ exports.redirectToFullDomainName = function (req, res, next) {
 exports.redirectToHttps = function (req, res, next) {
     if (req.headers['x-forwarded-proto'] !== 'https' && process.env.NODE_ENV === 'production') {
         const httpsUrl = `https://${req.hostname}${req.originalUrl}`;
-        res.redirect('301', httpsUrl);
+        res.redirect(httpsUrl, '301');
     } else {
         next();
     }
