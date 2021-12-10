@@ -140,3 +140,28 @@ exports.verifyToken = function(req, res, next) {
         res.redirect('/jobs/org/login');
     }
 };
+
+/**
+    Redirect www (www.shecodeafrica.org) to root domain (shecodeafrica.org)
+*/
+exports.redirectToFullDomainName = function (req, res, next) {
+    console.log(req.headers.host, 'req.headers.host');
+    console.log(req.hostname, 'req.hostname');
+    console.log(req.originalUrl, 'req.originalUrl');
+    // if(req.headers.host === 'example.com') {
+    //     return res.redirect('http://www.example.com' + req.url);
+    // }
+    next();
+};
+
+/**
+    Redirect http to https
+*/
+exports.redirectToHttps = function (req, res, next) {
+    if (req.headers['x-forwarded-proto'] !== 'https' && process.env.NODE_ENV === 'production') {
+        const httpsUrl = `https://${req.hostname}${req.originalUrl}`;
+        res.redirect('301', httpsUrl);
+    } else {
+        next();
+    }
+};
