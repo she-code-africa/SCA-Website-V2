@@ -57,6 +57,7 @@ exports = module.exports = function(app) {
     app.get('/donate', routes.views.donatepartner);
     app.post('/chapters', routes.views.chapters);
     app.get('/chapters', routes.views.chapters);
+    app.get('/chapters/form', routes.views.chapterform);
     app.get('/faq', routes.views.faq);
     app.get('/privacy', routes.views.privacy);
     app.get('/terms', routes.views.terms);
