@@ -14,7 +14,7 @@ exports = module.exports = function(req, res) {
 
     view.on('init', function(next) {
         Program.model.findOne()
-            .where('_id', req.params.id)
+            .where('slug', req.params.slug)
             .exec(function(err, result) {
                 locals.program = result;
                 let s = new Date(result.startDate)
