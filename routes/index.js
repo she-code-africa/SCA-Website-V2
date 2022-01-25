@@ -84,7 +84,7 @@ exports = module.exports = function(app) {
     app.get('/success', routes.views.successMessage);
     app.get('/logout', middleware.logoutUser);
     app.get('/programs', routes.views.programs);
-    app.get('/programs/program/:id', routes.views.program);
+    app.get('/programs/:slug', routes.views.program);
 
 
     // app.get('/blog/:category?', routes.views.blog);
