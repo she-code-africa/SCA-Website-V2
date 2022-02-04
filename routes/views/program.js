@@ -1,34 +1,45 @@
-var keystone = require('keystone');
-var Program = keystone.list('Program');
-
-exports = module.exports = function(req, res) {
-    var view = new keystone.View(req, res);
-
-    var locals = res.locals;
-
-    locals.section = 'program';
-    locals.data = {
-        program: {},
-    };
-    // view.query('program', Program.model.findOne().where('_id', req.params.id))
-
-    view.on('init', function(next) {
-        Program.model.findOne()
-            .where('slug', req.params.slug)
-            .exec(function(err, result) {
-                locals.program = result;
-                let s = new Date(result.startDate)
-                let e = new Date(result.endDate)
-                s.setDate(s.getDate() + 1);
-                e.setDate(e.getDate() + 1);
-                let str = (s.toUTCString()).split(" ");
-                let str2 = (e.toUTCString()).split(" ");
-                locals.program.start = str[0] + " " + str[1] + " " + str[2] + ", " + str[3]
-                locals.program.end = str2[0] + " " + str2[1] + " " + str2[2] + ", " + str2[3]
-
-                next(err);
-            });
-    });
-    // Render the view
-    view.render('program');
-};
+{
+    "name": "she-code-africa",
+    "version": "0.0.0",
+    "private": true,
+    "dependencies": {
+        "async": "2.1.4",
+        "consolidate": "0.14.5",
+        "cookie-parser": "^1.4.5",
+        "country-calling-code": "0.0.3",
+        "dotenv": "4.0.0",
+        "express-sslify": "^1.2.0",
+        "google-libphonenumber": "^3.2.19",
+        "jsonwebtoken": "^8.5.1",
+        "keystone": "^4.2.1",
+        "keystone-email": "^1.1.0",
+        "lodash": "^4.17.21",
+        "node-localstorage": "^2.2.1",
+        "node-sass": "^4.14.1",
+        "node-sass-middleware": "^0.11.0",
+        "nunjucks": "^3.2.3"
+    },
+    "devDependencies": {
+        "eslint": "3.15.0",
+        "eslint-config-keystone": "3.0.0",
+        "eslint-plugin-react": "^5.1.1",
+        "nodemon": "^2.0.12"
+    },
+    "scripts": {
+        "lint": "eslint .",
+        "start": "node keystone.js",
+        "start:dev": "nodemon keystone"
+    },
+    "description": "This is the official website repository for She Code Africa. Guidelines for development and to contribute can be found in [GUIDELINES.md](/GUIDELINES.md). Ensure to read this first if you will be contributing",
+    "main": "keystone.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/she-code-africa/SCA-Website-V2.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/she-code-africa/SCA-Website-V2/issues"
+    },
+    "homepage": "https://github.com/she-code-africa/SCA-Website-V2#readme"
+}
