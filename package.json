@@ -2,6 +2,7 @@
     "name": "she-code-africa",
     "version": "0.0.0",
     "private": true,
+    "engines" : { "node" : "14" },
     "dependencies": {
         "async": "2.1.4",
         "consolidate": "0.14.5",
