@@ -151,6 +151,15 @@ ul.nav li.dropdown:hover>ul.dropdown-menu {
     display: block;
 }
 
+ul.footer_sub {
+    background-color: none;
+    border: 0;
+}
+
+ul.footer_sub li a {
+    color: #FFFFFF;
+}
+
 
 /*hover on dropdown and drop end*/
 
