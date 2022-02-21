@@ -109,18 +109,18 @@
     width: 100%;
 }
 
-@media screen and (max-width:1440px) and (min-width:1024px) {
+@media screen and (max-width:1440px) and (min-width:1025px) {
     .__partner-donate>div {
         height: 500px!important;
-        width: 35%!important
+        width: 34%!important
     }
     .__partner-donate_donate-cta a {
-        font-size: 11px;
+        font-size: 12px;
         width: 48%;
     }
 }
 
-@media screen and (max-width:1024px) and (min-width:768px) {
+@media screen and (max-width:1024px) and (min-width:769px) {
     .__sponsors-partners_title {
         line-height: 1;
         font-size: 35px;
@@ -132,7 +132,7 @@
         margin: 0 12px;
     }
     .__partner-donate_donate-cta a {
-        font-size: 9px;
+        font-size: 10px;
         width: 48%;
     }
 }
@@ -151,12 +151,12 @@
     .cta {
         flex-wrap: wrap;
     }
-    .__partner-donate_donate-cta a:nth-child(1) {
+    /* .__partner-donate_donate-cta a:nth-child(1) {
         margin-right: 2%;
     }
     .__partner-donate_donate-cta a:nth-child(2) {
         margin-left: 2%;
-    }
+    } */
     .__partner-donate_donate-cta a {
         font-size: 15px;
     }
