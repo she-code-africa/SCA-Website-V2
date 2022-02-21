@@ -65,10 +65,77 @@
     font-weight: 900;
 }
 
-@media screen and (max-width:1440px) and (min-width:1024px) {
+.__partner-donate h4 {
+    font-weight: bold;
+    letter-spacing: 0.56px;
+}
+
+.__partner-donate div.desc {
+    padding-top: 1rem;
+}
+
+.__partner-donate>div {
+    width: 25%;
+    height: 485px;
+    opacity: 1;
+    margin: 0 50px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    background-color: #FFF;
+    border-radius: 24px 24px 24px 0px;
+    box-shadow: 0px 3px 12px #00000029;
+}
+
+.cta {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    flex-wrap: wrap;
+    bottom: 3rem;
+    left: 2rem;
+    right: 2rem;
+}
+
+.__partner-donate_donate-cta a {
+    font-size: 11px;
+}
+
+.__partner-donate_donate-cta .sca-btn {
+    padding: 15px 16px;
+}
+
+#laptop-fund {
+    width: 100%;
+}
+
+.fund {
+    font-family: Montserrat;
+    font-size: 39px;
+    font-weight: bold;
+    color: var(--primary-dark-pink);
+    text-align: center;
+    margin: 0px;
+}
+
+@media screen and (max-width:1440px) and (min-width:1025px) {
     .__partner-donate>div {
-        height: 510px!important;
-        width: 32%!important
+        height: 500px!important;
+        width: 33%!important
+    }
+    .__partner-donate_donate-cta a {
+        font-size: 12px;
+        width: 48%;
+    }
+}
+
+@media screen and (max-width:1150px) and (min-width:1024px) {
+    .__partner-donate>div {
+        width: 40%!important
+    }
+    .__partner-donate_donate-cta a {
+        font-size: 11px;
+        width: 48%;
     }
 }
 
@@ -81,35 +148,45 @@
     }
 }
 
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+    .__partner-donate>div {
+        width: 45%;
+        margin: 0 12px;
+    }
+    .__partner-donate_donate-cta a {
+        font-size: 9px;
+    }
+}
+
+@media screen and (max-width: 1005px) and (min-width: 768px) {
+    .__partner-donate>div {
+        height: 540px;
+    }
+}
+
+@media screen and (max-width:767px) and (min-width:426px) {
+    .__partner-donate>div {
+        width: 60%;
+        height: 540px;
+    }
+}
+
 @media screen and (max-width: 768px) {
     .__sponsors-partners_title {
         font-size: 23px;
     }
-}
-
-.__partner-donate h4 {
-    font-weight: bold;
-    letter-spacing: 0.56px;
-}
-
-.__partner-donate div.desc {
-    padding-top: 1rem;
-}
-
-.__partner-donate>div {
-    width: 25%;
-    height: 475px;
-    opacity: 1;
-    margin: 0 50px;
-    padding: 3rem 2rem;
-    text-align: center;
-    position: relative;
-    background-color: #FFF;
-    border-radius: 24px 24px 24px 0px;
-    box-shadow: 0px 3px 12px #00000029;
+    /* .__partner-donate_donate-cta a:nth-child(1) {
+        margin-right: 2%;
+    }
+    .__partner-donate_donate-cta a:nth-child(2) {
+        margin-left: 2%;
+    } */
 }
 
 @media screen and (max-width: 767px) {
+    .cta {
+        flex-wrap: wrap;
+    }
     .__partner-donate>div {
         width: 95%;
         margin-bottom: 20px;
@@ -117,55 +194,16 @@
     .__partner-donate .__partner-donate_donate-cta {
         height: 600px;
     }
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    .__partner-donate>div {
-        width: 45%;
-        margin: 0 12px;
-    }
-}
-
-.cta {
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    bottom: 3rem;
-    left: 2rem;
-    right: 2rem;
-}
-
-@media screen and (max-width: 767px) {
-    .cta {
-        flex-wrap: wrap;
-    }
-}
-
-.__partner-donate_donate-cta a {
-    font-size: 11px;
-}
-
-@media screen and (min-width: 767px) {
-    .__partner-donate_donate-cta a:nth-child(1) {
-        margin-right: 2%;
-    }
-    .__partner-donate_donate-cta a:nth-child(2) {
-        margin-left: 2%;
-    }
-}
-
-.__partner-donate_donate-cta .sca-btn {
-    padding: 15px 16px;
-}
-
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-    .__partner-donate_donate-cta a {
-        font-size: 9px;
-    }
-}
-
-@media screen and (max-width: 767px) {
     .__partner-donate_donate-cta a {
         font-size: 15px;
+    }
+    .box {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    #laptop-fund {
+        font-size: 14px;
     }
 }
