@@ -12,12 +12,13 @@ exports = module.exports = function(req, res) {
     locals.data = {
         fund: '',
     };
-    view.on('init', function(next) {
-        Donation.model.find().exec(function(err, result) {
-            locals.data.fund = result;
-            next(err);
-        });
-    });
+    // view.on('init', function(next) {
+    //     Donation.model.find().exec(function(err, result) {
+    //         locals.data.fund = result;
+    //         next(err);
+    //     });
+    // });
+    view.query('fund', Donation.model.find());
     // Render the view
     view.render('donatepartner');
 };

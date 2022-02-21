@@ -1,9 +1,7 @@
 var keystone = require('keystone');
 
 
-var Donation = new keystone.List('Donation', {
-    singular: 'Amount',
-});
+var Donation = new keystone.List('Donation');
 
 Donation.add({
     currency: { type: String, initial: true, required: true },
