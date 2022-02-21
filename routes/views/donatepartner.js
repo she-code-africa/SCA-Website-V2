@@ -10,7 +10,7 @@ exports = module.exports = function(req, res) {
     // item in the header navigation.
     locals.section = 'partners';
     locals.data = {
-        fund: '',
+        fund: {},
     };
     // view.on('init', function(next) {
     //     Donation.model.find().exec(function(err, result) {
