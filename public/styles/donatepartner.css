@@ -130,6 +130,7 @@
     display: flex;
     justify-content: space-between;
     position: absolute;
+    flex-wrap: wrap;
     bottom: 3rem;
     left: 2rem;
     right: 2rem;
@@ -161,11 +162,17 @@
 @media screen and (min-width: 768px) and (max-width: 1024px) {
     .__partner-donate_donate-cta a {
         font-size: 9px;
+        width: 48%;
     }
 }
 
 @media screen and (max-width: 767px) {
     .__partner-donate_donate-cta a {
         font-size: 15px;
+    }
+    #laptop-fund {
+        font-size: 14px;
+        width: 100%;
+        margin: 10px auto;
     }
 }
