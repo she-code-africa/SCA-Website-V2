@@ -109,6 +109,14 @@
     width: 100%;
 }
 
+.fund {
+    font-family: Montserrat;
+    font-size: 40px;
+    font-weight: bold;
+    color: var(--primary-dark-pink);
+    text-align: center;
+}
+
 @media screen and (max-width:1440px) and (min-width:1025px) {
     .__partner-donate>div {
         height: 500px!important;
