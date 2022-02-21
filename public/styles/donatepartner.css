@@ -111,10 +111,11 @@
 
 .fund {
     font-family: Montserrat;
-    font-size: 40px;
+    font-size: 39px;
     font-weight: bold;
     color: var(--primary-dark-pink);
     text-align: center;
+    margin: 0px;
 }
 
 @media screen and (max-width:1440px) and (min-width:1025px) {
