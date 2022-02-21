@@ -1,4 +1,6 @@
 var keystone = require('keystone');
+var Donation = keystone.list('Donation');
+
 
 exports = module.exports = function(req, res) {
 
@@ -7,7 +9,15 @@ exports = module.exports = function(req, res) {
 
     // item in the header navigation.
     locals.section = 'partners';
-
+    locals.data = {
+        fund: '',
+    };
+    view.on('init', function(next) {
+        Donation.model.find().exec(function(err, result) {
+            locals.data.fund = result;
+            next(err);
+        });
+    });
     // Render the view
     view.render('donatepartner');
 };
