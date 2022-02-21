@@ -112,7 +112,7 @@
 @media screen and (max-width:1440px) and (min-width:1025px) {
     .__partner-donate>div {
         height: 500px!important;
-        width: 34%!important
+        width: 33%!important
     }
     .__partner-donate_donate-cta a {
         font-size: 12px;
@@ -127,19 +127,35 @@
         font-weight: bold;
         color: var(--secondary-main-black);
     }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
     .__partner-donate>div {
         width: 45%;
         margin: 0 12px;
     }
     .__partner-donate_donate-cta a {
-        font-size: 10px;
-        width: 48%;
+        font-size: 9px;
     }
 }
+
+@media screen and (max-width:768px) and (min-width:426px) {}
 
 @media screen and (max-width: 768px) {
     .__sponsors-partners_title {
         font-size: 23px;
+    }
+    /* .__partner-donate_donate-cta a:nth-child(1) {
+        margin-right: 2%;
+    }
+    .__partner-donate_donate-cta a:nth-child(2) {
+        margin-left: 2%;
+    } */
+}
+
+@media screen and (max-width: 767px) {
+    .cta {
+        flex-wrap: wrap;
     }
     .__partner-donate>div {
         width: 95%;
@@ -148,16 +164,13 @@
     .__partner-donate .__partner-donate_donate-cta {
         height: 600px;
     }
-    .cta {
-        flex-wrap: wrap;
-    }
-    /* .__partner-donate_donate-cta a:nth-child(1) {
-        margin-right: 2%;
-    }
-    .__partner-donate_donate-cta a:nth-child(2) {
-        margin-left: 2%;
-    } */
     .__partner-donate_donate-cta a {
         font-size: 15px;
+    }
+}
+
+@media screen and (max-width:320px) {
+    #laptop-fund {
+        font-size: 14px;
     }
 }
