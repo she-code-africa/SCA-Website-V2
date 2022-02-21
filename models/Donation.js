@@ -1,7 +1,7 @@
 var keystone = require('keystone');
 
 
-var Donation = new keystone.List('Team', {
+var Donation = new keystone.List('Donation', {
     singular: 'Amount',
 });
 
