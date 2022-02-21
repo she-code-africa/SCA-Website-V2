@@ -6,9 +6,11 @@ var Donation = new keystone.List('Donation', {
 });
 
 Donation.add({
-    fund: { type: String, initial: true, required: true }
+    currency: { type: String, initial: true, required: true },
+    amount: { type: String, initial: true, required: true },
+
 });
 
 Donation.track = true;
-Donation.defaultColumns = 'fund';
+Donation.defaultColumns = 'currency, amount';
 Donation.register();
