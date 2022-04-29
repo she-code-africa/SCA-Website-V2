@@ -6,7 +6,7 @@
         "node": "14"
     },
     "dependencies": {
-        "async": "2.1.4",
+        "async": "2.6.4",
         "consolidate": "0.14.5",
         "cookie-parser": "^1.4.5",
         "country-calling-code": "0.0.3",
