@@ -27,7 +27,6 @@ exports.initLocals = function(req, res, next) {
         { label: 'Chapters', key: 'chapters', href: '/chapters' },
         // { label: 'Events', key: 'events', href: '/events' },
         { label: 'Programs', key: 'programs', href: '/programs' },
-        { label: 'Summit', key: 'summit', href: '/summit' },
         { label: 'Job Opportunities', key: 'jobs', href: '/jobs' },
         // { label: 'Community', key: 'community', href: '/community' },
         // { label: 'Gallery', key: 'gallery', href: '/gallery' },
@@ -145,20 +144,20 @@ exports.verifyToken = function(req, res, next) {
 /**
     Redirect www (www.shecodeafrica.org) to root domain (shecodeafrica.org) or http to https
 */
-exports.redirectToRootDomain = function(req, res, next) {
+exports.redirectToRootDomain = function (req, res, next) {
     if (process.env.NODE_ENV === 'production') {
-        if (req.hostname.includes(process.env.SUB_DOMAIN) || req.headers['x-forwarded-proto'] !== 'https') {
+        if(req.hostname.includes(process.env.SUB_DOMAIN) || req.headers['x-forwarded-proto'] !== 'https') {
             return res.redirect(process.env.ROOT_DOMAIN_URL + req.url);
         }
         next();
     }
-
+    
 };
 
 /**
     Redirect http to https
 */
-exports.redirectToHttps = function(req, res, next) {
+exports.redirectToHttps = function (req, res, next) {
     if (req.headers['x-forwarded-proto'] !== 'https' && process.env.NODE_ENV === 'production') {
         const httpsUrl = `https://${req.hostname}${req.originalUrl}`;
         res.redirect(httpsUrl, '301');
