@@ -62,7 +62,6 @@ exports = module.exports = function(app) {
     app.get('/privacy', routes.views.privacy);
     app.get('/terms', routes.views.terms);
     app.get('/jobs', routes.views.jobs);
-    app.get('/summit', routes.views.summit);
     app.get('/forgot-password', routes.views.forgotpassword);
     app.post('/forgot-password', routes.views.forgotpassword);
     app.get('/passwordReset', routes.views.passwordreset);
