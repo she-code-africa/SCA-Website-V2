@@ -61,7 +61,8 @@ exports = module.exports = function(app) {
     app.get('/faq', routes.views.faq);
     app.get('/privacy', routes.views.privacy);
     app.get('/terms', routes.views.terms);
-    app.get('/summit', "https://summit.shecodeafrica.org");
+    // app.get('/summit', "https://summit.shecodeafrica.org");
+    app.get('/summit', routes.views.summit);
     app.get('/jobs', routes.views.jobs);
     app.get('/forgot-password', routes.views.forgotpassword);
     app.post('/forgot-password', routes.views.forgotpassword);
