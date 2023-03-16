@@ -30,7 +30,7 @@ body {
 }
 
 .float-right {
-    float: right!important;
+    float: right !important;
 }
 
 #body {
@@ -57,7 +57,7 @@ footer,
 header,
 nav,
 section {
-    display: block
+    display: block;
 }
 
 select:focus {
@@ -157,7 +157,7 @@ ul.footer_sub {
 }
 
 ul.footer_sub li a {
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 
@@ -234,7 +234,7 @@ Custom Css
 
 .light-pink-btn {
     color: var(--primary-main-pink) !important;
-    background: #F0CDE1
+    background: #f0cde1;
 }
 
 .white-btn {
@@ -295,7 +295,7 @@ li.__shecodelink.active a {
 
 .__shecodelink a.dropdown-toggle:hover,
 .__shecodelink a.dropdown-toggle:focus {
-    background-color: transparent!important;
+    background-color: transparent !important;
 }
 
 .__shecodelink ul li {
@@ -430,6 +430,10 @@ li.__shecodelink.active a {
     color: #ff85d2 !important;
 }
 
+.__footera.open .dropdown-menu {
+    display: block !important;
+}
+
 .__footerdownbg {
     background: var(--secondary-main-black);
     color: #ffffff;
@@ -459,13 +463,13 @@ li.__shecodelink.active a {
 }
 
 .event_side {
-    background: transparent url('../images/event_image.png') no-repeat;
+    background: transparent url("../images/event_image.png") no-repeat;
     height: 700px;
     background-size: 100%;
 }
 
 .home_side_identify {
-    background: transparent url('../images/event_image1.png') 0% 0% no-repeat padding-box;
+    background: transparent url("../images/event_image1.png") 0% 0% no-repeat padding-box;
     width: 400px;
     height: 400px;
     background-size: contain;
@@ -473,7 +477,7 @@ li.__shecodelink.active a {
 }
 
 .home_side_event {
-    background: transparent url('../images/event_image2.png') 0% 0% no-repeat;
+    background: transparent url("../images/event_image2.png") 0% 0% no-repeat;
     width: 400px;
     height: 400px;
     background-size: contain;
@@ -481,7 +485,7 @@ li.__shecodelink.active a {
 }
 
 .home_side_partner {
-    background: transparent url('../images/event_image3.png') 0% 0% no-repeat padding-box;
+    background: transparent url("../images/event_image3.png") 0% 0% no-repeat padding-box;
     width: 400px;
     height: 400px;
     background-size: contain;
@@ -489,7 +493,7 @@ li.__shecodelink.active a {
 }
 
 .home_side_follow {
-    background: transparent url('../images/event_image4.png') 0% 0% no-repeat padding-box;
+    background: transparent url("../images/event_image4.png") 0% 0% no-repeat padding-box;
     width: 400px;
     height: 400px;
     background-size: contain;
@@ -497,7 +501,7 @@ li.__shecodelink.active a {
 }
 
 .program_left_img {
-    background: transparent url('../images/event_image3.png') 0% 0% no-repeat padding-box;
+    background: transparent url("../images/event_image3.png") 0% 0% no-repeat padding-box;
     width: 400px;
     height: 400px;
     background-size: contain;
@@ -509,7 +513,7 @@ li.__shecodelink.active a {
 }
 
 .__shecode_block {
-    margin: 8rem 0
+    margin: 8rem 0;
 }
 
 .__shecode_topic {
@@ -544,7 +548,7 @@ li.__shecodelink.active a {
 }
 
 .about_section {
-    background: #F7E6F04D 0% 0% no-repeat padding-box;
+    background: #f7e6f04d 0% 0% no-repeat padding-box;
     width: 85%;
     float: right;
     padding: 20px;
@@ -588,7 +592,7 @@ li.__shecodelink.active a {
 .counter {
     width: 100%;
     height: 150px;
-    background: #EEEEF0 0% 0% no-repeat padding-box;
+    background: #eeeef0 0% 0% no-repeat padding-box;
     padding: 20px;
     margin: 60px 0;
 }
@@ -613,7 +617,7 @@ li.__shecodelink.active a {
     text-align: left;
     font-weight: bolder;
     font-size: 40px;
-    color: #B70569;
+    color: #b70569;
     opacity: 1;
 }
 
@@ -652,7 +656,7 @@ li.__shecodelink.active a {
 }
 
 .contact_section {
-    background: #F7E6F04D 0% 0% no-repeat padding-box;
+    background: #f7e6f04d 0% 0% no-repeat padding-box;
     width: 85%;
     float: right;
     padding: 20px;
@@ -725,14 +729,14 @@ li.__shecodelink.active a {
     font-weight: bold;
     font-size: 15px;
     letter-spacing: 0px;
-    color: #FFFFFF;
+    color: #ffffff;
 }
 
 .__shecodeteammember_text .role {
     text-align: center;
     font-size: 12px;
     letter-spacing: 0px;
-    color: #FFFFFF;
+    color: #ffffff;
     text-transform: capitalize;
 }
 
@@ -925,7 +929,7 @@ li.__shecodelink.active a {
     text-align: center;
     font: normal normal medium 32px/32px Poppins;
     letter-spacing: 0px;
-    color: #6D033F;
+    color: #6d033f;
     margin: 30px 0;
 }
 
@@ -941,7 +945,7 @@ li.__shecodelink.active a {
 }
 
 #prompt .modal-body {
-    padding: 30px
+    padding: 30px;
 }
 
 #prompt .modal-body .close-div {
@@ -949,7 +953,7 @@ li.__shecodelink.active a {
 }
 
 #prompt .modal-body .close {
-    opacity: 1
+    opacity: 1;
 }
 
 #prompt .modal-body .close:hover {
