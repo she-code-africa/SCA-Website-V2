@@ -21,7 +21,7 @@ keystone.init({
     'views': 'templates/views',
     'view engine': '.html',
     'custom engine': cons.nunjucks,
-  'mongo': 'mongodb://v2-prod:BXcTm635H884kzIr@sca-v2-prod-shard-00-00.envzw.mongodb.net:27017,sca-v2-prod-shard-00-01.envzw.mongodb.net:27017,sca-v2-prod-shard-00-02.envzw.mongodb.net:27017/v2-prod?ssl=true&replicaSet=atlas-t3ir2a-shard-0&authSource=admin&retryWrites=true&w=majority',
+  'mongo': 'mongodb://doadmin:Yc8bP7903146mfUA@sca-v2-prod-3e623d68.mongo.ondigitalocean.com/sca-v2-prod?tls=true&authSource=admin&replicaSet=sca-v2-prod',
     'emails': 'templates/emails',
 
     'auto update': true,
