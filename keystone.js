@@ -21,7 +21,7 @@ keystone.init({
     'views': 'templates/views',
     'view engine': '.html',
     'custom engine': cons.nunjucks,
-
+  'mongo': 'mongodb+srv://doadmin:Yc8bP7903146mfUA@sca-v2-prod-3e623d68.mongo.ondigitalocean.com/sca-v2-prod?tls=true&authSource=admin&replicaSet=sca-v2-prod',
     'emails': 'templates/emails',
 
     'auto update': true,
